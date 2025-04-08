@@ -11,7 +11,6 @@ Este é um projeto básico para um sistema de reservas de hotelaria, ideal para 
 🔹 **Simples autenticação** – Login básico para segurança dos dados.
 
 ## 💻 Tecnologias Utilizadas
-**Frontend:** á decidir-se.
 
 **Backend:** á decidir-se.
 
