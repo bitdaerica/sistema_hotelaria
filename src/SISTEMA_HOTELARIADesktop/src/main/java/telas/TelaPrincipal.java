@@ -26,21 +26,233 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuCadastro = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        menuReservas = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        menuConsumo = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
+        menuFinanceiro = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
+        jMenu13 = new javax.swing.JMenu();
+        jMenu14 = new javax.swing.JMenu();
+        menuRelatório = new javax.swing.JMenu();
+        jMenu15 = new javax.swing.JMenu();
+        jMenu16 = new javax.swing.JMenu();
+        jMenu17 = new javax.swing.JMenu();
+        jMenu18 = new javax.swing.JMenu();
+        jMenu19 = new javax.swing.JMenu();
+        jMenu20 = new javax.swing.JMenu();
+        menuSegurança = new javax.swing.JMenu();
+        jMenu21 = new javax.swing.JMenu();
+        jMenu22 = new javax.swing.JMenu();
+        menuFerramentas = new javax.swing.JMenu();
+        jMenu23 = new javax.swing.JMenu();
+        jMenu24 = new javax.swing.JMenu();
+        menuSair = new javax.swing.JMenu();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Hotel ABEF - Home");
+        setResizable(false);
+
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        menuCadastro.setText("Cadastro   |");
+
+        jMenu9.setText("Hóspedes");
+
+        jMenuItem1.setText("Cadastrar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem1);
+
+        jMenuItem2.setText("Consultar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem2);
+
+        menuCadastro.add(jMenu9);
+
+        jMenu2.setText("Quartos");
+
+        jMenuItem3.setText("Cadastrar");
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setText("Consultar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
+        menuCadastro.add(jMenu2);
+
+        jMenu3.setText("Funcionários");
+
+        jMenuItem5.setText("Cadastrar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem5);
+
+        jMenuItem6.setText("Consultar");
+        jMenu3.add(jMenuItem6);
+
+        menuCadastro.add(jMenu3);
+
+        jMenu4.setText("Fornecedor");
+
+        jMenuItem7.setText("Cadastrar");
+        jMenu4.add(jMenuItem7);
+
+        jMenuItem8.setText("Consultar");
+        jMenu4.add(jMenuItem8);
+
+        menuCadastro.add(jMenu4);
+
+        jMenu5.setText("Produto");
+        menuCadastro.add(jMenu5);
+
+        jMenuBar1.add(menuCadastro);
+
+        menuReservas.setText("Reservas   |");
+
+        jMenu6.setText("Fazer Reserva");
+        menuReservas.add(jMenu6);
+
+        jMenu7.setText("Consultar Reserva");
+        menuReservas.add(jMenu7);
+
+        jMenu8.setText("Finalizar Reserva");
+        menuReservas.add(jMenu8);
+
+        jMenuBar1.add(menuReservas);
+
+        menuConsumo.setText("Consumo   |");
+
+        jMenu10.setText("Vender");
+        menuConsumo.add(jMenu10);
+
+        jMenu11.setText("Consultar");
+        menuConsumo.add(jMenu11);
+
+        jMenuBar1.add(menuConsumo);
+
+        menuFinanceiro.setText("Financeiro   |");
+
+        jMenu12.setText("Contas a Pagar");
+        menuFinanceiro.add(jMenu12);
+
+        jMenu13.setText("Contas a Receber");
+        menuFinanceiro.add(jMenu13);
+
+        jMenu14.setText("Balanço");
+        menuFinanceiro.add(jMenu14);
+
+        jMenuBar1.add(menuFinanceiro);
+
+        menuRelatório.setText("Relatório   |");
+
+        jMenu15.setText("Financeiro");
+        menuRelatório.add(jMenu15);
+
+        jMenu16.setText("Reserva");
+        menuRelatório.add(jMenu16);
+
+        jMenu17.setText("Estoque");
+        menuRelatório.add(jMenu17);
+
+        jMenu18.setText("Hóspede");
+        menuRelatório.add(jMenu18);
+
+        jMenu19.setText("Funcionário");
+        menuRelatório.add(jMenu19);
+
+        jMenu20.setText("Fornecedor");
+        menuRelatório.add(jMenu20);
+
+        jMenuBar1.add(menuRelatório);
+
+        menuSegurança.setText("Segurança   |");
+
+        jMenu21.setText("Fazer Backup");
+        menuSegurança.add(jMenu21);
+
+        jMenu22.setText("Realizar Backup");
+        menuSegurança.add(jMenu22);
+
+        jMenuBar1.add(menuSegurança);
+
+        menuFerramentas.setText("Ferramentas   |");
+
+        jMenu23.setText("Sobre");
+        menuFerramentas.add(jMenu23);
+
+        jMenu24.setText("Ajuda");
+        menuFerramentas.add(jMenu24);
+
+        jMenuBar1.add(menuFerramentas);
+
+        menuSair.setText("Sair");
+        jMenuBar1.add(menuSair);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 764, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 626, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +290,45 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenu14;
+    private javax.swing.JMenu jMenu15;
+    private javax.swing.JMenu jMenu16;
+    private javax.swing.JMenu jMenu17;
+    private javax.swing.JMenu jMenu18;
+    private javax.swing.JMenu jMenu19;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu20;
+    private javax.swing.JMenu jMenu21;
+    private javax.swing.JMenu jMenu22;
+    private javax.swing.JMenu jMenu23;
+    private javax.swing.JMenu jMenu24;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenu menuCadastro;
+    private javax.swing.JMenu menuConsumo;
+    private javax.swing.JMenu menuFerramentas;
+    private javax.swing.JMenu menuFinanceiro;
+    private javax.swing.JMenu menuRelatório;
+    private javax.swing.JMenu menuReservas;
+    private javax.swing.JMenu menuSair;
+    private javax.swing.JMenu menuSegurança;
     // End of variables declaration//GEN-END:variables
 }
