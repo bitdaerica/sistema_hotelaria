@@ -46,8 +46,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        btnLogoff = new javax.swing.JButton();
+        telaFundo = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
@@ -169,12 +169,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel11.setText("texto");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-logout20x20.png"))); // NOI18N
-        jButton1.setText("Logoff");
-        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogoff.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnLogoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-logout20x20.png"))); // NOI18N
+        btnLogoff.setText("Logoff");
+        btnLogoff.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnLogoff.setContentAreaFilled(false);
+        btnLogoff.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogoff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoffActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -204,7 +209,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel8))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(44, 44, 44))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(119, 119, 119)
@@ -236,7 +241,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel9)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -248,14 +253,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel2);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout telaFundoLayout = new javax.swing.GroupLayout(telaFundo);
+        telaFundo.setLayout(telaFundoLayout);
+        telaFundoLayout.setHorizontalGroup(
+            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        telaFundoLayout.setVerticalGroup(
+            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -608,6 +613,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair32x32.png"))); // NOI18N
         menuSair.setText("Sair");
         menuSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSairMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuSair);
 
         setJMenuBar(jMenuBar1);
@@ -618,7 +628,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1)
+                .addComponent(telaFundo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -627,7 +637,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
-                    .addComponent(jDesktopPane1))
+                    .addComponent(telaFundo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -663,6 +673,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jMenuItem27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem27ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem27ActionPerformed
+
+    private void btnLogoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoffActionPerformed
+        // TODO add your handling code here:
+        TelaLogin sair = new TelaLogin();
+        sair.setVisible(true);
+    }//GEN-LAST:event_btnLogoffActionPerformed
+
+    private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
+        // TODO add your handling code here:
+        ConfirmarSair tela = new ConfirmarSair();
+        telaFundo.add(tela);
+        tela.setVisible(true);
+    }//GEN-LAST:event_menuSairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -700,8 +723,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JButton btnLogoff;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -780,5 +802,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu menuReservas;
     private javax.swing.JMenu menuSair;
     private javax.swing.JMenu menuSegurança;
+    private javax.swing.JDesktopPane telaFundo;
     // End of variables declaration//GEN-END:variables
 }
