@@ -266,10 +266,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        menuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cadastro32x32.png"))); // NOI18N
+        menuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cadastro32x32.png"))); // NOI18N
         menuCadastro.setText("Cadastro   |");
         menuCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-hospede20x20.png"))); // NOI18N
         jMenu9.setText("Hóspedes");
         jMenu9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -392,7 +393,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuCadastro);
 
-        menuReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/reservas32x32.png"))); // NOI18N
+        menuReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-reservas32x32.png"))); // NOI18N
         menuReservas.setText("Reservas   |");
         menuReservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -413,7 +414,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuReservas);
 
-        menuConsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas32x32.png"))); // NOI18N
+        menuConsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-vendas32x32.png"))); // NOI18N
         menuConsumo.setText("Vendas   |");
         menuConsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -429,7 +430,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuConsumo);
 
-        menuFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/financeiro32x32.png"))); // NOI18N
+        menuFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-financeiro32x32.png"))); // NOI18N
         menuFinanceiro.setText("Financeiro   |");
         menuFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -472,7 +473,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuFinanceiro);
 
-        menuRelatório.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio32x32.png"))); // NOI18N
+        menuRelatório.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-relatorio32x32.png"))); // NOI18N
         menuRelatório.setText("Relatório   |");
         menuRelatório.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -561,7 +562,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuRelatório);
 
-        menuSegurança.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/segurança32x32.png"))); // NOI18N
+        menuSegurança.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-segurança32x32.png"))); // NOI18N
         menuSegurança.setText("Segurança   |");
         menuSegurança.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -577,7 +578,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuSegurança);
 
-        menuFerramentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/feramentas32x32.png"))); // NOI18N
+        menuFerramentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-feramentas32x32.png"))); // NOI18N
         menuFerramentas.setText("Ferramentas   |");
         menuFerramentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -590,6 +591,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1.setText("Tela de Fundo");
         jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jMenuItem19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-add_imagem20x20.png"))); // NOI18N
         jMenuItem19.setText("Add Imagem");
         jMenuItem19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu1.add(jMenuItem19);
@@ -608,7 +610,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuFerramentas);
 
-        menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair32x32.png"))); // NOI18N
+        menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-sair32x32.png"))); // NOI18N
         menuSair.setText("Sair");
         menuSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
