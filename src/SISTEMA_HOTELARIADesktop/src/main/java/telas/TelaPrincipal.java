@@ -28,6 +28,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        telaFundo = new javax.swing.JDesktopPane();
         pnlRodape = new javax.swing.JPanel();
         sepRodape = new javax.swing.JSeparator();
         lblMensagemrodape = new javax.swing.JLabel();
@@ -47,7 +48,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lblGraudeacessodousuario = new javax.swing.JLabel();
         btnLogoff = new javax.swing.JButton();
         spBarralateral3 = new javax.swing.JSeparator();
-        telaFundo = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
         mnHospedes = new javax.swing.JMenu();
@@ -114,13 +114,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
+        javax.swing.GroupLayout telaFundoLayout = new javax.swing.GroupLayout(telaFundo);
+        telaFundo.setLayout(telaFundoLayout);
+        telaFundoLayout.setHorizontalGroup(
+            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 766, Short.MAX_VALUE)
+        );
+        telaFundoLayout.setVerticalGroup(
+            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 701, Short.MAX_VALUE)
+        );
+
         lblMensagemrodape.setText("Sistema Hotel Projeto ABEF - Todos os direitos reservados - 2025");
 
         javax.swing.GroupLayout pnlRodapeLayout = new javax.swing.GroupLayout(pnlRodape);
         pnlRodape.setLayout(pnlRodapeLayout);
         pnlRodapeLayout.setHorizontalGroup(
             pnlRodapeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sepRodape, javax.swing.GroupLayout.DEFAULT_SIZE, 1171, Short.MAX_VALUE)
+            .addComponent(sepRodape, javax.swing.GroupLayout.DEFAULT_SIZE, 1190, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRodapeLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lblMensagemrodape, javax.swing.GroupLayout.PREFERRED_SIZE, 983, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -257,17 +268,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         spBarralateral.setViewportView(pnlBarralateral);
-
-        javax.swing.GroupLayout telaFundoLayout = new javax.swing.GroupLayout(telaFundo);
-        telaFundo.setLayout(telaFundoLayout);
-        telaFundoLayout.setHorizontalGroup(
-            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        telaFundoLayout.setVerticalGroup(
-            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -642,7 +642,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spBarralateral, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE)
+                    .addComponent(spBarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(telaFundo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlRodape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -653,7 +653,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void miCadastrarfuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarfuncionariosActionPerformed
-        // TODO add your handling code here:
+            TelaCadFuncionario tela = new TelaCadFuncionario();        // TODO add your handling code here:
+            telaFundo.add(tela);
+            tela.setVisible(true);
     }//GEN-LAST:event_miCadastrarfuncionariosActionPerformed
 
     private void miConsultarquartosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarquartosActionPerformed
