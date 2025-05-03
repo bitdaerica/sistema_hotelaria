@@ -684,7 +684,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btnLogoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoffActionPerformed
         // TODO add your handling code here:
-        TelaLogin sair = new TelaLogin();
+        TelaLogoff sair = new TelaLogoff();
+        telaFundo.add(sair);
         sair.setVisible(true);
     }//GEN-LAST:event_btnLogoffActionPerformed
 

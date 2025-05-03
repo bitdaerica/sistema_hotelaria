@@ -8,12 +8,12 @@ package telas;
  *
  * @author Érica_Almeida
  */
-public class ConfirmarSair extends javax.swing.JInternalFrame {
+public class TelaLogoff extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ConfirmarSair
+     * Creates new form TelaLogoff
      */
-    public ConfirmarSair() {
+    public TelaLogoff() {
         initComponents();
     }
 
@@ -31,16 +31,13 @@ public class ConfirmarSair extends javax.swing.JInternalFrame {
         btnSimsair = new javax.swing.JButton();
         btnNaosair = new javax.swing.JButton();
 
-        setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        setIconifiable(true);
-        setResizable(true);
         setTitle("Confirmação");
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lblMensagemdeconfirmacao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblMensagemdeconfirmacao.setText("Tem certeza que deseja sair?");
+        lblMensagemdeconfirmacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-informacao20x20.png"))); // NOI18N
+        lblMensagemdeconfirmacao.setText("Deseja trocar de Usuário?");
 
         btnSimsair.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSimsair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
@@ -95,21 +92,22 @@ public class ConfirmarSair extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pack();
+        setBounds(0, 0, 263, 210);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSimsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimsairActionPerformed
-        System.exit(0);        // TODO add your handling code here:
+        TelaLogin tela = new TelaLogin ();
+        tela.setVisible(true);     // TODO add your handling code here:
     }//GEN-LAST:event_btnSimsairActionPerformed
 
     private void btnNaosairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNaosairActionPerformed
