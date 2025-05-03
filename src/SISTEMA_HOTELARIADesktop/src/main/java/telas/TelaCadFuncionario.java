@@ -109,6 +109,8 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         jLabel2.setText("jLabel2");
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        setIconifiable(true);
+        setMaximizable(true);
         setTitle("Hotel ABEF  - Cadastro de Funcionários");
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -215,12 +217,9 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
             .addGroup(pnlConsultasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlConsultasLayout.createSequentialGroup()
-                        .addComponent(pnlscrolTabela)
-                        .addContainerGap())
-                    .addGroup(pnlConsultasLayout.createSequentialGroup()
-                        .addComponent(pnlRodapetabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(pnlscrolTabela)
+                    .addComponent(pnlRodapetabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pnlConsultasLayout.setVerticalGroup(
             pnlConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,10 +257,10 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         });
 
         lblNome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblNome.setText("Nome:");
+        lblNome.setText("*Nome:");
 
         lblSobrenome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblSobrenome.setText("Sobrenome:");
+        lblSobrenome.setText("*Sobrenome:");
 
         lblDatadenascimento.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDatadenascimento.setText("Data de Nascimento:");
@@ -282,7 +281,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         }
 
         lblRg.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblRg.setText("*RG:");
+        lblRg.setText("RG:");
 
         lblFuncao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblFuncao.setText("*Função:");
@@ -477,10 +476,11 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAviso2)
                 .addGap(18, 18, 18)
-                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGraudeacesso)
-                    .addComponent(lblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNomeusuario))
+                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblGraudeacesso)
+                        .addComponent(lblNomeusuario)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNomeusuariodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -547,9 +547,9 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ftfTelefonefixodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlContatosLayout.createSequentialGroup()
-                        .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmail)
-                            .addComponent(lblCelular))
+                        .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCelular, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblEmail))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEmaildofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -717,8 +717,8 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                             .addComponent(pnlContatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pnlEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pnlConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlDadospessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addContainerGap(126, Short.MAX_VALUE))
+                            .addComponent(pnlDadospessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 818, Short.MAX_VALUE))
+                        .addContainerGap(40, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -754,17 +754,17 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 877, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();

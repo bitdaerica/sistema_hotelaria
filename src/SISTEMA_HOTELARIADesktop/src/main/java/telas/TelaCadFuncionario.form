@@ -14,6 +14,8 @@
         <CompoundBorder/>
       </Border>
     </Property>
+    <Property name="iconifiable" type="boolean" value="true"/>
+    <Property name="maximizable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="Hotel ABEF  - Cadastro de Funcion&#xe1;rios"/>
   </Properties>
   <SyntheticProperties>
@@ -34,9 +36,9 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="870" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="877" max="-2" attributes="0"/>
               <EmptySpace pref="31" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -45,8 +47,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="794" max="-2" attributes="0"/>
-              <EmptySpace pref="15" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="824" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,9 +75,9 @@
                                   <Component id="pnlContatos" alignment="0" max="32767" attributes="0"/>
                                   <Component id="pnlEndereco" alignment="0" max="32767" attributes="0"/>
                                   <Component id="pnlConsultas" max="32767" attributes="0"/>
-                                  <Component id="pnlDadospessoais" pref="0" max="32767" attributes="0"/>
+                                  <Component id="pnlDadospessoais" pref="818" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="126" max="32767" attributes="0"/>
+                              <EmptySpace pref="40" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jPanel2" max="32767" attributes="0"/>
@@ -149,15 +151,10 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="pnlscrolTabela" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="pnlRodapetabela" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="pnlscrolTabela" alignment="0" max="32767" attributes="0"/>
+                              <Component id="pnlRodapetabela" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -523,7 +520,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Nome:"/>
+                    <Property name="text" type="java.lang.String" value="*Nome:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNomedofuncionario">
@@ -533,7 +530,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Sobrenome:"/>
+                    <Property name="text" type="java.lang.String" value="*Sobrenome:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSobrenomedofuncionario">
@@ -573,7 +570,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="*RG:"/>
+                    <Property name="text" type="java.lang.String" value="RG:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtRgdofuncionario">
@@ -690,10 +687,12 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblAviso2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblGraudeacesso" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblSenha" alignment="1" min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="lblNomeusuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblGraudeacesso" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNomeusuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -813,9 +812,9 @@
                                   <Component id="ftfTelefonefixodofuncionario" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblCelular" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
