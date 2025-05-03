@@ -31,6 +31,7 @@ public class TelaLogoff extends javax.swing.JInternalFrame {
         btnSimsair = new javax.swing.JButton();
         btnNaosair = new javax.swing.JButton();
 
+        setClosable(true);
         setTitle("Confirmação");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());

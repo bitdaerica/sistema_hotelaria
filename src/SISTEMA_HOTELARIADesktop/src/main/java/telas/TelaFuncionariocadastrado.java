@@ -30,6 +30,8 @@ public class TelaFuncionariocadastrado extends javax.swing.JInternalFrame {
         lblMensagemdeavisso = new javax.swing.JLabel();
         btnOk = new javax.swing.JButton();
 
+        setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        setClosable(true);
         setResizable(true);
         setTitle("Informação");
 
@@ -61,7 +63,7 @@ public class TelaFuncionariocadastrado extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblMensagemdeavisso)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +92,7 @@ public class TelaFuncionariocadastrado extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pack();
+        setBounds(0, 0, 279, 180);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed

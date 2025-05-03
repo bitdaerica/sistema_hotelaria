@@ -31,6 +31,7 @@ public class TelaUsuarioinvalido extends javax.swing.JInternalFrame {
         btnOk = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        setClosable(true);
         setTitle("Aviso");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
