@@ -114,15 +114,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
+        telaFundo.setToolTipText("");
+
         javax.swing.GroupLayout telaFundoLayout = new javax.swing.GroupLayout(telaFundo);
         telaFundo.setLayout(telaFundoLayout);
         telaFundoLayout.setHorizontalGroup(
             telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 766, Short.MAX_VALUE)
+            .addGap(0, 1093, Short.MAX_VALUE)
         );
         telaFundoLayout.setVerticalGroup(
             telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 701, Short.MAX_VALUE)
+            .addGap(0, 768, Short.MAX_VALUE)
         );
 
         lblMensagemrodape.setText("Sistema Hotel Projeto ABEF - Todos os direitos reservados - 2025");
@@ -131,7 +133,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pnlRodape.setLayout(pnlRodapeLayout);
         pnlRodapeLayout.setHorizontalGroup(
             pnlRodapeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sepRodape, javax.swing.GroupLayout.DEFAULT_SIZE, 1190, Short.MAX_VALUE)
+            .addComponent(sepRodape)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRodapeLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lblMensagemrodape, javax.swing.GroupLayout.PREFERRED_SIZE, 983, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -339,6 +341,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         miConsultarfuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-consultar_pessoa20x20.png"))); // NOI18N
         miConsultarfuncionarios.setText("Consultar");
         miConsultarfuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        miConsultarfuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarfuncionariosActionPerformed(evt);
+            }
+        });
         mnFuncionarios.add(miConsultarfuncionarios);
 
         menuCadastro.add(mnFuncionarios);
@@ -376,6 +383,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         miConsultarprodutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-lupa20x20.png"))); // NOI18N
         miConsultarprodutos.setText("Consultar");
         miConsultarprodutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        miConsultarprodutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarprodutosActionPerformed(evt);
+            }
+        });
         mnProdutos.add(miConsultarprodutos);
 
         menuCadastro.add(mnProdutos);
@@ -675,7 +687,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_miRelatoriocontasareceberActionPerformed
 
     private void miCadastrarprodutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarprodutosActionPerformed
-        // TODO add your handling code here:
+        TelaCadProduto tela = new TelaCadProduto ();// TODO add your handling code here:
+        telaFundo.add(tela);
+        tela.setVisible(true);
     }//GEN-LAST:event_miCadastrarprodutosActionPerformed
 
     private void miRelatorioservicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatorioservicosActionPerformed
@@ -695,6 +709,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaFundo.add(tela);
         tela.setVisible(true);
     }//GEN-LAST:event_menuSairMouseClicked
+
+    private void miConsultarprodutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarprodutosActionPerformed
+        TelaConsultaProduto tela = new TelaConsultaProduto ();
+        telaFundo.add(tela);
+        tela.setVisible(true);
+    }//GEN-LAST:event_miConsultarprodutosActionPerformed
+
+    private void miConsultarfuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarfuncionariosActionPerformed
+         TelaConsultaFuncionario tela = new TelaConsultaFuncionario ();
+        telaFundo.add(tela);
+        tela.setVisible(true);
+    }//GEN-LAST:event_miConsultarfuncionariosActionPerformed
 
     /**
      * @param args the command line arguments

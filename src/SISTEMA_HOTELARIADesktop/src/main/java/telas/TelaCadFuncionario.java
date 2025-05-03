@@ -33,7 +33,10 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        telaFundo = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        lblMensagemdeavisso = new javax.swing.JLabel();
+        btnOk = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         pnlConsultas = new javax.swing.JPanel();
@@ -49,9 +52,9 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         pnlDadospessoais = new javax.swing.JPanel();
+        btnRestaurarimagem = new javax.swing.JButton();
         lblAvisocampoobrigatorio = new javax.swing.JLabel();
         lblFoto = new javax.swing.JLabel();
-        btnRestaurarimagem = new javax.swing.JButton();
         lblNome = new javax.swing.JLabel();
         txtNomedofuncionario = new javax.swing.JTextField();
         lblSobrenome = new javax.swing.JLabel();
@@ -106,7 +109,64 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         btnCancelaredicao = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
 
-        jLabel2.setText("jLabel2");
+        telaFundo.setTitle("Informação");
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lblMensagemdeavisso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblMensagemdeavisso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-informacao20x20.png"))); // NOI18N
+        lblMensagemdeavisso.setText("Usuário cadastrado com sucesso!");
+
+        btnOk.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnOk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
+        btnOk.setText("OK");
+        btnOk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(btnOk))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblMensagemdeavisso)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(lblMensagemdeavisso)
+                .addGap(18, 18, 18)
+                .addComponent(btnOk)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout telaFundoLayout = new javax.swing.GroupLayout(telaFundo.getContentPane());
+        telaFundo.getContentPane().setLayout(telaFundoLayout);
+        telaFundoLayout.setHorizontalGroup(
+            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaFundoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        telaFundoLayout.setVerticalGroup(
+            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaFundoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setIconifiable(true);
@@ -240,21 +300,21 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
 
         pnlDadospessoais.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Pessoais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        lblAvisocampoobrigatorio.setForeground(new java.awt.Color(153, 0, 0));
-        lblAvisocampoobrigatorio.setText("(*) são campos obrigatórios para preenchimento:");
-
-        lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-perfil128x128.png"))); // NOI18N
-        lblFoto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Foto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Sans Unicode", 1, 13))); // NOI18N
-
         btnRestaurarimagem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnRestaurarimagem.setText("Restaurar Imagem");
-        btnRestaurarimagem.setBorder(null);
+        btnRestaurarimagem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRestaurarimagem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRestaurarimagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestaurarimagemActionPerformed(evt);
             }
         });
+
+        lblAvisocampoobrigatorio.setForeground(new java.awt.Color(153, 0, 0));
+        lblAvisocampoobrigatorio.setText("(*) são campos obrigatórios para preenchimento:");
+
+        lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-perfil128x128.png"))); // NOI18N
+        lblFoto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Foto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Sans Unicode", 1, 13))); // NOI18N
 
         lblNome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNome.setText("*Nome:");
@@ -322,7 +382,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                                         .addComponent(lblRg)
                                         .addGap(235, 235, 235))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadospessoaisLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGap(0, 17, Short.MAX_VALUE)
                                         .addGroup(pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadospessoaisLayout.createSequentialGroup()
                                                 .addComponent(txtNomedofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -341,14 +401,13 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                                         .addGap(28, 28, 28)
                                         .addGroup(pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblDatadenascimento)
-                                            .addComponent(ftfDatadenascimentodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(60, 60, 60))
+                                            .addComponent(ftfDatadenascimentodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(pnlDadospessoaisLayout.createSequentialGroup()
                                         .addGap(54, 54, 54)
                                         .addGroup(pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblSexo)
                                             .addComponent(cmbSexodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(91, 91, 91))))
+                                        .addGap(31, 31, 31))))
                             .addGroup(pnlDadospessoaisLayout.createSequentialGroup()
                                 .addGroup(pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlDadospessoaisLayout.createSequentialGroup()
@@ -362,16 +421,16 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                                                 .addGap(0, 0, Short.MAX_VALUE))
                                             .addComponent(txtNomedopai)))
                                     .addComponent(ftfCpfdofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(91, 91, 91))))))
+                                .addGap(31, 31, 31)))))
+                .addContainerGap())
             .addGroup(pnlDadospessoaisLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(20, 20, 20)
                 .addComponent(btnRestaurarimagem)
-                .addGap(33, 33, 33))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDadospessoaisLayout.setVerticalGroup(
             pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDadospessoaisLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlDadospessoaisLayout.createSequentialGroup()
                         .addComponent(lblAvisocampoobrigatorio)
@@ -414,7 +473,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                     .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRestaurarimagem)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pnlCadastrodousuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
@@ -709,7 +768,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(7, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -717,7 +776,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                             .addComponent(pnlContatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pnlEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pnlConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlDadospessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 818, Short.MAX_VALUE))
+                            .addComponent(pnlDadospessoais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(40, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(pnlCancelarousalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -763,7 +822,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -771,11 +830,13 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+       TelaFuncionariocadastrado tela = new TelaFuncionariocadastrado(); // TODO add your handling code here:
+       telaFundo.add(tela);
+       tela.setVisible(true);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelaredicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaredicaoActionPerformed
-        // TODO add your handling code here:
+        dispose(); // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelaredicaoActionPerformed
 
     private void cmbEstadodofuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadodofuncionarioActionPerformed
@@ -812,6 +873,11 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         btnBuscar.setVisible(true);   
     }//GEN-LAST:event_btnLimparbuscaActionPerformed
 
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOkActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
@@ -820,6 +886,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimparbusca;
+    private javax.swing.JButton btnOk;
     private javax.swing.JButton btnRestaurarimagem;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cmbEstadodofuncionario;
@@ -830,8 +897,8 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField ftfCpfdofuncionario;
     private javax.swing.JFormattedTextField ftfDatadenascimentodofuncionario;
     private javax.swing.JFormattedTextField ftfTelefonefixodofuncionario;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAviso;
     private javax.swing.JLabel lblAviso2;
@@ -851,6 +918,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblFoto;
     private javax.swing.JLabel lblFuncao;
     private javax.swing.JLabel lblGraudeacesso;
+    private javax.swing.JLabel lblMensagemdeavisso;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNomedamae;
     private javax.swing.JLabel lblNomedopai;
@@ -872,6 +940,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlRodapetabela;
     private javax.swing.JScrollPane pnlscrolTabela;
     private javax.swing.JTable tabela;
+    private javax.swing.JDialog telaFundo;
     private javax.swing.JTextField txtBairrodofuncionario;
     private javax.swing.JTextField txtCidadedofuncionario;
     private javax.swing.JTextField txtComplementodofuncionario;
