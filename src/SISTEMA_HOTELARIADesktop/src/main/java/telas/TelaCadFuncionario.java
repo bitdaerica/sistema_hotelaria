@@ -169,6 +169,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         );
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setTitle("Hotel ABEF  - Cadastro de Funcionários");

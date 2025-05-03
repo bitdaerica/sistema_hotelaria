@@ -37,6 +37,7 @@ public class TelaConsultaProduto extends javax.swing.JInternalFrame {
         pnlscrolTabela = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
 
+        setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);

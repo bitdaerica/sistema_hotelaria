@@ -38,6 +38,7 @@ public class TelaConsultaFuncionario extends javax.swing.JInternalFrame {
         tabela = new javax.swing.JTable();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
