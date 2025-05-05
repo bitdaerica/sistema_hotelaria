@@ -613,7 +613,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Cadastro de Usu&#xe1;rio">
+                    <TitledBorder title="Produtos Cadastrado">
                       <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
                     </TitledBorder>
                   </Border>
@@ -652,7 +652,6 @@
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
                   </AccessibilityProperties>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
