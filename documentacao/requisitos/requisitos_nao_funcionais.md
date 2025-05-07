@@ -51,4 +51,4 @@
 
 - O sistema deve permitir a atualização de módulos e funcionalidades sem causar interrupções no serviço.
 
-# O sistema foi projetado com foco em usabilidade, desempenho, segurança, escalabilidade e manutenibilidade, garantindo que ele seja fácil de usar, rápido, seguro, capaz de crescer com o hotel e fácil de manter ao longo do tempo. Cada um desses requisitos não funcionais foi pensado para garantir uma experiência fluida tanto para os hóspedes quanto para os funcionários, e para suportar o crescimento e as mudanças constantes na indústria hoteleira.
+### O sistema foi projetado com foco em usabilidade, desempenho, segurança, escalabilidade e manutenibilidade, garantindo que ele seja fácil de usar, rápido, seguro, capaz de crescer com o hotel e fácil de manter ao longo do tempo. Cada um desses requisitos não funcionais foi pensado para garantir uma experiência fluida tanto para os hóspedes quanto para os funcionários, e para suportar o crescimento e as mudanças constantes na indústria hoteleira.
