@@ -80,4 +80,4 @@
 - Relatórios personalizados, permitindo que a gestão selecione as variáveis específicas para gerar relatórios, como por exemplo, reservas de última hora, check-ins de clientes frequentes, entre outros.
 
 
-# Esses requisitos foram definidos a partir de técnicas de levantamento como brainstorming, observação das operações diárias do hotel e entrevistas com funcionários. Isso nos permitiu compreender as necessidades reais do hotel e desenvolver um sistema que resolva problemas específicos, tornando as operações mais ágeis, seguras e sem erros.
+### Esses requisitos foram definidos a partir de técnicas de levantamento como brainstorming, observação das operações diárias do hotel e entrevistas com funcionários. Isso nos permitiu compreender as necessidades reais do hotel e desenvolver um sistema que resolva problemas específicos, tornando as operações mais ágeis, seguras e sem erros.
