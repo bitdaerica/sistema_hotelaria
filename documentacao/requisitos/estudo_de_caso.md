@@ -10,7 +10,7 @@ Além disso, a geração de relatórios detalhados sobre a ocupação dos quarto
 Com essa solução, o hotel não só otimiza suas operações internas, mas também melhora a experiência do cliente, proporcionando um atendimento mais rápido, preciso e personalizado. Mediante o exposto, a implementação desse sistema transformará a forma como o hotel opera, trazendo benefícios tangíveis tanto para os hóspedes quanto para os gestores, garantindo um serviço de qualidade e uma operação sem falhas.
 
 
-## Especialização de Requisitos — Sistema de Hotelaria
+## Especialização de Requisitos Funcionais e Não Funcionais
 
 
 Vamos explorar os dois pilares essenciais do nosso sistema de hotelaria: os requisitos funcionais e os requisitos não funcionais. Ambos são fundamentais para garantir que o sistema atenda de maneira eficaz às necessidades operacionais do hotel e, ao mesmo tempo, proporcione uma experiência de alta qualidade, tanto para os funcionários quanto para os hóspedes.
