@@ -80,4 +80,105 @@
 - Relatórios personalizados, permitindo que a gestão selecione as variáveis específicas para gerar relatórios, como por exemplo, reservas de última hora, check-ins de clientes frequentes, entre outros.
 
 
+
+## Gestão de Serviços Adicionais
+
+**Objetivo:** Permitir o controle eficiente de serviços adicionais fornecidos pelo hotel, como restaurante, spa, transporte, entre outros.
+
+**Funcionalidades:**
+
+- Cadastro de serviços oferecidos pelo hotel, incluindo descrição, preço e disponibilidade.
+
+- Registro de pedidos e reservas de serviços pelos hóspedes durante a estadia.
+
+- Integração com o sistema de faturamento, garantindo que os serviços sejam incluídos na conta do hóspede e cobrados adequadamente no check-out.
+
+- Geração de relatórios de consumo de serviços, permitindo ao hotel acompanhar a demanda e a rentabilidade de cada serviço adicional oferecido.
+
+- Capacidade de alterar a disponibilidade de serviços conforme necessário (por exemplo, em caso de manutenção do spa ou alta demanda no restaurante).
+
+
+
+## Gestão de Funcionários
+
+**Objetivo:** Organizar e controlar as informações dos funcionários, seus horários e funções dentro do hotel.
+
+**Funcionalidades:**
+
+- Cadastro completo de funcionários, incluindo nome, cargo, setor, horário de trabalho e informações de contato.
+
+- Controle de ponto: Registra as entradas e saídas dos funcionários, com a capacidade de gerar relatórios de horas trabalhadas para facilitar o processo de folha de pagamento.
+
+- Atribuição de tarefas e responsabilidades: O sistema permite a designação de tarefas diárias para os funcionários, com alertas de tarefas pendentes.
+
+- Relatórios de desempenho: Avaliação do desempenho dos funcionários com base nas tarefas realizadas, tempo de resposta e atendimento ao hóspede.
+
+
+
+## Gestão de Pagamentos
+
+**Objetivo:** Garantir que todas as transações financeiras, incluindo pagamentos de reservas e serviços adicionais, sejam registradas de maneira precisa e segura.
+
+**Funcionalidades:**
+
+- Registro de pagamentos de hóspedes, seja à vista, parcelado ou com cartão de crédito.
+
+- Integração com múltiplos métodos de pagamento, incluindo cartões de crédito e débito, transferências bancárias e pagamentos em dinheiro.
+
+- Geração de nota fiscal ou recibo de pagamento para o hóspede, com as informações detalhadas da transação.
+
+- Acompanhamento de pendências financeiras (como reservas não pagas ou serviços não cobrados), com alertas para a equipe responsável.
+
+- Geração de relatórios financeiros detalhados, incluindo total de receita, pagamentos por tipo de quarto e pagamentos por método.
+
+
+
+## Controle de Inventário
+
+**Objetivo:** Gerenciar o estoque de itens utilizados no hotel, como produtos de higiene, roupas de cama, alimentos e bebidas, garantindo que o hotel tenha sempre os recursos necessários.
+
+**Funcionalidades:**
+
+- Cadastro de itens no estoque, incluindo quantidade, preço de aquisição, data de validade (quando aplicável) e localização (por exemplo, almoxarifado).
+
+- Monitoramento de consumo: O sistema registra automaticamente o uso de itens, seja nas limpezas diárias ou em consumo pelos hóspedes (ex: itens de minibar, toalhas).
+
+- Alertas de reabastecimento: O sistema envia notificações quando o estoque atinge níveis críticos, evitando a falta de materiais essenciais.
+
+- Relatórios de inventário: O hotel pode gerar relatórios sobre o uso do estoque, ajudando a identificar quais itens estão sendo mais consumidos e quais precisam ser comprados com mais frequência.
+
+
+
+## Gestão de Acomodações Especiais
+
+**Objetivo:** Gerenciar as necessidades de hóspedes que requerem acomodações especiais, como quartos acessíveis para deficientes ou solicitações de quartos para fumantes.
+
+**Funcionalidades:**
+
+- Cadastro de quartos especiais: O sistema permitirá o cadastro de quartos adaptados para deficientes físicos, com informações detalhadas sobre o tipo de acomodação e as características especiais (como barras de apoio, rampas de acesso, etc.).
+
+- Registro de solicitações especiais: Os hóspedes poderão solicitar, no momento da reserva, necessidades especiais (ex: cama extra, travesseiro ortopédico, berço, etc.).
+
+- Integração com o check-in: Durante o processo de check-in, o sistema deve sinalizar automaticamente se o hóspede tem uma necessidade especial ou se foi alocado em um quarto acessível.
+
+- Relatórios de acomodações especiais: Geração de relatórios sobre o uso de quartos adaptados e os tipos de solicitações especiais feitas pelos hóspedes.
+
+
+
+## Gestão de Reservas de Grupos
+
+**Objetivo:** Gerenciar reservas de grupos de maneira eficiente, com controle detalhado de quartos e necessidades específicas de grupos, como reservas para empresas ou excursões.
+
+**Funcionalidades:**
+
+- Cadastro de reservas de grupos: O sistema permitirá o registro de reservas para múltiplos hóspedes que pertencem a um mesmo grupo, com quantidade de quartos e datas específicas.
+
+- Distribuição de quartos: O sistema ajudará a alocar quartos de forma eficiente para o grupo, considerando preferências e necessidades (ex: quartos próximos, andares específicos).
+
+- Descontos de grupo: O sistema poderá aplicar automaticamente descontos para reservas de grupos, com base no número de pessoas ou no pacote negociado.
+
+- Relatórios de grupos: Geração de relatórios sobre as reservas de grupo, incluindo número de hóspedes, quartos ocupados, valores pagos e feedback.
+
+
+
 ### Esses requisitos foram definidos a partir de técnicas de levantamento como brainstorming, observação das operações diárias do hotel e entrevistas com funcionários. Isso nos permitiu compreender as necessidades reais do hotel e desenvolver um sistema que resolva problemas específicos, tornando as operações mais ágeis, seguras e sem erros.
