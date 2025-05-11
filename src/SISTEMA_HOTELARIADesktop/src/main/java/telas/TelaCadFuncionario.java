@@ -5,6 +5,7 @@
 package telas;
 
 import java.awt.Component;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -831,12 +832,19 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       TelaFuncionariocadastrado tela = new TelaFuncionariocadastrado(); // TODO add your handling code here:
+       TelaFuncionariocadastrado tela = new TelaFuncionariocadastrado(); 
        telaFundo.add(tela);
        tela.setVisible(true);
+       
+       JOptionPane.showMessageDialog(null,"Funcionário Cadastrado com Sucesso.");
+       
+      this.dispose();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelaredicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaredicaoActionPerformed
+        
+        JOptionPane.showMessageDialog(null,"A Edição será cancelada.");
+        
         dispose(); // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelaredicaoActionPerformed
 

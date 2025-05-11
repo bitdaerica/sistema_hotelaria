@@ -4,6 +4,8 @@
  */
 package telas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Érica_Almeida
@@ -181,6 +183,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lblGraudeacessodousuario.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         lblGraudeacessodousuario.setText("texto");
 
+        btnLogoff.setBackground(new java.awt.Color(255, 146, 47));
         btnLogoff.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnLogoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-logout20x20.png"))); // NOI18N
         btnLogoff.setText("Logoff");
@@ -701,6 +704,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaLogoff sair = new TelaLogoff();
         telaFundo.add(sair);
         sair.setVisible(true);
+        
+                
     }//GEN-LAST:event_btnLogoffActionPerformed
 
     private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked

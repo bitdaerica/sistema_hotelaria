@@ -4,6 +4,10 @@
  */
 package telas;
 
+import java.awt.event.KeyEvent;
+import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Érica_Almeida
@@ -39,14 +43,35 @@ public class TelaLogin extends javax.swing.JFrame {
         setResizable(false);
 
         lblLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(188, 123, 61));
         lblLogin.setText("Login:");
 
+        txtUsuario.setForeground(new java.awt.Color(202, 146, 58));
         txtUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyPressed(evt);
+            }
+        });
 
         lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblSenha.setForeground(new java.awt.Color(188, 123, 61));
         lblSenha.setText("Senha:");
 
+        pfSenha.setForeground(new java.awt.Color(202, 146, 58));
+        pfSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pfSenhaActionPerformed(evt);
+            }
+        });
+        pfSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pfSenhaKeyPressed(evt);
+            }
+        });
+
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(188, 123, 61));
         btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-logout20x20.png"))); // NOI18N
         btnEntrar.setText("Entrar");
         btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -57,6 +82,7 @@ public class TelaLogin extends javax.swing.JFrame {
         });
 
         btnSair.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSair.setForeground(new java.awt.Color(188, 123, 61));
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-sair20x20.png"))); // NOI18N
         btnSair.setText("Sair");
         btnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -115,14 +141,66 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
+        if(txtUsuario.getText().equals("a")&& new String (pfSenha.getPassword()).equals("a")){
+            
+            JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
+             TelaPrincipal tela = new TelaPrincipal();
+             tela.setVisible(true);
+             
+             this.dispose();
+        }else{
+         
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
+        
+        }
+            
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        dispose();        // TODO add your handling code here:
+        dispose();        
+        
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void pfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfSenhaActionPerformed
+        
+
+    }//GEN-LAST:event_pfSenhaActionPerformed
+
+    private void pfSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pfSenhaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(txtUsuario.getText().equals("admin")&& new String (pfSenha.getPassword()).equals("admin")){
+            
+            JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
+             TelaPrincipal tela = new TelaPrincipal();
+             tela.setVisible(true);
+             
+             this.dispose();
+        }else{
+         
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
+        
+        }
+        }
+
+    }//GEN-LAST:event_pfSenhaKeyPressed
+
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(txtUsuario.getText().equals("admin")&& new String (pfSenha.getPassword()).equals("admin")){
+            
+            JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
+             TelaPrincipal tela = new TelaPrincipal();
+             tela.setVisible(true);
+             
+             this.dispose();
+        }else{
+         
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
+        
+        }
+        }
+
+    }//GEN-LAST:event_txtUsuarioKeyPressed
 
     /**
      * @param args the command line arguments

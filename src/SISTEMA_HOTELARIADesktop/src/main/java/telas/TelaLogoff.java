@@ -108,7 +108,9 @@ public class TelaLogoff extends javax.swing.JInternalFrame {
 
     private void btnSimsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimsairActionPerformed
         TelaLogin tela = new TelaLogin ();
-        tela.setVisible(true);     // TODO add your handling code here:
+        tela.setVisible(true);     
+        
+        this.dispose();
     }//GEN-LAST:event_btnSimsairActionPerformed
 
     private void btnNaosairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNaosairActionPerformed
