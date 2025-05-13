@@ -12,12 +12,22 @@ public class Quartos {
     private Integer id;
     
     private String nome;
+    
+    private String descricao;
        
     public Integer getId(){
         return id;
     }
     public void setId(Integer id){
         this.id = id;
+    }
+
+    public String getDescricao() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public String getNome() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
         
 }

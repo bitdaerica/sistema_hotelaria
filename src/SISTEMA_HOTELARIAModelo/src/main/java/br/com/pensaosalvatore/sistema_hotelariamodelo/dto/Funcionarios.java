@@ -12,6 +12,8 @@ public class Funcionarios {
     private Integer id;
     
     private String nome;
+    
+    private String descricao;
        
     public Integer getId(){
         return id;
