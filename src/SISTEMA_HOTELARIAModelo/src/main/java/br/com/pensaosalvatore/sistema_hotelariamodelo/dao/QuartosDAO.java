@@ -5,7 +5,6 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
 import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Quartos;
-import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Servicos;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

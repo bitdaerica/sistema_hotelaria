@@ -1,5 +1,3 @@
-
-
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
 import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Servicos;
@@ -13,6 +11,7 @@ import java.util.List;
  * @author 202412170006
  */
 public class ServicosDAO {
+    public void inserir(Servicos lavanderia) throws Exception {}
     public void inserir(Servicos lavanderia) throws Exception {
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -39,7 +38,8 @@ public class ServicosDAO {
     }
     
     public void alterar(Servicos lavanderia) throws Exception {
-    
+
+    public void alterar(Servicos lavanderia) throws Exception {}
                 //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -63,19 +63,6 @@ public class ServicosDAO {
         //Fecha a conexão
         con.close();
     }
-     
+
     public Servicos selecionar (int id) throws Exception {
         return null;
-    }
-    
-    public List <Servicos> listar() throws Exception {
-        return null;
-    }
-    
-    public List <Servicos> listar(String nome) throws Exception{
-        return null;
-    }
-    
-    public void excluir(int id) throws Exception{}
-    
-}

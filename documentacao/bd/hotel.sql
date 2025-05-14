@@ -7,11 +7,12 @@ use hotel;
 create table pessoa(
     nome varchar(40) not null,
     sobrenome varchar(60) not null,
-    dataNascimento date,
+    dataNascimento varchar(13),
     sexo varchar(10) not null,
     cpf varchar(11) not null unique,
     rg varchar(20) not null,
-    observacao text(255),
+    foto varchar(255),
+    observacao varchar(255),
     celular varchar(13) not null,
     fixo varchar (11), 
     email varchar(255) not null unique,
@@ -21,9 +22,9 @@ create table pessoa(
 
 create table hospede(
     id int primary key auto_increment,
-    ultimaVisita date,
+    ultimaVisita varchar(13),
     nacionalidade varchar(50),
-    preferencias text(255),
+    preferencias varchar(255),
     metodo_contato_preferido varchar(50)
     );
 
@@ -33,14 +34,13 @@ create table funcionario(
     funcao varchar(30) not null,
     nome_mae varchar(100) not null,
     nome_pai varchar(100),
-    data_admissao date,
+    data_admissao varchar(13),
     status_funcionario varchar(10),
     tipo_contrato varchar(12),
-    data_saida date,
-    foto varchar(255),
+    data_saida varchar(13),
     usuario varchar(40) unique,
     senha varchar(40),
-    acesso varchar(20)
+    acesso varchar(20) not null
 );
 
 create table endereço(
@@ -51,7 +51,7 @@ create table endereço(
     bairro varchar(40),
     cidade varchar(60) not null,
     estado varchar(2) not null,
-    cep varchar(20) not null,
+    cep varchar(20) not null
 );
 
 create table quarto(
@@ -63,11 +63,11 @@ create table quarto(
     tipo_cama varchar(30),
     capacidade_hospede int(2),
     status_quarto varchar(12),
-    descricao text(255),
-    data_ultima_limpeza date,
-    data_ultima_uso date,
-    restricoes text(255),
-    servicos_adicionais text(255),
+    descricao varchar(255),
+    data_ultima_limpeza varchar(13),
+    data_ultima_uso varchar(13),
+    restricoes varchar(255),
+    servicos_adicionais varchar(255),
     frigobar boolean,
     smart_tv boolean,
     ar_condicionado boolean,
@@ -81,9 +81,14 @@ create table quarto(
 
 create table reserva(
     id int primary key auto_increment,
-    nome_hospede varchar(100),
-    numero_quarto int,
     data_check_in varchar(10),
-    data_check_out varchar(10)
+    data_check_out varchar(10),
+    status_reserva varchar(30),
+    data_reserva varchar(13),
+    tipo_reserva varchar(11)    
+    # forma_pagamento
+    # puxar o hospede varchar(100),
+    # numero_quarto int
 );
 
+create table pagamento();
