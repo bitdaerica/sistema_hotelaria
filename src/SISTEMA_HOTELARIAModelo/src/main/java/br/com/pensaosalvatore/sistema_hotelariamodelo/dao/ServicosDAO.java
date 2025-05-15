@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author 202412170006
  */
-public class ServicosDAO {
+public class ServicosDAO{
     public void inserir(Servicos lavanderia) throws Exception {
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
