@@ -48,7 +48,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menuSistema = new javax.swing.JMenu();
         mnHospedes = new javax.swing.JMenu();
-        miCasdastrarhospede = new javax.swing.JMenuItem();
+        mnCadastro = new javax.swing.JMenu();
+        miIndividual = new javax.swing.JMenuItem();
+        miEmpresa = new javax.swing.JMenuItem();
         miConsultarhospede = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -296,15 +298,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
         mnHospedes.setText("Hóspedes");
         mnHospedes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        miCasdastrarhospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
-        miCasdastrarhospede.setText("Cadastrar");
-        miCasdastrarhospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miCasdastrarhospede.addActionListener(new java.awt.event.ActionListener() {
+        mnCadastro.setText("Cadastrar");
+
+        miIndividual.setText("Hóspede Físico");
+        miIndividual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCasdastrarhospedeActionPerformed(evt);
+                miIndividualActionPerformed(evt);
             }
         });
-        mnHospedes.add(miCasdastrarhospede);
+        mnCadastro.add(miIndividual);
+
+        miEmpresa.setText("Hóspede Jurídico");
+        miEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miEmpresaActionPerformed(evt);
+            }
+        });
+        mnCadastro.add(miEmpresa);
+
+        mnHospedes.add(mnCadastro);
 
         miConsultarhospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-consultar_pessoa20x20.png"))); // NOI18N
         miConsultarhospede.setText("Consultar");
@@ -780,13 +792,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_miConsultarhospedeActionPerformed
 
-    private void miCasdastrarhospedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCasdastrarhospedeActionPerformed
-            TelaCadHospede tela = new TelaCadHospede();
-            telaFundo.add(tela);
-            tela.setVisible(true);
-
-    }//GEN-LAST:event_miCasdastrarhospedeActionPerformed
-
     private void miRelatoriocontasareceberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriocontasareceberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_miRelatoriocontasareceberActionPerformed
@@ -806,6 +811,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaLogoff sair = new TelaLogoff();
         telaFundo.add(sair);
         sair.setVisible(true);
+        
         
                 
     }//GEN-LAST:event_btnLogoffActionPerformed
@@ -850,6 +856,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void miRelatoriocontasapagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriocontasapagarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_miRelatoriocontasapagarActionPerformed
+
+    private void miIndividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miIndividualActionPerformed
+            TelaCadHospede tela = new TelaCadHospede ();
+            telaFundo.add(tela);
+            tela.setVisible(true);
+
+    }//GEN-LAST:event_miIndividualActionPerformed
+
+    private void miEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEmpresaActionPerformed
+            TelaCadEmpresa tela = new TelaCadEmpresa ();
+            telaFundo.add(tela);
+            tela.setVisible(true);
+
+    }//GEN-LAST:event_miEmpresaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -939,7 +959,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miCadastrarprodutos;
     private javax.swing.JMenuItem miCadastrarquartos;
     private javax.swing.JMenuItem miCadastrarservicos;
-    private javax.swing.JMenuItem miCasdastrarhospede;
     private javax.swing.JMenuItem miConsultarcontasapagar;
     private javax.swing.JMenuItem miConsultarcontasareceber;
     private javax.swing.JMenuItem miConsultarfornecedor;
@@ -948,6 +967,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miConsultarprodutos;
     private javax.swing.JMenuItem miConsultarquartos;
     private javax.swing.JMenuItem miConsultarservicos;
+    private javax.swing.JMenuItem miEmpresa;
+    private javax.swing.JMenuItem miIndividual;
     private javax.swing.JMenuItem miPerfisdeacesso;
     private javax.swing.JMenuItem miRelatoriocontasapagar;
     private javax.swing.JMenuItem miRelatoriocontasareceber;
@@ -959,6 +980,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miRemoverimagem;
     private javax.swing.JMenuItem miRestaurarpadrao;
     private javax.swing.JMenu mnBalancofinanceiro;
+    private javax.swing.JMenu mnCadastro;
     private javax.swing.JMenu mnConsultarreserva;
     private javax.swing.JMenu mnContasapagar;
     private javax.swing.JMenu mnContasareceber;
