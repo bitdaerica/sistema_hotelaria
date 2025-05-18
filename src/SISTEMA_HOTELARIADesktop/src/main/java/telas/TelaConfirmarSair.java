@@ -8,12 +8,12 @@ package telas;
  *
  * @author Érica_Almeida
  */
-public class ConfirmarSair extends javax.swing.JInternalFrame {
+public class TelaConfirmarSair extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ConfirmarSair
      */
-    public ConfirmarSair() {
+    public TelaConfirmarSair() {
         initComponents();
     }
 

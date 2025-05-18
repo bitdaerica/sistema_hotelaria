@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package telas;
 
-import javax.swing.JOptionPane;
+package telas;
 
 /**
  *
@@ -152,6 +147,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         spBarralateral.setBorder(null);
 
+        pnlBarralateral.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         lblLogobarralateral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-logo-hotel_abef100x100.png"))); // NOI18N
 
         lblNomehotelbarralateral.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -222,7 +219,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblCargodousuario)
                                     .addComponent(lblNomedousuario))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                                 .addComponent(btnLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(44, 44, 44))
             .addGroup(pnlBarralateralLayout.createSequentialGroup()
@@ -234,7 +231,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlBarralateralLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(spBarralateral3, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)))
+                    .addComponent(spBarralateral3, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)))
         );
         pnlBarralateralLayout.setVerticalGroup(
             pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,6 +357,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         miCadastarfornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
         miCadastarfornecedor.setText("Cadastrar");
         miCadastarfornecedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        miCadastarfornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadastarfornecedorActionPerformed(evt);
+            }
+        });
         mnFornecedor.add(miCadastarfornecedor);
 
         miConsultarfornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-consultar_pessoa20x20.png"))); // NOI18N
@@ -650,7 +652,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(telaFundo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spBarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spBarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -710,7 +712,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
         // TODO add your handling code here:
-        ConfirmarSair tela = new ConfirmarSair();
+        TelaConfirmarSair tela = new TelaConfirmarSair();
         telaFundo.add(tela);
         tela.setVisible(true);
     }//GEN-LAST:event_menuSairMouseClicked
@@ -726,6 +728,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaFundo.add(tela);
         tela.setVisible(true);
     }//GEN-LAST:event_miConsultarfuncionariosActionPerformed
+
+    private void miCadastarfornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastarfornecedorActionPerformed
+        TelaCadFornecedor tela = new TelaCadFornecedor ();
+        telaFundo.add(tela);
+        tela.setVisible(true);
+    }//GEN-LAST:event_miCadastarfornecedorActionPerformed
 
     /**
      * @param args the command line arguments

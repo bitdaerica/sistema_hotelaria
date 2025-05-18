@@ -163,6 +163,9 @@
                       <Color id="Hand Cursor"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCadastarfornecedorActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="miConsultarfornecedor">
                   <Properties>
@@ -763,7 +766,7 @@
           <Group type="102" attributes="0">
               <Component id="telaFundo" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="spBarralateral" min="-2" pref="412" max="-2" attributes="0"/>
+              <Component id="spBarralateral" min="-2" pref="421" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -844,6 +847,13 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="pnlBarralateral">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -874,7 +884,7 @@
                                           <Component id="lblCargodousuario" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblNomedousuario" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="115" max="32767" attributes="0"/>
+                                      <EmptySpace pref="120" max="32767" attributes="0"/>
                                       <Component id="btnLogoff" min="-2" pref="102" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -893,7 +903,7 @@
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="spBarralateral3" pref="396" max="32767" attributes="0"/>
+                          <Component id="spBarralateral3" pref="401" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
