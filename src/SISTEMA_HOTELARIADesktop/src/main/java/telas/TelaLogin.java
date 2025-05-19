@@ -178,7 +178,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        if(txtUsuario.getText().equals("a")&& new String (pfSenha.getPassword()).equals("a")){
+        if(txtUsuario.getText().equals("admin")&& new String (pfSenha.getPassword()).equals("admin")){
             
             JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
              TelaPrincipal tela = new TelaPrincipal();
