@@ -38,7 +38,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         lblMensagemdeavisso = new javax.swing.JLabel();
         btnOk = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        painelPrincipal = new javax.swing.JPanel();
         pnlConsultas = new javax.swing.JPanel();
         lblAvisoantesdocadastro = new javax.swing.JLabel();
         lblBuscarpornome = new javax.swing.JLabel();
@@ -52,7 +52,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         pnlDadospessoais = new javax.swing.JPanel();
-        btnRestaurarimagem = new javax.swing.JButton();
+        btnUploadimagem = new javax.swing.JButton();
         lblAvisocampoobrigatorio = new javax.swing.JLabel();
         lblFoto = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
@@ -64,34 +64,17 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         lblCpf = new javax.swing.JLabel();
         ftfCpfdofuncionario = new javax.swing.JFormattedTextField();
         lblEstadocivil = new javax.swing.JLabel();
-        lblFuncao = new javax.swing.JLabel();
-        txtFuncaodofuncionario = new javax.swing.JTextField();
-        lblSexo = new javax.swing.JLabel();
-        cmbSexodofuncionario = new javax.swing.JComboBox<>();
+        cmbEstadocivil = new javax.swing.JComboBox<>();
+        lblNaturalidade = new javax.swing.JLabel();
+        txtNaturalidadedofuncionario = new javax.swing.JTextField();
+        lblGenero = new javax.swing.JLabel();
+        cmbGenerodofuncionario = new javax.swing.JComboBox<>();
         lblNomedamae = new javax.swing.JLabel();
         txtNomedamae = new javax.swing.JTextField();
         lblNomedopai = new javax.swing.JLabel();
         txtNomedopai = new javax.swing.JTextField();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        pnlCadastrodousuario = new javax.swing.JPanel();
-        lblAviso = new javax.swing.JLabel();
-        lblAviso2 = new javax.swing.JLabel();
-        lblNomeusuario = new javax.swing.JLabel();
-        txtNomeusuariodofuncionario = new javax.swing.JTextField();
-        lblSenha = new javax.swing.JLabel();
-        pfSenhadeacessodofuncionario = new javax.swing.JPasswordField();
-        lblGraudeacesso = new javax.swing.JLabel();
-        cmbGraudeacessodofuncionario = new javax.swing.JComboBox<>();
-        pnlContatos = new javax.swing.JPanel();
-        lblEmail = new javax.swing.JLabel();
-        txtEmaildofuncionario = new javax.swing.JTextField();
-        lblCelular = new javax.swing.JLabel();
-        ftfCelulardofuncionario = new javax.swing.JFormattedTextField();
-        lblTelefonefixo = new javax.swing.JLabel();
-        ftfTelefonefixodofuncionario = new javax.swing.JFormattedTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        lblRg = new javax.swing.JLabel();
+        txtRg = new javax.swing.JTextField();
         pnlEndereco = new javax.swing.JPanel();
         lblCep = new javax.swing.JLabel();
         lblCidade = new javax.swing.JLabel();
@@ -107,10 +90,35 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         txtRuadofuncionario = new javax.swing.JTextField();
         lblNumeroenderenco = new javax.swing.JLabel();
         txtNumerenderencoodofuncionario = new javax.swing.JTextField();
-        btnAtualizar = new javax.swing.JButton();
-        pnlCancelarousalvar = new javax.swing.JPanel();
-        btnCancelaredicao = new javax.swing.JButton();
-        btnSalvar = new javax.swing.JButton();
+        pnlContatos = new javax.swing.JPanel();
+        lblEmail = new javax.swing.JLabel();
+        txtEmaildofuncionario = new javax.swing.JTextField();
+        lblCelular = new javax.swing.JLabel();
+        ftfCelulardofuncionario = new javax.swing.JFormattedTextField();
+        cbWhatsapp = new javax.swing.JCheckBox();
+        lblTelefonefixo = new javax.swing.JLabel();
+        ftfTelefonefixodofuncionario = new javax.swing.JFormattedTextField();
+        pnlProfissional = new javax.swing.JPanel();
+        lblMatricula = new javax.swing.JLabel();
+        txtMatricula = new javax.swing.JTextField();
+        lblCargo = new javax.swing.JLabel();
+        cmbCargo = new javax.swing.JComboBox<>();
+        lblDepartamento = new javax.swing.JLabel();
+        cmbDepartamento = new javax.swing.JComboBox<>();
+        lblDataadmissao = new javax.swing.JLabel();
+        ftfDataadmissao = new javax.swing.JFormattedTextField();
+        lblRegimecontratacao = new javax.swing.JLabel();
+        cmbRegimecontratacao = new javax.swing.JComboBox<>();
+        lblJornadatrabalho = new javax.swing.JLabel();
+        txtJornadatrabalho = new javax.swing.JTextField();
+        lblSalariobase = new javax.swing.JLabel();
+        txtSalariobase = new javax.swing.JTextField();
+        lblNumeropis = new javax.swing.JLabel();
+        ftfNumeropis = new javax.swing.JFormattedTextField();
+        lblCtps = new javax.swing.JLabel();
+        ftfCtps = new javax.swing.JFormattedTextField();
+        lblStatus = new javax.swing.JLabel();
+        cmbStatus = new javax.swing.JComboBox<>();
         pnlAnotacaointernas = new javax.swing.JPanel();
         lblObsgerais = new javax.swing.JLabel();
         txtObsgerais = new javax.swing.JTextField();
@@ -118,27 +126,19 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         txtHistorico = new javax.swing.JTextField();
         lblComentariogestao = new javax.swing.JLabel();
         txtComentariogestao = new javax.swing.JTextField();
-        pnlProfissional = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        pnlCadastrodousuario = new javax.swing.JPanel();
+        lblAviso = new javax.swing.JLabel();
+        lblAviso2 = new javax.swing.JLabel();
+        lblNomeusuario = new javax.swing.JLabel();
+        txtNomeusuariodofuncionario = new javax.swing.JTextField();
+        lblSenha = new javax.swing.JLabel();
+        pfSenhadeacessodofuncionario = new javax.swing.JPasswordField();
+        lblGraudeacesso = new javax.swing.JLabel();
+        cmbGraudeacessodofuncionario = new javax.swing.JComboBox<>();
+        pnlCancelarousalvar = new javax.swing.JPanel();
+        btnCancelaredicao = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
 
         telaFundo.setTitle("Informação");
 
@@ -333,13 +333,13 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
 
         pnlDadospessoais.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Pessoais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        btnRestaurarimagem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnRestaurarimagem.setText("Upload Imagem");
-        btnRestaurarimagem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnRestaurarimagem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRestaurarimagem.addActionListener(new java.awt.event.ActionListener() {
+        btnUploadimagem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnUploadimagem.setText("Upload Imagem");
+        btnUploadimagem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnUploadimagem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUploadimagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestaurarimagemActionPerformed(evt);
+                btnUploadimagemActionPerformed(evt);
             }
         });
 
@@ -377,14 +377,16 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         lblEstadocivil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEstadocivil.setText("Estado Civil:");
 
-        lblFuncao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblFuncao.setText("Naturalidade:");
+        cmbEstadocivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Casado", "Divorciado", "Separado", "Solteiro", "Viúvo" }));
 
-        lblSexo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblSexo.setText("Gênero:");
+        lblNaturalidade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblNaturalidade.setText("Naturalidade:");
 
-        cmbSexodofuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Masculino", "Feminino" }));
-        cmbSexodofuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblGenero.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblGenero.setText("Gênero:");
+
+        cmbGenerodofuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Masculino", "Feminino" }));
+        cmbGenerodofuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         lblNomedamae.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNomedamae.setText("Nome da mãe:");
@@ -392,10 +394,8 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         lblNomedopai.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNomedopai.setText("Nome do pai:");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Casado", "Divorciado", "Separado", "Solteiro", "Viúvo" }));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel11.setText("*RG:");
+        lblRg.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblRg.setText("*RG:");
 
         javax.swing.GroupLayout pnlDadospessoaisLayout = new javax.swing.GroupLayout(pnlDadospessoais);
         pnlDadospessoais.setLayout(pnlDadospessoaisLayout);
@@ -421,10 +421,10 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                                             .addComponent(lblCpf, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel11)
+                                        .addComponent(lblRg)
                                         .addGap(82, 82, 82)
                                         .addGroup(pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cmbEstadocivil, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblEstadocivil))
                                         .addGap(108, 108, 108)))
                                 .addGap(9, 9, 9)
@@ -437,7 +437,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadospessoaisLayout.createSequentialGroup()
                                         .addComponent(ftfCpfdofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(33, 33, 33)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(lblNomedamae)
                                     .addComponent(txtNomedamae, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(71, 71, 71)
@@ -451,12 +451,12 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                                                 .addGap(155, 155, 155))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadospessoaisLayout.createSequentialGroup()
                                                 .addGroup(pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblFuncao)
-                                                    .addComponent(txtFuncaodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(lblNaturalidade)
+                                                    .addComponent(txtNaturalidadedofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(33, 33, 33)))
                                         .addGroup(pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cmbSexodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblSexo))
+                                            .addComponent(cmbGenerodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblGenero))
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(37, 37, 37))))
                     .addGroup(pnlDadospessoaisLayout.createSequentialGroup()
@@ -464,9 +464,9 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                         .addComponent(lblAvisocampoobrigatorio)
                         .addContainerGap())))
             .addGroup(pnlDadospessoaisLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnRestaurarimagem)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(btnUploadimagem)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlDadospessoaisLayout.setVerticalGroup(
             pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -488,16 +488,16 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                         .addGroup(pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCpf)
                             .addComponent(lblEstadocivil)
-                            .addComponent(lblFuncao)
-                            .addComponent(lblSexo)
-                            .addComponent(jLabel11))
+                            .addComponent(lblNaturalidade)
+                            .addComponent(lblGenero)
+                            .addComponent(lblRg))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ftfCpfdofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFuncaodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbSexodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNaturalidadedofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbEstadocivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbGenerodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20)
                         .addGroup(pnlDadospessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNomedopai)
@@ -508,150 +508,8 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                             .addComponent(txtNomedamae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRestaurarimagem)
+                .addComponent(btnUploadimagem)
                 .addContainerGap(28, Short.MAX_VALUE))
-        );
-
-        pnlCadastrodousuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        lblAviso.setText("Os campos abaixo só serão preenchidos para os funcionários que terão acesso ao sistema. Ao preencher algum campo,");
-
-        lblAviso2.setText("todos os outros serão obrigatórios!");
-
-        lblNomeusuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblNomeusuario.setText("Nome Usuário:");
-
-        lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblSenha.setText("Senha:");
-
-        lblGraudeacesso.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblGraudeacesso.setText("Grau de Acesso:");
-
-        cmbGraudeacessodofuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Administrador", "Gerente", "Recepcionista" }));
-        cmbGraudeacessodofuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cmbGraudeacessodofuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbGraudeacessodofuncionarioActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlCadastrodousuarioLayout = new javax.swing.GroupLayout(pnlCadastrodousuario);
-        pnlCadastrodousuario.setLayout(pnlCadastrodousuarioLayout);
-        pnlCadastrodousuarioLayout.setHorizontalGroup(
-            pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCadastrodousuarioLayout.createSequentialGroup()
-                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCadastrodousuarioLayout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(lblAviso))
-                    .addGroup(pnlCadastrodousuarioLayout.createSequentialGroup()
-                        .addGap(308, 308, 308)
-                        .addComponent(lblAviso2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pnlCadastrodousuarioLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNomeusuario)
-                    .addComponent(txtNomeusuariodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSenha)
-                    .addComponent(pfSenhadeacessodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(103, 103, 103)
-                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblGraudeacesso)
-                    .addComponent(cmbGraudeacessodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(74, 74, 74))
-        );
-        pnlCadastrodousuarioLayout.setVerticalGroup(
-            pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCadastrodousuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblAviso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAviso2)
-                .addGap(18, 18, 18)
-                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblGraudeacesso)
-                        .addComponent(lblNomeusuario)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNomeusuariodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pfSenhadeacessodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbGraudeacessodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-
-        pnlContatos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contatos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblEmail.setText("Email:");
-
-        txtEmaildofuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmaildofuncionarioActionPerformed(evt);
-            }
-        });
-
-        lblCelular.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblCelular.setText("*Celular:");
-
-        try {
-            ftfCelulardofuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        lblTelefonefixo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblTelefonefixo.setText("Fixo:");
-
-        try {
-            ftfTelefonefixodofuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        jCheckBox1.setText("Whatsapp");
-
-        javax.swing.GroupLayout pnlContatosLayout = new javax.swing.GroupLayout(pnlContatos);
-        pnlContatos.setLayout(pnlContatosLayout);
-        pnlContatosLayout.setHorizontalGroup(
-            pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlContatosLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEmail)
-                    .addComponent(txtEmaildofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlContatosLayout.createSequentialGroup()
-                        .addComponent(ftfCelulardofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox1))
-                    .addComponent(lblCelular))
-                .addGap(52, 52, 52)
-                .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ftfTelefonefixodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTelefonefixo))
-                .addGap(33, 33, 33))
-        );
-        pnlContatosLayout.setVerticalGroup(
-            pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlContatosLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEmail)
-                    .addComponent(lblCelular)
-                    .addComponent(lblTelefonefixo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmaildofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ftfCelulardofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(ftfTelefonefixodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pnlEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Endereço", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
@@ -755,50 +613,219 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        btnAtualizar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-editar_pessoa20x20.png"))); // NOI18N
-        btnAtualizar.setText("Atualizar");
-        btnAtualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlContatos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contatos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        btnCancelaredicao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCancelaredicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
-        btnCancelaredicao.setText("Cancelar Edição");
-        btnCancelaredicao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCancelaredicao.addActionListener(new java.awt.event.ActionListener() {
+        lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblEmail.setText("Email:");
+
+        txtEmaildofuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelaredicaoActionPerformed(evt);
+                txtEmaildofuncionarioActionPerformed(evt);
             }
         });
 
-        btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-finalizar_pessoa20x20.png"))); // NOI18N
-        btnSalvar.setText("Salvar");
-        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
+        lblCelular.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCelular.setText("*Celular:");
 
-        javax.swing.GroupLayout pnlCancelarousalvarLayout = new javax.swing.GroupLayout(pnlCancelarousalvar);
-        pnlCancelarousalvar.setLayout(pnlCancelarousalvarLayout);
-        pnlCancelarousalvarLayout.setHorizontalGroup(
-            pnlCancelarousalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCancelarousalvarLayout.createSequentialGroup()
-                .addContainerGap(282, Short.MAX_VALUE)
-                .addComponent(btnCancelaredicao)
-                .addGap(18, 18, 18)
-                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        try {
+            ftfCelulardofuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        cbWhatsapp.setText("Whatsapp");
+
+        lblTelefonefixo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTelefonefixo.setText("Fixo:");
+
+        try {
+            ftfTelefonefixodofuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        javax.swing.GroupLayout pnlContatosLayout = new javax.swing.GroupLayout(pnlContatos);
+        pnlContatos.setLayout(pnlContatosLayout);
+        pnlContatosLayout.setHorizontalGroup(
+            pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlContatosLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEmail)
+                    .addComponent(txtEmaildofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlContatosLayout.createSequentialGroup()
+                        .addComponent(ftfCelulardofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbWhatsapp))
+                    .addComponent(lblCelular))
+                .addGap(52, 52, 52)
+                .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ftfTelefonefixodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTelefonefixo))
+                .addGap(33, 33, 33))
         );
-        pnlCancelarousalvarLayout.setVerticalGroup(
-            pnlCancelarousalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCancelarousalvarLayout.createSequentialGroup()
+        pnlContatosLayout.setVerticalGroup(
+            pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlContatosLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCelular, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblEmail)
+                        .addComponent(lblTelefonefixo)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEmaildofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ftfCelulardofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbWhatsapp)
+                    .addComponent(ftfTelefonefixodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        pnlProfissional.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Profissional", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        lblMatricula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblMatricula.setText("Matrícula:");
+
+        lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCargo.setText("Cargo:");
+
+        cmbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Gerente Geral", "Gerente RH", "Gerente de Recepção", "Recepcionista", "Telefonista", "Chef Executivo", "Copeiro(a)", "Auxiliar de Cozinha", "Garçom", "Bartender", "Barista", "Governanta", "Camareiro(a)", "Lavanderia", "Valet", "Chefe de Manutenção", "Eletricista", "Encanador", "Jardineiro", "Diretor Comercial", "Vendedor Corporativo", "Social Media Manager", "Recrutador", "Financeiro", "Chefe de Segurança", "Vigia", "Porteiro" }));
+
+        lblDepartamento.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblDepartamento.setText("Departamento:");
+
+        cmbDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Gerência", "Recepção", "A&B", "Governança", "Manutenção", "Marketing", "Recursos Humanos", "Administrativo", "Segurança" }));
+
+        lblDataadmissao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblDataadmissao.setText("Data de Admissão:");
+
+        try {
+            ftfDataadmissao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        lblRegimecontratacao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblRegimecontratacao.setText("Regime de Contratação:");
+
+        cmbRegimecontratacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Aprendizagem", "Experiência", "Intermitente", "Prazo Determinado", "Prazo Indeterminado", "Temporário", "Estágio" }));
+
+        lblJornadatrabalho.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblJornadatrabalho.setText("Jornada de Trabalho:");
+
+        lblSalariobase.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblSalariobase.setText("Salário Base:");
+
+        lblNumeropis.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblNumeropis.setText("Número do PIS:");
+
+        try {
+            ftfNumeropis.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.#####.##-#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        lblCtps.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCtps.setText("CTPS:");
+
+        try {
+            ftfCtps.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#######/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        lblStatus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblStatus.setText("Status:");
+
+        cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Ativo", "Inativo", "Licenciado", "Afastado" }));
+
+        javax.swing.GroupLayout pnlProfissionalLayout = new javax.swing.GroupLayout(pnlProfissional);
+        pnlProfissional.setLayout(pnlProfissionalLayout);
+        pnlProfissionalLayout.setHorizontalGroup(
+            pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlProfissionalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlCancelarousalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCancelaredicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlProfissionalLayout.createSequentialGroup()
+                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cmbRegimecontratacao, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblRegimecontratacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(35, 35, 35)
+                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblStatus)
+                            .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSalariobase, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSalariobase))
+                        .addGap(37, 37, 37)
+                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ftfNumeropis, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNumeropis))
+                        .addGap(40, 40, 40)
+                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ftfCtps, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCtps)))
+                    .addGroup(pnlProfissionalLayout.createSequentialGroup()
+                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMatricula)
+                            .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCargo)
+                            .addComponent(cmbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlProfissionalLayout.createSequentialGroup()
+                                .addComponent(lblDepartamento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pnlProfissionalLayout.createSequentialGroup()
+                                .addComponent(cmbDepartamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(57, 57, 57)))
+                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDataadmissao)
+                            .addComponent(ftfDataadmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblJornadatrabalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtJornadatrabalho))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlProfissionalLayout.setVerticalGroup(
+            pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlProfissionalLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMatricula)
+                    .addComponent(lblCargo)
+                    .addComponent(lblDepartamento)
+                    .addComponent(lblDataadmissao)
+                    .addComponent(lblJornadatrabalho))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ftfDataadmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtJornadatrabalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRegimecontratacao)
+                    .addComponent(lblSalariobase)
+                    .addComponent(lblNumeropis)
+                    .addComponent(lblCtps)
+                    .addComponent(lblStatus))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbRegimecontratacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSalariobase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ftfNumeropis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ftfCtps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pnlAnotacaointernas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Anotações Internas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
@@ -847,162 +874,136 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        pnlProfissional.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Profissional", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        pnlCadastrodousuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Matrícula:");
+        lblAviso.setText("Os campos abaixo só serão preenchidos para os funcionários que terão acesso ao sistema. Ao preencher algum campo,");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("Cargo:");
+        lblAviso2.setText("todos os outros serão obrigatórios!");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Gerente Geral", "Gerente RH", "Gerente de Recepção", "Recepcionista", "Telefonista", "Chef Executivo", "Copeiro(a)", "Auxiliar de Cozinha", "Garçom", "Bartender", "Barista", "Governanta", "Camareiro(a)", "Lavanderia", "Valet", "Chefe de Manutenção", "Eletricista", "Encanador", "Jardineiro", "Diretor Comercial", "Vendedor Corporativo", "Social Media Manager", "Recrutador", "Financeiro", "Chefe de Segurança", "Vigia", "Porteiro" }));
+        lblNomeusuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblNomeusuario.setText("Nome Usuário:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("Departamento:");
+        lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblSenha.setText("Senha:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Gerência", "Recepção", "A&B", "Governança", "Manutenção", "Marketing", "Recursos Humanos", "Administrativo", "Segurança" }));
+        lblGraudeacesso.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblGraudeacesso.setText("Grau de Acesso:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setText("Data de Admissão:");
+        cmbGraudeacessodofuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Administrador", "Gerente", "Recepcionista" }));
+        cmbGraudeacessodofuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmbGraudeacessodofuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbGraudeacessodofuncionarioActionPerformed(evt);
+            }
+        });
 
-        try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setText("Regime de Contratação:");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Aprendizagem", "Experiência", "Intermitente", "Prazo Determinado", "Prazo Indeterminado", "Temporário", "Estágio" }));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setText("Jornada de Trabalho:");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setText("Salário Base:");
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setText("Número do PIS:");
-
-        try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.#####.##-#")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel9.setText("CTPS:");
-
-        try {
-            jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#######/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel10.setText("Status:");
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Ativo", "Inativo", "Licenciado", "Afastado" }));
-
-        javax.swing.GroupLayout pnlProfissionalLayout = new javax.swing.GroupLayout(pnlProfissional);
-        pnlProfissional.setLayout(pnlProfissionalLayout);
-        pnlProfissionalLayout.setHorizontalGroup(
-            pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlProfissionalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlProfissionalLayout.createSequentialGroup()
-                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(35, 35, 35)
-                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(37, 37, 37)
-                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addGap(40, 40, 40)
-                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)))
-                    .addGroup(pnlProfissionalLayout.createSequentialGroup()
-                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlProfissionalLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(pnlProfissionalLayout.createSequentialGroup()
-                                .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(57, 57, 57)))
-                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(46, 46, 46)
-                        .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField2))))
+        javax.swing.GroupLayout pnlCadastrodousuarioLayout = new javax.swing.GroupLayout(pnlCadastrodousuario);
+        pnlCadastrodousuario.setLayout(pnlCadastrodousuarioLayout);
+        pnlCadastrodousuarioLayout.setHorizontalGroup(
+            pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCadastrodousuarioLayout.createSequentialGroup()
+                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCadastrodousuarioLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(lblAviso))
+                    .addGroup(pnlCadastrodousuarioLayout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addComponent(lblAviso2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlCadastrodousuarioLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNomeusuario)
+                    .addComponent(txtNomeusuariodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSenha)
+                    .addComponent(pfSenhadeacessodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(103, 103, 103)
+                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblGraudeacesso)
+                    .addComponent(cmbGraudeacessodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74))
         );
-        pnlProfissionalLayout.setVerticalGroup(
-            pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlProfissionalLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+        pnlCadastrodousuarioLayout.setVerticalGroup(
+            pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCadastrodousuarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblAviso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
+                .addComponent(lblAviso2)
+                .addGap(18, 18, 18)
+                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblGraudeacesso)
+                        .addComponent(lblNomeusuario)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGroup(pnlCadastrodousuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNomeusuariodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pfSenhadeacessodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbGraudeacessodofuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        btnCancelaredicao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCancelaredicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
+        btnCancelaredicao.setText("Cancelar Edição");
+        btnCancelaredicao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelaredicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelaredicaoActionPerformed(evt);
+            }
+        });
+
+        btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-finalizar_pessoa20x20.png"))); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlCancelarousalvarLayout = new javax.swing.GroupLayout(pnlCancelarousalvar);
+        pnlCancelarousalvar.setLayout(pnlCancelarousalvarLayout);
+        pnlCancelarousalvarLayout.setHorizontalGroup(
+            pnlCancelarousalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCancelarousalvarLayout.createSequentialGroup()
+                .addContainerGap(282, Short.MAX_VALUE)
+                .addComponent(btnCancelaredicao)
+                .addGap(18, 18, 18)
+                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        pnlCancelarousalvarLayout.setVerticalGroup(
+            pnlCancelarousalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCancelarousalvarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlCancelarousalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCancelaredicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        btnAtualizar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-editar_pessoa20x20.png"))); // NOI18N
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout painelPrincipalLayout = new javax.swing.GroupLayout(painelPrincipal);
+        painelPrincipal.setLayout(painelPrincipalLayout);
+        painelPrincipalLayout.setHorizontalGroup(
+            painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelPrincipalLayout.createSequentialGroup()
                 .addComponent(pnlCancelarousalvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAtualizar)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelPrincipalLayout.createSequentialGroup()
+                .addContainerGap(46, Short.MAX_VALUE)
+                .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlCadastrodousuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlContatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1010,11 +1011,11 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                     .addComponent(pnlDadospessoais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlAnotacaointernas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlProfissional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        painelPrincipalLayout.setVerticalGroup(
+            painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -1030,13 +1031,13 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(pnlCadastrodousuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlCancelarousalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jScrollPane1.setViewportView(jPanel1);
+        jScrollPane1.setViewportView(painelPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1087,9 +1088,9 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbGraudeacessodofuncionarioActionPerformed
 
-    private void btnRestaurarimagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarimagemActionPerformed
+    private void btnUploadimagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadimagemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRestaurarimagemActionPerformed
+    }//GEN-LAST:event_btnUploadimagemActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
@@ -1123,43 +1124,27 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimparbusca;
     private javax.swing.JButton btnOk;
-    private javax.swing.JButton btnRestaurarimagem;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton btnUploadimagem;
+    private javax.swing.JCheckBox cbWhatsapp;
+    private javax.swing.JComboBox<String> cmbCargo;
+    private javax.swing.JComboBox<String> cmbDepartamento;
+    private javax.swing.JComboBox<String> cmbEstadocivil;
     private javax.swing.JComboBox<String> cmbEstadodofuncionario;
+    private javax.swing.JComboBox<String> cmbGenerodofuncionario;
     private javax.swing.JComboBox<String> cmbGraudeacessodofuncionario;
-    private javax.swing.JComboBox<String> cmbSexodofuncionario;
+    private javax.swing.JComboBox<String> cmbRegimecontratacao;
+    private javax.swing.JComboBox<String> cmbStatus;
     private javax.swing.JFormattedTextField ftfCelulardofuncionario;
     private javax.swing.JFormattedTextField ftfCepdofuncionario;
     private javax.swing.JFormattedTextField ftfCpfdofuncionario;
+    private javax.swing.JFormattedTextField ftfCtps;
+    private javax.swing.JFormattedTextField ftfDataadmissao;
     private javax.swing.JFormattedTextField ftfDatadenascimentodofuncionario;
+    private javax.swing.JFormattedTextField ftfNumeropis;
     private javax.swing.JFormattedTextField ftfTelefonefixodofuncionario;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lblAviso;
     private javax.swing.JLabel lblAviso2;
     private javax.swing.JLabel lblAvisoantesdocadastro;
@@ -1167,32 +1152,44 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblAvisoeditarouexcluir;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblBuscarpornome;
+    private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblCep;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblComentariogestao;
     private javax.swing.JLabel lblComplemento;
     private javax.swing.JLabel lblCpf;
+    private javax.swing.JLabel lblCtps;
+    private javax.swing.JLabel lblDataadmissao;
     private javax.swing.JLabel lblDatadenascimento;
+    private javax.swing.JLabel lblDepartamento;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblEstadocivil;
     private javax.swing.JLabel lblFoto;
-    private javax.swing.JLabel lblFuncao;
+    private javax.swing.JLabel lblGenero;
     private javax.swing.JLabel lblGraudeacesso;
     private javax.swing.JLabel lblHistorico;
+    private javax.swing.JLabel lblJornadatrabalho;
+    private javax.swing.JLabel lblMatricula;
     private javax.swing.JLabel lblMensagemdeavisso;
+    private javax.swing.JLabel lblNaturalidade;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNomedamae;
     private javax.swing.JLabel lblNomedopai;
     private javax.swing.JLabel lblNomeusuario;
     private javax.swing.JLabel lblNumeroenderenco;
+    private javax.swing.JLabel lblNumeropis;
     private javax.swing.JLabel lblObsgerais;
+    private javax.swing.JLabel lblRegimecontratacao;
+    private javax.swing.JLabel lblRg;
     private javax.swing.JLabel lblRua;
+    private javax.swing.JLabel lblSalariobase;
     private javax.swing.JLabel lblSenha;
-    private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblSobrenome;
+    private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTelefonefixo;
+    private javax.swing.JPanel painelPrincipal;
     private javax.swing.JPasswordField pfSenhadeacessodofuncionario;
     private javax.swing.JPanel pnlAnotacaointernas;
     private javax.swing.JPanel pnlCadastrodousuario;
@@ -1211,8 +1208,10 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtComentariogestao;
     private javax.swing.JTextField txtComplementodofuncionario;
     private javax.swing.JTextField txtEmaildofuncionario;
-    private javax.swing.JTextField txtFuncaodofuncionario;
     private javax.swing.JTextField txtHistorico;
+    private javax.swing.JTextField txtJornadatrabalho;
+    private javax.swing.JTextField txtMatricula;
+    private javax.swing.JTextField txtNaturalidadedofuncionario;
     private javax.swing.JTextField txtNomebuscado;
     private javax.swing.JTextField txtNomedamae;
     private javax.swing.JTextField txtNomedofuncionario;
@@ -1220,7 +1219,9 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNomeusuariodofuncionario;
     private javax.swing.JTextField txtNumerenderencoodofuncionario;
     private javax.swing.JTextField txtObsgerais;
+    private javax.swing.JTextField txtRg;
     private javax.swing.JTextField txtRuadofuncionario;
+    private javax.swing.JTextField txtSalariobase;
     private javax.swing.JTextField txtSobrenomedofuncionario;
     // End of variables declaration//GEN-END:variables
 
