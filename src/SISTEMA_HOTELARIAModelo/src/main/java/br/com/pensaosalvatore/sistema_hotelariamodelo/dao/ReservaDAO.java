@@ -2,7 +2,7 @@
 
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Reservas;
+import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Reserva;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,8 +13,8 @@ import java.util.List;
  *
  * @author 202412170006
  */
-public class ReservasDAO {
-    public void inserir(Reservas status) throws Exception {
+public class ReservaDAO {
+    public void inserir(Reserva status) throws Exception {
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -39,7 +39,7 @@ public class ReservasDAO {
         con.close();
     }
     
-    public void alterar(Reservas status) throws Exception {
+    public void alterar(Reserva status) throws Exception {
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -64,7 +64,7 @@ public class ReservasDAO {
         con.close();    
     }
      
-    public Reservas selecionar (int id) throws Exception {
+    public Reserva selecionar (int id) throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         
         Connection con = DriverManager.getConnection(
@@ -78,7 +78,7 @@ public class ReservasDAO {
         ResultSet rs = comando.executeQuery();
         
         if (rs.next()){
-            Reservas status = new Reservas();
+            Reserva status = new Reserva();
             status.setId(rs.getInt("id"));
             status.setNome(rs.getString("nome"));
             status.setDescricao(rs.getString("descricao"));
@@ -89,11 +89,11 @@ public class ReservasDAO {
         }
     }
     
-    public List <Reservas> listar() throws Exception {
+    public List <Reserva> listar() throws Exception {
         return null;
     }
     
-    public List <Reservas> listar(String nome) throws Exception{
+    public List <Reserva> listar(String nome) throws Exception{
         return null;
     }
     

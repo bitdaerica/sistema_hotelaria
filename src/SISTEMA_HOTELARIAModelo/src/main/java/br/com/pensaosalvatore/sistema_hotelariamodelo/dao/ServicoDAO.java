@@ -1,6 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Servicos;
+import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Servico;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,8 +11,8 @@ import java.util.List;
  *
  * @author 202412170006
  */
-public class ServicosDAO{
-    public void inserir(Servicos lavanderia) throws Exception {
+public class ServicoDAO{
+    public void inserir(Servico lavanderia) throws Exception {
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -38,7 +38,7 @@ public class ServicosDAO{
     }
     
 
-    public void alterar(Servicos lavanderia) throws Exception {
+    public void alterar(Servico lavanderia) throws Exception {
                 //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -63,7 +63,7 @@ public class ServicosDAO{
         con.close();
     }
 
-    public Servicos selecionar (int id) throws Exception {
+    public Servico selecionar (int id) throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         
         Connection con = DriverManager.getConnection(
@@ -77,7 +77,7 @@ public class ServicosDAO{
         ResultSet rs =comando.executeQuery();
         
         if (rs.next()){
-            Servicos lavanderia = new Servicos();
+            Servico lavanderia = new Servico();
             lavanderia.setId(rs.getInt("id"));
             lavanderia.setNome(rs.getString("nome"));
             lavanderia.setDescricao(rs.getString("descricao"));
@@ -89,11 +89,11 @@ public class ServicosDAO{
 
     }
 
-    public List <Servicos> listar() throws Exception {
+    public List <Servico> listar() throws Exception {
         return null;
     }
     
-    public List <Servicos> listar(String nome) throws Exception{
+    public List <Servico> listar(String nome) throws Exception{
         return null;
     }
     

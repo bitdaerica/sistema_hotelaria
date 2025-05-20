@@ -8,7 +8,7 @@ package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
  *
  * @author 202412170006
  */
-public class Funcionarios {
+public class Produto {
     private Integer id;
     
     private String nome;
@@ -21,5 +21,5 @@ public class Funcionarios {
     public void setId(Integer id){
         this.id = id;
     }
-       
+        
 }

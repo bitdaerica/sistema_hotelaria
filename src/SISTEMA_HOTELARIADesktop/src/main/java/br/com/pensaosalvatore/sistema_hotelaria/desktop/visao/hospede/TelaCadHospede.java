@@ -731,7 +731,7 @@ public class TelaCadHospede extends javax.swing.JInternalFrame {
         lblPreferenciacama.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblPreferenciacama.setText("Preferência de Cama:");
 
-        cmbPreferenciacama.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Casal", "Extra", "King Size", "Queen Size", "Solteiro", "Super King", "Sofá-Cama", "Twin" }));
+        cmbPreferenciacama.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Casal", "Extra", "King", "Queen", "Solteiro" }));
 
         lblItensespeciais.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblItensespeciais.setText("Itens Especiais:");

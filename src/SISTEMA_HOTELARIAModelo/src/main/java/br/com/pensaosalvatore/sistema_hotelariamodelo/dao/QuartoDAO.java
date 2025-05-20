@@ -4,7 +4,7 @@
  */
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Quartos;
+import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Quarto;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,8 +14,8 @@ import java.util.List;
  *
  * @author 202412170006
  */
-public class QuartosDAO {
-    public void inserir(Quartos tipo) throws Exception {
+public class QuartoDAO {
+    public void inserir(Quarto tipo) throws Exception {
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -40,17 +40,17 @@ public class QuartosDAO {
         con.close();
     }
     
-    public void alterar(Quartos tipo) throws Exception {}
+    public void alterar(Quarto tipo) throws Exception {}
      
-    public Quartos selecionar (int id) throws Exception {
+    public Quarto selecionar (int id) throws Exception {
         return null;
     }
     
-    public List <Quartos> listar() throws Exception {
+    public List <Quarto> listar() throws Exception {
         return null;
     }
     
-    public List <Quartos> listar(String nome) throws Exception{
+    public List <Quarto> listar(String nome) throws Exception{
         return null;
     }
     

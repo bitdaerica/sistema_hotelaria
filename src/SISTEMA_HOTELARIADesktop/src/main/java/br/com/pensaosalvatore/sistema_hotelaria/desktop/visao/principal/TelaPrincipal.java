@@ -133,7 +133,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Hotel ABEF - Home");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setResizable(false);
 
         telaFundo.setToolTipText("");
 
@@ -804,7 +803,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(pnlRodape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(999, 617));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

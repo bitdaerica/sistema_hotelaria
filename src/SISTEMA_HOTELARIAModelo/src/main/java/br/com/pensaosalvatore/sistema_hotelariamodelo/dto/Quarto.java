@@ -8,7 +8,7 @@ package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
  *
  * @author 202412170006
  */
-public class Produtos {
+public class Quarto {
     private Integer id;
     
     private String nome;
@@ -20,6 +20,14 @@ public class Produtos {
     }
     public void setId(Integer id){
         this.id = id;
+    }
+
+    public String getDescricao() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public String getNome() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
         
 }
