@@ -1098,10 +1098,13 @@
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Component id="lblNomehotelbarralateral" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="lblLogobarralateral" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblNomehotelbarralateral" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>

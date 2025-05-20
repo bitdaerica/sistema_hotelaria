@@ -2,7 +2,7 @@
 
 
 
-package telas;
+package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.empresa;
 
 import javax.swing.JOptionPane;
 

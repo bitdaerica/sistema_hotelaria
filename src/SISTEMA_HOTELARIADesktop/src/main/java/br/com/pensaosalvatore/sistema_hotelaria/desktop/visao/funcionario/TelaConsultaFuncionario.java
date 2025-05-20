@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package telas;
+package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario;
 
 /**
  *
  * @author Érica_Almeida
  */
-public class TelaConsultaProduto extends javax.swing.JInternalFrame {
+public class TelaConsultaFuncionario extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form TelaConsultaProduto
+     * Creates new form TelaConsultaFuncionario
      */
-    public TelaConsultaProduto() {
+    public TelaConsultaFuncionario() {
         initComponents();
         btnLimparselecao.setVisible(false);
     }
@@ -28,25 +28,26 @@ public class TelaConsultaProduto extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        pnlBuscarprodutos = new javax.swing.JPanel();
+        pnlConsultarfuncionario = new javax.swing.JPanel();
         lblBuscarpornome = new javax.swing.JLabel();
-        txtProdutobuscado = new javax.swing.JTextField();
+        txtFuncionariobuscado = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnLimparselecao = new javax.swing.JButton();
         pnlTabela = new javax.swing.JPanel();
         pnlscrolTabela = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
 
+        setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Buscar Produtos");
+        setTitle("Consultar Funcionario");
 
-        pnlBuscarprodutos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Produtos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        pnlConsultarfuncionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultar Funcionário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         lblBuscarpornome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblBuscarpornome.setText("Nome do Produto:");
+        lblBuscarpornome.setText("Buscar por Nome:");
 
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-lupa20x20.png"))); // NOI18N
@@ -66,34 +67,34 @@ public class TelaConsultaProduto extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout pnlBuscarprodutosLayout = new javax.swing.GroupLayout(pnlBuscarprodutos);
-        pnlBuscarprodutos.setLayout(pnlBuscarprodutosLayout);
-        pnlBuscarprodutosLayout.setHorizontalGroup(
-            pnlBuscarprodutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBuscarprodutosLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlConsultarfuncionarioLayout = new javax.swing.GroupLayout(pnlConsultarfuncionario);
+        pnlConsultarfuncionario.setLayout(pnlConsultarfuncionarioLayout);
+        pnlConsultarfuncionarioLayout.setHorizontalGroup(
+            pnlConsultarfuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlConsultarfuncionarioLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(lblBuscarpornome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtProdutobuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtFuncionariobuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLimparselecao)
                 .addContainerGap())
         );
-        pnlBuscarprodutosLayout.setVerticalGroup(
-            pnlBuscarprodutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBuscarprodutosLayout.createSequentialGroup()
+        pnlConsultarfuncionarioLayout.setVerticalGroup(
+            pnlConsultarfuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlConsultarfuncionarioLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(pnlBuscarprodutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlConsultarfuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBuscarpornome)
-                    .addComponent(txtProdutobuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFuncionariobuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar)
                     .addComponent(btnLimparselecao))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        pnlTabela.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Produtos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        pnlTabela.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Funcionários", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         pnlscrolTabela.setToolTipText("");
         pnlscrolTabela.setViewportBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -103,11 +104,11 @@ public class TelaConsultaProduto extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "NOME", "DESCRIÇÃO", "CATEGORIA", "FORNECEDOR", "PREÇO CUSTO", "PREÇO VENDA", "DATA FABRICAÇÃO", "DATA VALIDADE", "STATUS", "QTD ESTOQUE", "QTD ESTOQUE MINIMO", "QTD ESTOQUE MAXIMO", "LOCALIZAÇÃO"
+                "ID", "NOME", "CPF", "FUNÇÃO", "CELULAR", "ENDEREÇO", "CIDADE"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -129,8 +130,8 @@ public class TelaConsultaProduto extends javax.swing.JInternalFrame {
             pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabelaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlscrolTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlscrolTabela, javax.swing.GroupLayout.DEFAULT_SIZE, 789, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -138,22 +139,21 @@ public class TelaConsultaProduto extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(188, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(pnlBuscarprodutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addGap(116, 116, 116)
+                        .addComponent(pnlConsultarfuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(pnlBuscarprodutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(pnlConsultarfuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnlTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -161,16 +161,14 @@ public class TelaConsultaProduto extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(169, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setBounds(0, 0, 1487, 965);
@@ -194,10 +192,10 @@ public class TelaConsultaProduto extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimparselecao;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBuscarpornome;
-    private javax.swing.JPanel pnlBuscarprodutos;
+    private javax.swing.JPanel pnlConsultarfuncionario;
     private javax.swing.JPanel pnlTabela;
     private javax.swing.JScrollPane pnlscrolTabela;
     private javax.swing.JTable tabela;
-    private javax.swing.JTextField txtProdutobuscado;
+    private javax.swing.JTextField txtFuncionariobuscado;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,5 @@
 
-package telas;
+package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario;
 
 
 import javax.swing.JOptionPane;

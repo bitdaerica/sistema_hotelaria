@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package telas;
+package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario;
 
 /**
  *
  * @author Érica_Almeida
  */
-public class TelaUsuarioinvalido extends javax.swing.JInternalFrame {
+public class TelaFuncionariocadastrado extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form TelaUsuarioinvalido
+     * Creates new form TelaFuncionariocadastrado
      */
-    public TelaUsuarioinvalido() {
+    public TelaFuncionariocadastrado() {
         initComponents();
     }
 
@@ -32,15 +32,17 @@ public class TelaUsuarioinvalido extends javax.swing.JInternalFrame {
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setClosable(true);
-        setTitle("Aviso");
+        setResizable(true);
+        setTitle("Informação");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lblMensagemdeavisso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblMensagemdeavisso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-informacao20x20.png"))); // NOI18N
-        lblMensagemdeavisso.setText("Usuário ou Senha Inválido!");
+        lblMensagemdeavisso.setText("Usuário cadastrado com sucesso!");
 
         btnOk.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnOk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
         btnOk.setText("OK");
         btnOk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnOk.addActionListener(new java.awt.event.ActionListener() {
@@ -61,7 +63,7 @@ public class TelaUsuarioinvalido extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblMensagemdeavisso)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +92,7 @@ public class TelaUsuarioinvalido extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pack();
+        setBounds(0, 0, 279, 180);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed

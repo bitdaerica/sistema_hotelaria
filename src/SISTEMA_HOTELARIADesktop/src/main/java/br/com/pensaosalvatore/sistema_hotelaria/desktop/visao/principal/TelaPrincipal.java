@@ -1,5 +1,12 @@
 
-package telas;
+package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.principal;
+
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.produto.TelaConsultaProduto;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario.TelaConsultaFuncionario;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.produto.TelaCadProduto;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospede.TelaCadHospede;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario.TelaCadFuncionario;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.empresa.TelaCadEmpresa;
 
 /**
  *
@@ -240,10 +247,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addComponent(btnLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(44, 44, 44))
             .addGroup(pnlBarralateralLayout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblLogobarralateral)
-                    .addComponent(lblNomehotelbarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(136, 136, 136)
+                .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBarralateralLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lblNomehotelbarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblLogobarralateral))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlBarralateralLayout.createSequentialGroup()
