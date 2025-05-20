@@ -156,7 +156,7 @@ public class TelaCadProduto extends javax.swing.JInternalFrame {
         lblCategoria.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCategoria.setText("*Categoria:");
 
-        cmbCategoriadoproduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Acessórios", "Alimentos", "Bebidas", "Conforto", "Eletrônicos", "Higiene", "Segurança", " ", " " }));
+        cmbCategoriadoproduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Acessórios", "Alimentos", "Bebidas", "Conforto", "Eletrônicos", "Higiene", "Segurança" }));
         cmbCategoriadoproduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         lblImagemdoproduto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Imagem do Produto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 10))); // NOI18N

@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author 202412170006
  */
-public class Hospede {
+public class HospedeFisico {
     private Integer id;
     
     private String nome;
