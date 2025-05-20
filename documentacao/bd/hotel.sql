@@ -20,13 +20,35 @@ create table pessoa(
 );
 
 
-create table hospede(
+create table hospedefisico(
     id int primary key auto_increment,
     ultimaVisita varchar(13),
-    nacionalidade varchar(50),
+    naturalidade varchar(50),
     preferencias varchar(255),
     metodo_contato_preferido varchar(50)
     );
+
+create table hospedejuridico(
+    id int primary key auto_increment,
+    razao_social varchar(255),
+    cnpj varchar(18),
+    inscricaoEstadual
+status
+tipodecontrato
+datadecadastro
+observacao
+emailcorporativo
+fixo
+preferenciadecontato
+responsavelfaturamento
+celular
+whatsapp
+notasinternas
+formadepagamento
+prazodefaturamento
+limitedecredito
+interesses
+   );
 
 
 create table funcionario(
