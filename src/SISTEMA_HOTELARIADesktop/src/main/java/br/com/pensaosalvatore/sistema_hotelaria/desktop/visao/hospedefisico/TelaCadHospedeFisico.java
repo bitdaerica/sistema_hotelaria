@@ -1,6 +1,6 @@
 
 
-package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospede;
+package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospedefisico;
 
 import javax.swing.JOptionPane;
 
@@ -8,12 +8,12 @@ import javax.swing.JOptionPane;
  *
  * @author Érica_Almeida
  */
-public class TelaCadHospede extends javax.swing.JInternalFrame {
+public class TelaCadHospedeFisico extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaCadHospede
      */
-    public TelaCadHospede() {
+    public TelaCadHospedeFisico() {
         initComponents();
     
         pnlRodapetabela.setVisible(false);

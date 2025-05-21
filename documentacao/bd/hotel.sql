@@ -5,6 +5,14 @@ default collate utf8_general_ci;
 use hotel;
 
 create table pessoa(
+	id int primary key auto_increment,
+    observacao varchar(255),##
+	email varchar(255),##
+	fixo varchar(13),##
+	celular varchar(13),##
+	whatsapp boolean,##
+    
+    
     nome varchar(40) not null,
     sobrenome varchar(60) not null,
     dataNascimento varchar(13),
@@ -14,7 +22,7 @@ create table pessoa(
     foto varchar(255),
     observacao varchar(255),
     celular varchar(13) not null,
-    fixo varchar (11), 
+    fixo varchar (13), 
     email varchar(255) not null unique,
     dataCadastro date
 );
@@ -25,29 +33,24 @@ create table hospedefisico(
     ultimaVisita varchar(13),
     naturalidade varchar(50),
     preferencias varchar(255),
-    metodo_contato_preferido varchar(50)
+    preferenciadecontato varchar(50)
     );
 
-create table hospedejuridico(
+create table hospedejuridico(			#ok
     id int primary key auto_increment,
-    razao_social varchar(255),
+    razaosocial varchar(255),
     cnpj varchar(18),
-    inscricaoEstadual
-status
-tipodecontrato
-datadecadastro
-observacao
-emailcorporativo
-fixo
-preferenciadecontato
-responsavelfaturamento
-celular
-whatsapp
-notasinternas
-formadepagamento
-prazodefaturamento
-limitedecredito
-interesses
+    inscricaoestadual int(40),
+	statusempresa varchar(14),
+	tipodecontrato varchar(14),
+	datadecadastro varchar(13),
+	preferenciadecontato varchar (255),
+	responsavelfaturamento varchar (255),
+	notasinternas varchar (255),
+	formadepagamento varchar (20),
+	prazodefaturamento varchar(7),
+	limitedecredito double,
+	interesses varchar(255)
    );
 
 

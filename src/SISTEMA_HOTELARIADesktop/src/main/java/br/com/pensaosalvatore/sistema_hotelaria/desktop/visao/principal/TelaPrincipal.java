@@ -4,9 +4,9 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.principal;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.produto.TelaConsultaProduto;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario.TelaConsultaFuncionario;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.produto.TelaCadProduto;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospede.TelaCadHospede;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospedefisico.TelaCadHospedeFisico;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario.TelaCadFuncionario;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.empresa.TelaCadEmpresa;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospedejuridico.TelaCadHospedeJuridico;
 
 /**
  *
@@ -887,14 +887,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_miRelatoriocontasapagarActionPerformed
 
     private void miIndividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miIndividualActionPerformed
-            TelaCadHospede tela = new TelaCadHospede ();
+            TelaCadHospedeFisico tela = new TelaCadHospedeFisico ();
             telaFundo.add(tela);
             tela.setVisible(true);
 
     }//GEN-LAST:event_miIndividualActionPerformed
 
     private void miEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEmpresaActionPerformed
-            TelaCadEmpresa tela = new TelaCadEmpresa ();
+            TelaCadHospedeJuridico tela = new TelaCadHospedeJuridico ();
             telaFundo.add(tela);
             tela.setVisible(true);
 
