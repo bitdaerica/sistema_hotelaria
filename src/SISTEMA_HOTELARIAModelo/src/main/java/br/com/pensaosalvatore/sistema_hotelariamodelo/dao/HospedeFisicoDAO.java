@@ -40,32 +40,32 @@ public class HospedeFisicoDAO {
         // Subistituir os valores dos sinais interrogação
         comando.setString(1, h.getNome());
         comando.setString(2, h.getSobrenome());
-        comando.setGenero(3, h.getGenero());
+        comando.setString(3, h.getGenero().toString());
         comando.setString(4, h.getCpf());
         comando.setDate(5, (Date) h.getDatadenascimento());
         comando.setString(6,h.Estadocivil());
         comando.setString(7, h.getNaturalidade());
         comando.setString(8, h.getProfissao());
         comando.setInt(9, h.getRg());
-        comando.setStatusHospede(10, h.getStatus());
+        comando.setString(10, h.getStatus().toString());
         comando.setString(11, h.getCep());
         comando.setString(12, h.getRua());
         comando.setInt(13, h.getNumero());
         comando.setString(14, h.getComplemento());
         comando.setString(15, h.getBairro());
-        comando.setEstado(16, h.getEstado());
+        comando.setString(16, h.getEstado().toString());
         comando.setString(17, h.getEmail());
         comando.setString(18, h.getCelular());
         comando.setString(19, h.getFixo());
         comando.setInt(20, h.getNumerodocumento());
-        comando.setTipoDocumento(21 h.getTipodocumento());
+        comando.setString(21, h.getTipodocumento().toString());
         comando.setString(22, h.getOrgaoemissor());
         comando.setDate(23, (Date) h.getDatadeemissao());
         comando.setDate(24, (Date) h.getDatadecadastro());
         comando.setString(25, h.getPreferenciadecontato());
-        comando.setString(26, h.getPreferenciadeandar());
+        comando.setString(26, h.getPreferenciadeandar().toString());
         comando.setDate(27, (Date) h.getDatadedaultimavisita());
-        comando.setCama(28, h.getPreferedecama());
+        comando.setString(28, h.getPreferedecama().toString());
         comando.setString(29, h.getItensespeciais());
         comando.setString(30, h.getInteresses());
         comando.setString(31, h.getNotasinternas());
@@ -102,32 +102,32 @@ public class HospedeFisicoDAO {
         // Subistituir os valores dos sinais de interrogação
         comando.setString(1, h.getNome());
         comando.setString(2, h.getSobrenome());
-        comando.setGenero(3, h.getGenero());
+        comando.setString(3, h.getGenero().toString());
         comando.setString(4, h.getCpf());
         comando.setDate(5, (Date) h.getDatadenascimento());
         comando.setString(6,h.Estadocivil());
         comando.setString(7, h.getNaturalidade());
         comando.setString(8, h.getProfissao());
         comando.setInt(9, h.getRg());
-        comando.setStatusHospede(10, h.getStatus());
+        comando.setString(10, h.getStatus().toString());
         comando.setString(11, h.getCep());
         comando.setString(12, h.getRua());
         comando.setInt(13, h.getNumero());
         comando.setString(14, h.getComplemento());
         comando.setString(15, h.getBairro());
-        comando.setEstado(16, h.getEstado());
+        comando.setString(16, h.getEstado().toString());
         comando.setString(17, h.getEmail());
         comando.setString(18, h.getCelular());
         comando.setString(19, h.getFixo());
         comando.setInt(20, h.getNumerodocumento());
-        comando.setTipoDocumento(21 h.getTipodocumento());
+        comando.setString(21, h.getTipodocumento().toString());
         comando.setString(22, h.getOrgaoemissor());
         comando.setDate(23, (Date) h.getDatadeemissao());
         comando.setDate(24, (Date) h.getDatadecadastro());
         comando.setString(25, h.getPreferenciadecontato());
-        comando.setString(26, h.getPreferenciadeandar());
+        comando.setString(26, h.getPreferenciadeandar().toString());
         comando.setDate(27, (Date) h.getDatadedaultimavisita());
-        comando.setCama(28, h.getPreferedecama());
+        comando.setString(28, h.getPreferedecama().toString());
         comando.setString(29, h.getItensespeciais());
         comando.setString(30, h.getInteresses());
         comando.setString(31, h.getNotasinternas());
@@ -212,9 +212,9 @@ public class HospedeFisicoDAO {
         PreparedStatement comando =
                 con.prepareStatement("select * from hospedesfisicos where nome like? order by nome");
         
-        pstmt.setString(1, nome = "%");
+        comando.setString(1, nome = "%");
         
-        Resultset rs = pstmt.executeQuery();
+        ResultSet rs = comando.executeQuery();
         
         List<HospedeFisico> lista = new ArrayList();
         while (rs.next()){
@@ -240,9 +240,9 @@ public class HospedeFisicoDAO {
         PreparedStatement comando =
                 con.prepareStatement("delete from hospedefisico where id=?");
         
-        pstmt.setInt(1, id);
+        comando.setInt(1, id);
         
-        pstmt.executeUpdate();
+        comando.executeUpdate();
         
         con.close();
     }
