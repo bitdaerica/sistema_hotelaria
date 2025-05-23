@@ -378,6 +378,10 @@ public class HospedeFisico {
     public void setResponsavelpelofaturamento(String responsavelpelofaturamento) {
         this.responsavelpelofaturamento = responsavelpelofaturamento;
     }
+
+    public String Estadocivil() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
         
     
