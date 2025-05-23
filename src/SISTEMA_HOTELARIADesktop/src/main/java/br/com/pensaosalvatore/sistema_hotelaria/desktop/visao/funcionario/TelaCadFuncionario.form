@@ -622,7 +622,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Sobrenome:"/>
+                    <Property name="text" type="java.lang.String" value="*Sobrenome:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSobrenomedofuncionario">
@@ -632,7 +632,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Data de Nascimento:"/>
+                    <Property name="text" type="java.lang.String" value="*Data de Nascimento:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="ftfDatadenascimentodofuncionario">
@@ -697,7 +697,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="G&#xea;nero:"/>
+                    <Property name="text" type="java.lang.String" value="*G&#xea;nero:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cmbGenerodofuncionario">
@@ -722,7 +722,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Nome da m&#xe3;e:"/>
+                    <Property name="text" type="java.lang.String" value="*Nome da m&#xe3;e:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNomedamae">
@@ -935,7 +935,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Bairro:"/>
+                    <Property name="text" type="java.lang.String" value="*Bairro:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtBairrodofuncionario">
@@ -945,7 +945,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Rua:"/>
+                    <Property name="text" type="java.lang.String" value="*Rua:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtRuadofuncionario">
@@ -955,7 +955,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
+                    <Property name="text" type="java.lang.String" value="*N&#xfa;mero:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNumerenderencoodofuncionario">
@@ -1029,7 +1029,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Email:"/>
+                    <Property name="text" type="java.lang.String" value="*Email:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEmaildofuncionario">
@@ -1199,7 +1199,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Matr&#xed;cula:"/>
+                    <Property name="text" type="java.lang.String" value="*Matr&#xed;cula:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtMatricula">
@@ -1209,41 +1209,29 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Cargo:"/>
+                    <Property name="text" type="java.lang.String" value="*Cargo:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cmbCargo">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="28">
+                      <StringArray count="16">
                         <StringItem index="0" value="Selecione:"/>
                         <StringItem index="1" value="Gerente Geral"/>
                         <StringItem index="2" value="Gerente RH"/>
-                        <StringItem index="3" value="Gerente de Recep&#xe7;&#xe3;o"/>
-                        <StringItem index="4" value="Recepcionista"/>
-                        <StringItem index="5" value="Telefonista"/>
-                        <StringItem index="6" value="Chef Executivo"/>
-                        <StringItem index="7" value="Copeiro(a)"/>
-                        <StringItem index="8" value="Auxiliar de Cozinha"/>
-                        <StringItem index="9" value="Gar&#xe7;om"/>
-                        <StringItem index="10" value="Bartender"/>
-                        <StringItem index="11" value="Barista"/>
-                        <StringItem index="12" value="Governanta"/>
-                        <StringItem index="13" value="Camareiro(a)"/>
-                        <StringItem index="14" value="Lavanderia"/>
-                        <StringItem index="15" value="Valet"/>
-                        <StringItem index="16" value="Chefe de Manuten&#xe7;&#xe3;o"/>
-                        <StringItem index="17" value="Eletricista"/>
-                        <StringItem index="18" value="Encanador"/>
-                        <StringItem index="19" value="Jardineiro"/>
-                        <StringItem index="20" value="Diretor Comercial"/>
-                        <StringItem index="21" value="Vendedor Corporativo"/>
-                        <StringItem index="22" value="Social Media Manager"/>
-                        <StringItem index="23" value="Recrutador"/>
-                        <StringItem index="24" value="Financeiro"/>
-                        <StringItem index="25" value="Chefe de Seguran&#xe7;a"/>
-                        <StringItem index="26" value="Vigia"/>
-                        <StringItem index="27" value="Porteiro"/>
+                        <StringItem index="3" value="Recepcionista"/>
+                        <StringItem index="4" value="Copeiro"/>
+                        <StringItem index="5" value="Auxiliar de Cozinha"/>
+                        <StringItem index="6" value="Gar&#xe7;om"/>
+                        <StringItem index="7" value="Barista"/>
+                        <StringItem index="8" value="Camareiro"/>
+                        <StringItem index="9" value="Lavanderia"/>
+                        <StringItem index="10" value="Eletricista"/>
+                        <StringItem index="11" value="Encanador"/>
+                        <StringItem index="12" value="Jardineiro"/>
+                        <StringItem index="13" value="Financeiro"/>
+                        <StringItem index="14" value="Vigia"/>
+                        <StringItem index="15" value="Porteiro"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -1256,7 +1244,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Departamento:"/>
+                    <Property name="text" type="java.lang.String" value="*Departamento:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cmbDepartamento">
@@ -1285,7 +1273,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Data de Admiss&#xe3;o:"/>
+                    <Property name="text" type="java.lang.String" value="*Data de Admiss&#xe3;o:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="ftfDataadmissao">
@@ -1300,7 +1288,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Regime de Contrata&#xe7;&#xe3;o:"/>
+                    <Property name="text" type="java.lang.String" value="*Regime de Contrata&#xe7;&#xe3;o:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cmbRegimecontratacao">
@@ -1327,7 +1315,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Jornada de Trabalho:"/>
+                    <Property name="text" type="java.lang.String" value="*Jornada de Trabalho:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtJornadatrabalho">
@@ -1337,7 +1325,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Sal&#xe1;rio Base:"/>
+                    <Property name="text" type="java.lang.String" value="*Sal&#xe1;rio Base:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSalariobase">
@@ -1377,7 +1365,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Status:"/>
+                    <Property name="text" type="java.lang.String" value="*Status:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cmbStatus">

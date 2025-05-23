@@ -354,10 +354,10 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         lblNome.setText("*Nome:");
 
         lblSobrenome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblSobrenome.setText("Sobrenome:");
+        lblSobrenome.setText("*Sobrenome:");
 
         lblDatadenascimento.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblDatadenascimento.setText("Data de Nascimento:");
+        lblDatadenascimento.setText("*Data de Nascimento:");
 
         try {
             ftfDatadenascimentodofuncionario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -383,13 +383,13 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         lblNaturalidade.setText("Naturalidade:");
 
         lblGenero.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblGenero.setText("Gênero:");
+        lblGenero.setText("*Gênero:");
 
         cmbGenerodofuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Masculino", "Feminino" }));
         cmbGenerodofuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         lblNomedamae.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblNomedamae.setText("Nome da mãe:");
+        lblNomedamae.setText("*Nome da mãe:");
 
         lblNomedopai.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNomedopai.setText("Nome do pai:");
@@ -541,13 +541,13 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         lblComplemento.setText("Complemento:");
 
         lblBairro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblBairro.setText("Bairro:");
+        lblBairro.setText("*Bairro:");
 
         lblRua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblRua.setText("Rua:");
+        lblRua.setText("*Rua:");
 
         lblNumeroenderenco.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblNumeroenderenco.setText("Número:");
+        lblNumeroenderenco.setText("*Número:");
 
         javax.swing.GroupLayout pnlEnderecoLayout = new javax.swing.GroupLayout(pnlEndereco);
         pnlEndereco.setLayout(pnlEnderecoLayout);
@@ -616,7 +616,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         pnlContatos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contatos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblEmail.setText("Email:");
+        lblEmail.setText("*Email:");
 
         txtEmaildofuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -687,20 +687,20 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         pnlProfissional.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Profissional", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         lblMatricula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblMatricula.setText("Matrícula:");
+        lblMatricula.setText("*Matrícula:");
 
         lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblCargo.setText("Cargo:");
+        lblCargo.setText("*Cargo:");
 
-        cmbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Gerente Geral", "Gerente RH", "Gerente de Recepção", "Recepcionista", "Telefonista", "Chef Executivo", "Copeiro(a)", "Auxiliar de Cozinha", "Garçom", "Bartender", "Barista", "Governanta", "Camareiro(a)", "Lavanderia", "Valet", "Chefe de Manutenção", "Eletricista", "Encanador", "Jardineiro", "Diretor Comercial", "Vendedor Corporativo", "Social Media Manager", "Recrutador", "Financeiro", "Chefe de Segurança", "Vigia", "Porteiro" }));
+        cmbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Gerente Geral", "Gerente RH", "Recepcionista", "Copeiro", "Auxiliar de Cozinha", "Garçom", "Barista", "Camareiro", "Lavanderia", "Eletricista", "Encanador", "Jardineiro", "Financeiro", "Vigia", "Porteiro" }));
 
         lblDepartamento.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblDepartamento.setText("Departamento:");
+        lblDepartamento.setText("*Departamento:");
 
         cmbDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Gerência", "Recepção", "A&B", "Governança", "Manutenção", "Marketing", "Recursos Humanos", "Administrativo", "Segurança" }));
 
         lblDataadmissao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblDataadmissao.setText("Data de Admissão:");
+        lblDataadmissao.setText("*Data de Admissão:");
 
         try {
             ftfDataadmissao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -709,15 +709,15 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         }
 
         lblRegimecontratacao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblRegimecontratacao.setText("Regime de Contratação:");
+        lblRegimecontratacao.setText("*Regime de Contratação:");
 
         cmbRegimecontratacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Aprendizagem", "Experiência", "Intermitente", "Prazo Determinado", "Prazo Indeterminado", "Temporário", "Estágio" }));
 
         lblJornadatrabalho.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblJornadatrabalho.setText("Jornada de Trabalho:");
+        lblJornadatrabalho.setText("*Jornada de Trabalho:");
 
         lblSalariobase.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblSalariobase.setText("Salário Base:");
+        lblSalariobase.setText("*Salário Base:");
 
         lblNumeropis.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNumeropis.setText("Número do PIS:");
@@ -738,7 +738,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
         }
 
         lblStatus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblStatus.setText("Status:");
+        lblStatus.setText("*Status:");
 
         cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Ativo", "Inativo", "Licenciado", "Afastado" }));
 

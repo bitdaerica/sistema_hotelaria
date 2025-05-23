@@ -238,10 +238,10 @@ public class TelaCadHospedeJuridico extends javax.swing.JInternalFrame {
         pnlCadastrodousuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Empresarial", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel14.setText("Razão Social:");
+        jLabel14.setText("*Razão Social:");
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel15.setText("CNPJ:");
+        jLabel15.setText("*CNPJ:");
 
         try {
             jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
@@ -253,7 +253,7 @@ public class TelaCadHospedeJuridico extends javax.swing.JInternalFrame {
         jLabel16.setText("Inscrição Estadual:");
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel20.setText("Tipo de Contrato:");
+        jLabel20.setText("*Tipo de Contrato:");
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Convênio", "Faturado", "Empresa Parceira" }));
 
@@ -263,7 +263,7 @@ public class TelaCadHospedeJuridico extends javax.swing.JInternalFrame {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Ativo", "Pré-Cadastrado", "Sem Reserva" }));
 
         lblHistorico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblHistorico.setText("Data de Cadastro:");
+        lblHistorico.setText("*Data de Cadastro:");
 
         try {
             jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -346,7 +346,7 @@ public class TelaCadHospedeJuridico extends javax.swing.JInternalFrame {
         pnlContatos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contatos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblEmail.setText("Email Corporativo:");
+        lblEmail.setText("*Email Corporativo:");
 
         txtEmaildofuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -477,13 +477,13 @@ public class TelaCadHospedeJuridico extends javax.swing.JInternalFrame {
         lblComplemento.setText("Complemento:");
 
         lblBairro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblBairro.setText("Bairro:");
+        lblBairro.setText("*Bairro:");
 
         lblRua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblRua.setText("Rua:");
+        lblRua.setText("*Rua:");
 
         lblNumeroenderenco.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblNumeroenderenco.setText("Número:");
+        lblNumeroenderenco.setText("*Número:");
 
         javax.swing.GroupLayout pnlEnderecoLayout = new javax.swing.GroupLayout(pnlEndereco);
         pnlEndereco.setLayout(pnlEnderecoLayout);
@@ -600,12 +600,12 @@ public class TelaCadHospedeJuridico extends javax.swing.JInternalFrame {
         jLabel7.setText("Interesses:");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel10.setText("Prazo de Faturamento:");
+        jLabel10.setText("*Prazo de Faturamento:");
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "15 Dias", "30 Dias", "45 Dias", "60 Dias" }));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel12.setText("Forma de Pagamento:");
+        jLabel12.setText("*Forma de Pagamento:");
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione:", "Boleto Bancário", "Cartão Corporativo", "PIX Empresarial", "Depósito em Conta" }));
 

@@ -405,7 +405,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Raz&#xe3;o Social:"/>
+                    <Property name="text" type="java.lang.String" value="*Raz&#xe3;o Social:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField9">
@@ -415,7 +415,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="CNPJ:"/>
+                    <Property name="text" type="java.lang.String" value="*CNPJ:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField4">
@@ -440,7 +440,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Tipo de Contrato:"/>
+                    <Property name="text" type="java.lang.String" value="*Tipo de Contrato:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox7">
@@ -486,7 +486,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Data de Cadastro:"/>
+                    <Property name="text" type="java.lang.String" value="*Data de Cadastro:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField2">
@@ -608,7 +608,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Email Corporativo:"/>
+                    <Property name="text" type="java.lang.String" value="*Email Corporativo:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEmaildofuncionario">
@@ -867,7 +867,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Bairro:"/>
+                    <Property name="text" type="java.lang.String" value="*Bairro:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtBairrodofuncionario">
@@ -877,7 +877,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Rua:"/>
+                    <Property name="text" type="java.lang.String" value="*Rua:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtRuadofuncionario">
@@ -887,7 +887,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
+                    <Property name="text" type="java.lang.String" value="*N&#xfa;mero:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNumerenderencoodofuncionario">
@@ -1058,7 +1058,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Prazo de Faturamento:"/>
+                    <Property name="text" type="java.lang.String" value="*Prazo de Faturamento:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox4">
@@ -1082,7 +1082,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Forma de Pagamento:"/>
+                    <Property name="text" type="java.lang.String" value="*Forma de Pagamento:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox6">

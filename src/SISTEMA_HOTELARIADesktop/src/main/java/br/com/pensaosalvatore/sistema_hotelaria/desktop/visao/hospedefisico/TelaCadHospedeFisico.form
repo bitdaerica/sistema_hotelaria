@@ -522,7 +522,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Sobrenome:"/>
+                    <Property name="text" type="java.lang.String" value="*Sobrenome:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSobrenome">
@@ -532,7 +532,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Data de Nascimento:"/>
+                    <Property name="text" type="java.lang.String" value="*Data de Nascimento:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="ftfDatadenascimentodofuncionario">
@@ -597,7 +597,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="G&#xea;nero:"/>
+                    <Property name="text" type="java.lang.String" value="*G&#xea;nero:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cmbGenero">
@@ -848,7 +848,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Bairro:"/>
+                    <Property name="text" type="java.lang.String" value="*Bairro:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtBairro">
@@ -858,7 +858,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Rua:"/>
+                    <Property name="text" type="java.lang.String" value="*Rua:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtRua">
@@ -868,7 +868,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
+                    <Property name="text" type="java.lang.String" value="*N&#xfa;mero:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNumero">
@@ -942,7 +942,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Email:"/>
+                    <Property name="text" type="java.lang.String" value="*Email:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEmail">
@@ -1274,7 +1274,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Data de Cadastro:"/>
+                    <Property name="text" type="java.lang.String" value="*Data de Cadastro:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblComentariogestao">
