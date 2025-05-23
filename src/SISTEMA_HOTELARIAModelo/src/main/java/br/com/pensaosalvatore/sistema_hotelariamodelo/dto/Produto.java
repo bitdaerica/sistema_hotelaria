@@ -2,7 +2,7 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Categoria;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.StatusProduto;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Status;
 import java.util.Date;
 
 /**
@@ -46,7 +46,7 @@ public class Produto {
     
     private Double garantia;
     
-    private StatusProduto status;
+    private Status status;
     
     private String observacoes;
     
@@ -185,11 +185,11 @@ public class Produto {
         this.garantia = garantia;
     }
 
-    public StatusProduto getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(StatusProduto status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

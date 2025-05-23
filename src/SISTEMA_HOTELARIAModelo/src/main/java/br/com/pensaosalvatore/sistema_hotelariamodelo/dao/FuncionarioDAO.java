@@ -128,7 +128,7 @@ public Funcionario selecionar(int id) throws Exception{
     
     ResultSet rs = comando.executeQuery();
     
-    if (rs.next()){
+        if (rs.next()){
         funcionario f = new Funcionario();
         f.setId(rs.getInt("id"));
         

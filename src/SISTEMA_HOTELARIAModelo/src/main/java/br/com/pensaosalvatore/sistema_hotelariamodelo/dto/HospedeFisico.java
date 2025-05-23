@@ -1,7 +1,7 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Andar;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Cama;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.TipoCama;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Estado;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.EstadoCivil;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
@@ -74,7 +74,7 @@ public class HospedeFisico {
       
     private Date datadedaultimavisita;
     
-    private Cama preferedecama;
+    private TipoCama preferedecama;
     
     private String itensespeciais;
     
@@ -315,11 +315,11 @@ public class HospedeFisico {
         this.datadedaultimavisita = datadedaultimavisita;
     }
 
-    public Cama getPreferedecama() {
+    public TipoCama getPreferedecama() {
         return preferedecama;
     }
 
-    public void setPreferedecama(Cama preferedecama) {
+    public void setPreferedecama(TipoCama preferedecama) {
         this.preferedecama = preferedecama;
     }
 
