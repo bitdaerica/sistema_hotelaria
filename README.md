@@ -12,6 +12,6 @@ Este é um projeto básico para um sistema de reservas de hotelaria, ideal para 
 
 ## 💻 Tecnologias Utilizadas
 
-**Backend:** á decidir-se.
+**Backend:** Java.
 
-**Banco de Dados:** á decidir-se.
+**Banco de Dados:** MySQL.
