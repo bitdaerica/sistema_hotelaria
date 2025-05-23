@@ -8,3 +8,5 @@ package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores;
 public enum GraudeAcesso {
     ADMINISTRADOR, GERENTE, RECEPCIONISTA
 }
+    
+

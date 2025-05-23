@@ -1,171 +1,184 @@
-create database hotelaria
-default character set utf8
-default collate utf8_general_ci;
+CREATE DATABASE HOTELARIA;
 
-use hotelaria;
+USE HOTELARIA;
 
 
-create table endereço(   #ok
-    id int primary Key auto_increment,
-    rua varchar(255),
-    numero varchar(40),
-    complemento varchar(40),
-    bairro varchar(40),
-    cidade varchar(60) not null,
-    estado varchar(2) not null,
-    cep varchar(20) not null
+CREATE TABLE ENDERECO(   #OK
+    ENDERECO_ID INT PRIMARY KEY AUTO_INCREMENT,
+    RUA VARCHAR(255) NOT NULL,
+    NUMERO VARCHAR(40) NOT NULL,
+    COMPLEMENTO VARCHAR(40),
+    BAIRRO VARCHAR(40) NOT NULL,
+    CIDADE VARCHAR(60) NOT NULL,
+    ESTADO ENUM('AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO') NOT NULL,
+    CEP VARCHAR(20) NOT NULL
 );
 
 
-create table pessoa(		#ok
-	id int primary key auto_increment,
-    observacoes varchar(255),
-	email varchar(255) not null unique,
-	fixo varchar(13),
-	celular varchar(13),
-	whatsapp boolean
-    
+CREATE TABLE PESSOA(		#OK
+    PESSOA_ID INT PRIMARY KEY AUTO_INCREMENT,
+    EMAIL VARCHAR(255) NOT NULL UNIQUE,
+    FIXO VARCHAR(13),
+    CELULAR VARCHAR(13) NOT NULL,
+    WHATSAPP BOOLEAN DEFAULT FALSE,
+    OBSERVACOES VARCHAR(255),
+    FK_ENDERECO INT NOT NULL,
+    FOREIGN KEY (FK_ENDERECO)
+    REFERENCES ENDERECO(ENDERECO_ID)
 );
 
+#ENUM() DEFAULT,
 
-create table hospedejuridico(			#ok
-    id int primary key auto_increment,
-    razaoSocial varchar(255),
-    cnpj varchar(18),
-    inscricaoEstadual int(40),
-	statusEmpresa varchar(14),
-	tipodeContrato varchar(14),
-	datadeCadastro varchar(10),
-	preferenciadeContato varchar (255),
-	responsavelFaturamento varchar (255),
-	notasInternas varchar (255),
-	formadePagamento varchar (20),
-	prazodeFaturamento varchar(7),
-	limitedeCredito decimal (6,2),
-	interesses varchar(255)
+CREATE TABLE HOSPEDE_JURIDICO(		#OK
+    HOSPEDE_JURIDICO_ID INT PRIMARY KEY AUTO_INCREMENT,
+    RAZAO_SOCIAL VARCHAR(255) NOT NULL,
+    CNPJ VARCHAR(18) UNIQUE NOT NULL,
+    INSCRICAO_ESTADUAL VARCHAR(40),
+    STATUS_EMPRESA ENUM ('ATIVO', 'PRE_CADASTRADO', 'SEM_RESERVA' ) DEFAULT 'SEM_RESERVA' NOT NULL,
+    TIPO_CONTRATO ENUM('CONVÊNIO', 'FATURADO', 'EMPRESA_PARCEIRA') DEFAULT 'FATURADO' NOT NULL,
+    DATA_CADASTRO VARCHAR(10) NOT NULL,
+    PREFERENCIA_CONTATO VARCHAR(255),
+    RESPONSAVEL_FATURAMENTO VARCHAR(255),
+    NOTAS_INTERNAS VARCHAR(255),
+    FORMA_PAGAMENTO ENUM('BOLETO_BANCÁRIO', 'CARTÃO_CORPORATIVO', 'PIX_EMPRESARIAL', 'DEPÓSITO_EM_CONTA') DEFAULT 'PIX_EMPRESARIAL' NOT NULL,
+    PRAZO_FATURAMENTO  ENUM('15_DIAS', '30_DIAS', '45_DIAS', '60_DIAS') DEFAULT '30_DIAS' NOT NULL,
+    LIMITE_CREDITO DECIMAL(10,2) DEFAULT 0.00,
+    INTERESSES VARCHAR(255),
+	FK_PESSOA INT UNIQUE NOT NULL,
+    FOREIGN KEY (FK_PESSOA)
+    REFERENCES PESSOA(PESSOA_ID)
    );
 
 
-create table hospedefisico(		#ok
-    id int primary key auto_increment,
-	nome varchar(40) not null,
-    sobrenome varchar(60) not null,
-    dataNascimento varchar(13),
-    genero varchar(10) not null,
-    cpf varchar(11) not null unique,
-    rg varchar(20) not null,
-    naturalidade varchar(50),
-    estadoCivil varchar(10),
-    foto varchar(255),
-    profissao varchar(100),
-    statusHospede varchar(14),
-    numeroDoc int,
-    tipoDoc varchar(10),
-    orgaoEmissor varchar(100),
-	datadeEmissao varchar(10),
-	datadeCadastro varchar(10),
-    preferenciadeContato varchar(50),
-    preferenciadeQuarto varchar(50),
-    preferenciadeAndar varchar(2),    
-    ultimaVisita varchar(13),
-    preferenciadeCama varchar(8),
-    itensEspeciais varchar(255),
-    interesses varchar(255),
-    notasInternas varchar(255),
-	#empreVinculada ??
-    #cnpj ??
-    cargo varchar(100),
-    responsavelpeloFaturamento varchar(100)
+CREATE TABLE HOSPEDE_FISICO (		#OK
+    HOSPEDE_FISICO_ID INT PRIMARY KEY AUTO_INCREMENT,
+    NOME VARCHAR(40) NOT NULL,
+    SOBRENOME VARCHAR(60) NOT NULL,
+    DATA_NASCIMENTO VARCHAR(10) NOT NULL,
+    GENERO ENUM('MASCULINO', 'FEMININO') DEFAULT 'MASCULINO' NOT NULL,
+    CPF VARCHAR(11) UNIQUE NOT NULL,
+    RG VARCHAR(20) NOT NULL,
+    NATURALIDADE VARCHAR(50),
+    ESTADO_CIVIL ENUM('CASADO', 'DIVORCIADO', 'SEPARADO', 'SOLTEIRO', 'VIUVO') DEFAULT 'SOLTEIRO',
+    FOTO VARCHAR(255),
+    PROFISSAO VARCHAR(100),
+    STATUS_HOSPEDE ENUM ('ATIVO', 'PRE_CADASTRADO', 'SEM_RESERVA' ) DEFAULT 'SEM_RESERVA' NOT NULL,
+    TIPO_DOC ENUM('CNH', 'PASSAPORTE', 'RG') DEFAULT 'CNH',
+    NUMERO_DOC VARCHAR(20),
+    ORGAO_EMISSOR VARCHAR(50),
+    DATA_EMISSAO VARCHAR(10),
+    DATA_CADASTRO VARCHAR(10) NOT NULL,
+    PREFERENCIA_CONTATO VARCHAR(50),
+    PREFERENCIA_QUARTO ENUM('SOLTEIRO', 'DUPLO', 'TRIPLO', 'QUÁDRUPLO', 'SUITE', 'DELUXE', 'EXECUTIVO', 'ADAPTADO', 'LUXO', 'FAMILIAR') DEFAULT 'SOLTEIRO',
+    PREFERENCIA_ANDAR VARCHAR(2),
+    ULTIMA_VISITA VARCHAR(10),
+    PREFERENCIA_CAMA VARCHAR(20),
+    ITENS_ESPECIAIS VARCHAR(255),
+    INTERESSES VARCHAR(255),
+    NOTAS_INTERNAS VARCHAR(255),
+    #EMPRESA_VINCULADA ???
+    #CNPJ ???
+    CARGO VARCHAR(100),
+    RESPONSAVEL_FATURAMENTO VARCHAR(100),
+    FK_PESSOA INT UNIQUE NOT NULL,
+    FOREIGN KEY (FK_PESSOA)
+    REFERENCES PESSOA(PESSOA_ID)
     );
 
 
-create table funcionario(		#ok
-    id int primary key auto_increment,
-    nome varchar(40) not null,
-    sobrenome varchar(60) not null,
-    dataNascimento varchar(13),
-    genero varchar(10) not null,
-    cpf varchar(11) not null unique,
-    rg varchar(20) not null,
-    naturalidade varchar(50),
-    estadocivil varchar(10),
-    foto varchar(255),
-    nome_mae varchar(100) not null,
-    nome_pai varchar(100),
-    matricula int,
-    cargo varchar(50) not null,
-	departamento varchar(50) not null,
-    dataAdmissao varchar(10),
-	jornadadeTrabalho int,
-    regimedeContratacao varchar(30),
-    status_funcionario varchar(10),    
-    salarioBase decimal(8,2),
-    numerodoPis varchar(14),
-	ctps varchar(12),
-    historico varchar(255),
-    comentariodaGestao varchar(255),
-    nomedeUsuario varchar(100),
-    senha varchar(10)
-    #graudeAcesso varchar(20) not null
-);
-
-
-create table autenticacao( 				#ok
-	id int primary key auto_increment,
-    usuario varchar(40) unique not null,
-    senha varchar(40) not null
-
-    );
-
-
-create table categoria(			#ok
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    tipoCategoria varchar(50),
-    nome VARCHAR(50) NOT NULL,
-    descricao VARCHAR(255)
-);
-
-
-create table quarto(		#ok
-    id int primary key auto_increment,
-    numerodoQuarto int(10),
-    andar int(2),
-    tipodoQuarto varchar(15),		#categoria
-    capacidadeHospede int(2),    
-    statusQuarto varchar(12),    
-    ativo boolean,
-    tipodeCama varchar(30),
-    qtddeCama int(2),
-    restricoes varchar(255),
-    otrasComodidade varchar(255),
-    frigobar boolean,
-    smartTv boolean,
-    arCondicionado boolean,
-    banheira boolean,
-    varanda boolean,
-    microondas boolean,
-    fogao boolean,
-    tvCabo boolean,
-    guardaRoupa boolean,
-    acessibilidade boolean,    
-    tamanhoQuarto decimal(7,2),
-    precoDiaria decimal(10,2),
-	tipoCobranca ENUM('Por_Unidade', 'Por_Pessoa', 'Por_Dia', 'Pacote') DEFAULT 'Por_Unidade',
-	dataUltimoUso varchar(10),
-    dataUltimaLimpeza varchar(10),
-    dataUltimaManuntencao varchar(10),
-    statusManuntencao varchar(20),
-    necessitaLimpeza boolean,
-    observacoesGerais varchar(255),
-    descricaoComplementar varchar(255),
-    observacoesInternas varchar(255),
-    comentariosAuditoria varchar(255)
-
+CREATE TABLE FUNCIONARIO(		#OK
+    FUNCIONARIO_ID INT PRIMARY KEY AUTO_INCREMENT,
+    NOME VARCHAR(40) NOT NULL,
+    SOBRENOME VARCHAR(60) NOT NULL,
+    DATA_NASCIMENTO VARCHAR(10) NOT NULL,
+    GENERO ENUM('MASCULINO', 'FEMININO') DEFAULT 'MASCULINO' NOT NULL,
+    CPF VARCHAR(11) UNIQUE NOT NULL,
+    RG VARCHAR(20) NOT NULL,
+    NATURALIDADE VARCHAR(50),
+    ESTADO_CIVIL ENUM('CASADO', 'DIVORCIADO', 'SEPARADO', 'SOLTEIRO', 'VIUVO') DEFAULT 'SOLTEIRO',
+    FOTO VARCHAR(255),
+    NOME_MAE VARCHAR(100) NOT NULL,
+    NOME_PAI VARCHAR(100),
+    MATRICULA INT UNIQUE NOT NULL,
+    CARGO ENUM('GERENTE_GERAL', 'GERENTE_RH', 'RECEPCIONISTA', 'COPEIRO', 'AUXILIAR_DE_COZINHA', 'GARÇOM', 'BARISTA', 'CAMAREIRO', 'LAVANDERIA', 'ELETRICISTA', 'ENCANADOR', 'JARDINEIRO', 'FINANCEIRO', 'VIGIA', 'PORTEIRO') DEFAULT 'RECEPCIONISTA' NOT NULL,
+    DEPARTAMENTO ENUM('GERÊNCIA', 'RECEPÇÃO', 'A&B', 'GOVERNANÇA', 'MANUTENÇÃO', 'MARKETING', 'RECURSOS HUMANOS', 'ADMINISTRATIVO', 'SEGURANÇA') DEFAULT 'RECEPÇÃO' NOT NULL,
+    DATA_ADMISSAO VARCHAR(10) NOT NULL,
+    JORNADA_TRABALHO INT NOT NULL,
+    REGIME_CONTRATACAO ENUM('APREDIZAGEM', 'EXPERIENCIA', 'INTERMITENTE', 'PRAZO_DETERMINADO', 'PRAZO_INDETERMINADO', 'TEMPORÁRIO', 'ESTÁGIO') DEFAULT 'APRENDIZAGEM' NOT NULL,
+    STATUS_FUNCIONARIO ENUM('ATIVO', 'INATIVO', 'LICENCIADO', 'AFASTADO') DEFAULT 'ATIVO' NOT NULL,
+    SALARIO_BASE DECIMAL(10,2) NOT NULL CHECK (SALARIO_BASE >= 0),
+    NUMERO_PIS VARCHAR(14) UNIQUE,
+    CTPS VARCHAR(12) UNIQUE,
+    HISTORICO VARCHAR(255),
+    COMENTARIO_GESTAO VARCHAR(255),
+    NOME_USUARIO VARCHAR(100) UNIQUE,
+    SENHA VARCHAR(100),
+    #graudeAcesso varchar(20) not null     ??????
+    FK_PESSOA INT UNIQUE NOT NULL,
+    FOREIGN KEY (FK_PESSOA)
+    REFERENCES PESSOA (PESSOA_ID)
 
 );
 
 
-create table fornecedor(
+CREATE TABLE AUTENTICACAO ( 		#OK
+    AUTENTICACAO_ID INT PRIMARY KEY AUTO_INCREMENT,
+    USUARIO VARCHAR(40) UNIQUE NOT NULL,
+    SENHA VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE CATEGORIA (		#OK
+    CATEGORIA_ID INT PRIMARY KEY AUTO_INCREMENT,
+    TIPO_CATEGORIA ENUM('PRODUTO', 'QUARTO', 'SERVICO') NOT NULL,
+    NOME VARCHAR(100) NOT NULL UNIQUE,
+    DESCRICAO VARCHAR(255)
+);
+
+
+CREATE TABLE QUARTO (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    NUMERO INT NOT NULL UNIQUE,
+    ANDAR INT,
+
+    CAPACIDADE_HOSPEDE INT NOT NULL CHECK (CAPACIDADE_HOSPEDE > 0),
+    STATUS_QUARTO VARCHAR(20) DEFAULT 'DISPONIVEL',
+    ATIVO BOOLEAN DEFAULT TRUE,
+    TIPO_CAMA VARCHAR(30),
+    QUANTIDADE_CAMA INT CHECK (QUANTIDADE_CAMA >= 0),
+    RESTRICOES VARCHAR(255),
+    OUTRAS_COMODIDADES VARCHAR(255),
+    FRIGOBAR BOOLEAN DEFAULT FALSE,
+    SMART_TV BOOLEAN DEFAULT FALSE,
+    AR_CONDICIONADO BOOLEAN DEFAULT FALSE,
+    BANHEIRA BOOLEAN DEFAULT FALSE,
+    VARANDA BOOLEAN DEFAULT FALSE,
+    MICROONDAS BOOLEAN DEFAULT FALSE,
+    FOGAO BOOLEAN DEFAULT FALSE,
+    TV_CABO BOOLEAN DEFAULT FALSE,
+    GUARDA_ROUPA BOOLEAN DEFAULT FALSE,
+    ACESSIBILIDADE BOOLEAN DEFAULT FALSE,
+    TAMANHO DECIMAL(7,2) CHECK (TAMANHO >= 0),
+    PRECO_DIARIA DECIMAL(10,2) NOT NULL CHECK (PRECO_DIARIA >= 0),
+    TIPO_COBRANCA ENUM('POR_PESSOA', 'POR_QUARTO', 'PACOTE') DEFAULT 'POR_QUARTO',
+    DATA_ULTIMO_USO DATE,
+    DATA_ULTIMA_LIMPEZA DATE,
+    DATA_ULTIMA_MANUTENCAO DATE,
+    STATUS_MANUTENCAO VARCHAR(20),
+    NECESSITA_LIMPEZA BOOLEAN DEFAULT FALSE,
+    OBSERVACOES_GERAIS VARCHAR(255),
+    DESCRICAO_COMPLEMENTAR VARCHAR(255),
+    OBSERVACOES_INTERNAS VARCHAR(255),
+    COMENTARIOS_AUDITORIA VARCHAR(255),
+    FK_CATEGORIA INT NOT NULL,    
+    FOREIGN KEY (FK_CATEGORIA) 
+    REFERENCES CATEGORIA(CATEGORIA_ID)
+
+
+);
+
+
+CREATE TABLE fornecedor(
 	id int primary key auto_increment,
     razaoSocial varchar(255),
     cnpj varchar(18),
@@ -183,7 +196,7 @@ create table fornecedor(
 );
 
 
-create table produto(		#OK
+CREATE TABLE produto(		#OK
 	id int primary key auto_increment,
     nome varchar(100),
     descricao varchar(255),
@@ -205,7 +218,7 @@ create table produto(		#OK
 );
 
 
-create table servico(  #ok
+CREATE TABLE servico(  #ok
 	id int primary key auto_increment,
     codigo int not null,
     nome varchar(100),
@@ -232,7 +245,7 @@ create table servico(  #ok
 );
 
 
-create table reserva(
+CREATE TABLE reserva(
     id int primary key auto_increment,
     data_check_in varchar(10),
     data_check_out varchar(10),
@@ -245,30 +258,30 @@ create table reserva(
 );
 
 
-create table reservaquarto(
+CREATE TABLE reservaquarto(
 
 
 );
 
 
-create table manuntencao(
+CREATE TABLE manuntencao(
 
 );
 
 
-create table fatura(
-
-
-);
-
-
-create table pagamento(
+CREATE TABLE fatura(
 
 
 );
 
 
-create table consumo(
+CREATE TABLE pagamento(
+
+
+);
+
+
+CREATE TABLE consumo(
 
 
 );
