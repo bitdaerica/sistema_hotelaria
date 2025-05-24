@@ -5,6 +5,7 @@ import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Funcionario;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 
 /**
@@ -61,22 +62,22 @@ public class FuncionarioDAO {
     
 
 
-public void alterar(Funcionario f) throws Exception{
+    public void alterar(Funcionario f) throws Exception{
    
-    Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
     
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306//hotelaria","root","");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306//hotelaria","root","");
     
-        PreparedStatement comando = con.prepareStatement(
+         PreparedStatement comando = con.prepareStatement(
             "update funcionarios set nome =?, sobrenome = ?,"
                     + " datadenascimento = ?, cpf = ?, rg = ?, estadocivil = ?,"
                     + " naturalidade = ?, genero = ?, nomedamae = ?, nomedopai = ?, cep = ?, rua = ?,complemento = ?, bairro =?, estado = ?, email = ?, celular = ?, fixo = ?, matricula = ?, datadeadimissao = ?, jornadadetrabalho = ?, regimedecontratacao = ?, status = ?, salariobase = ?, numerodopis = ?, ctps = ?, historico = ?, comentariodagestao = ?, nomeusuario = ?, senha = ?, graudeacesso = ? where id = ?");
         
-        comando.setString(1, f.getNome());
-        comando.setString(2, f.getSobrenome());
-        comando.setDate(3, new java.sql.Date(f.getDatadenascimento().getTime()));
-        comando.setString(4, f.getCpf());
-        comando.setInt(5, f.getRg());
+         comando.setString(1, f.getNome());
+         comando.setString(2, f.getSobrenome());
+         comando.setDate(3, new java.sql.Date(f.getDatadenascimento().getTime()));
+         comando.setString(4, f.getCpf());
+         comando.setInt(5, f.getRg());
         comando.setString(6, f.getEstadocivil().toString());
         comando.setString(7, f.getNaturalidade());
         comando.setString(8, f.getGenero().toString());
@@ -114,31 +115,42 @@ public void alterar(Funcionario f) throws Exception{
       
 }
 
-public Funcionario selecionar(int id) throws Exception{
+    public Funcionario selecionar(int id) throws Exception{
     
-    Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
     
-    Connection com = DriverManager.getConnection(
+        Connection con = DriverManager.getConnection(
             "jdbc:mysql://localhost:3306/hotelaria","root","");
     
-    PreparedStatement comando = 
+        PreparedStatement comando = 
             con.prepareStatement("select * from funcionarios where id = ?");
     
-    comando.setInt(1, id);
+        comando.setInt(1, id);
     
-    ResultSet rs = comando.executeQuery();
+        ResultSet rs = comando.executeQuery();
     
         if (rs.next()){
-        funcionario f = new Funcionario();
-        f.setId(rs.getInt("id"));
+            Funcionario f = new Funcionario();
+            f.setId(rs.getInt("id"));
         
+        
+        
+            return f;
+        }else{
+            return null;
+        }  
+        
+}
+
+
+}
     
  
     
     
     
    
-}
+
 
 
        
