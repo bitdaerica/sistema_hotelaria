@@ -56,7 +56,7 @@ public class HospedeJuridico {
     
     private String notasinternas;
     
-    //private ? formadepaagmento;
+    //private ? formadepagamento;
     
     //private ? prazodefaturamento;
     
@@ -238,6 +238,9 @@ public class HospedeJuridico {
 
     public void setInteresses(String interesses) {
         this.interesses = interesses;
+    }
+
+    
     }
     
     
