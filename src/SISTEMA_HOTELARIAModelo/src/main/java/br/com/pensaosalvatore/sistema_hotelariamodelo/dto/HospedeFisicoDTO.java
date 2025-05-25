@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author 202412170006
  */
-public class HospedeFisico {
+public class HospedeFisicoDTO {
     private Integer id;
     
     private String nome;
@@ -91,7 +91,54 @@ public class HospedeFisico {
     private String cargo;
     
     private String responsavelpelofaturamento;
+
     
+    
+    public HospedeFisicoDTO() {
+        
+    }
+
+    public HospedeFisicoDTO(Integer id, String nome, String sobrenome, Genero genero, String cpf, Date datadenascimento, EstadoCivil estadocivil, String naturalidade, String profissao, Integer rg, StatusHospede status, String cep, String rua, Integer numero, String complemento, String bairro, Estado estado, String email, String celular, String fixo, Integer numerodocumento, TipoDocumento tipodocumento, String orgaoemissor, Date datadeemissao, Date datadecadastro, String preferenciadecontato, Andar preferenciadeandar, Date datadedaultimavisita, TipoCama preferedecama, String itensespeciais, String interesses, String notasinternas, String observacoes, String cnpj, String cargo, String responsavelpelofaturamento) {
+        this.id = id;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.genero = genero;
+        this.cpf = cpf;
+        this.datadenascimento = datadenascimento;
+        this.estadocivil = estadocivil;
+        this.naturalidade = naturalidade;
+        this.profissao = profissao;
+        this.rg = rg;
+        this.status = status;
+        this.cep = cep;
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.estado = estado;
+        this.email = email;
+        this.celular = celular;
+        this.fixo = fixo;
+        this.numerodocumento = numerodocumento;
+        this.tipodocumento = tipodocumento;
+        this.orgaoemissor = orgaoemissor;
+        this.datadeemissao = datadeemissao;
+        this.datadecadastro = datadecadastro;
+        this.preferenciadecontato = preferenciadecontato;
+        this.preferenciadeandar = preferenciadeandar;
+        this.datadedaultimavisita = datadedaultimavisita;
+        this.preferedecama = preferedecama;
+        this.itensespeciais = itensespeciais;
+        this.interesses = interesses;
+        this.notasinternas = notasinternas;
+        this.observacoes = observacoes;
+        this.cnpj = cnpj;
+        this.cargo = cargo;
+        this.responsavelpelofaturamento = responsavelpelofaturamento;
+    }
+    
+    
+        
     public Integer getId(){
         return id;
     }

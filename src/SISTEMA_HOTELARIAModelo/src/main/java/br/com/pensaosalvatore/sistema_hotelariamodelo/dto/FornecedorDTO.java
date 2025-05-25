@@ -8,12 +8,10 @@ package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
  *
  * @author 202412170006
  */
-public class Manutencao {
+public class FornecedorDTO {
     private Integer id;
     
     private String nome;
-    
-    private String descricao;
        
     public Integer getId(){
         return id;

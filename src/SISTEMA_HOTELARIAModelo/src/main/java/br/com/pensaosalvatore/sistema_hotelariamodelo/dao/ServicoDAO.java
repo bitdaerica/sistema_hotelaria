@@ -12,12 +12,12 @@ import java.util.List;
  * @author 202412170006
  */
 public class ServicoDAO{
-    public void inserir(Servico lavanderia) throws Exception {
+    public void inserir(Servico s) throws Exception {
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
         //Conexão com o MySQL banco de dados **hotel**
-        Connection con = DriverManager.getConnection(
+        Connection conn = DriverManager.getConnection(
             "jdbc:mysql://localhost:3306/hotel", "root", "");
         
         //Prepara o comando que quer executar
@@ -25,8 +25,8 @@ public class ServicoDAO{
             con.prepareStatement("insert into servicos(nome, descricao) values (1,2)");
         
         //Substitui os valores dos sinais de interrogação
-        comando.setString(1, lavanderia.getNome());
-        comando.setString(2, lavanderia.getDescricao());
+        comando.setString(1, s.getNome());
+        comando.setString(2, s.getDescricao());
         
         
         //Executa o comando
@@ -38,12 +38,12 @@ public class ServicoDAO{
     }
     
 
-    public void alterar(Servico lavanderia) throws Exception {
+    public void alterar(Servico s) throws Exception {
                 //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
         //Conexão com o MySQL banco de dados **hotel**
-        Connection con = DriverManager.getConnection(
+        Connection conn = DriverManager.getConnection(
             "jdbc:mysql://localhost:3306/hotel", "root", "");
         
         //Prepara o comando que quer executar
@@ -51,8 +51,8 @@ public class ServicoDAO{
             con.prepareStatement("update servicos set nome = ?, descricao = ?, where id = ?");
         
         //Substitui os valores dos sinais de interrogação
-        comando.setString(1, lavanderia.getNome());
-        comando.setString(2, lavanderia.getDescricao());
+        comando.setString(1, s.getNome());
+        comando.setString(2, s.getDescricao());
         
         
         //Executa o comando
@@ -77,12 +77,12 @@ public class ServicoDAO{
         ResultSet rs =comando.executeQuery();
         
         if (rs.next()){
-            Servico lavanderia = new Servico();
-            lavanderia.setId(rs.getInt("id"));
-            lavanderia.setNome(rs.getString("nome"));
-            lavanderia.setDescricao(rs.getString("descricao"));
+            Servico s = new Servico();
+            s.setId(rs.getInt("id"));
+            s.setNome(rs.getString("nome"));
+            s.setDescricao(rs.getString("descricao"));
             
-            return lavanderia;
+            return s;
         } else {
             return null;
         }

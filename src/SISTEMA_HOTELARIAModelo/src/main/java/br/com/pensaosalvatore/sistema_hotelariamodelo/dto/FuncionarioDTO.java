@@ -16,7 +16,7 @@ import java.util.Date;
  *
  * @author 202412170006
  */
-public class Funcionario {
+public class FuncionarioDTO {
     private Integer id;
     
     private String nome;
@@ -90,6 +90,46 @@ public class Funcionario {
     private String senha;
     
     private GraudeAcesso graudeacesso;
+
+    public FuncionarioDTO() {
+    }
+
+    public FuncionarioDTO(Integer id, String nome, String sobrenome, Date datadenascimento, String cpf, Integer rg, EstadoCivil estadocivil, String naturalidade, Genero genero, String nomedamae, String nomedopai, String cep, String rua, Integer numero, String complemento, String bairro, Estado estado, String email, String celular, String fixo, Integer matricula, Date datadeadmissao, String jornadadetrabalho, RegimedeContratacao regimedecontratacao, StatusFuncionario status, Integer salariobase, String numerodopis, String ctps, String observacoesgerais, String historico, String comentariosdagestao, String nomeusuario, String senha, GraudeAcesso graudeacesso) {
+        this.id = id;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.datadenascimento = datadenascimento;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.estadocivil = estadocivil;
+        this.naturalidade = naturalidade;
+        this.genero = genero;
+        this.nomedamae = nomedamae;
+        this.nomedopai = nomedopai;
+        this.cep = cep;
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.estado = estado;
+        this.email = email;
+        this.celular = celular;
+        this.fixo = fixo;
+        this.matricula = matricula;
+        this.datadeadmissao = datadeadmissao;
+        this.jornadadetrabalho = jornadadetrabalho;
+        this.regimedecontratacao = regimedecontratacao;
+        this.status = status;
+        this.salariobase = salariobase;
+        this.numerodopis = numerodopis;
+        this.ctps = ctps;
+        this.observacoesgerais = observacoesgerais;
+        this.historico = historico;
+        this.comentariosdagestao = comentariosdagestao;
+        this.nomeusuario = nomeusuario;
+        this.senha = senha;
+        this.graudeacesso = graudeacesso;
+    }
     
     
     public Integer getId(){

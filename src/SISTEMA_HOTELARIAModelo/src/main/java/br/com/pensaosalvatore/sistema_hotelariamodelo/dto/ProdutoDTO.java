@@ -9,7 +9,7 @@ import java.util.Date;
  *
  * @author 202412170006
  */
-public class Produto {
+public class ProdutoDTO {
     private Integer id;
     
     private String nome;
@@ -49,7 +49,34 @@ public class Produto {
     private Status status;
     
     private String observacoes;
+
+    public ProdutoDTO() {
+    }
+
+    public ProdutoDTO(Integer id, String nome, String descricao, Categoria categoria, String marca, Integer codbarra, Integer qtdemestoque, Integer qtdestoqueminimo, Integer qtdestoquemaximo, String localizacaonoestoque, Double precocusto, Double precovenda, Double desconto, Double margemdelucro, Date datadefabricacao, Date datadevalidade, Double garantia, Status status, String observacoes) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.categoria = categoria;
+        this.marca = marca;
+        this.codbarra = codbarra;
+        this.qtdemestoque = qtdemestoque;
+        this.qtdestoqueminimo = qtdestoqueminimo;
+        this.qtdestoquemaximo = qtdestoquemaximo;
+        this.localizacaonoestoque = localizacaonoestoque;
+        this.precocusto = precocusto;
+        this.precovenda = precovenda;
+        this.desconto = desconto;
+        this.margemdelucro = margemdelucro;
+        this.datadefabricacao = datadefabricacao;
+        this.datadevalidade = datadevalidade;
+        this.garantia = garantia;
+        this.status = status;
+        this.observacoes = observacoes;
+    }
     
+    
+        
     public Integer getId(){
         return id;
     }
