@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author Érica_Almeida
  */
-public class HospedeJuridico {
+public class HospedeJuridicoDTO {
     private Integer id;
     
     private String razaosocial;
@@ -64,6 +64,36 @@ public class HospedeJuridico {
     
     private String interesses;
 
+    public HospedeJuridicoDTO() {
+    }
+
+    public HospedeJuridicoDTO(Integer id, String razaosocial, String cnpj, String inscricaoestadual, StatusHospede status, TipodeContrato tipodecontrato, Date datadecadastro, String obsevacoes, String cep, String rua, Integer numero, String complemento, String bairro, Estado estado, String emailcorporativo, String fixo, String preferenciadecontato, String responsavelpeloofaturamento, String celular, String notasinternas, String limetedecredito, String interesses) {
+        this.id = id;
+        this.razaosocial = razaosocial;
+        this.cnpj = cnpj;
+        this.inscricaoestadual = inscricaoestadual;
+        this.status = status;
+        this.tipodecontrato = tipodecontrato;
+        this.datadecadastro = datadecadastro;
+        this.obsevacoes = obsevacoes;
+        this.cep = cep;
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.estado = estado;
+        this.emailcorporativo = emailcorporativo;
+        this.fixo = fixo;
+        this.preferenciadecontato = preferenciadecontato;
+        this.responsavelpeloofaturamento = responsavelpeloofaturamento;
+        this.celular = celular;
+        this.notasinternas = notasinternas;
+        this.limetedecredito = limetedecredito;
+        this.interesses = interesses;
+    }
+
+    
+    
     public Integer getId() {
         return id;
     }

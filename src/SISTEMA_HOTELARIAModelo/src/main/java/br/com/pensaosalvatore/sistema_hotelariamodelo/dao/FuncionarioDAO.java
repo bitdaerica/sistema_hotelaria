@@ -1,7 +1,7 @@
 
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Funcionario;
+import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.FuncionarioDTO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ import java.sql.ResultSet;
  */
 public class FuncionarioDAO {
     
-    public void inserir(Funcionario f) throws Exception {
+    public void inserir(FuncionarioDTO f) throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306//hotelaria","root","");
         
@@ -62,7 +62,7 @@ public class FuncionarioDAO {
     
 
 
-    public void alterar(Funcionario f) throws Exception{
+    public void alterar(FuncionarioDTO f) throws Exception{
    
         Class.forName("com.mysql.cj.jdbc.Driver");
     
@@ -115,7 +115,7 @@ public class FuncionarioDAO {
       
 }
 
-    public Funcionario selecionar(int id) throws Exception{
+    public FuncionarioDTO selecionar(int id) throws Exception{
     
         Class.forName("com.mysql.cj.jdbc.Driver");
     
@@ -130,7 +130,7 @@ public class FuncionarioDAO {
         ResultSet rs = comando.executeQuery();
     
         if (rs.next()){
-            Funcionario f = new Funcionario();
+            FuncionarioDTO f = new FuncionarioDTO();
             f.setId(rs.getInt("id"));
         
         

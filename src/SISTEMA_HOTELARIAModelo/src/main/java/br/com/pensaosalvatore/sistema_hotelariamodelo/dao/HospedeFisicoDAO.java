@@ -4,7 +4,7 @@
  */
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.HospedeFisico;
+import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.HospedeFisicoDTO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -20,7 +20,7 @@ import java.util.List;
  * @author 202412170006
  */
 public class HospedeFisicoDAO {
-    public void inserir(HospedeFisico h) throws Exception {
+    public void inserir(HospedeFisicoDTO h) throws Exception {
         // Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -81,7 +81,7 @@ public class HospedeFisicoDAO {
         con.close();
     }
         
-    public void alterar(HospedeFisico h) throws Exception {
+    public void alterar(HospedeFisicoDTO h) throws Exception {
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
             
@@ -144,7 +144,7 @@ public class HospedeFisicoDAO {
         con.close();
     }
     
-    public HospedeFisico selecionar(int id) throws Exception {
+    public HospedeFisicoDTO selecionar(int id) throws Exception {
          // Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -162,7 +162,7 @@ public class HospedeFisicoDAO {
         ResultSet rs = comando.executeQuery();
         
         if (rs.next()){
-            HospedeFisico h = new HospedeFisico();
+            HospedeFisicoDTO h = new HospedeFisicoDTO();
             h.setId(rs.getInt("id"));
             h.setNome(rs.getString("nome"));
             h.setSobrenome(rs.getString("sobrenome"));
@@ -173,7 +173,7 @@ public class HospedeFisicoDAO {
         }
     }
     
-    public List<HospedeFisico> listar() throws Exception {
+    public List<HospedeFisicoDTO> listar() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         
          Connection con = DriverManager.getConnection(
@@ -186,9 +186,9 @@ public class HospedeFisicoDAO {
         // Executa o comando e obtem a lista de resulatdo
         ResultSet rs = comando.executeQuery();
         
-        List<HospedeFisico> lista = new ArrayList();
+        List<HospedeFisicoDTO> lista = new ArrayList();
         while (rs.next()){
-            HospedeFisico h = new HospedeFisico();
+            HospedeFisicoDTO h = new HospedeFisicoDTO();
             h.setId(rs.getInt("id"));
             h.setNome(rs.getString("nome"));
             h.setSobrenome(rs.getString("sobrenome"));
@@ -202,7 +202,7 @@ public class HospedeFisicoDAO {
         return lista;
     }
     
-    public List<HospedeFisico> listar(String nome) throws Exception {
+    public List<HospedeFisicoDTO> listar(String nome) throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         
         Connection con = DriverManager.getConnection(
@@ -216,9 +216,9 @@ public class HospedeFisicoDAO {
         
         ResultSet rs = comando.executeQuery();
         
-        List<HospedeFisico> lista = new ArrayList();
+        List<HospedeFisicoDTO> lista = new ArrayList();
         while (rs.next()){
-            HospedeFisico h = new HospedeFisico();
+            HospedeFisicoDTO h = new HospedeFisicoDTO();
             h.setId(rs.getInt("id"));
             h.setNome(rs.getString("nome"));
             h.setSobrenome(rs.getString("sobrenome"));
