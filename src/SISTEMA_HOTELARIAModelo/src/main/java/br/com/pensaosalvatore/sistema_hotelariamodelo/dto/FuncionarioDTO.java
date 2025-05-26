@@ -439,6 +439,7 @@ public class FuncionarioDTO extends PessoaDTO{
         return cep;
     }
 
+    @Override
     public void setCep(String cep) {
         this.cep = cep;
     }

@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class EnderecoDAO {
 
-    private ConnectionFactoryDAO connectionFactory;
+    private final ConnectionFactoryDAO connectionFactory;
 
     public EnderecoDAO() {
         this.connectionFactory = new ConnectionFactoryDAO();
@@ -25,8 +25,7 @@ public class EnderecoDAO {
     public void inserir(EnderecoDTO endereco) throws SQLException {
         String sql = "INSERT INTO ENDERECO (RUA, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = connectionFactory.conectaBD(); 
-            PreparedStatement pstm = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             pstm.setString(1, endereco.getRua());
             pstm.setString(2, endereco.getNumero());
@@ -50,29 +49,6 @@ public class EnderecoDAO {
         }
     }
 
-    public List<EnderecoDTO> listar() throws SQLException {
-        List<EnderecoDTO> lista = new ArrayList<>();
-        String sql = "SELECT * FROM endereco";
-
-        try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
-
-            while (rs.next()) {
-                EnderecoDTO endereco = new EnderecoDTO();
-                endereco.setIdEndereco(rs.getInt("id"));
-                endereco.setRua(rs.getString("rua"));
-                endereco.setNumero(rs.getString("numero"));
-                endereco.setComplemento(rs.getString("complemento"));
-                endereco.setBairro(rs.getString("bairro"));
-                endereco.setCidade(rs.getString("cidade"));
-                endereco.setEstado(Enum.valueOf(Estado.class, rs.getString("estado")));
-                endereco.setCep(rs.getString("cep"));
-                lista.add(endereco);
-            }
-        }
-
-        return lista;
-    }
-
     public void atualizar(EnderecoDTO endereco) throws SQLException {
         String sql = "UPDATE ENDERECO SET RUA=?, NUMERO=?, COMPLEMENTO=?, BAIRRO=?, CIDADE=?, ESTADO=?, CEP=? WHERE id=?";
 
@@ -91,14 +67,27 @@ public class EnderecoDAO {
         }
     }
 
-    public void deletar(int id) throws SQLException {
-        String sql = "DELETE FROM ENDERECO WHERE id=?";
+    public List<EnderecoDTO> listar() throws SQLException {
+        List<EnderecoDTO> lista = new ArrayList<>();
+        String sql = "SELECT * FROM ENDERECO";
 
-        try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql)) {
+        try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
 
-            pstm.setInt(1, id);
-            pstm.executeUpdate();
+            while (rs.next()) {
+                EnderecoDTO endereco = new EnderecoDTO();
+                endereco.setIdEndereco(rs.getInt("id"));
+                endereco.setRua(rs.getString("rua"));
+                endereco.setNumero(rs.getString("numero"));
+                endereco.setComplemento(rs.getString("complemento"));
+                endereco.setBairro(rs.getString("bairro"));
+                endereco.setCidade(rs.getString("cidade"));
+                endereco.setEstado(Enum.valueOf(Estado.class, rs.getString("estado")));
+                endereco.setCep(rs.getString("cep"));
+                lista.add(endereco);
+            }
         }
+
+        return lista;
     }
 
     public EnderecoDTO buscarPorId(int id) throws SQLException {
@@ -125,5 +114,15 @@ public class EnderecoDAO {
         }
 
         return endereco;
+    }
+
+    public void deletar(int id) throws SQLException {
+        String sql = "DELETE FROM ENDERECO WHERE id=?";
+
+        try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql)) {
+
+            pstm.setInt(1, id);
+            pstm.executeUpdate();
+        }
     }
 }
