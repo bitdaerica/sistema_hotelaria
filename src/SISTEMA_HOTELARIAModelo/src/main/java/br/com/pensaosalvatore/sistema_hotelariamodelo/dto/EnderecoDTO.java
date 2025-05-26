@@ -1,4 +1,3 @@
-
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Estado;
@@ -8,21 +7,22 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Estado;
  * @author Érica_Almeida
  */
 public class EnderecoDTO {
-    private Integer id;
-    private String rua;
-    private String numero;
-    private String complemento;
-    private String bairro;
-    private String cidade;
-    private Estado estado;
-    private String cep;
+
+    protected Integer idEndereco;
+    protected String rua;
+    protected String numero;
+    protected String complemento;
+    protected String bairro;
+    protected String cidade;
+    protected Estado estado;
+    protected String cep;
 
     public EnderecoDTO() {
-        
+
     }
 
     public EnderecoDTO(Integer id, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
-        this.id = id;
+        this.idEndereco = id;
         this.rua = rua;
         this.numero = numero;
         this.complemento = complemento;
@@ -32,12 +32,12 @@ public class EnderecoDTO {
         this.cep = cep;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdEndereco() {
+        return idEndereco;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdEndereco(Integer id) {
+        this.idEndereco = id;
     }
 
     public String getRua() {
@@ -95,6 +95,5 @@ public class EnderecoDTO {
     public void setCep(String cep) {
         this.cep = cep;
     }
-    
-    
+
 }
