@@ -16,7 +16,7 @@ import java.util.Date;
  *
  * @author 202412170006
  */
-public class FuncionarioDTO {
+public class FuncionarioDTO extends EnderecoDTO{
     private Integer id;
     
     private String nome;

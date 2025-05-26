@@ -1,6 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.Servico;
+import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.ServicoDTO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author 202412170006
  */
 public class ServicoDAO{
-    public void inserir(Servico s) throws Exception {
+    public void inserir(ServicoDTO s) throws Exception {
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -22,7 +22,7 @@ public class ServicoDAO{
         
         //Prepara o comando que quer executar
         PreparedStatement comando =
-            con.prepareStatement("insert into servicos(nome, descricao) values (1,2)");
+            conn.prepareStatement("insert into servicos(nome, descricao) values (1,2)");
         
         //Substitui os valores dos sinais de interrogação
         comando.setString(1, s.getNome());
@@ -34,11 +34,11 @@ public class ServicoDAO{
         
         
         //Fecha a conexão
-        con.close();
+        conn.close();
     }
     
 
-    public void alterar(Servico s) throws Exception {
+    public void alterar(ServicoDTO s) throws Exception {
                 //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -48,7 +48,7 @@ public class ServicoDAO{
         
         //Prepara o comando que quer executar
         PreparedStatement comando =
-            con.prepareStatement("update servicos set nome = ?, descricao = ?, where id = ?");
+            conn.prepareStatement("update servicos set nome = ?, descricao = ?, where id = ?");
         
         //Substitui os valores dos sinais de interrogação
         comando.setString(1, s.getNome());
@@ -60,10 +60,10 @@ public class ServicoDAO{
         
         
         //Fecha a conexão
-        con.close();
+        conn.close();
     }
 
-    public Servico selecionar (int id) throws Exception {
+    public ServicoDTO selecionar (int id) throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         
         Connection con = DriverManager.getConnection(
@@ -77,7 +77,7 @@ public class ServicoDAO{
         ResultSet rs =comando.executeQuery();
         
         if (rs.next()){
-            Servico s = new Servico();
+            ServicoDTO s = new ServicoDTO();
             s.setId(rs.getInt("id"));
             s.setNome(rs.getString("nome"));
             s.setDescricao(rs.getString("descricao"));
@@ -89,28 +89,28 @@ public class ServicoDAO{
 
     }
 
-    public List <Servico> listar() throws Exception {
+    public List <ServicoDTO> listar() throws Exception {
         return null;
     }
     
-    public List <Servico> listar(String nome) throws Exception{
+    public List <ServicoDTO> listar(String nome) throws Exception{
         return null;
     }
     
     public void excluir(int id) throws Exception{
         Class.forName("com.mysql.cj.jdbc.Driver");
         
-        Connection con = DriverManager.getConnection(
+        Connection conn = DriverManager.getConnection(
             "jdbc:mysql://localhost:3306/hotel", "root", "");
         
         PreparedStatement comando =
-                con.prepareStatement("delete from cursos where id = ? ");
+                conn.prepareStatement("delete from cursos where id = ? ");
         
         comando.setInt(1, id);
         
         comando.executeUpdate();
         
-        con.close();
+        conn.close();
     
     }
     

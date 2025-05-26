@@ -16,9 +16,9 @@ public class FuncionarioDAO {
     
     public void inserir(FuncionarioDTO f) throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306//hotelaria","root","");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306//hotelaria","root","");
         
-        PreparedStatement comando = con.prepareStatement("insert into funcionarios (nome, sobrenome, datadenascimento, cpf, rg, estadocivil, naturalidade, genero, nomedamae, nomedopai, cep, rua,complemento, bairro, estado, email, celular, fixo, matricula, datadeadimissao, jornadadetrabalho, regimedecontratacao, status, salariobase, numerodopis, ctps, historico, comentariodagestao, nomeusuario, senha, graudeacesso) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?");
+        PreparedStatement comando = conn.prepareStatement("insert into funcionarios (nome, sobrenome, datadenascimento, cpf, rg, estadocivil, naturalidade, genero, nomedamae, nomedopai, cep, rua,complemento, bairro, estado, email, celular, fixo, matricula, datadeadimissao, jornadadetrabalho, regimedecontratacao, status, salariobase, numerodopis, ctps, historico, comentariodagestao, nomeusuario, senha, graudeacesso) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?");
         
         comando.setString(1, f.getNome());
         comando.setString(2, f.getSobrenome());
@@ -55,7 +55,7 @@ public class FuncionarioDAO {
         comando.setString(33, f.getGraudeacesso().toString());
         
         comando.executeUpdate();
-        con.close();
+        conn.close();
         
         
     }
@@ -66,9 +66,9 @@ public class FuncionarioDAO {
    
         Class.forName("com.mysql.cj.jdbc.Driver");
     
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306//hotelaria","root","");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306//hotelaria","root","");
     
-         PreparedStatement comando = con.prepareStatement(
+         PreparedStatement comando = conn.prepareStatement(
             "update funcionarios set nome =?, sobrenome = ?,"
                     + " datadenascimento = ?, cpf = ?, rg = ?, estadocivil = ?,"
                     + " naturalidade = ?, genero = ?, nomedamae = ?, nomedopai = ?, cep = ?, rua = ?,complemento = ?, bairro =?, estado = ?, email = ?, celular = ?, fixo = ?, matricula = ?, datadeadimissao = ?, jornadadetrabalho = ?, regimedecontratacao = ?, status = ?, salariobase = ?, numerodopis = ?, ctps = ?, historico = ?, comentariodagestao = ?, nomeusuario = ?, senha = ?, graudeacesso = ? where id = ?");
@@ -110,7 +110,7 @@ public class FuncionarioDAO {
         
         comando.executeUpdate();
         
-        con .close();
+        conn .close();
         
       
 }
@@ -119,11 +119,11 @@ public class FuncionarioDAO {
     
         Class.forName("com.mysql.cj.jdbc.Driver");
     
-        Connection con = DriverManager.getConnection(
+        Connection conn = DriverManager.getConnection(
             "jdbc:mysql://localhost:3306/hotelaria","root","");
     
         PreparedStatement comando = 
-            con.prepareStatement("select * from funcionarios where id = ?");
+            conn.prepareStatement("select * from funcionarios where id = ?");
     
         comando.setInt(1, id);
     
