@@ -4,11 +4,17 @@
  */
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario;
 
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.controlador.funcionario.CadFuncionarioController;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Érica_Almeida
  */
 public class ConsultarFuncionarioView extends javax.swing.JInternalFrame {
+
+    private Object txtnome;
 
     /**
      * Creates new form TelaConsultaFuncionario
@@ -175,9 +181,17 @@ public class ConsultarFuncionarioView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
         btnLimparselecao.setVisible(true);
         btnBuscar.setVisible(false);
+        
+        CadFuncionarioController f = new CadFuncionarioController();
+        List<FuncionarioDTO> lista = f.pesquisar(txtnome.getText());
+        
+        if (lista != null) {
+            JOptionPane.showMessageDialog(this, lista.size());
+        } else {
+            JOptionPane.showMessageDialog(this, "Lista vazia");
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnLimparselecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparselecaoActionPerformed

@@ -1060,7 +1060,7 @@ public class CadFuncionarioView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       // controller.salvarfuncionario();
+       controller.salvarfuncionario();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelaredicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaredicaoActionPerformed
