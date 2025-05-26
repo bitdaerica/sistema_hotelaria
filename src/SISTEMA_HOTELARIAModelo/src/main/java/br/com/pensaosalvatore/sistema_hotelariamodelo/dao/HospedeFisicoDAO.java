@@ -98,7 +98,7 @@ public class HospedeFisicoDAO {
             pstm.setString(17, hf.getPreferenciadecontato());
             pstm.setString(18, hf.getPreferenciadequarto().name());
             pstm.setString(19, hf.getPreferenciadeandar().name());
-            pstm.setDate(20, new java.sql.Date (hf.getUltimavisita().getTime()));
+            pstm.setDate(20, new java.sql.Date(hf.getUltimavisita().getTime()));
             pstm.setString(21, hf.getPreferenciadecama().name());
             pstm.setString(22, hf.getItensespeciais());
             pstm.setString(23, hf.getInteresses());
@@ -134,7 +134,7 @@ public class HospedeFisicoDAO {
         Connection conn = null;
         PreparedStatement pstm = null;
 
-        try {
+        try{
             conn = connectionFactory.conectaBD();
             conn.setAutoCommit(false);
 
@@ -167,5 +167,56 @@ public class HospedeFisicoDAO {
             pstm.close();
 
             String sqlHospedeFisico = "UPDATE HOSPEDE_FISICO SET NOME =  ?, SOBRENOME =  ?, DATA_NASCIMENTO =  ?, GENERO =  ?, CPF =  ?, RG =  ?, NATURALIDADE =  ?, ESTADO_CIVIL =  ?, FOTO =  ?, PROFISSAO =  ?, STATUS_HOSPEDE =  ?, TIPO_DOC =  ?, NUMERO_DOC =  ?, ORGAO_EMISSOR =  ?, DATA_EMISSAO =  ?, DATA_CADASTRO =  ?, PREFERENCIA_CONTATO =  ?, PREFERENCIA_QUARTO =  ?, PREFERENCIA_ANDAR =  ?, ULTIMA_VISITA =  ?, PREFERENCIA_CAMA =  ?, ITENS_ESPECIAIS =  ?, INTERESSES =  ?, NOTAS_INTERNAS =  ?, EMPRESA_VINCULADA =  ?, CNPJ =  ?, CARGO =  ?, RESPONSAVEL_FATURAMENTO =  ?, WHERE ID =  ?",
-            pstm = conn.prepareStatement(sqlHospedeFisico);
+            pstmHospedeFisico = conn.prepareStatement(sqlHospedeFisico);
+            
+            pstm.setString(1, hf.getNome());
+            pstm.setString(2, hf.getSobrenome());
+            pstm.setDate(3, new java.sql.Date(hf.getDatadenascimento().getTime()));
+            pstm.setString(4, hf.getGenero().name());
+            pstm.setString(5, hf.getCpf());
+            pstm.setInt(6, hf.getRg());
+            pstm.setString(7, hf.getNaturalidade());
+            pstm.setString(8, hf.getEstadocivil().name());
+            pstm.setString(9, hf.getFoto());
+            pstm.setString(10, hf.getProfissao());
+            pstm.setString(11, hf.getStatus().name());
+            pstm.setString(12, hf.getTipodocumento().name());
+            pstm.setInt(13, hf.getNumerodocumento());
+            pstm.setString(14, hf.getOrgaoemissor()); 
+            pstm.setDate(15, new java.sql.Date (hf.getDatadeemissao().getTime()));
+            pstm.setDate(16, new java.sql.Date(hf.getDatadecadastro().getTime())); 
+            pstm.setString(17, hf.getPreferenciadecontato());
+            pstm.setString(18, hf.getPreferenciadequarto().name());
+            pstm.setString(19, hf.getPreferenciadeandar().name());
+            pstm.setDate(20, new java.sql.Date(hf.getUltimavisita().getTime()));
+            pstm.setString(21, hf.getPreferenciadecama().name());
+            pstm.setString(22, hf.getItensespeciais());
+            pstm.setString(23, hf.getInteresses());
+            pstm.setString(24, hf.getNotasinternas());
+            pstm.setString(25, hf.getEmpresavinculada());
+            pstm.setString(26, hf.getCnpj());
+            pstm.setString(27, hf.getCargo());
+            pstm.setString(28, hf.getResponsavelpelofaturamento());
+            pstm.setInt(29,  hf.getIdHospedeFisico());
+            
+             pstm.executeUpdate();
+             
+             conn.commit();
+        } catch (SQLException e) {
+            if (conn != null) {
+                conn.rollback();
+            }
+            throw e;
+        } finally {
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
         }
+    }
+            
+}
+
+   
