@@ -8,12 +8,12 @@ import javax.swing.JOptionPane;
  *
  * @author Érica_Almeida
  */
-public class TelaCadHospedeFisico extends javax.swing.JInternalFrame {
+public class ViewCadHospedeFisico extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaCadHospede
      */
-    public TelaCadHospedeFisico() {
+    public ViewCadHospedeFisico() {
         initComponents();
     
         pnlRodapetabela.setVisible(false);

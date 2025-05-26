@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
  *
  * @author Érica_Almeida
  */
-public class TelaCadFuncionario extends javax.swing.JInternalFrame {
+public class ViewCadFuncionario extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaCadFuncionario
      */
-    public TelaCadFuncionario() {
+    public ViewCadFuncionario() {
         initComponents();
 
         //setExtendedState (MAXIMIZED_BOTH);
@@ -1060,13 +1060,7 @@ public class TelaCadFuncionario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       TelaFuncionariocadastrado tela = new TelaFuncionariocadastrado(); 
-       telaFundo.add(tela);
-       tela.setVisible(true);
-       
-       JOptionPane.showMessageDialog(null,"Funcionário Cadastrado com Sucesso.");
-       
-      this.dispose();
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelaredicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaredicaoActionPerformed

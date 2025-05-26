@@ -1,23 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.autentificacao;
+
+
+package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.autenticacao;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.principal.TelaPrincipal;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.principal.ViewPrincipal;
 
 /**
  *
  * @author Érica_Almeida
  */
-public class TelaLogin extends javax.swing.JFrame {
+public class ViewAutenticacao extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaLogin
      */
-    public TelaLogin() {
+    public ViewAutenticacao() {
         initComponents();
     }
 
@@ -182,7 +180,7 @@ public class TelaLogin extends javax.swing.JFrame {
         if(txtUsuario.getText().equals("admin")&& new String (pfSenha.getPassword()).equals("admin")){
             
             JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
-             TelaPrincipal tela = new TelaPrincipal();
+             ViewPrincipal tela = new ViewPrincipal();
              tela.setVisible(true);
              
              this.dispose();
@@ -209,7 +207,7 @@ public class TelaLogin extends javax.swing.JFrame {
             if(txtUsuario.getText().equals("admin")&& new String (pfSenha.getPassword()).equals("admin")){
             
             JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
-             TelaPrincipal tela = new TelaPrincipal();
+             ViewPrincipal tela = new ViewPrincipal();
              tela.setVisible(true);
              
              this.dispose();
@@ -227,7 +225,7 @@ public class TelaLogin extends javax.swing.JFrame {
             if(txtUsuario.getText().equals("admin")&& new String (pfSenha.getPassword()).equals("admin")){
             
             JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
-             TelaPrincipal tela = new TelaPrincipal();
+             ViewPrincipal tela = new ViewPrincipal();
              tela.setVisible(true);
              
              this.dispose();
@@ -257,20 +255,21 @@ public class TelaLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAutenticacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAutenticacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAutenticacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAutenticacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLogin().setVisible(true);
+                new ViewAutenticacao().setVisible(true);
             }
         });
     }

@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author Érica_Almeida
  */
-public class TelaCadHospedeJuridico extends javax.swing.JInternalFrame {
+public class ViewCadHospedeJuridico extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaCadEmpresa
      */
-    public TelaCadHospedeJuridico() {
+    public ViewCadHospedeJuridico() {
         initComponents();
         
         pnlRodapetabela.setVisible(false);
@@ -673,7 +673,7 @@ public class TelaCadHospedeJuridico extends javax.swing.JInternalFrame {
                     .addComponent(pnlEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlAnotacaointernas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlCadastrodousuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(pnlConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

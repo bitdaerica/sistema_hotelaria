@@ -2,22 +2,22 @@
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.principal;
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.produto.TelaConsultaProduto;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario.TelaConsultaFuncionario;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario.ViewConsultarFuncionario;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.produto.TelaCadProduto;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospedefisico.TelaCadHospedeFisico;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario.TelaCadFuncionario;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospedejuridico.TelaCadHospedeJuridico;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospedefisico.ViewCadHospedeFisico;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario.ViewCadFuncionario;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospedejuridico.ViewCadHospedeJuridico;
 
 /**
  *
  * @author Érica_Almeida
  */
-public class TelaPrincipal extends javax.swing.JFrame {
+public class ViewPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaPrincipal
      */
-    public TelaPrincipal() {
+    public ViewPrincipal() {
         initComponents();
         
         setExtendedState(MAXIMIZED_BOTH);
@@ -33,6 +33,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         telaFundo = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        try {
+            jLabel1 =(javax.swing.JLabel)java.beans.Beans.instantiate(getClass().getClassLoader(), "br/com/pensaosalvatore/sistema_hotelaria/desktop/visao/principal.ViewPrincipal_jLabel1");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
         pnlRodape = new javax.swing.JPanel();
         sepRodape = new javax.swing.JSeparator();
         lblMensagemrodape = new javax.swing.JLabel();
@@ -136,15 +145,50 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         telaFundo.setToolTipText("");
 
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDesktopPane1)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+
+        telaFundo.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout telaFundoLayout = new javax.swing.GroupLayout(telaFundo);
         telaFundo.setLayout(telaFundoLayout);
         telaFundoLayout.setHorizontalGroup(
             telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         telaFundoLayout.setVerticalGroup(
             telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         lblMensagemrodape.setText("Sistema Hotel Projeto ABEF - Todos os direitos reservados - 2025");
@@ -797,7 +841,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spBarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(spBarralateral, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
                     .addComponent(telaFundo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlRodape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -808,7 +852,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void miCadastrarfuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarfuncionariosActionPerformed
-            TelaCadFuncionario tela = new TelaCadFuncionario();        
+            ViewCadFuncionario tela = new ViewCadFuncionario();        
             telaFundo.add(tela);
             tela.setVisible(true);
     }//GEN-LAST:event_miCadastrarfuncionariosActionPerformed
@@ -837,9 +881,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btnLogoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoffActionPerformed
         // TODO add your handling code here:
-        TelaLogoff sair = new TelaLogoff();
-        telaFundo.add(sair);
-        sair.setVisible(true);
+        
         
         
                 
@@ -847,9 +889,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
         // TODO add your handling code here:
-        TelaConfirmarSair tela = new TelaConfirmarSair();
-        telaFundo.add(tela);
-        tela.setVisible(true);
+        
     }//GEN-LAST:event_menuSairMouseClicked
 
     private void miConsultarprodutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarprodutosActionPerformed
@@ -859,7 +899,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_miConsultarprodutosActionPerformed
 
     private void miConsultarfuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarfuncionariosActionPerformed
-         TelaConsultaFuncionario tela = new TelaConsultaFuncionario ();
+         ViewConsultarFuncionario tela = new ViewConsultarFuncionario ();
         telaFundo.add(tela);
         tela.setVisible(true);
     }//GEN-LAST:event_miConsultarfuncionariosActionPerformed
@@ -887,14 +927,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_miRelatoriocontasapagarActionPerformed
 
     private void miIndividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miIndividualActionPerformed
-            TelaCadHospedeFisico tela = new TelaCadHospedeFisico ();
+            ViewCadHospedeFisico tela = new ViewCadHospedeFisico ();
             telaFundo.add(tela);
             tela.setVisible(true);
 
     }//GEN-LAST:event_miIndividualActionPerformed
 
     private void miEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEmpresaActionPerformed
-            TelaCadHospedeJuridico tela = new TelaCadHospedeJuridico ();
+            ViewCadHospedeJuridico tela = new ViewCadHospedeJuridico ();
             telaFundo.add(tela);
             tela.setVisible(true);
 
@@ -917,27 +957,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new TelaPrincipal().setVisible(true);
+                new ViewPrincipal().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogoff;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem4;
@@ -946,6 +989,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblCargodousuario;
     private javax.swing.JLabel lblData;

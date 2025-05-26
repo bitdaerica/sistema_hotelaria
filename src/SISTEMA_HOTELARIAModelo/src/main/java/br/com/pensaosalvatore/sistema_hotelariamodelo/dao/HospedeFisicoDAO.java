@@ -43,7 +43,7 @@ public class HospedeFisicoDAO {
             pstm.setString(10, hf.getStatus().toString());
             pstm.setString(11, hf.getCep());
             pstm.setString(12, hf.getRua());
-            pstm.setInt(13, hf.getNumero());
+        //    pstm.setInt(13, hf.getNumero());
             pstm.setString(14, hf.getComplemento());
             pstm.setString(15, hf.getBairro());
             pstm.setString(16, hf.getEstado().toString());
@@ -109,7 +109,7 @@ public class HospedeFisicoDAO {
         comando.setString(10, h.getStatus().toString());
         comando.setString(11, h.getCep());
         comando.setString(12, h.getRua());
-        comando.setInt(13, h.getNumero());
+     //   comando.setInt(13, h.getNumero());
         comando.setString(14, h.getComplemento());
         comando.setString(15, h.getBairro());
         comando.setString(16, h.getEstado().toString());

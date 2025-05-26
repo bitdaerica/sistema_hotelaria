@@ -24,7 +24,7 @@ public class FuncionarioDAO {
         comando.setString(2, f.getSobrenome());
         comando.setDate(3, new java.sql.Date(f.getDatadenascimento().getTime()));
         comando.setString(4, f.getCpf());
-        comando.setInt(5, f.getRg());
+       // comando.setInt(5, f.getRg());
         comando.setString(6, f.getEstadocivil().toString());
         comando.setString(7, f.getNaturalidade());
         comando.setString(8, f.getGenero().toString());
@@ -32,7 +32,7 @@ public class FuncionarioDAO {
         comando.setString(10, f.getNomedopai());
         comando.setString(11, f.getCep());
         comando.setString(12, f.getRua());
-        comando.setInt(13, f.getNumero());
+       // comando.setInt(13, f.getNumero());
         comando.setString(14, f.getComplemento());
         comando.setString(15, f.getBairro());
         comando.setString(16, f.getEstado().toString());
@@ -41,10 +41,10 @@ public class FuncionarioDAO {
         comando.setString(19, f.getFixo());
         comando.setInt(20, f.getMatricula());
         comando.setDate(21, new java.sql.Date(f.getDatadeadmissao().getTime()));
-        comando.setString(22, f.getJornadadetrabalho());
+        //comando.setString(22, f.getJornadadetrabalho());
         comando.setString(23, f.getRegimedecontratacao().toString());
         comando.setString(24, f.getStatus().toString());
-        comando.setInt(25, f.getSalariobase());
+        //comando.setInt(25, f.getSalariobase());
         comando.setString(26, f.getNumerodopis());
         comando.setString(27, f.getCtps());
         comando.setString(28, f.getObservacoesgerais());
@@ -77,7 +77,7 @@ public class FuncionarioDAO {
          comando.setString(2, f.getSobrenome());
          comando.setDate(3, new java.sql.Date(f.getDatadenascimento().getTime()));
          comando.setString(4, f.getCpf());
-         comando.setInt(5, f.getRg());
+         //comando.setInt(5, f.getRg());
         comando.setString(6, f.getEstadocivil().toString());
         comando.setString(7, f.getNaturalidade());
         comando.setString(8, f.getGenero().toString());
@@ -85,7 +85,7 @@ public class FuncionarioDAO {
         comando.setString(10, f.getNomedopai());
         comando.setString(11, f.getCep());
         comando.setString(12, f.getRua());
-        comando.setInt(13, f.getNumero());
+        //comando.setInt(13, f.getNumero());
         comando.setString(14, f.getComplemento());
         comando.setString(15, f.getBairro());
         comando.setString(16, f.getEstado().toString());
@@ -94,10 +94,10 @@ public class FuncionarioDAO {
         comando.setString(19, f.getFixo());
         comando.setInt(20, f.getMatricula());
         comando.setDate(21, new java.sql.Date(f.getDatadeadmissao().getTime()));
-        comando.setString(22, f.getJornadadetrabalho());
+        //comando.setString(22, f.getJornadadetrabalho());
         comando.setString(23, f.getRegimedecontratacao().toString());
         comando.setString(24, f.getStatus().toString());
-        comando.setInt(25, f.getSalariobase());
+        //comando.setInt(25, f.getSalariobase());
         comando.setString(26, f.getNumerodopis());
         comando.setString(27, f.getCtps());
         comando.setString(28, f.getObservacoesgerais());
@@ -131,7 +131,7 @@ public class FuncionarioDAO {
     
         if (rs.next()){
             FuncionarioDTO f = new FuncionarioDTO();
-            f.setId(rs.getInt("id"));
+            //f.setId(rs.getInt("id"));
         
         
         

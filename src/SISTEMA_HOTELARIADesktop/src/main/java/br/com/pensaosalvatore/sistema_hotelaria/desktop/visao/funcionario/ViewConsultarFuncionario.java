@@ -8,12 +8,12 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario;
  *
  * @author Érica_Almeida
  */
-public class TelaConsultaFuncionario extends javax.swing.JInternalFrame {
+public class ViewConsultarFuncionario extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaConsultaFuncionario
      */
-    public TelaConsultaFuncionario() {
+    public ViewConsultarFuncionario() {
         initComponents();
         btnLimparselecao.setVisible(false);
     }
