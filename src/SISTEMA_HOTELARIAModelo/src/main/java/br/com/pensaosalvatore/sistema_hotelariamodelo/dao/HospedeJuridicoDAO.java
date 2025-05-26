@@ -7,10 +7,10 @@ package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
 import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.HospedeJuridicoDTO;
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,213 +19,100 @@ import java.util.List;
  * @author Érica_Almeida
  */
 public class HospedeJuridicoDAO {
-    public void inserir(HospedeJuridicoDTO hj) throws Exception{
-        //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        
-        //Conexão com o MySQL banco de dados **hotelaria**
-        Connection con = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/hotelaria", "root", "");
-        
-        //Prepara o comando que quer executar DML (Data Manipulation Language)
-        PreparedStatement comando =
-            con.prepareStatement("inserir into hospedejuridico(razaosocial, cnpj, inscricaoestadual,"
-            + "status, tipodecontrato, datadecadastro, obsevacoes, cep, rua, numero, complemento,"
-            + "bairro, estado, emailcorporativo, fixo, preferenciadecontato, responsavelpeloofaturamento,"
-            + "celular, notasinternas, limetedecredito, interesses) values(?,?,?,?,?,?,?,?,?,?,?,?,?,"
-            + "?,?,?,?,?,?,?,?)");
-        
-        //Substitui os valores dos sinais de interrogacao
-        comando.setString(1, hj.getRazaosocial());
-        comando.setString(2, hj.getCnpj());
-        comando.setString(3, hj.getInscricaoestadual());
-        comando.setString(4, hj.getStatus().toString());
-        comando.setString(5, hj.getTipodecontrato().toString());
-        comando.setDate(6, (Date) hj.getDatadecadastro());
-        comando.setString(7, hj.getObsevacoes());
-        comando.setString(8, hj.getCep());
-        comando.setString(9, hj.getRua());
-        comando.setInt(10, hj.getNumero());
-        comando.setString(11, hj.getComplemento());
-        comando.setString(12, hj.getBairro());
-        comando.setString(13, hj.getEstado().toString());
-        comando.setString(14, hj.getEmailcorporativo());
-        comando.setString(15, hj.getFixo());
-        comando.setString(16, hj.getPreferenciadecontato());
-        comando.setString(17, hj.getResponsavelpeloofaturamento());
-        comando.setString(18, hj.getCelular());
-        comando.setString(19, hj.getNotasinternas());        
-        comando.setString(20, hj.getLimetedecredito());
-        comando.setString(21, hj.getInteresses());
-        
-        //Executa o comando
-        comando.executeUpdate();
-        
-        //Fecha a conexão
-        con.close();   
-    }
-    
-    public void alterar(HospedeJuridicoDTO hj) throws Exception{
-        //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        
-        //Conexão com o MySQL banco de dados **hotelaria**
-        Connection con = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/hotelaria", "root", "");
-        
-        //Prepara o comando que quer executar DML (Data Manipulation Language)
-        PreparedStatement comando =
-            con.prepareStatement("update hospedejuridico set razaosocial=?, cnpj=?, inscricaoestadual=?,"
-            + "status=?, tipodecontrato=?, datadecadastro=?, obsevacoes=?, cep=?, rua=?, numero=?, complemento=?,"
-            + "bairro=?, estado=?, emailcorporativo=?, fixo=?, preferenciadecontato=?, responsavelpeloofaturamento=?,"
-            + "celular=?, notasinternas=?, limetedecredito=?, interesses=? where id=?");
-        
-        //Substitui os valores dos sinais de interrogacao
-        comando.setString(1, hj.getRazaosocial());
-        comando.setString(2, hj.getCnpj());
-        comando.setString(3, hj.getInscricaoestadual());
-        comando.setString(4, hj.getStatus().toString());
-        comando.setString(5, hj.getTipodecontrato().toString());
-        comando.setDate(6, (Date) hj.getDatadecadastro());
-        comando.setString(7, hj.getObsevacoes());
-        comando.setString(8, hj.getCep());
-        comando.setString(9, hj.getRua());
-        comando.setInt(10, hj.getNumero());
-        comando.setString(11, hj.getComplemento());
-        comando.setString(12, hj.getBairro());
-        comando.setString(13, hj.getEstado().toString());
-        comando.setString(14, hj.getEmailcorporativo());
-        comando.setString(15, hj.getFixo());
-        comando.setString(16, hj.getPreferenciadecontato());
-        comando.setString(17, hj.getResponsavelpeloofaturamento());
-        comando.setString(18, hj.getCelular());
-        comando.setString(19, hj.getNotasinternas());        
-        comando.setString(20, hj.getLimetedecredito());
-        comando.setString(21, hj.getInteresses());
-        comando.setInt(22, hj.getId());
-        
-        //Executa o comando
-        comando.executeUpdate();
-        
-        //Fecha a conexão
-        con.close();           
-    }
-    
-    public HospedeJuridicoDTO selecionar(int id) throws Exception{
-        //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        
-        //Conexão com o MySQL banco de dados **hotelaria**
-        Connection con = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/hotelaria", "root", "");
-        
-        //Preparando o comando DML
-        PreparedStatement comando =
-            con.prepareStatement("select * from hospedesjuridicos where id=?");
-        
-        comando.setInt(1, id);
-        
-        //Executa o comando e obtem a lista de resultado
-        ResultSet rs = comando.executeQuery();
-        
-        if (rs.next()) {
-            HospedeJuridicoDTO hj = new HospedeJuridicoDTO();
-            hj.setId(rs.getInt("id"));
-            hj.setRazaosocial(rs.getString("razaosocial"));
-            hj.setCnpj(rs.getString("cnpj"));
-            
-            return hj;
-        } else {
-            return null;
+
+    private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
+
+    public void inserirHospedeFisico(HospedeJuridicoDTO hj) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+
+        try {
+            conn = connectionFactory.conectaBD();
+            conn.setAutoCommit(false);
+
+            String sqlEndereco = "INSERT INTO ENDERECO (RUA, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            pstm = conn.prepareStatement(sqlEndereco, Statement.RETURN_GENERATED_KEYS);
+            pstm.setString(1, hj.getRua());
+            pstm.setString(2, hj.getNumero());
+            pstm.setString(3, hj.getComplemento());
+            pstm.setString(4, hj.getBairro());
+            pstm.setString(5, hj.getCidade());
+            pstm.setString(6, hj.getEstado().name());
+            pstm.setString(7, hj.getCep());
+
+            pstm.executeUpdate();
+
+            rs = pstm.getGeneratedKeys();
+            int idEndereco = 0;
+
+            if (rs.next()) {
+                idEndereco = rs.getInt(1);
+            }
+
+            pstm.close();
+
+            rs.close();
+
+            String sqlPessoa = "INSERT INTO PESSOA (EMAIL, FIXO, CELULAR, WHATSAPP, OBSERVACOES, ID_ENDERECO) VALUES (?, ?, ?, ?, ?, ?)";
+            pstm = conn.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS);
+            pstm.setString(1, hj.getEmail());
+            pstm.setString(2, hj.getFixo());
+            pstm.setString(3, hj.getCelular());
+            pstm.setBoolean(4, hj.getWhatsapp());
+            pstm.setString(5, hj.getObservacoes());
+            pstm.setInt(6, idEndereco);
+            pstm.executeUpdate();
+
+            rs = pstm.getGeneratedKeys();
+            int idPessoa = 0;
+
+            if (rs.next()) {
+                idPessoa = rs.getInt(1);
+            }
+
+            pstm.close();
+
+            rs.close();
+
+            String sqlHospedeJuridico = "INSERT INTO HOSPEDE_JURIDICO (RAZAO_SOCIAL, CNPJ, INSCRICAO_ESTADUAL, STATUS_EMPRESA, TIPO_CONTRATO,"
+                    + " DATA_CADASTRO, PREFERENCIA_CONTATO, RESPONSAVEL_FATURAMENTO, NOTAS_INTERNAS, FORMA_PAGAMENTO, PRAZO_FATURAMENTO,"
+                    + " LIMITE_CREDITO, INTERESSES) VALUES(??, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        pstm = conn.prepareStatement(sqlHospedeJuridico);
+
+            pstm.setString(1, RAZAO_SOCIAL);
+pstm.setString(2, CNPJ);
+pstm.setString(3, INSCRICAO_ESTADUAL);
+pstm.setString(4, STATUS_EMPRESA);
+pstm.setString(5, TIPO_CONTRATO);
+pstm.setString(6, DATA_CADASTRO);
+pstm.setString(7, PREFERENCIA_CONTATO);
+pstm.setString(8, RESPONSAVEL_FATURAMENTO);
+pstm.setString(9, NOTAS_INTERNAS);
+pstm.setString(10, FORMA_PAGAMENTO);
+pstm.setString(11, PRAZO_FATURAMENTO);
+pstm.setString(12, LIMITE_CREDITO);
+pstm.setString(13, INTERESSES);
+
+
+
+pstm.executeUpdate();
+
+            conn.commit();
+
+        } catch (SQLException e) {
+            if (conn != null) {
+                conn.rollback();
+            }
+            throw e;
+        } finally {
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
         }
-    
-    }
-    public List<HospedeJuridicoDTO> listar() throws Exception{
-        Class.forName("com.mysql.cj.jdbc.Driver");
 
-        Connection con = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/hotelaria", "root", ""); 
-
-        //Prepara o comando DML
-        PreparedStatement comando = 
-            con.prepareStatement("select * from hospedesjuridicos   order by razaosocial ");
-        
-        //Executa o comando e obtem a lista de resultado
-        ResultSet rs = comando.executeQuery();
-
-        List<HospedeJuridicoDTO> lista = new ArrayList();
-        while (rs.next()){
-            HospedeJuridicoDTO hj = new HospedeJuridicoDTO();
-            hj.setId(rs.getInt("id"));
-            hj.setRazaosocial(rs.getString("razaosocial"));
-            hj.setCnpj(rs.getString("cnpj"));
-
-            lista.add(hj);
-        }
-        
-        con.close();
-
-        return lista;
-    }
-
-    public List<HospedeJuridicoDTO> listar(String razaosocial) throws Exception{
-        Class.forName("com.mysql.cj.jdbc.Driver");
- 
-        Connection con = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/hotelaria", "root", ""); 
-
-         PreparedStatement comando = 
-            con.prepareStatement("select * from hospedesjuridicos where razaosocial like? "
-            + "order by razaosocial ");
-
-        comando.setString(1, razaosocial + "%");
-
-        ResultSet rs = comando.executeQuery();
-
-        List<HospedeJuridicoDTO> lista = new ArrayList();
-        while (rs.next()){
-            HospedeJuridicoDTO hj = new HospedeJuridicoDTO();
-            hj.setId(rs.getInt("id"));
-            hj.setRazaosocial(rs.getString("razaosocial"));
-            hj.setCnpj(rs.getString("cnpj"));
-
-            lista.add(hj);
-        }
-        
-        con.close();
-
-        return lista;
-    }
-
-    public void excluir(int id)throws Exception{
-        Class.forName("com.mysql.cj.jdbc.Driver");
- 
-        Connection con = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/hotelaria", "root", ""); 
-
-         PreparedStatement comando = 
-            con.prepareStatement("delete from razaosocial where id =? ");
-
-        comando.setInt(1, id);
-
-        comando.executeUpdate();
-
-        con.close();
     }
 }
-
-
-
-
-
-
-
-        
-
-        
-
-    
-
-
-
-
