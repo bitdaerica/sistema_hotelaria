@@ -20,7 +20,7 @@ public class HospedeFisicoDAO {
     Connection conn;
     PreparedStatement pstm;
 
-    public void inserir(HospedeFisicoDTO hf) throws Exception {
+    public void inserir(HospedeFisicoDTO hf) throws SQLException {
         String sql = "insert into HOSPEDE_FISICO (NOME, SOBRENOME, DATA_NASCIMENTO, GENERO, CPF, RG, NATURALIDADE, ESTADO_CIVIL, FOTO,"
                 + " PROFISSAO, STATUS_HOSPEDE, TIPO_DOC, NUMERO_DOC, ORGAO_EMISSOR, DATA_EMISSAO, DATA_CADASTRO, PREFERENCIA_CONTATO, "
                 + "PREFERENCIA_QUARTO, PREFERENCIA_ANDAR, ULTIMA_VISITA, PREFERENCIA_CAMA, ITENS_ESPECIAIS, INTERESSES, NOTAS_INTERNAS, "
