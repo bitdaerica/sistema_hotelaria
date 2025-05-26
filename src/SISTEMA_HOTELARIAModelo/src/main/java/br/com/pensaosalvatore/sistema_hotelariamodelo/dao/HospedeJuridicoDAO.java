@@ -5,19 +5,21 @@
  */
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.HospedeJuridico;
+import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.HospedeJuridicoDTO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Érica_Almeida
  */
 public class HospedeJuridicoDAO {
-    public void inserir(HospedeJuridico hj) throws Exception{
+    public void inserir(HospedeJuridicoDTO hj) throws Exception{
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -63,7 +65,7 @@ public class HospedeJuridicoDAO {
         con.close();   
     }
     
-    public void alterar(HospedeJuridico hj) throws Exception{
+    public void alterar(HospedeJuridicoDTO hj) throws Exception{
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -109,7 +111,7 @@ public class HospedeJuridicoDAO {
         con.close();           
     }
     
-    public HospedeJuridico selecionar(int id) throws Exception{
+    public HospedeJuridicoDTO selecionar(int id) throws Exception{
         //Preparando para conectar com Sistema de Gerenciamento de Banco de Dados (SGBD)
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -126,8 +128,8 @@ public class HospedeJuridicoDAO {
         //Executa o comando e obtem a lista de resultado
         ResultSet rs = comando.executeQuery();
         
-        if (rs.next())
-            HospedeJuridico hj = new HospedeJuridico();
+        if (rs.next()) {
+            HospedeJuridicoDTO hj = new HospedeJuridicoDTO();
             hj.setId(rs.getInt("id"));
             hj.setRazaosocial(rs.getString("razaosocial"));
             hj.setCnpj(rs.getString("cnpj"));
@@ -138,7 +140,7 @@ public class HospedeJuridicoDAO {
         }
     
     }
-    public List<HospedeJuridico> listar() throws Exception{
+    public List<HospedeJuridicoDTO> listar() throws Exception{
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection con = DriverManager.getConnection(
@@ -151,9 +153,9 @@ public class HospedeJuridicoDAO {
         //Executa o comando e obtem a lista de resultado
         ResultSet rs = comando.executeQuery();
 
-        List<HospedeJuridico> lista = new ArrayList();
-        While (rs.next()){
-            HospedeJuridico hj = new HospedeJuridico();
+        List<HospedeJuridicoDTO> lista = new ArrayList();
+        while (rs.next()){
+            HospedeJuridicoDTO hj = new HospedeJuridicoDTO();
             hj.setId(rs.getInt("id"));
             hj.setRazaosocial(rs.getString("razaosocial"));
             hj.setCnpj(rs.getString("cnpj"));
@@ -166,7 +168,7 @@ public class HospedeJuridicoDAO {
         return lista;
     }
 
-    public List<HospedeJuridico> listar(String razaosocial) throws Exception{
+    public List<HospedeJuridicoDTO> listar(String razaosocial) throws Exception{
         Class.forName("com.mysql.cj.jdbc.Driver");
  
         Connection con = DriverManager.getConnection(
@@ -180,9 +182,9 @@ public class HospedeJuridicoDAO {
 
         ResultSet rs = comando.executeQuery();
 
-        List<HospedeJuridico> lista = new ArrayList();
-        While (rs.next()){
-            HospedeJuridico hj = new HospedeJuridico();
+        List<HospedeJuridicoDTO> lista = new ArrayList();
+        while (rs.next()){
+            HospedeJuridicoDTO hj = new HospedeJuridicoDTO();
             hj.setId(rs.getInt("id"));
             hj.setRazaosocial(rs.getString("razaosocial"));
             hj.setCnpj(rs.getString("cnpj"));
