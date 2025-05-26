@@ -57,7 +57,7 @@ private String naturalidade;
     
     private Andar preferenciadeandar;
 
-    private Date datadedaultimavisita;
+    private Date ultimavisita;
 
     private TipoCama preferenciadecama;
 
@@ -79,7 +79,7 @@ private String naturalidade;
 
     }
 
-    public HospedeFisicoDTO(Integer id, String nome, String sobrenome, Date datadenascimento, Genero genero, String cpf, Integer rg, String naturalidade, EstadoCivil estadocivil, String foto, String profissao, StatusHospede status, TipoDocumento tipodocumento, Integer numerodocumento, String orgaoemissor, Date datadeemissao, Date datadecadastro, String preferenciadecontato, PreferenciaQuarto preferenciadequarto, Andar preferenciadeandar, Date datadedaultimavisita, TipoCama preferenciadecama, String itensespeciais, String interesses, String notasinternas, String empresavinculada, String cnpj, String cargo, String responsavelpelofaturamento, Integer idPessoa, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
+    public HospedeFisicoDTO(Integer id, String nome, String sobrenome, Date datadenascimento, Genero genero, String cpf, Integer rg, String naturalidade, EstadoCivil estadocivil, String foto, String profissao, StatusHospede status, TipoDocumento tipodocumento, Integer numerodocumento, String orgaoemissor, Date datadeemissao, Date datadecadastro, String preferenciadecontato, PreferenciaQuarto preferenciadequarto, Andar preferenciadeandar, Date ultimavisita, TipoCama preferenciadecama, String itensespeciais, String interesses, String notasinternas, String empresavinculada, String cnpj, String cargo, String responsavelpelofaturamento, Integer idPessoa, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
         super(idPessoa, email, fixo, celular, whatsapp, observacoes, idEndereco, rua, numero, complemento, bairro, cidade, estado, cep);
         this.id = id;
         this.nome = nome;
@@ -101,7 +101,7 @@ private String naturalidade;
         this.preferenciadecontato = preferenciadecontato;
         this.preferenciadequarto = preferenciadequarto;
         this.preferenciadeandar = preferenciadeandar;
-        this.datadedaultimavisita = datadedaultimavisita;
+        this.ultimavisita = ultimavisita;
         this.preferenciadecama = preferenciadecama;
         this.itensespeciais = itensespeciais;
         this.interesses = interesses;
@@ -272,12 +272,12 @@ private String naturalidade;
         this.preferenciadeandar = preferenciadeandar;
     }
 
-    public Date getDatadedaultimavisita() {
-        return datadedaultimavisita;
+    public Date getUltimavisita() {
+        return ultimavisita;
     }
 
-    public void setDatadedaultimavisita(Date datadedaultimavisita) {
-        this.datadedaultimavisita = datadedaultimavisita;
+    public void setUltimavisita(Date ultimavisita) {
+        this.ultimavisita = ultimavisita;
     }
 
     public TipoCama getPreferenciadecama() {
