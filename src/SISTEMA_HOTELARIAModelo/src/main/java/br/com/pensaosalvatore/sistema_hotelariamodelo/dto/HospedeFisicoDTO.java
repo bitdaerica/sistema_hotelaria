@@ -16,31 +16,30 @@ import java.util.Date;
  */
 public class HospedeFisicoDTO extends PessoaDTO {
 
-    private Integer idHo;
-    
+    private Integer idHospedeFisico;
+
     private String nome;
- 
+
     private String sobrenome;
 
     private Date datadenascimento;
-    
-    private Genero genero;
-    
-    private String cpf;
-    
-private Integer rg;
 
-private String naturalidade;
-    
+    private Genero genero;
+
+    private String cpf;
+
+    private Integer rg;
+
+    private String naturalidade;
+
     private EstadoCivil estadocivil;
-    
+
     private String foto;
-    
+
     private String profissao;
 
-    
     private StatusHospede status;
-    
+
     private TipoDocumento tipodocumento;
 
     private Integer numerodocumento;
@@ -54,7 +53,7 @@ private String naturalidade;
     private String preferenciadecontato;
 
     private PreferenciaQuarto preferenciadequarto;
-    
+
     private Andar preferenciadeandar;
 
     private Date ultimavisita;
@@ -79,9 +78,9 @@ private String naturalidade;
 
     }
 
-    public HospedeFisicoDTO(Integer id, String nome, String sobrenome, Date datadenascimento, Genero genero, String cpf, Integer rg, String naturalidade, EstadoCivil estadocivil, String foto, String profissao, StatusHospede status, TipoDocumento tipodocumento, Integer numerodocumento, String orgaoemissor, Date datadeemissao, Date datadecadastro, String preferenciadecontato, PreferenciaQuarto preferenciadequarto, Andar preferenciadeandar, Date ultimavisita, TipoCama preferenciadecama, String itensespeciais, String interesses, String notasinternas, String empresavinculada, String cnpj, String cargo, String responsavelpelofaturamento, Integer idPessoa, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
+    public HospedeFisicoDTO(Integer idHospedeFisico, String nome, String sobrenome, Date datadenascimento, Genero genero, String cpf, Integer rg, String naturalidade, EstadoCivil estadocivil, String foto, String profissao, StatusHospede status, TipoDocumento tipodocumento, Integer numerodocumento, String orgaoemissor, Date datadeemissao, Date datadecadastro, String preferenciadecontato, PreferenciaQuarto preferenciadequarto, Andar preferenciadeandar, Date ultimavisita, TipoCama preferenciadecama, String itensespeciais, String interesses, String notasinternas, String empresavinculada, String cnpj, String cargo, String responsavelpelofaturamento, Integer idPessoa, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
         super(idPessoa, email, fixo, celular, whatsapp, observacoes, idEndereco, rua, numero, complemento, bairro, cidade, estado, cep);
-        this.id = id;
+        this.idHospedeFisico = idHospedeFisico;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.datadenascimento = datadenascimento;
@@ -112,12 +111,12 @@ private String naturalidade;
         this.responsavelpelofaturamento = responsavelpelofaturamento;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdHospedeFisico() {
+        return idHospedeFisico;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdHospedeFisico(Integer idHospedeFisico) {
+        this.idHospedeFisico = idHospedeFisico;
     }
 
     public String getNome() {
@@ -344,8 +343,6 @@ private String naturalidade;
         this.responsavelpelofaturamento = responsavelpelofaturamento;
     }
 
-   
-
     @Override
     public Integer getIdPessoa() {
         return idPessoa;
@@ -485,6 +482,5 @@ private String naturalidade;
     public void setCep(String cep) {
         this.cep = cep;
     }
-    
-    
+
 }
