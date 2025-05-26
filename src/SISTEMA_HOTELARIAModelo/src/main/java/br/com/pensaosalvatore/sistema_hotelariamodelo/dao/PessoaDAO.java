@@ -2,18 +2,21 @@
 
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
+import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.PessoaDTO;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author Érica_Almeida
  */
 public class PessoaDAO {
 
-    private Connection conn;
+    private final ConnectionFactoryDAO connectionFactory;
 
     public PessoaDAO() {
-        // Abrir conexão no construtor usando sua ConnectionFactoryDAO
-        ConnectionFactoryDAO factory = new ConnectionFactoryDAO();
-        conn = factory.conectaBD();
+        this.connectionFactory = new ConnectionFactoryDAO();
     }
 
     // Método para inserir uma Pessoa
@@ -33,7 +36,7 @@ public class PessoaDAO {
             pstm.setString(9, pessoa.getComplemento());
             pstm.setString(10, pessoa.getBairro());
             pstm.setString(11, pessoa.getCidade());
-            pstm.setString(12, pessoa.getEstado().toString()); // supondo que Estado é um enum
+            pstm.setString(12, pessoa.getEstado().toString());
             pstm.setString(13, pessoa.getCep());
 
             int affectedRows = pstm.executeUpdate();

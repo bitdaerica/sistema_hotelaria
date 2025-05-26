@@ -16,16 +16,19 @@ import java.util.List;
  */
 public class EnderecoDAO {
 
-    private final ConnectionFactoryDAO connectionFactory;
+    private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
 
     public EnderecoDAO() {
-        this.connectionFactory = new ConnectionFactoryDAO();
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
     }
 
     public void inserir(EnderecoDTO endereco) throws SQLException {
         String sql = "INSERT INTO ENDERECO (RUA, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection conn = connectionFactory.conectaBD();
+             PreparedStatement pstm = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             pstm.setString(1, endereco.getRua());
             pstm.setString(2, endereco.getNumero());
