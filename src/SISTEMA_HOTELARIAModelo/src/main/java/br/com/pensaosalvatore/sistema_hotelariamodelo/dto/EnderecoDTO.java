@@ -21,8 +21,8 @@ public class EnderecoDTO {
 
     }
 
-    public EnderecoDTO(Integer id, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
-        this.idEndereco = id;
+    public EnderecoDTO(Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
+        this.idEndereco = idEndereco;
         this.rua = rua;
         this.numero = numero;
         this.complemento = complemento;
@@ -36,8 +36,8 @@ public class EnderecoDTO {
         return idEndereco;
     }
 
-    public void setIdEndereco(Integer id) {
-        this.idEndereco = id;
+    public void setIdEndereco(Integer idEndereco) {
+        this.idEndereco = idEndereco;
     }
 
     public String getRua() {
@@ -95,5 +95,4 @@ public class EnderecoDTO {
     public void setCep(String cep) {
         this.cep = cep;
     }
-
 }

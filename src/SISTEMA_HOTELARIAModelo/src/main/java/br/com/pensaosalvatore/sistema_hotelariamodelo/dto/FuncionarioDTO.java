@@ -1,101 +1,58 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
 
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.CargoFuncionario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.DerpatamentoFuncionario;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Estado;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.EstadoCivil;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.GraudeAcesso;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.RegimedeContratacao;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.StatusFuncionario;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  *
  * @author 202412170006
  */
-public class FuncionarioDTO extends EnderecoDTO{
-    private Integer id;
+public class FuncionarioDTO extends PessoaDTO{
     
-    private String nome;
-    
-    private String sobrenome;
-    
+    private Integer idFuncionario;    
+    private String nome;    
+    private String sobrenome;    
     private Date datadenascimento;
-    
     private String cpf;
-    
-    private Integer rg;
-    
+    private String rg;    
     private EstadoCivil estadocivil;
-
-    private String naturalidade;
-    
-    private Genero genero;
-    
-    private String nomedamae;
-    
-    private String nomedopai;
-    
-    private String cep;
-    
-    private String rua;
-    
-    private Integer numero;
-    
-    private String complemento;
-    
-    private String bairro;
-    
-    private Estado estado;
-    
-    private String email;
-    
-    private String celular;
-    
-    //private ? whatsapp;
-    
-    private String fixo;
-    
+    private String naturalidade;    
+    private Genero genero;    
+    private String nomedamae;    
+    private String nomedopai;   
+    private String foto;
     private Integer matricula;
-    
-    //private ? cargo;
-    
-    //private ? departamento;
-    
-    private Date datadeadmissao;
-    
-    private String jornadadetrabalho;
-    
-    private RegimedeContratacao regimedecontratacao;
-    
-    private StatusFuncionario status;
-    
-    private Integer salariobase;
-    
-    private String numerodopis;
-    
-    private String ctps;
-    
-    private String observacoesgerais;
-    
-    private String historico;
-    
-    private String comentariosdagestao;
-    
-    private String nomeusuario;
-    
-    private String senha;
-    
+    private CargoFuncionario cargo;
+    private DerpatamentoFuncionario departamento;
+    private Date datadeadmissao;    
+    private Integer jornadadetrabalho;    
+    private RegimedeContratacao regimedecontratacao;    
+    private StatusFuncionario status;    
+    private BigDecimal salariobase;    
+    private String numerodopis;    
+    private String ctps;    
+    private String observacoesgerais;    
+    private String historico;    
+    private String comentariosdagestao;    
+    private String nomeusuario;    
+    private String senha;    
     private GraudeAcesso graudeacesso;
 
     public FuncionarioDTO() {
     }
 
-    public FuncionarioDTO(Integer id, String nome, String sobrenome, Date datadenascimento, String cpf, Integer rg, EstadoCivil estadocivil, String naturalidade, Genero genero, String nomedamae, String nomedopai, String cep, String rua, Integer numero, String complemento, String bairro, Estado estado, String email, String celular, String fixo, Integer matricula, Date datadeadmissao, String jornadadetrabalho, RegimedeContratacao regimedecontratacao, StatusFuncionario status, Integer salariobase, String numerodopis, String ctps, String observacoesgerais, String historico, String comentariosdagestao, String nomeusuario, String senha, GraudeAcesso graudeacesso) {
-        this.id = id;
+    public FuncionarioDTO(Integer idFuncionario, String nome, String sobrenome, Date datadenascimento, String cpf, String rg, EstadoCivil estadocivil, String naturalidade, Genero genero, String nomedamae, String nomedopai, String foto, Integer matricula, CargoFuncionario cargo, DerpatamentoFuncionario departamento, Date datadeadmissao, Integer jornadadetrabalho, RegimedeContratacao regimedecontratacao, StatusFuncionario status, BigDecimal salariobase, String numerodopis, String ctps, String observacoesgerais, String historico, String comentariosdagestao, String nomeusuario, String senha, GraudeAcesso graudeacesso, Integer idPessoa, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
+        super(idPessoa, email, fixo, celular, whatsapp, observacoes, idEndereco, rua, numero, complemento, bairro, cidade, estado, cep);
+        this.idFuncionario = idFuncionario;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.datadenascimento = datadenascimento;
@@ -106,16 +63,10 @@ public class FuncionarioDTO extends EnderecoDTO{
         this.genero = genero;
         this.nomedamae = nomedamae;
         this.nomedopai = nomedopai;
-        this.cep = cep;
-        this.rua = rua;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.estado = estado;
-        this.email = email;
-        this.celular = celular;
-        this.fixo = fixo;
+        this.foto = foto;
         this.matricula = matricula;
+        this.cargo = cargo;
+        this.departamento = departamento;
         this.datadeadmissao = datadeadmissao;
         this.jornadadetrabalho = jornadadetrabalho;
         this.regimedecontratacao = regimedecontratacao;
@@ -130,13 +81,13 @@ public class FuncionarioDTO extends EnderecoDTO{
         this.senha = senha;
         this.graudeacesso = graudeacesso;
     }
-    
-    
-    public Integer getId(){
-        return id;
+
+    public Integer getIdFuncionario() {
+        return idFuncionario;
     }
-    public void setId(Integer id){
-        this.id = id;
+
+    public void setIdFuncionario(Integer idFuncionario) {
+        this.idFuncionario = idFuncionario;
     }
 
     public String getNome() {
@@ -171,11 +122,11 @@ public class FuncionarioDTO extends EnderecoDTO{
         this.cpf = cpf;
     }
 
-    public Integer getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(Integer rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 
@@ -219,76 +170,12 @@ public class FuncionarioDTO extends EnderecoDTO{
         this.nomedopai = nomedopai;
     }
 
-    public String getCep() {
-        return cep;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    public Integer getNumero() {
-        return numero;
-    }
-
-    public void setNumero(Integer numero) {
-        this.numero = numero;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    public String getFixo() {
-        return fixo;
-    }
-
-    public void setFixo(String fixo) {
-        this.fixo = fixo;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public Integer getMatricula() {
@@ -299,6 +186,22 @@ public class FuncionarioDTO extends EnderecoDTO{
         this.matricula = matricula;
     }
 
+    public CargoFuncionario getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(CargoFuncionario cargo) {
+        this.cargo = cargo;
+    }
+
+    public DerpatamentoFuncionario getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(DerpatamentoFuncionario departamento) {
+        this.departamento = departamento;
+    }
+
     public Date getDatadeadmissao() {
         return datadeadmissao;
     }
@@ -307,11 +210,11 @@ public class FuncionarioDTO extends EnderecoDTO{
         this.datadeadmissao = datadeadmissao;
     }
 
-    public String getJornadadetrabalho() {
+    public Integer getJornadadetrabalho() {
         return jornadadetrabalho;
     }
 
-    public void setJornadadetrabalho(String jornadadetrabalho) {
+    public void setJornadadetrabalho(Integer jornadadetrabalho) {
         this.jornadadetrabalho = jornadadetrabalho;
     }
 
@@ -331,11 +234,11 @@ public class FuncionarioDTO extends EnderecoDTO{
         this.status = status;
     }
 
-    public Integer getSalariobase() {
+    public BigDecimal getSalariobase() {
         return salariobase;
     }
 
-    public void setSalariobase(Integer salariobase) {
+    public void setSalariobase(BigDecimal salariobase) {
         this.salariobase = salariobase;
     }
 
@@ -402,6 +305,142 @@ public class FuncionarioDTO extends EnderecoDTO{
     public void setGraudeacesso(GraudeAcesso graudeacesso) {
         this.graudeacesso = graudeacesso;
     }
-    
-    
+
+    @Override
+    public Integer getIdPessoa() {
+        return idPessoa;
+    }
+
+    @Override
+    public void setIdPessoa(Integer idPessoa) {
+        this.idPessoa = idPessoa;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String getFixo() {
+        return fixo;
+    }
+
+    @Override
+    public void setFixo(String fixo) {
+        this.fixo = fixo;
+    }
+
+    @Override
+    public String getCelular() {
+        return celular;
+    }
+
+    @Override
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    @Override
+    public Boolean getWhatsapp() {
+        return whatsapp;
+    }
+
+    @Override
+    public void setWhatsapp(Boolean whatsapp) {
+        this.whatsapp = whatsapp;
+    }
+
+    @Override
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    @Override
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+    }
+
+    @Override
+    public Integer getIdEndereco() {
+        return idEndereco;
+    }
+
+    @Override
+    public void setIdEndereco(Integer idEndereco) {
+        this.idEndereco = idEndereco;
+    }
+
+    @Override
+    public String getRua() {
+        return rua;
+    }
+
+    @Override
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    @Override
+    public String getNumero() {
+        return numero;
+    }
+
+    @Override
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    @Override
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    @Override
+    public String getBairro() {
+        return bairro;
+    }
+
+    @Override
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    @Override
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    @Override
+    public Estado getEstado() {
+        return estado;
+    }
+
+    @Override
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    @Override
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
 }
