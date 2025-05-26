@@ -15,9 +15,9 @@ public class CadFuncionarioController {
         this.view = view;
     }
     
-    public void salvarfuncionario {
+   // public void salvarfuncionario {
 
 }
     
     
-}
+
