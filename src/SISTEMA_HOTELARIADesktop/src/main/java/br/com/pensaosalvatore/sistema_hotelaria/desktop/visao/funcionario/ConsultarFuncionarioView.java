@@ -184,14 +184,14 @@ public class ConsultarFuncionarioView extends javax.swing.JInternalFrame {
         btnLimparselecao.setVisible(true);
         btnBuscar.setVisible(false);
         
-        CadFuncionarioController f = new CadFuncionarioController();
+      /**  CadFuncionarioController f = new CadFuncionarioController();
         List<FuncionarioDTO> lista = f.pesquisar(txtnome.getText());
         
         if (lista != null) {
             JOptionPane.showMessageDialog(this, lista.size());
         } else {
             JOptionPane.showMessageDialog(this, "Lista vazia");
-        }
+        } */
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnLimparselecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparselecaoActionPerformed

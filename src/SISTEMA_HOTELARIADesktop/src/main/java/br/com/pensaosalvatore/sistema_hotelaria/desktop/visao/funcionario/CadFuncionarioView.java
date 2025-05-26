@@ -1,6 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario;
 
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.controlador.funcionario.CadFuncionarioController;
+//import br.com.pensaosalvatore.sistema_hotelaria.desktop.controlador.funcionario.CadFuncionarioController;
 import javax.swing.JOptionPane;
 
 /**
@@ -9,14 +9,14 @@ import javax.swing.JOptionPane;
  */
 public class CadFuncionarioView extends javax.swing.JInternalFrame {
 
-    private final CadFuncionarioController controller;
+   // private final CadFuncionarioController controller;
 
     /**
      * Creates new form TelaCadFuncionario
      */
     public CadFuncionarioView() {
         initComponents();
-        controller = new CadFuncionarioController(this);
+       // controller = new CadFuncionarioController(this);
 
         //setExtendedState (MAXIMIZED_BOTH);
         pnlRodapetabela.setVisible(false);
@@ -1060,7 +1060,7 @@ public class CadFuncionarioView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       controller.salvarfuncionario();
+       //controller.salvarfuncionario();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelaredicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaredicaoActionPerformed
