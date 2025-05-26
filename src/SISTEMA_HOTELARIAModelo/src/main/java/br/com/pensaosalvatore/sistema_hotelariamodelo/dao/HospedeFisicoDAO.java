@@ -79,38 +79,36 @@ public class HospedeFisicoDAO {
 
             pstm = conn.prepareStatement(sqlHospedeFisico);
 
-            /*
-             
-pstm.setString(1 NOME
-pstm.setString(2 SOBRENOME
-pstm.setString(3 DATA_NASCIMENTO
-pstm.setString(4 GENERO
-pstm.setString(5 CPF
-pstm.setString(6 RG
-pstm.setString(7 NATURALIDADE
-pstm.setString(8 ESTADO_CIVIL
-pstm.setString(9 FOTO
-pstm.setString(10 PROFISSAO
-pstm.setString(11 STATUS_HOSPEDE
-pstm.setString(12 TIPO_DOC
-pstm.setString(13 NUMERO_DOC
-pstm.setString(14 ORGAO_EMISSOR
-pstm.setString(15 DATA_EMISSAO
-pstm.setString(16 DATA_CADASTRO
-pstm.setString(17 PREFERENCIA_CONTATO
-pstm.setString(18 PREFERENCIA_QUARTO
-pstm.setString(19 PREFERENCIA_ANDAR
-pstm.setString(20 ULTIMA_VISITA
-pstm.setString(21 PREFERENCIA_CAMA
-pstm.setString(22 ITENS_ESPECIAIS
-pstm.setString(23 INTERESSES
-pstm.setString(24 NOTAS_INTERNAS
-pstm.setString(25 EMPRESA_VINCULADA
-pstm.setString(26 CNPJ
-pstm.setString(27 CARGO
-pstm.setString(28 RESPONSAVEL_FATURAMENTO
-            pstm.setString(29 ID_PESSOA 
-             */
+            pstm.setString(1, hf.getNome());
+            pstm.setString(2, hf.getSobrenome());
+            pstm.setDate(3, new java.sql.Date(hf.getDatadenascimento().getTime()));
+            pstm.setString(4, hf.getGenero().name());
+            pstm.setString(5, hf.getCpf());
+            pstm.setInt(6, hf.getRg());
+            pstm.setString(7, hf.getNaturalidade());
+            pstm.setString(8, hf.getEstadocivil().name());
+            pstm.setString(9, hf.getFoto());
+            pstm.setString(10, hf.getProfissao());
+            pstm.setString(11, hf.getStatus().name());
+            pstm.setString(12, hf.getTipodocumento().name());
+            pstm.setInt(13, hf.getNumerodocumento());
+            pstm.setString(14, hf.getOrgaoemissor()); 
+            pstm.setDate(15, new java.sql.Date (hf.getDatadeemissao().getTime()));
+            pstm.setDate(16, new java.sql.Date(hf.getDatadecadastro().getTime())); 
+            pstm.setString(17, hf.getPreferenciadecontato());
+            pstm.setString(18, hf.getPreferenciadequarto().name());
+            pstm.setString(19, hf.getPreferenciadeandar().name());
+            pstm.setDate(20, new java.sql.Date (hf.getUltimavisita().getTime()));
+            pstm.setString(21, hf.getPreferenciadecama().name());
+            pstm.setString(22, hf.getItensespeciais());
+            pstm.setString(23, hf.getInteresses());
+            pstm.setString(24, hf.getNotasinternas());
+            pstm.setString(25, hf.getEmpresavinculada());
+            pstm.setString(26, hf.getCnpj());
+            pstm.setString(27, hf.getCargo());
+            pstm.setString(28, hf.getResponsavelpelofaturamento());
+            pstm.setInt(29,  hf.getIdPessoa()); 
+            
             pstm.executeUpdate();
 
             conn.commit();
