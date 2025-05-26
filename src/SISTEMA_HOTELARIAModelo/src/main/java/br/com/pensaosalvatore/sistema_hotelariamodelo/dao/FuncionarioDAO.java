@@ -272,7 +272,7 @@ public class FuncionarioDAO {
                 funcionario.setCargo(CargoFuncionario.valueOf(rs.getString("CARGO")));
                 funcionario.setDepartamento(DepartamentoFuncionario.valueOf(rs.getString("DEPARTAMENTO")));
                 funcionario.setStatus(StatusFuncionario.valueOf(rs.getString("STATUS_FUNCIONARIO")));
-                // Adicione os outros campos conforme necessário
+                
 
                 lista.add(funcionario);
             }
@@ -313,7 +313,7 @@ public class FuncionarioDAO {
                 funcionario.setCargo(CargoFuncionario.valueOf(rs.getString("CARGO")));
                 funcionario.setDepartamento(DepartamentoFuncionario.valueOf(rs.getString("DEPARTAMENTO")));
                 funcionario.setStatus(StatusFuncionario.valueOf(rs.getString("STATUS_FUNCIONARIO")));
-                // Adicione os outros campos
+                
 
                 lista.add(funcionario);
             }
@@ -339,7 +339,7 @@ public class FuncionarioDAO {
             conn = connectionFactory.conectaBD();
             conn.setAutoCommit(false);
 
-            String sql = "DELETE FROM FUNCIONARIO WHERE ID = ?";
+            String sql = "DELETE FROM FUNCIONARIO WHERE IdFuncionario = ?";
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, idFuncionario);
             pstm.executeUpdate();

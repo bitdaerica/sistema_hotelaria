@@ -16,7 +16,7 @@ import java.util.Date;
  */
 public class HospedeFisicoDTO extends PessoaDTO {
 
-    private Integer id;
+    private Integer idHo;
     
     private String nome;
  

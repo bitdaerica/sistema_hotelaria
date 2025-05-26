@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import static javax.swing.UIManager.getInt;
 
 /**
  *
@@ -64,7 +65,7 @@ public class PessoaDAO {
 
         } catch (SQLException e) {
             if (conn != null) {
-                conn.rollback(); 
+                conn.rollback();
             }
             throw e;
         } finally {
@@ -77,8 +78,7 @@ public class PessoaDAO {
         }
     }
 
-        
-    public void atualizar(PessoaDTO pessoa) throws SQLException {
+    public void alterarPessoa(PessoaDTO p) throws SQLException {
         String sql = "UPDATE pessoa SET email=?, fixo=?, celular=?, whatsapp=?, observacoes=?, idEndereco=?, rua=?, numero=?, complemento=?, bairro=?, cidade=?, estado=?, cep=? WHERE idPessoa=?";
 
         try (PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -101,8 +101,7 @@ public class PessoaDAO {
         }
     }
 
-    
-   public PessoaDTO buscarPorId(int id) throws SQLException {
+    public PessoaDTO selecionarPorId(int idPessoa) throws SQLException {
         String sql = "SELECT * FROM pessoa WHERE idPessoa = ?";
         PessoaDTO pessoa = null;
 
@@ -130,12 +129,18 @@ public class PessoaDAO {
         }
         return pessoa;
     }
-    
+
     public List<PessoaDTO> listarTodos() throws SQLException {
         List<PessoaDTO> lista = new ArrayList<>();
-        String sql = "SELECT * FROM pessoa";
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
 
-        try (PreparedStatement pstm = conn.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
+        try {
+            conn = connectionFactory.conectaBD();
+            String sql = "SELECT * FROM PESSOA";
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
 
             while (rs.next()) {
                 PessoaDTO pessoa = new PessoaDTO();
@@ -156,17 +161,85 @@ public class PessoaDAO {
 
                 lista.add(pessoa);
             }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
         }
         return lista;
     }
-    
-     public void excluirPessoa(int idPessoa) throws SQLException {
-        String sql = "DELETE FROM pessoa WHERE idPessoa = ?";
 
-        try (PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setInt(1, id);
-            pstm.executeUpdate();
+     public List<PessoaDTO> listarPorNome(String nome) throws SQLException {
+          List < PessoaDTO > lista = new ArrayList<>();
+        Connection conn = null;
+         * PreparedStatement pstm = null;
+        ResultSet rs = null;
+         *
+                * try {
+            conn = connectionFactory.conectaBD();
+            String sql = "SELECT * FROM
+     * PESSOA WHERE NOME LIKE ?"; pstm = conn.prepareStatement(sql);
+     * pstm.setString(1, "%" + nome + "%");
+            rs = pstm.executeQuery();
+             *
+                    * while (rs.next()) {
+                PessoaDTO pessoa = new PessoaDTO();
+                 * Pessoa.setIdPessoa(rs.getInt("ID"));
+                 * Pessoa.setEmail(rs.getString("EMAIL"));
+                 *
+                        *
+                        * lista.add(pessoa);
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstm
+                    * != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
         }
+        return  * lista;
+         *
+                * @param idPessoa
+                * @throws java.sql.SQLException
     }
 
+    public void excluirPessoa(int idPessoa) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try {
+            conn = connectionFactory.conectaBD();
+            conn.setAutoCommit(false);
+
+            String sql = "DELETE FROM PESSOA WHERE IdPessoa = ?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, idPessoa);
+            pstm.executeUpdate();
+
+            conn.commit();
+        } catch (SQLException e) {
+            if (conn != null) {
+                conn.rollback();
+            }
+            throw e;
+        } finally {
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }
 }

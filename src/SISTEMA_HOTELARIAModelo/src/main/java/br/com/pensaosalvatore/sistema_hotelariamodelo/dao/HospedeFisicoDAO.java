@@ -166,8 +166,8 @@ public class HospedeFisicoDAO {
 
             pstm.close();
 
-            String sqlHospedeFisico = "UPDATE HOSPEDE_FISICO SET NOME =  ?, SOBRENOME =  ?, DATA_NASCIMENTO =  ?, GENERO =  ?, CPF =  ?, RG =  ?, NATURALIDADE =  ?, ESTADO_CIVIL =  ?, FOTO =  ?, PROFISSAO =  ?, STATUS_HOSPEDE =  ?, TIPO_DOC =  ?, NUMERO_DOC =  ?, ORGAO_EMISSOR =  ?, DATA_EMISSAO =  ?, DATA_CADASTRO =  ?, PREFERENCIA_CONTATO =  ?, PREFERENCIA_QUARTO =  ?, PREFERENCIA_ANDAR =  ?, ULTIMA_VISITA =  ?, PREFERENCIA_CAMA =  ?, ITENS_ESPECIAIS =  ?, INTERESSES =  ?, NOTAS_INTERNAS =  ?, EMPRESA_VINCULADA =  ?, CNPJ =  ?, CARGO =  ?, RESPONSAVEL_FATURAMENTO =  ?, WHERE ID =  ?",
-            pstmHospedeFisico = conn.prepareStatement(sqlHospedeFisico);
+            String sqlHospedeFisico = "UPDATE HOSPEDE_FISICO SET NOME =  ?, SOBRENOME =  ?, DATA_NASCIMENTO =  ?, GENERO =  ?, CPF =  ?, RG =  ?, NATURALIDADE =  ?, ESTADO_CIVIL =  ?, FOTO =  ?, PROFISSAO =  ?, STATUS_HOSPEDE =  ?, TIPO_DOC =  ?, NUMERO_DOC =  ?, ORGAO_EMISSOR =  ?, DATA_EMISSAO =  ?, DATA_CADASTRO =  ?, PREFERENCIA_CONTATO =  ?, PREFERENCIA_QUARTO =  ?, PREFERENCIA_ANDAR =  ?, ULTIMA_VISITA =  ?, PREFERENCIA_CAMA =  ?, ITENS_ESPECIAIS =  ?, INTERESSES =  ?, NOTAS_INTERNAS =  ?, EMPRESA_VINCULADA =  ?, CNPJ =  ?, CARGO =  ?, RESPONSAVEL_FATURAMENTO =  ? WHERE ID =  ?";
+            pstm = conn.prepareStatement(sqlHospedeFisico);
             
             pstm.setString(1, hf.getNome());
             pstm.setString(2, hf.getSobrenome());
@@ -197,7 +197,7 @@ public class HospedeFisicoDAO {
             pstm.setString(26, hf.getCnpj());
             pstm.setString(27, hf.getCargo());
             pstm.setString(28, hf.getResponsavelpelofaturamento());
-            pstm.setInt(29,  hf.getIdHospedeFisico());
+            pstm.setInt(29, hf.getIdHospedeFisico());
             
              pstm.executeUpdate();
              
