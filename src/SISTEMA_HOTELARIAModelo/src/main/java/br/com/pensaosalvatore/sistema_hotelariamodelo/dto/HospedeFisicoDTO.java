@@ -21,26 +21,29 @@ public class HospedeFisicoDTO extends PessoaDTO {
     private String nome;
  
     private String sobrenome;
+
+    private Date datadenascimento;
     
     private Genero genero;
     
     private String cpf;
     
-    private Date datadenascimento;
+private Integer rg;
+
+private String naturalidade;
     
     private EstadoCivil estadocivil;
     
-    private String naturalidade;
+    private String foto;
     
     private String profissao;
 
-    private Integer rg;
-
+    
     private StatusHospede status;
+    
+    private TipoDocumento tipodocumento;
 
     private Integer numerodocumento;
-
-    private TipoDocumento tipodocumento;
 
     private String orgaoemissor;
 
@@ -76,25 +79,22 @@ public class HospedeFisicoDTO extends PessoaDTO {
 
     }
 
-    public HospedeFisicoDTO(Integer id, String nome, String sobrenome, Genero genero, String cpf, Date datadenascimento, EstadoCivil estadocivil,
-            String naturalidade, String profissao, Integer rg, StatusHospede status, Integer numerodocumento, TipoDocumento tipodocumento, String orgaoemissor,
-            Date datadeemissao, Date datadecadastro, String preferenciadecontato, PreferenciaQuarto preferenciadequarto, Andar preferenciadeandar,
-            Date datadedaultimavisita, TipoCama preferenciadecama, String itensespeciais, String interesses, String notasinternas, String empresavinculada, String cnpj, String cargo, String responsavelpelofaturamento, Integer idPessoa, String email, String fixo, String celular, 
-            Boolean whatsapp, String observacoes,Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
+    public HospedeFisicoDTO(Integer id, String nome, String sobrenome, Date datadenascimento, Genero genero, String cpf, Integer rg, String naturalidade, EstadoCivil estadocivil, String foto, String profissao, StatusHospede status, TipoDocumento tipodocumento, Integer numerodocumento, String orgaoemissor, Date datadeemissao, Date datadecadastro, String preferenciadecontato, PreferenciaQuarto preferenciadequarto, Andar preferenciadeandar, Date datadedaultimavisita, TipoCama preferenciadecama, String itensespeciais, String interesses, String notasinternas, String empresavinculada, String cnpj, String cargo, String responsavelpelofaturamento, Integer idPessoa, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
         super(idPessoa, email, fixo, celular, whatsapp, observacoes, idEndereco, rua, numero, complemento, bairro, cidade, estado, cep);
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
+        this.datadenascimento = datadenascimento;
         this.genero = genero;
         this.cpf = cpf;
-        this.datadenascimento = datadenascimento;
-        this.estadocivil = estadocivil;
-        this.naturalidade = naturalidade;
-        this.profissao = profissao;
         this.rg = rg;
+        this.naturalidade = naturalidade;
+        this.estadocivil = estadocivil;
+        this.foto = foto;
+        this.profissao = profissao;
         this.status = status;
-        this.numerodocumento = numerodocumento;
         this.tipodocumento = tipodocumento;
+        this.numerodocumento = numerodocumento;
         this.orgaoemissor = orgaoemissor;
         this.datadeemissao = datadeemissao;
         this.datadecadastro = datadecadastro;
@@ -136,6 +136,14 @@ public class HospedeFisicoDTO extends PessoaDTO {
         this.sobrenome = sobrenome;
     }
 
+    public Date getDatadenascimento() {
+        return datadenascimento;
+    }
+
+    public void setDatadenascimento(Date datadenascimento) {
+        this.datadenascimento = datadenascimento;
+    }
+
     public Genero getGenero() {
         return genero;
     }
@@ -152,20 +160,12 @@ public class HospedeFisicoDTO extends PessoaDTO {
         this.cpf = cpf;
     }
 
-    public Date getDatadenascimento() {
-        return datadenascimento;
+    public Integer getRg() {
+        return rg;
     }
 
-    public void setDatadenascimento(Date datadenascimento) {
-        this.datadenascimento = datadenascimento;
-    }
-
-    public EstadoCivil getEstadocivil() {
-        return estadocivil;
-    }
-
-    public void setEstadocivil(EstadoCivil estadocivil) {
-        this.estadocivil = estadocivil;
+    public void setRg(Integer rg) {
+        this.rg = rg;
     }
 
     public String getNaturalidade() {
@@ -176,20 +176,28 @@ public class HospedeFisicoDTO extends PessoaDTO {
         this.naturalidade = naturalidade;
     }
 
+    public EstadoCivil getEstadocivil() {
+        return estadocivil;
+    }
+
+    public void setEstadocivil(EstadoCivil estadocivil) {
+        this.estadocivil = estadocivil;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
     public String getProfissao() {
         return profissao;
     }
 
     public void setProfissao(String profissao) {
         this.profissao = profissao;
-    }
-
-    public Integer getRg() {
-        return rg;
-    }
-
-    public void setRg(Integer rg) {
-        this.rg = rg;
     }
 
     public StatusHospede getStatus() {
@@ -200,20 +208,20 @@ public class HospedeFisicoDTO extends PessoaDTO {
         this.status = status;
     }
 
-    public Integer getNumerodocumento() {
-        return numerodocumento;
-    }
-
-    public void setNumerodocumento(Integer numerodocumento) {
-        this.numerodocumento = numerodocumento;
-    }
-
     public TipoDocumento getTipodocumento() {
         return tipodocumento;
     }
 
     public void setTipodocumento(TipoDocumento tipodocumento) {
         this.tipodocumento = tipodocumento;
+    }
+
+    public Integer getNumerodocumento() {
+        return numerodocumento;
+    }
+
+    public void setNumerodocumento(Integer numerodocumento) {
+        this.numerodocumento = numerodocumento;
     }
 
     public String getOrgaoemissor() {
@@ -335,6 +343,8 @@ public class HospedeFisicoDTO extends PessoaDTO {
     public void setResponsavelpelofaturamento(String responsavelpelofaturamento) {
         this.responsavelpelofaturamento = responsavelpelofaturamento;
     }
+
+   
 
     @Override
     public Integer getIdPessoa() {
