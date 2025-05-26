@@ -3,7 +3,9 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
 import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.PessoaDTO;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -13,44 +15,61 @@ import java.sql.Statement;
  */
 public class PessoaDAO {
 
-    private final ConnectionFactoryDAO connectionFactory;
+    private ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
 
-    public PessoaDAO() {
-        this.connectionFactory = new ConnectionFactoryDAO();
-    }
+    public void inserirPessoa(PessoaDTO p) throws SQLException {
+        ConnectionFactoryDAO conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
 
-    // Método para inserir uma Pessoa
-    public void inserir(PessoaDTO pessoa) throws SQLException {
-        String sql = "INSERT INTO pessoa (email, fixo, celular, whatsapp, observacoes, idEndereco, rua, numero, complemento, bairro, cidade, estado, cep) "
-                   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            conn = connectionFactory.conectaBD();
+            conn.setAutoCommit(false);
 
-        try (PreparedStatement pstm = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            pstm.setString(1, pessoa.getEmail());
-            pstm.setString(2, pessoa.getFixo());
-            pstm.setString(3, pessoa.getCelular());
-            pstm.setBoolean(4, pessoa.getWhatsapp());
-            pstm.setString(5, pessoa.getObservacoes());
-            pstm.setInt(6, pessoa.getIdEndereco());
-            pstm.setString(7, pessoa.getRua());
-            pstm.setString(8, pessoa.getNumero());
-            pstm.setString(9, pessoa.getComplemento());
-            pstm.setString(10, pessoa.getBairro());
-            pstm.setString(11, pessoa.getCidade());
-            pstm.setString(12, pessoa.getEstado().toString());
-            pstm.setString(13, pessoa.getCep());
-
-            int affectedRows = pstm.executeUpdate();
-
-            if (affectedRows == 0) {
-                throw new SQLException("Falha ao inserir pessoa, nenhuma linha afetada.");
+            String sqlEndereco = "INSERT INTO ENDERECO (RUA, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            pstm = conn.prepareStatement(sqlEndereco, Statement.RETURN_GENERATED_KEYS);
+            pstm.setString(1, p.getRua());
+            pstm.setString(2, p.getNumero());
+            pstm.setString(3, p.getComplemento());
+            pstm.setString(4, p.getBairro());
+            pstm.setString(5, p.getCidade());
+            pstm.setString(6, p.getEstado().name()); 
+            pstm.setString(7, p.getCep());
+            pstm.executeUpdate();
+            
+            rs = pstm.getGeneratedKeys();
+            int idEndereco = 0;
+            
+            if (rs.next()) {
+                idEndereco = rs.getInt(1);
             }
+            
+            pstm.close();
+            
+            rs.close();
 
-            // Pegar o ID gerado e setar na pessoa DTO
-            try (ResultSet generatedKeys = pstm.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    pessoa.setIdPessoa(generatedKeys.getInt(1));
-                }
+            
+            String sqlPessoa = "INSERT INTO PESSOA (EMAIL, FIXO, CELULAR, WHATSAPP, OBSERVACOES, ID_ENDERECO) VALUES (?, ?, ?, ?, ?, ?)";
+            pstm = conn.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS);
+            pstm.setString(1, p.getEmail());
+            pstm.setString(2, p.getFixo());
+            pstm.setString(3, p.getCelular());
+            pstm.setBoolean(4, p.getWhatsapp());
+            pstm.setString(5, p.getObservacoes());
+            pstm.setInt(6, idEndereco);
+            
+            pstm.executeUpdate();
+            
+            conn.commit(); 
+
+        } catch (SQLException e) {
+            if (conn != null) {
+                conn.rollback(); // desfaz transação em caso de erro
             }
+            throw e;
+        } finally {
+            if (pstm != null) pstm.close();
+            if (conn != null) conn.close();
         }
     }
 
