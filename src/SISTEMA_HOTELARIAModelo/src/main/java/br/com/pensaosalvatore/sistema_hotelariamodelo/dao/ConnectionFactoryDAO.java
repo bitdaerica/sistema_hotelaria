@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author Érica_Almeida
  */
-public class ConexaoDAO {
+public class ConnectionFactoryDAO {
     
     public Connection conectaBD(){
         Connection conn = null;

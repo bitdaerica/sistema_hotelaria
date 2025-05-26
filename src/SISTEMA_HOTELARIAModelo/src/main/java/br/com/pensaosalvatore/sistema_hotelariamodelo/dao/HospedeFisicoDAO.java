@@ -27,7 +27,7 @@ public class HospedeFisicoDAO {
                 + "EMPRESA_VINCULADA, CNPJ, CARGO, RESPONSAVEL_FATURAMENTO)"
                 + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-        conn = new ConexaoDAO().conectaBD();
+        conn = new ConnectionFactoryDAO().conectaBD();
 
         try {
             pstm = conn.prepareStatement(sql);
