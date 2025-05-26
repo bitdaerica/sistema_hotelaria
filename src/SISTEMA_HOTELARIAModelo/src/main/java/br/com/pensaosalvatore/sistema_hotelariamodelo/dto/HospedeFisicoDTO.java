@@ -1,10 +1,11 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Andar;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.TipoCama;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Estado;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.TipoCama;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.EstadoCivil;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.PreferenciaQuarto;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.StatusHospede;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.TipoDocumento;
 import java.util.Date;
@@ -13,11 +14,12 @@ import java.util.Date;
  *
  * @author 202412170006
  */
-public class HospedeFisicoDTO extends PessoaDTO{
+public class HospedeFisicoDTO extends PessoaDTO {
+
     private Integer id;
     
     private String nome;
-    
+ 
     private String sobrenome;
     
     private Genero genero;
@@ -31,63 +33,55 @@ public class HospedeFisicoDTO extends PessoaDTO{
     private String naturalidade;
     
     private String profissao;
-    
+
     private Integer rg;
-    
+
     private StatusHospede status;
-    
-    
-    private String email;
-    
-    private String celular;
-    
-    //private ? whatsapp;
-    
-    private String fixo;
-    
+
     private Integer numerodocumento;
-    
+
     private TipoDocumento tipodocumento;
-    
+
     private String orgaoemissor;
-    
+
     private Date datadeemissao;
-    
+
     private Date datadecadastro;
-    
+
     private String preferenciadecontato;
-    
-    //private ? preferenciadequarto;
+
+    private PreferenciaQuarto preferenciadequarto;
     
     private Andar preferenciadeandar;
-      
+
     private Date datadedaultimavisita;
-    
-    private TipoCama preferedecama;
-    
+
+    private TipoCama preferenciadecama;
+
     private String itensespeciais;
-    
+
     private String interesses;
-    
+
     private String notasinternas;
-    
-    private String observacoes;
-    
-    //private ? empresavinculada;
-    
+
+    private String empresavinculada;
+
     private String cnpj;
-    
+
     private String cargo;
-    
+
     private String responsavelpelofaturamento;
 
-    
-    
     public HospedeFisicoDTO() {
-        
+
     }
 
-    public HospedeFisicoDTO(Integer id, String nome, String sobrenome, Genero genero, String cpf, Date datadenascimento, EstadoCivil estadocivil, String naturalidade, String profissao, Integer rg, StatusHospede status, String cep, String rua, Integer numero, String complemento, String bairro, Estado estado, String email, String celular, String fixo, Integer numerodocumento, TipoDocumento tipodocumento, String orgaoemissor, Date datadeemissao, Date datadecadastro, String preferenciadecontato, Andar preferenciadeandar, Date datadedaultimavisita, TipoCama preferedecama, String itensespeciais, String interesses, String notasinternas, String observacoes, String cnpj, String cargo, String responsavelpelofaturamento) {
+    public HospedeFisicoDTO(Integer id, String nome, String sobrenome, Genero genero, String cpf, Date datadenascimento, EstadoCivil estadocivil,
+            String naturalidade, String profissao, Integer rg, StatusHospede status, Integer numerodocumento, TipoDocumento tipodocumento, String orgaoemissor,
+            Date datadeemissao, Date datadecadastro, String preferenciadecontato, PreferenciaQuarto preferenciadequarto, Andar preferenciadeandar,
+            Date datadedaultimavisita, TipoCama preferenciadecama, String itensespeciais, String interesses, String notasinternas, String empresavinculada, String cnpj, String cargo, String responsavelpelofaturamento, Integer idPessoa, String email, String fixo, String celular, 
+            Boolean whatsapp, String observacoes,Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
+        super(idPessoa, email, fixo, celular, whatsapp, observacoes, idEndereco, rua, numero, complemento, bairro, cidade, estado, cep);
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -99,33 +93,30 @@ public class HospedeFisicoDTO extends PessoaDTO{
         this.profissao = profissao;
         this.rg = rg;
         this.status = status;
-        this.email = email;
-        this.celular = celular;
-        this.fixo = fixo;
         this.numerodocumento = numerodocumento;
         this.tipodocumento = tipodocumento;
         this.orgaoemissor = orgaoemissor;
         this.datadeemissao = datadeemissao;
         this.datadecadastro = datadecadastro;
         this.preferenciadecontato = preferenciadecontato;
+        this.preferenciadequarto = preferenciadequarto;
         this.preferenciadeandar = preferenciadeandar;
         this.datadedaultimavisita = datadedaultimavisita;
-        this.preferedecama = preferedecama;
+        this.preferenciadecama = preferenciadecama;
         this.itensespeciais = itensespeciais;
         this.interesses = interesses;
         this.notasinternas = notasinternas;
-        this.observacoes = observacoes;
+        this.empresavinculada = empresavinculada;
         this.cnpj = cnpj;
         this.cargo = cargo;
         this.responsavelpelofaturamento = responsavelpelofaturamento;
     }
-    
-    
-        
-    public Integer getId(){
+
+    public Integer getId() {
         return id;
     }
-    public void setId(Integer id){
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -209,31 +200,6 @@ public class HospedeFisicoDTO extends PessoaDTO{
         this.status = status;
     }
 
-   
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    public String getFixo() {
-        return fixo;
-    }
-
-    public void setFixo(String fixo) {
-        this.fixo = fixo;
-    }
-
     public Integer getNumerodocumento() {
         return numerodocumento;
     }
@@ -282,6 +248,14 @@ public class HospedeFisicoDTO extends PessoaDTO{
         this.preferenciadecontato = preferenciadecontato;
     }
 
+    public PreferenciaQuarto getPreferenciadequarto() {
+        return preferenciadequarto;
+    }
+
+    public void setPreferenciadequarto(PreferenciaQuarto preferenciadequarto) {
+        this.preferenciadequarto = preferenciadequarto;
+    }
+
     public Andar getPreferenciadeandar() {
         return preferenciadeandar;
     }
@@ -298,12 +272,12 @@ public class HospedeFisicoDTO extends PessoaDTO{
         this.datadedaultimavisita = datadedaultimavisita;
     }
 
-    public TipoCama getPreferedecama() {
-        return preferedecama;
+    public TipoCama getPreferenciadecama() {
+        return preferenciadecama;
     }
 
-    public void setPreferedecama(TipoCama preferedecama) {
-        this.preferedecama = preferedecama;
+    public void setPreferenciadecama(TipoCama preferenciadecama) {
+        this.preferenciadecama = preferenciadecama;
     }
 
     public String getItensespeciais() {
@@ -330,12 +304,12 @@ public class HospedeFisicoDTO extends PessoaDTO{
         this.notasinternas = notasinternas;
     }
 
-    public String getObservacoes() {
-        return observacoes;
+    public String getEmpresavinculada() {
+        return empresavinculada;
     }
 
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
+    public void setEmpresavinculada(String empresavinculada) {
+        this.empresavinculada = empresavinculada;
     }
 
     public String getCnpj() {
@@ -362,10 +336,145 @@ public class HospedeFisicoDTO extends PessoaDTO{
         this.responsavelpelofaturamento = responsavelpelofaturamento;
     }
 
-    public String Estadocivil() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    @Override
+    public Integer getIdPessoa() {
+        return idPessoa;
+    }
+
+    @Override
+    public void setIdPessoa(Integer idPessoa) {
+        this.idPessoa = idPessoa;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String getFixo() {
+        return fixo;
+    }
+
+    @Override
+    public void setFixo(String fixo) {
+        this.fixo = fixo;
+    }
+
+    @Override
+    public String getCelular() {
+        return celular;
+    }
+
+    @Override
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    @Override
+    public Boolean getWhatsapp() {
+        return whatsapp;
+    }
+
+    @Override
+    public void setWhatsapp(Boolean whatsapp) {
+        this.whatsapp = whatsapp;
+    }
+
+    @Override
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    @Override
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+    }
+
+    @Override
+    public Integer getIdEndereco() {
+        return idEndereco;
+    }
+
+    @Override
+    public void setIdEndereco(Integer idEndereco) {
+        this.idEndereco = idEndereco;
+    }
+
+    @Override
+    public String getRua() {
+        return rua;
+    }
+
+    @Override
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    @Override
+    public String getNumero() {
+        return numero;
+    }
+
+    @Override
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    @Override
+    public String getComplemento() {
+        return complemento;
+    }
+
+    @Override
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    @Override
+    public String getBairro() {
+        return bairro;
+    }
+
+    @Override
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    @Override
+    public String getCidade() {
+        return cidade;
+    }
+
+    @Override
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    @Override
+    public Estado getEstado() {
+        return estado;
+    }
+
+    @Override
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    @Override
+    public String getCep() {
+        return cep;
+    }
+
+    @Override
+    public void setCep(String cep) {
+        this.cep = cep;
     }
     
-        
     
 }

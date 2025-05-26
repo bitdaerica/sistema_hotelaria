@@ -8,6 +8,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
-        <exec.mainClass>br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.autentificacao.ViewAutenticacao</exec.mainClass>
+        <exec.mainClass>br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.autenticacao.ViewAutenticacao</exec.mainClass>
     </properties>
 </project>

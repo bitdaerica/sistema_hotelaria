@@ -1,27 +1,27 @@
-
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario;
 
-
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.controlador.funcionario.CadFuncionarioController;
 import javax.swing.JOptionPane;
-
 
 /**
  *
  * @author Érica_Almeida
  */
-public class ViewCadFuncionario extends javax.swing.JInternalFrame {
+public class CadFuncionarioView extends javax.swing.JInternalFrame {
+
+    private final CadFuncionarioController controller;
 
     /**
      * Creates new form TelaCadFuncionario
      */
-    public ViewCadFuncionario() {
+    public CadFuncionarioView() {
         initComponents();
+        controller = new CadFuncionarioController(this);
 
         //setExtendedState (MAXIMIZED_BOTH);
-        
         pnlRodapetabela.setVisible(false);
         btnLimparbusca.setVisible(false);
-       
+
     }
 
     /**
@@ -1060,13 +1060,13 @@ public class ViewCadFuncionario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-
+        controller.salvarfuncionario();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelaredicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaredicaoActionPerformed
-        
-        JOptionPane.showMessageDialog(null,"A Edição será cancelada.");
-        
+
+        JOptionPane.showMessageDialog(null, "A Edição será cancelada.");
+
         dispose(); // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelaredicaoActionPerformed
 
@@ -1075,7 +1075,7 @@ public class ViewCadFuncionario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmbEstadodofuncionarioActionPerformed
 
     private void txtEmaildofuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmaildofuncionarioActionPerformed
-         // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtEmaildofuncionarioActionPerformed
 
     private void cmbGraudeacessodofuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGraudeacessodofuncionarioActionPerformed
@@ -1101,7 +1101,7 @@ public class ViewCadFuncionario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         pnlRodapetabela.setVisible(false);
         btnLimparbusca.setVisible(false);
-        btnBuscar.setVisible(true);   
+        btnBuscar.setVisible(true);
     }//GEN-LAST:event_btnLimparbuscaActionPerformed
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed

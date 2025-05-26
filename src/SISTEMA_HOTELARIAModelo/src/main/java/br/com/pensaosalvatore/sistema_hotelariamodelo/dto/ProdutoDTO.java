@@ -3,6 +3,7 @@ package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Categoria;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Status;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -30,15 +31,13 @@ public class ProdutoDTO {
     
     private String localizacaonoestoque;
     
-    private Double precocusto;
+    private BigDecimal precocusto;
     
-    private Double precovenda;
+    private BigDecimal precovenda;
     
-    private Double desconto;
-    
-    private Double margemdelucro;
-    
-    //private ? fornecedor;
+    private BigDecimal desconto;
+      
+    private String fornecedor;
     
     private Date datadefabricacao;
     
@@ -53,7 +52,7 @@ public class ProdutoDTO {
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(Integer id, String nome, String descricao, Categoria categoria, String marca, Integer codbarra, Integer qtdemestoque, Integer qtdestoqueminimo, Integer qtdestoquemaximo, String localizacaonoestoque, Double precocusto, Double precovenda, Double desconto, Double margemdelucro, Date datadefabricacao, Date datadevalidade, Double garantia, Status status, String observacoes) {
+    public ProdutoDTO(Integer id, String nome, String descricao, Categoria categoria, String marca, Integer codbarra, Integer qtdemestoque, Integer qtdestoqueminimo, Integer qtdestoquemaximo, String localizacaonoestoque, BigDecimal precocusto, BigDecimal precovenda, BigDecimal desconto, String fornecedor, Date datadefabricacao, Date datadevalidade, Double garantia, Status status, String observacoes) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -67,20 +66,19 @@ public class ProdutoDTO {
         this.precocusto = precocusto;
         this.precovenda = precovenda;
         this.desconto = desconto;
-        this.margemdelucro = margemdelucro;
+        this.fornecedor = fornecedor;
         this.datadefabricacao = datadefabricacao;
         this.datadevalidade = datadevalidade;
         this.garantia = garantia;
         this.status = status;
         this.observacoes = observacoes;
     }
-    
-    
-        
-    public Integer getId(){
+
+    public Integer getId() {
         return id;
     }
-    public void setId(Integer id){
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -156,36 +154,36 @@ public class ProdutoDTO {
         this.localizacaonoestoque = localizacaonoestoque;
     }
 
-    public Double getPrecocusto() {
+    public BigDecimal getPrecocusto() {
         return precocusto;
     }
 
-    public void setPrecocusto(Double precocusto) {
+    public void setPrecocusto(BigDecimal precocusto) {
         this.precocusto = precocusto;
     }
 
-    public Double getPrecovenda() {
+    public BigDecimal getPrecovenda() {
         return precovenda;
     }
 
-    public void setPrecovenda(Double precovenda) {
+    public void setPrecovenda(BigDecimal precovenda) {
         this.precovenda = precovenda;
     }
 
-    public Double getDesconto() {
+    public BigDecimal getDesconto() {
         return desconto;
     }
 
-    public void setDesconto(Double desconto) {
+    public void setDesconto(BigDecimal desconto) {
         this.desconto = desconto;
     }
 
-    public Double getMargemdelucro() {
-        return margemdelucro;
+    public String getFornecedor() {
+        return fornecedor;
     }
 
-    public void setMargemdelucro(Double margemdelucro) {
-        this.margemdelucro = margemdelucro;
+    public void setFornecedor(String fornecedor) {
+        this.fornecedor = fornecedor;
     }
 
     public Date getDatadefabricacao() {
@@ -227,6 +225,5 @@ public class ProdutoDTO {
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
-    
-    
+
 }

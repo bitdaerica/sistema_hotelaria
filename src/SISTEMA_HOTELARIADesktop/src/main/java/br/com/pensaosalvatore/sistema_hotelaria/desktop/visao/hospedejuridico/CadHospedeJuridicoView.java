@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author Érica_Almeida
  */
-public class ViewCadHospedeJuridico extends javax.swing.JInternalFrame {
+public class CadHospedeJuridicoView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaCadEmpresa
      */
-    public ViewCadHospedeJuridico() {
+    public CadHospedeJuridicoView() {
         initComponents();
         
         pnlRodapetabela.setVisible(false);

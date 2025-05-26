@@ -1,10 +1,8 @@
-
-
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.autenticacao;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.principal.ViewPrincipal;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.principal.PrincipalView;
 
 /**
  *
@@ -177,63 +175,62 @@ public class ViewAutenticacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        if(txtUsuario.getText().equals("admin")&& new String (pfSenha.getPassword()).equals("admin")){
-            
-            JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
-             ViewPrincipal tela = new ViewPrincipal();
-             tela.setVisible(true);
-             
-             this.dispose();
-        }else{
-         
+        if (txtUsuario.getText().equals("admin") && new String(pfSenha.getPassword()).equals("admin")) {
+
+            PrincipalView tela = new PrincipalView();
+            tela.setVisible(true);
+
+            this.dispose();
+        } else {
+
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
-        
+
         }
-            
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        dispose();        
-        
+        dispose();
+
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void pfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfSenhaActionPerformed
-        
+
 
     }//GEN-LAST:event_pfSenhaActionPerformed
 
     private void pfSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pfSenhaKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            if(txtUsuario.getText().equals("admin")&& new String (pfSenha.getPassword()).equals("admin")){
-            
-            JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
-             ViewPrincipal tela = new ViewPrincipal();
-             tela.setVisible(true);
-             
-             this.dispose();
-        }else{
-         
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
-        
-        }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (txtUsuario.getText().equals("admin") && new String(pfSenha.getPassword()).equals("admin")) {
+
+                JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
+                PrincipalView tela = new PrincipalView();
+                tela.setVisible(true);
+
+                this.dispose();
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
+
+            }
         }
 
     }//GEN-LAST:event_pfSenhaKeyPressed
 
     private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            if(txtUsuario.getText().equals("admin")&& new String (pfSenha.getPassword()).equals("admin")){
-            
-            JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
-             ViewPrincipal tela = new ViewPrincipal();
-             tela.setVisible(true);
-             
-             this.dispose();
-        }else{
-         
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
-        
-        }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (txtUsuario.getText().equals("admin") && new String(pfSenha.getPassword()).equals("admin")) {
+
+                JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!");
+                PrincipalView tela = new PrincipalView();
+                tela.setVisible(true);
+
+                this.dispose();
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
+
+            }
         }
 
     }//GEN-LAST:event_txtUsuarioKeyPressed

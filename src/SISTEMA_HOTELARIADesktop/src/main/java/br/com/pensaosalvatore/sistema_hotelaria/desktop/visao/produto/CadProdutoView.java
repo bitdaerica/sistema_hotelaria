@@ -5,10 +5,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class TelaCadProduto extends javax.swing.JInternalFrame {
+public class CadProdutoView extends javax.swing.JInternalFrame {
 
    
-    public TelaCadProduto() {
+    public CadProdutoView() {
         initComponents();
         pnlRodapetabela.setVisible(false);
         btnLimparselecao.setVisible(false);

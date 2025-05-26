@@ -8,12 +8,12 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.quarto;
  *
  * @author 202412170006
  */
-public class TelaCadQuarto extends javax.swing.JInternalFrame {
+public class CadQuartoView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaCadQuartos
      */
-    public TelaCadQuarto() {
+    public CadQuartoView() {
         initComponents();
     }
 
