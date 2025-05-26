@@ -56,7 +56,7 @@ public class HospedeJuridicoDTO {
     
     private String notasinternas;
     
-    //private ? formadepaagmento;
+    //private ? formadepagamento;
     
     //private ? prazodefaturamento;
     
@@ -269,10 +269,13 @@ public class HospedeJuridicoDTO {
     public void setInteresses(String interesses) {
         this.interesses = interesses;
     }
+
+    
+    }
     
     
     
     
             
             
-}
+
