@@ -22,7 +22,7 @@ public class HospedeJuridicoDAO {
 
     private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
 
-    public void inserirHospedeFisico(HospedeJuridicoDTO hj) throws SQLException {
+    public void inserirHospedeJuridico(HospedeJuridicoDTO hj) throws SQLException {
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -80,19 +80,19 @@ public class HospedeJuridicoDAO {
                     + " LIMITE_CREDITO, INTERESSES) VALUES(??, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         pstm = conn.prepareStatement(sqlHospedeJuridico);
 
-            pstm.setString(1, RAZAO_SOCIAL);
-pstm.setString(2, CNPJ);
-pstm.setString(3, INSCRICAO_ESTADUAL);
-pstm.setString(4, STATUS_EMPRESA);
-pstm.setString(5, TIPO_CONTRATO);
-pstm.setString(6, DATA_CADASTRO);
-pstm.setString(7, PREFERENCIA_CONTATO);
-pstm.setString(8, RESPONSAVEL_FATURAMENTO);
-pstm.setString(9, NOTAS_INTERNAS);
-pstm.setString(10, FORMA_PAGAMENTO);
-pstm.setString(11, PRAZO_FATURAMENTO);
-pstm.setString(12, LIMITE_CREDITO);
-pstm.setString(13, INTERESSES);
+            pstm.setString(1, hj.getRazaosocial());
+pstm.setString(2, hj.getCnpj());
+pstm.setString(3, hj.getInscricaoestadual());
+pstm.setString(4, hj.getStatus().name());
+pstm.setString(5, hj.getTipodecontrato().name());
+pstm.setDate(6, new java.sql.Date(hj.getDatadecadastro().getTime()));
+pstm.setString(7, hj.getPreferenciadecontato());
+pstm.setString(8, hj.getResponsavelpeloofaturamento());
+pstm.setString(9, hj.getNotasinternas());
+pstm.setString(10, hj.getFormadepagamento().name();
+pstm.setString(11, hj.getPrazodefaturamento().name());
+pstm.setBigDecimal(12, hj.getLimetedecredito());
+pstm.setString(13, hj.getInteresses());
 
 
 
