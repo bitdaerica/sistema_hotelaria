@@ -2,7 +2,7 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.CargoFuncionario;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.DerpatamentoFuncionario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.DepartamentoFuncionario;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Estado;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.EstadoCivil;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
@@ -32,7 +32,7 @@ public class FuncionarioDTO extends PessoaDTO{
     private String foto;
     private Integer matricula;
     private CargoFuncionario cargo;
-    private DerpatamentoFuncionario departamento;
+    private DepartamentoFuncionario departamento;
     private Date datadeadmissao;    
     private Integer jornadadetrabalho;    
     private RegimedeContratacao regimedecontratacao;    
@@ -50,7 +50,7 @@ public class FuncionarioDTO extends PessoaDTO{
     public FuncionarioDTO() {
     }
 
-    public FuncionarioDTO(Integer idFuncionario, String nome, String sobrenome, Date datadenascimento, String cpf, String rg, EstadoCivil estadocivil, String naturalidade, Genero genero, String nomedamae, String nomedopai, String foto, Integer matricula, CargoFuncionario cargo, DerpatamentoFuncionario departamento, Date datadeadmissao, Integer jornadadetrabalho, RegimedeContratacao regimedecontratacao, StatusFuncionario status, BigDecimal salariobase, String numerodopis, String ctps, String observacoesgerais, String historico, String comentariosdagestao, String nomeusuario, String senha, GraudeAcesso graudeacesso, Integer idPessoa, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
+    public FuncionarioDTO(Integer idFuncionario, String nome, String sobrenome, Date datadenascimento, String cpf, String rg, EstadoCivil estadocivil, String naturalidade, Genero genero, String nomedamae, String nomedopai, String foto, Integer matricula, CargoFuncionario cargo, DepartamentoFuncionario departamento, Date datadeadmissao, Integer jornadadetrabalho, RegimedeContratacao regimedecontratacao, StatusFuncionario status, BigDecimal salariobase, String numerodopis, String ctps, String observacoesgerais, String historico, String comentariosdagestao, String nomeusuario, String senha, GraudeAcesso graudeacesso, Integer idPessoa, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
         super(idPessoa, email, fixo, celular, whatsapp, observacoes, idEndereco, rua, numero, complemento, bairro, cidade, estado, cep);
         this.idFuncionario = idFuncionario;
         this.nome = nome;
@@ -194,11 +194,11 @@ public class FuncionarioDTO extends PessoaDTO{
         this.cargo = cargo;
     }
 
-    public DerpatamentoFuncionario getDepartamento() {
+    public DepartamentoFuncionario getDepartamento() {
         return departamento;
     }
 
-    public void setDepartamento(DerpatamentoFuncionario departamento) {
+    public void setDepartamento(DepartamentoFuncionario departamento) {
         this.departamento = departamento;
     }
 

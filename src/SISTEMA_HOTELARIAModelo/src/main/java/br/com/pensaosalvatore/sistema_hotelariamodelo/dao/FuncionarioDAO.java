@@ -1,13 +1,16 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelariamodelo.dao.ConnectionFactoryDAO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.CargoFuncionario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.DepartamentoFuncionario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.StatusFuncionario;
 import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.FuncionarioDTO;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,7 +18,7 @@ import java.sql.Statement;
  */
 public class FuncionarioDAO {
 
-    private ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
+    private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
 
     public void inserirFuncionario(FuncionarioDTO f) throws SQLException {
         Connection conn = null;
@@ -33,7 +36,7 @@ public class FuncionarioDAO {
             pstm.setString(3, f.getComplemento());
             pstm.setString(4, f.getBairro());
             pstm.setString(5, f.getCidade());
-            pstm.setString(6, f.getEstado().name()); // se for enum, pode precisar de ajuste
+            pstm.setString(6, f.getEstado().name()); 
             pstm.setString(7, f.getCep());
             pstm.executeUpdate();
 
@@ -69,7 +72,10 @@ public class FuncionarioDAO {
 
             rs.close();
 
-            String sqlFuncionario = "INSERT INTO FUNCIONARIO (NOME, SOBRENOME, DATA_NASCIMENTO, GENERO, CPF, RG, NATURALIDADE, ESTADO_CIVIL, FOTO, NOME_MAE, NOME_PAI, MATRICULA, CARGO, DEPARTAMENTO, DATA_ADMISSAO, JORNADA_TRABALHO, REGIME_CONTRATACAO, STATUS_FUNCIONARIO, SALARIO_BASE, NUMERO_PIS, CTPS, HISTORICO, COMENTARIO_GESTAO, NOME_USUARIO, SENHA, GRAUDEACESSO, ID_PESSOA) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sqlFuncionario = "INSERT INTO FUNCIONARIO (NOME, SOBRENOME, DATA_NASCIMENTO, GENERO, CPF, RG, NATURALIDADE,"
+                    + "ESTADO_CIVIL, FOTO, NOME_MAE, NOME_PAI, MATRICULA, CARGO, DEPARTAMENTO, DATA_ADMISSAO, JORNADA_TRABALHO, "
+                    + "REGIME_CONTRATACAO, STATUS_FUNCIONARIO, SALARIO_BASE, NUMERO_PIS, CTPS, HISTORICO, COMENTARIO_GESTAO, NOME_USUARIO,"
+                    + " SENHA, GRAUDEACESSO, ID_PESSOA) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             pstm = conn.prepareStatement(sqlFuncionario);
 
             pstm.setString(1, f.getNome());
@@ -158,7 +164,7 @@ public class FuncionarioDAO {
 
             String sqlFuncionario = "UPDATE FUNCIONARIO SET NOME = ?, SOBRENOME = ?, DATA_NASCIMENTO = ?, GENERO = ?, CPF = ?, RG = ?, NATURALIDADE = ?, ESTADO_CIVIL = ?, FOTO = ?, NOME_MAE = ?, NOME_PAI = ?, MATRICULA = ?, CARGO = ?, DEPARTAMENTO = ?, DATA_ADMISSAO = ?, JORNADA_TRABALHO = ?, REGIME_CONTRATACAO = ?, STATUS_FUNCIONARIO = ?, SALARIO_BASE = ?, NUMERO_PIS = ?, CTPS = ?, HISTORICO = ?, COMENTARIO_GESTAO = ?, NOME_USUARIO = ?, SENHA = ?, GRAUDEACESSO = ? WHERE ID = ?";
             pstm = conn.prepareStatement(sqlFuncionario);
-            
+
             pstm.setString(1, f.getNome());
             pstm.setString(2, f.getSobrenome());
             pstm.setDate(3, new java.sql.Date(f.getDatadenascimento().getTime()));
@@ -204,29 +210,154 @@ public class FuncionarioDAO {
         }
     }
 
-    public FuncionarioDTO selecionar(int id) throws Exception {
+    public FuncionarioDTO selecionarPorId(int idFuncionario) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        FuncionarioDTO funcionario = null;
 
-        Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/hotelaria", "root", "");
+        try {
+            conn = connectionFactory.conectaBD();
+            String sql = "SELECT * FROM FUNCIONARIO WHERE ID = ?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, idFuncionario);
+            rs = pstm.executeQuery();
 
-        PreparedStatement comando
-                = conn.prepareStatement("select * from funcionarios where id = ?");
-
-        comando.setInt(1, id);
-
-        ResultSet rs = comando.executeQuery();
-
-        if (rs.next()) {
-            FuncionarioDTO f = new FuncionarioDTO();
-            //f.setId(rs.getInt("id"));
-
-            return f;
-        } else {
-            return null;
+            if (rs.next()) {
+                funcionario = new FuncionarioDTO();
+                funcionario.setIdFuncionario(rs.getInt("ID"));
+                funcionario.setNome(rs.getString("NOME"));
+                funcionario.setSobrenome(rs.getString("SOBRENOME"));
+                funcionario.setCpf(rs.getString("CPF"));
+                funcionario.setRg(rs.getString("RG"));
+                funcionario.setCargo(CargoFuncionario.valueOf(rs.getString("CARGO")));
+                funcionario.setDepartamento(DepartamentoFuncionario.valueOf(rs.getString("DEPARTAMENTO")));
+                funcionario.setStatus(StatusFuncionario.valueOf(rs.getString("STATUS_FUNCIONARIO")));
+                // Continue preenchendo os demais campos
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
         }
+        return funcionario;
+    }
 
+    public List<FuncionarioDTO> listarTodos() throws SQLException {
+        List<FuncionarioDTO> lista = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+
+        try {
+            conn = connectionFactory.conectaBD();
+            String sql = "SELECT * FROM FUNCIONARIO";
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                FuncionarioDTO funcionario = new FuncionarioDTO();
+                funcionario.setIdFuncionario(rs.getInt("ID"));
+                funcionario.setNome(rs.getString("NOME"));
+                funcionario.setSobrenome(rs.getString("SOBRENOME"));
+                funcionario.setCpf(rs.getString("CPF"));
+                funcionario.setRg(rs.getString("RG"));
+                funcionario.setCargo(CargoFuncionario.valueOf(rs.getString("CARGO")));
+                funcionario.setDepartamento(DepartamentoFuncionario.valueOf(rs.getString("DEPARTAMENTO")));
+                funcionario.setStatus(StatusFuncionario.valueOf(rs.getString("STATUS_FUNCIONARIO")));
+                // Adicione os outros campos conforme necessário
+
+                lista.add(funcionario);
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return lista;
+    }
+
+    public List<FuncionarioDTO> listarPorNome(String nome) throws SQLException {
+        List<FuncionarioDTO> lista = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+
+        try {
+            conn = connectionFactory.conectaBD();
+            String sql = "SELECT * FROM FUNCIONARIO WHERE NOME LIKE ?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, "%" + nome + "%");
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                FuncionarioDTO funcionario = new FuncionarioDTO();
+                funcionario.setIdFuncionario(rs.getInt("ID"));
+                funcionario.setNome(rs.getString("NOME"));
+                funcionario.setSobrenome(rs.getString("SOBRENOME"));
+                funcionario.setCpf(rs.getString("CPF"));
+                funcionario.setRg(rs.getString("RG"));
+                funcionario.setCargo(CargoFuncionario.valueOf(rs.getString("CARGO")));
+                funcionario.setDepartamento(DepartamentoFuncionario.valueOf(rs.getString("DEPARTAMENTO")));
+                funcionario.setStatus(StatusFuncionario.valueOf(rs.getString("STATUS_FUNCIONARIO")));
+                // Adicione os outros campos
+
+                lista.add(funcionario);
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return lista;
+    }
+
+    public void excluirFuncionario(int idFuncionario) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try {
+            conn = connectionFactory.conectaBD();
+            conn.setAutoCommit(false);
+
+            String sql = "DELETE FROM FUNCIONARIO WHERE ID = ?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, idFuncionario);
+            pstm.executeUpdate();
+
+            conn.commit();
+        } catch (SQLException e) {
+            if (conn != null) {
+                conn.rollback();
+            }
+            throw e;
+        } finally {
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
     }
 
 }
