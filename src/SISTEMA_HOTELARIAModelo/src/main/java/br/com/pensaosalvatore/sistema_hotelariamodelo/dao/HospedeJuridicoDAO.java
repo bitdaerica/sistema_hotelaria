@@ -5,6 +5,11 @@
  */
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.CargoFuncionario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.DepartamentoFuncionario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.StatusFuncionario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.StatusHospede;
+import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.FuncionarioDTO;
 import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.HospedeJuridicoDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -89,7 +94,7 @@ pstm.setDate(6, new java.sql.Date(hj.getDatadecadastro().getTime()));
 pstm.setString(7, hj.getPreferenciadecontato());
 pstm.setString(8, hj.getResponsavelpeloofaturamento());
 pstm.setString(9, hj.getNotasinternas());
-pstm.setString(10, hj.getFormadepagamento().name();
+pstm.setString(10, hj.getFormadepagamento().name());
 pstm.setString(11, hj.getPrazodefaturamento().name());
 pstm.setBigDecimal(12, hj.getLimetedecredito());
 pstm.setString(13, hj.getInteresses());
@@ -115,4 +120,122 @@ pstm.executeUpdate();
         }
 
     }
-}
+     public void alterarHospedeJuridico(HospedeJuridicoDTO hj) throws SQLException {
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try {
+            conn = connectionFactory.conectaBD();
+            conn.setAutoCommit(false);
+            
+             String sqlEndereco = "UPDATE ENDERECO SET RUA =  ?, NUMERO =  ?, COMPLEMENTO =  ?, BAIRRO =  ?, CIDADE =  ?, ESTADO =  ?, CEP = ? WHERE  ID = ?";
+            pstm = conn.prepareStatement(sqlEndereco, Statement.RETURN_GENERATED_KEYS);
+            pstm.setString(1, hj.getRua());
+            pstm.setString(2, hj.getNumero());
+            pstm.setString(3, hj.getComplemento());
+            pstm.setString(4, hj.getBairro());
+            pstm.setString(5, hj.getCidade());
+            pstm.setString(6, hj.getEstado().name());
+            pstm.setString(7, hj.getCep());
+            
+             pstm.executeUpdate();
+
+            pstm.close();
+            
+            String sqlPessoa = "UPDATE PESSOA SET EMAIL = ?, FIXO = ?, CELULAR = ?, WHATSAPP = ?, OBSERVACOES = ?, WHERE ID = ?";
+            pstm = conn.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS);
+            pstm.setString(1, hj.getEmail());
+            pstm.setString(2, hj.getFixo());
+            pstm.setString(3, hj.getCelular());
+            pstm.setBoolean(4, hj.getWhatsapp());
+            pstm.setString(5, hj.getObservacoes());
+            pstm.setInt(6, idEndereco);
+            
+              pstm.executeUpdate();
+
+            conn.commit();
+        } catch (SQLException e) {
+            if (conn != null) {
+                conn.rollback();
+            }
+            throw e;
+        } finally {
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }
+     public HospedeJuridicoDTO selecionarPorId(int idHospedeJuridico) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+
+        HospedeJuridicoDTO hospedejuridico = null;
+
+        try {
+            conn = connectionFactory.conectaBD();
+            String sql = "SELECT * FROM HODPEDE_JURIDICO WHERE ID = ?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, idHospedeJuridico);
+            rs = pstm.executeQuery();
+            
+             if (rs.next()) {
+                hospedejuridico = new HospedeJuridicoDTO();
+                hospedejuridico.setId(rs.getInt("ID"));
+                hospedejuridico.setRazaosocial(rs.getString("RAZAO_SOCIAL"));
+                hospedejuridico.setCnpj(rs.getString("CNPJ"));
+                hospedejuridico.setInscricaoestadual(rs.getString("INSCRICAO_ESTADUAL"));
+                hospedejuridico.setStatus(StatusHospede.valueOf(rs.getString("STATUS_HOSPEDE_JURIDICO")));
+                
+                }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return hospedejuridico;
+    }
+    public List<HospedeJuridicoDTO> listarTodos() throws SQLException {
+        List<HospedeJuridicoDTO> lista = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        
+         try {
+            conn = connectionFactory.conectaBD();
+            String sql = "SELECT * FROM HOSPDE_JURIDICO";
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+             while (rs.next()) {
+                   HospedeJuridicoDTO hospedejuridico = new HospedeJuridicoDTO();
+                   hospedejuridico.setId(rs.getInt("ID"));
+                   hospedejuridico.setRazaosocial(rs.getString("RAZAO_SOCIAL"));
+                   hospedejuridico.setCnpj(rs.getString("CNPJ"));
+                   hospedejuridico.setInscricaoestadual(rs.getString("INSCRICAO_ESTADUAL"));
+                   hospedejuridico.setStatus(StatusHospede.valueOf(rs.getString("STATUS_HOSPEDE_JURIDICO")));
+                
+             }
+     
+     
+             }
+
+
+       
+                
+             
+
+     
+
+ 
+       
