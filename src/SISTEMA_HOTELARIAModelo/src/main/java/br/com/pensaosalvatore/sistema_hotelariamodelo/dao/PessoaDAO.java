@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import static javax.swing.UIManager.getInt;
+
 
 /**
  *
@@ -79,52 +79,95 @@ public class PessoaDAO {
     }
 
     public void alterarPessoa(PessoaDTO p) throws SQLException {
-        String sql = "UPDATE pessoa SET email=?, fixo=?, celular=?, whatsapp=?, observacoes=?, idEndereco=?, rua=?, numero=?, complemento=?, bairro=?, cidade=?, estado=?, cep=? WHERE idPessoa=?";
+        Connection conn = null;
+        PreparedStatement pstm = null;
 
-        try (PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setString(1, pessoa.getEmail());
-            pstm.setString(2, pessoa.getFixo());
-            pstm.setString(3, pessoa.getCelular());
-            pstm.setBoolean(4, pessoa.getWhatsapp());
-            pstm.setString(5, pessoa.getObservacoes());
-            pstm.setInt(6, pessoa.getIdEndereco());
-            pstm.setString(7, pessoa.getRua());
-            pstm.setString(8, pessoa.getNumero());
-            pstm.setString(9, pessoa.getComplemento());
-            pstm.setString(10, pessoa.getBairro());
-            pstm.setString(11, pessoa.getCidade());
-            pstm.setString(12, pessoa.getEstado().toString());
-            pstm.setString(13, pessoa.getCep());
-            pstm.setInt(14, pessoa.getIdPessoa());
+        try {
+            conn = connectionFactory.conectaBD();
+            conn.setAutoCommit(false);
+
+            String sqlEndereco = "UPDATE ENDERECO SET RUA =  ?, NUMERO =  ?, COMPLEMENTO =  ?, BAIRRO =  ?, CIDADE =  ?, ESTADO =  ?, CEP = ? WHERE  ID = ?";
+            pstm = conn.prepareStatement(sqlEndereco);
+            pstm.setString(1, p.getRua());
+            pstm.setString(2, p.getNumero());
+            pstm.setString(3, p.getComplemento());
+            pstm.setString(4, p.getBairro());
+            pstm.setString(5, p.getCidade());
+            pstm.setString(6, p.getEstado().name());
+            pstm.setString(7, p.getCep());
+            pstm.setInt(8, p.getIdEndereco());
 
             pstm.executeUpdate();
+
+            pstm.close();
+
+            String sqlPessoa = "UPDATE PESSOA SET EMAIL = ?, FIXO = ?, CELULAR = ?, WHATSAPP = ?, OBSERVACOES = ?, WHERE ID = ?";
+            pstm = conn.prepareStatement(sqlPessoa);
+            pstm.setString(1, p.getEmail());
+            pstm.setString(2, p.getFixo());
+            pstm.setString(3, p.getCelular());
+           pstm.setBoolean(4, p.getWhatsapp());
+            pstm.setString(5, p.getObservacoes());
+            pstm.setInt(6, p.getIdPessoa());
+
+            pstm.executeUpdate();
+
+            conn.commit();
+        } catch (SQLException e) {
+            if (conn != null) {
+                conn.rollback();
+            }
+            throw e;
+        } finally {
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
         }
     }
 
     public PessoaDTO selecionarPorId(int idPessoa) throws SQLException {
-        String sql = "SELECT * FROM pessoa WHERE idPessoa = ?";
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+
         PessoaDTO pessoa = null;
 
-        try (PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setInt(1, id);
-            try (ResultSet rs = pstm.executeQuery()) {
-                if (rs.next()) {
-                    pessoa = new PessoaDTO();
-                    pessoa.setIdPessoa(rs.getInt("idPessoa"));
-                    pessoa.setEmail(rs.getString("email"));
-                    pessoa.setFixo(rs.getString("fixo"));
-                    pessoa.setCelular(rs.getString("celular"));
-                    pessoa.setWhatsapp(rs.getBoolean("whatsapp"));
-                    pessoa.setObservacoes(rs.getString("observacoes"));
-                    pessoa.setIdEndereco(rs.getInt("idEndereco"));
-                    pessoa.setRua(rs.getString("rua"));
-                    pessoa.setNumero(rs.getString("numero"));
-                    pessoa.setComplemento(rs.getString("complemento"));
-                    pessoa.setBairro(rs.getString("bairro"));
-                    pessoa.setCidade(rs.getString("cidade"));
-                    pessoa.setEstado(Estado.valueOf(rs.getString("estado"))); // Estado enum
-                    pessoa.setCep(rs.getString("cep"));
-                }
+        try {
+            conn = connectionFactory.conectaBD();
+            String sql = "SELECT * FROM PESSOA WHERE ID = ?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, idPessoa);
+            rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                pessoa = new PessoaDTO();
+                pessoa.setIdPessoa(rs.getInt("idPessoa"));
+                pessoa.setEmail(rs.getString("email"));
+                pessoa.setFixo(rs.getString("fixo"));
+                pessoa.setCelular(rs.getString("celular"));
+                pessoa.setWhatsapp(rs.getBoolean("whatsapp"));
+                pessoa.setObservacoes(rs.getString("observacoes"));
+                pessoa.setIdEndereco(rs.getInt("idEndereco"));
+                pessoa.setRua(rs.getString("rua"));
+                pessoa.setNumero(rs.getString("numero"));
+                pessoa.setComplemento(rs.getString("complemento"));
+                pessoa.setBairro(rs.getString("bairro"));
+                pessoa.setCidade(rs.getString("cidade"));
+                pessoa.setEstado(Estado.valueOf(rs.getString("estado")));
+                pessoa.setCep(rs.getString("cep"));
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
             }
         }
         return pessoa;
@@ -175,43 +218,52 @@ public class PessoaDAO {
         return lista;
     }
 
-     public List<PessoaDTO> listarPorNome(String nome) throws SQLException {
-          List < PessoaDTO > lista = new ArrayList<>();
+    public List<PessoaDTO> listarPorNome(String nome) throws SQLException {
+        List< PessoaDTO> lista = new ArrayList<>();
         Connection conn = null;
-         * PreparedStatement pstm = null;
+        PreparedStatement pstm = null;
         ResultSet rs = null;
-         *
-                * try {
+
+        try {
             conn = connectionFactory.conectaBD();
-            String sql = "SELECT * FROM
-     * PESSOA WHERE NOME LIKE ?"; pstm = conn.prepareStatement(sql);
-     * pstm.setString(1, "%" + nome + "%");
+
+            String sql = "SELECT * FROM PESSOA WHERE NOME LIKE ?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, "%" + nome + "%");
             rs = pstm.executeQuery();
-             *
-                    * while (rs.next()) {
+
+            while (rs.next()) {
                 PessoaDTO pessoa = new PessoaDTO();
-                 * Pessoa.setIdPessoa(rs.getInt("ID"));
-                 * Pessoa.setEmail(rs.getString("EMAIL"));
-                 *
-                        *
-                        * lista.add(pessoa);
+                pessoa.setIdPessoa(rs.getInt("idPessoa"));
+                pessoa.setEmail(rs.getString("email"));
+                pessoa.setFixo(rs.getString("fixo"));
+                pessoa.setCelular(rs.getString("celular"));
+                pessoa.setWhatsapp(rs.getBoolean("whatsapp"));
+                pessoa.setObservacoes(rs.getString("observacoes"));
+                pessoa.setIdEndereco(rs.getInt("idEndereco"));
+                pessoa.setRua(rs.getString("rua"));
+                pessoa.setNumero(rs.getString("numero"));
+                pessoa.setComplemento(rs.getString("complemento"));
+                pessoa.setBairro(rs.getString("bairro"));
+                pessoa.setCidade(rs.getString("cidade"));
+                pessoa.setEstado(Estado.valueOf(rs.getString("estado")));
+                pessoa.setCep(rs.getString("cep"));
+
+                lista.add(pessoa);
             }
         } finally {
             if (rs != null) {
                 rs.close();
             }
-            if (pstm
-                    * != null) {
+            if (pstm != null) {
                 pstm.close();
             }
             if (conn != null) {
                 conn.close();
             }
         }
-        return  * lista;
-         *
-                * @param idPessoa
-                * @throws java.sql.SQLException
+        return lista;
+
     }
 
     public void excluirPessoa(int idPessoa) throws SQLException {

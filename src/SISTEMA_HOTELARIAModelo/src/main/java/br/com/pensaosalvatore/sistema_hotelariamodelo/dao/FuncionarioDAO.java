@@ -234,7 +234,7 @@ public class FuncionarioDAO {
                 funcionario.setCargo(CargoFuncionario.valueOf(rs.getString("CARGO")));
                 funcionario.setDepartamento(DepartamentoFuncionario.valueOf(rs.getString("DEPARTAMENTO")));
                 funcionario.setStatus(StatusFuncionario.valueOf(rs.getString("STATUS_FUNCIONARIO")));
-                // Continue preenchendo os demais campos
+                
             }
         } finally {
             if (rs != null) {
