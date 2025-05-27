@@ -4,7 +4,7 @@
  */
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario;
 
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.controlador.funcionario.CadFuncionarioController;
+
 import java.util.List;
 import javax.swing.JOptionPane;
 

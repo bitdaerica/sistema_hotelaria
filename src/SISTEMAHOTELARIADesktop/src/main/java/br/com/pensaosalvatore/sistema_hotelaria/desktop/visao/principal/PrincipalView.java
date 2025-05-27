@@ -1,17 +1,14 @@
 
+        
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.principal;
 
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.produto.ConsultarProdutoView;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario.ConsultarFuncionarioView;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.produto.CadProdutoView;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospedefisico.CadHospedeFisicoView;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.funcionario.CadFuncionarioView;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.visao.hospedejuridico.CadHospedeJuridicoView;
+
 
 /**
  *
  * @author Érica_Almeida
  */
+
 public class PrincipalView extends javax.swing.JFrame {
 
     /**
@@ -20,6 +17,7 @@ public class PrincipalView extends javax.swing.JFrame {
     public PrincipalView() {
         initComponents();
         
+        setUndecorated(false);
         setExtendedState(MAXIMIZED_BOTH);
     }
 
@@ -32,10 +30,10 @@ public class PrincipalView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        telaFundo = new javax.swing.JDesktopPane();
         pnlRodape = new javax.swing.JPanel();
         sepRodape = new javax.swing.JSeparator();
         lblMensagemrodape = new javax.swing.JLabel();
+        telaFundo = new javax.swing.JDesktopPane();
         spBarralateral = new javax.swing.JScrollPane();
         pnlBarralateral = new javax.swing.JPanel();
         lblLogobarralateral = new javax.swing.JLabel();
@@ -50,102 +48,11 @@ public class PrincipalView extends javax.swing.JFrame {
         lblCargodousuario = new javax.swing.JLabel();
         lblGacesso = new javax.swing.JLabel();
         lblGraudeacessodousuario = new javax.swing.JLabel();
-        btnLogoff = new javax.swing.JButton();
         spBarralateral3 = new javax.swing.JSeparator();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        menuSistema = new javax.swing.JMenu();
-        mnHospedes = new javax.swing.JMenu();
-        mnCadastro = new javax.swing.JMenu();
-        miIndividual = new javax.swing.JMenuItem();
-        miEmpresa = new javax.swing.JMenuItem();
-        miConsultarhospede = new javax.swing.JMenuItem();
-        miGrupos = new javax.swing.JMenuItem();
-        miBlacklist = new javax.swing.JMenuItem();
-        mnQuartos = new javax.swing.JMenu();
-        miCadastrarquartos = new javax.swing.JMenuItem();
-        miConsultarquartos = new javax.swing.JMenuItem();
-        miLimpeza = new javax.swing.JMenuItem();
-        mnFuncionarios = new javax.swing.JMenu();
-        miCadastrarfuncionarios = new javax.swing.JMenuItem();
-        miConsultarfuncionarios = new javax.swing.JMenuItem();
-        miPerfisdeacesso = new javax.swing.JMenuItem();
-        mnFornecedor = new javax.swing.JMenu();
-        miCadastarfornecedor = new javax.swing.JMenuItem();
-        miConsultarfornecedor = new javax.swing.JMenuItem();
-        mnProdutos = new javax.swing.JMenu();
-        miCadastrarprodutos = new javax.swing.JMenuItem();
-        miConsultarprodutos = new javax.swing.JMenuItem();
-        mnServicos = new javax.swing.JMenu();
-        miCadastrarservicos = new javax.swing.JMenuItem();
-        miConsultarservicos = new javax.swing.JMenuItem();
-        menuReservas = new javax.swing.JMenu();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        mnConsultarreserva = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        mnFinalizarreserva = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        menuVendas = new javax.swing.JMenu();
-        miProdutos = new javax.swing.JMenuItem();
-        miServico = new javax.swing.JMenuItem();
-        menuFinanceiro = new javax.swing.JMenu();
-        mnContasapagar = new javax.swing.JMenu();
-        miCadastrarcontasapagar = new javax.swing.JMenuItem();
-        miConsultarcontasapagar = new javax.swing.JMenuItem();
-        mnContasareceber = new javax.swing.JMenu();
-        miCadastrarcontasareceber = new javax.swing.JMenuItem();
-        miConsultarcontasareceber = new javax.swing.JMenuItem();
-        mnBalancofinanceiro = new javax.swing.JMenu();
-        miDiario = new javax.swing.JMenuItem();
-        miMensal = new javax.swing.JMenuItem();
-        menuRelatório = new javax.swing.JMenu();
-        mnRelatoriofinanceiro = new javax.swing.JMenu();
-        miRelatoriocontasapagar = new javax.swing.JMenuItem();
-        miRelatoriocontasareceber = new javax.swing.JMenuItem();
-        mnRelatorioreservas = new javax.swing.JMenu();
-        miRelatorioquartosdisponiveis = new javax.swing.JMenuItem();
-        miRelatorioquartosocupados = new javax.swing.JMenuItem();
-        miRelatorioreservasfuturas = new javax.swing.JMenuItem();
-        mnRelatoriovendas = new javax.swing.JMenu();
-        miRelatorioprodutos = new javax.swing.JMenuItem();
-        miRelatorioservicos = new javax.swing.JMenuItem();
-        miRelatoriopacotes = new javax.swing.JMenuItem();
-        miRelatoriohospede = new javax.swing.JMenuItem();
-        miRelatoriofuncionarios = new javax.swing.JMenuItem();
-        miRelatoriofornecedor = new javax.swing.JMenuItem();
-        menuSegurança = new javax.swing.JMenu();
-        mnFazerbackup = new javax.swing.JMenu();
-        miAgendarbackup = new javax.swing.JMenuItem();
-        miRestaurarbackup = new javax.swing.JMenuItem();
-        mnAuditoria = new javax.swing.JMenu();
-        miLogsdeacesso = new javax.swing.JMenuItem();
-        menuFerramentas = new javax.swing.JMenu();
-        miSobre = new javax.swing.JMenuItem();
-        mnTeladefundo = new javax.swing.JMenu();
-        miAddimagem = new javax.swing.JMenuItem();
-        miRemoverimagem = new javax.swing.JMenuItem();
-        miRestaurarpadrao = new javax.swing.JMenuItem();
-        menuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Hotel ABEF - Home");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        telaFundo.setToolTipText("");
-
-        javax.swing.GroupLayout telaFundoLayout = new javax.swing.GroupLayout(telaFundo);
-        telaFundo.setLayout(telaFundoLayout);
-        telaFundoLayout.setHorizontalGroup(
-            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        telaFundoLayout.setVerticalGroup(
-            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
-        );
 
         lblMensagemrodape.setText("Sistema Hotel Projeto ABEF - Todos os direitos reservados - 2025");
 
@@ -166,6 +73,19 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMensagemrodape, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        telaFundo.setToolTipText("");
+
+        javax.swing.GroupLayout telaFundoLayout = new javax.swing.GroupLayout(telaFundo);
+        telaFundo.setLayout(telaFundoLayout);
+        telaFundoLayout.setHorizontalGroup(
+            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        telaFundoLayout.setVerticalGroup(
+            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 521, Short.MAX_VALUE)
         );
 
         spBarralateral.setBorder(null);
@@ -203,19 +123,6 @@ public class PrincipalView extends javax.swing.JFrame {
         lblGraudeacessodousuario.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         lblGraudeacessodousuario.setText("texto");
 
-        btnLogoff.setBackground(new java.awt.Color(255, 146, 47));
-        btnLogoff.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        btnLogoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-logout20x20.png"))); // NOI18N
-        btnLogoff.setText("Logoff");
-        btnLogoff.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnLogoff.setContentAreaFilled(false);
-        btnLogoff.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLogoff.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoffActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnlBarralateralLayout = new javax.swing.GroupLayout(pnlBarralateral);
         pnlBarralateral.setLayout(pnlBarralateralLayout);
         pnlBarralateralLayout.setHorizontalGroup(
@@ -225,676 +132,102 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(pnlBarralateralLayout.createSequentialGroup()
                 .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlBarralateralLayout.createSequentialGroup()
-                        .addGap(134, 134, 134)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblHora)
                             .addComponent(lblData)))
                     .addGroup(pnlBarralateralLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addContainerGap(123, Short.MAX_VALUE)
                         .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCargo)
                             .addComponent(lblGacesso)
                             .addComponent(lblUsuario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 14, Short.MAX_VALUE)
                         .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblGraudeacessodousuario)
-                            .addGroup(pnlBarralateralLayout.createSequentialGroup()
-                                .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCargodousuario)
-                                    .addComponent(lblNomedousuario))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                                .addComponent(btnLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblCargodousuario)
+                                .addComponent(lblNomedousuario)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 881, Short.MAX_VALUE)))
                 .addGap(44, 44, 44))
             .addGroup(pnlBarralateralLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlBarralateralLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1054, Short.MAX_VALUE)
                         .addComponent(lblNomehotelbarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblLogobarralateral))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlBarralateralLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(spBarralateral3, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)))
+                    .addComponent(spBarralateral3, javax.swing.GroupLayout.DEFAULT_SIZE, 1162, Short.MAX_VALUE)))
         );
         pnlBarralateralLayout.setVerticalGroup(
             pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBarralateralLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(lblLogobarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblNomehotelbarralateral)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(spBarralateral1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblHora)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblData)
-                .addGap(17, 17, 17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(spBarralateral2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsuario)
                     .addComponent(lblNomedousuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 20, Short.MAX_VALUE)
                 .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCargo)
-                    .addComponent(lblCargodousuario)
-                    .addComponent(btnLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblCargodousuario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 20, Short.MAX_VALUE)
                 .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblGacesso)
                     .addComponent(lblGraudeacessodousuario))
-                .addContainerGap(450, Short.MAX_VALUE))
+                .addContainerGap(416, Short.MAX_VALUE))
             .addGroup(pnlBarralateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlBarralateralLayout.createSequentialGroup()
                     .addGap(405, 405, 405)
                     .addComponent(spBarralateral3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(405, Short.MAX_VALUE)))
+                    .addContainerGap(371, Short.MAX_VALUE)))
         );
 
         spBarralateral.setViewportView(pnlBarralateral);
-
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        menuSistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cadastro32x32.png"))); // NOI18N
-        menuSistema.setText("Sistema   |");
-        menuSistema.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        mnHospedes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-hospede20x20.png"))); // NOI18N
-        mnHospedes.setText("Hóspedes");
-        mnHospedes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        mnCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cadastro20x20.png"))); // NOI18N
-        mnCadastro.setText("Cadastrar");
-
-        miIndividual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
-        miIndividual.setText("Hóspede Físico");
-        miIndividual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miIndividualActionPerformed(evt);
-            }
-        });
-        mnCadastro.add(miIndividual);
-
-        miEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-empresa20x20.png"))); // NOI18N
-        miEmpresa.setText("Hóspede Jurídico");
-        miEmpresa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miEmpresaActionPerformed(evt);
-            }
-        });
-        mnCadastro.add(miEmpresa);
-
-        mnHospedes.add(mnCadastro);
-
-        miConsultarhospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-consultar_pessoa20x20.png"))); // NOI18N
-        miConsultarhospede.setText("Consultar");
-        miConsultarhospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miConsultarhospede.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miConsultarhospedeActionPerformed(evt);
-            }
-        });
-        mnHospedes.add(miConsultarhospede);
-
-        miGrupos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-grupo20x20.png"))); // NOI18N
-        miGrupos.setText("Grupos");
-        miGrupos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnHospedes.add(miGrupos);
-
-        miBlacklist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-usuario_bloqueado20x20.png"))); // NOI18N
-        miBlacklist.setText("Blacklist");
-        miBlacklist.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnHospedes.add(miBlacklist);
-
-        menuSistema.add(mnHospedes);
-
-        mnQuartos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-quartos20x20.png"))); // NOI18N
-        mnQuartos.setText("Quartos");
-        mnQuartos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miCadastrarquartos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-quartos20x20.png"))); // NOI18N
-        miCadastrarquartos.setText("Cadastrar");
-        miCadastrarquartos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnQuartos.add(miCadastrarquartos);
-
-        miConsultarquartos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-lupa20x20.png"))); // NOI18N
-        miConsultarquartos.setText("Consultar");
-        miConsultarquartos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miConsultarquartos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miConsultarquartosActionPerformed(evt);
-            }
-        });
-        mnQuartos.add(miConsultarquartos);
-
-        miLimpeza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-limpeza20x20.png"))); // NOI18N
-        miLimpeza.setText("Manutenção");
-        miLimpeza.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnQuartos.add(miLimpeza);
-
-        menuSistema.add(mnQuartos);
-
-        mnFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-funcionario20x20.png"))); // NOI18N
-        mnFuncionarios.setText("Funcionários");
-        mnFuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miCadastrarfuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
-        miCadastrarfuncionarios.setText("Cadastrar");
-        miCadastrarfuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miCadastrarfuncionarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadastrarfuncionariosActionPerformed(evt);
-            }
-        });
-        mnFuncionarios.add(miCadastrarfuncionarios);
-
-        miConsultarfuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-consultar_pessoa20x20.png"))); // NOI18N
-        miConsultarfuncionarios.setText("Consultar");
-        miConsultarfuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miConsultarfuncionarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miConsultarfuncionariosActionPerformed(evt);
-            }
-        });
-        mnFuncionarios.add(miConsultarfuncionarios);
-
-        miPerfisdeacesso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-finalizar_pessoa20x20.png"))); // NOI18N
-        miPerfisdeacesso.setText("Perfis de Acesso");
-        miPerfisdeacesso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miPerfisdeacesso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miPerfisdeacessoActionPerformed(evt);
-            }
-        });
-        mnFuncionarios.add(miPerfisdeacesso);
-
-        menuSistema.add(mnFuncionarios);
-
-        mnFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-fornecedor20x20.png"))); // NOI18N
-        mnFornecedor.setText("Fornecedor");
-        mnFornecedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miCadastarfornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
-        miCadastarfornecedor.setText("Cadastrar");
-        miCadastarfornecedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miCadastarfornecedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadastarfornecedorActionPerformed(evt);
-            }
-        });
-        mnFornecedor.add(miCadastarfornecedor);
-
-        miConsultarfornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-consultar_pessoa20x20.png"))); // NOI18N
-        miConsultarfornecedor.setText("Consultar");
-        miConsultarfornecedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnFornecedor.add(miConsultarfornecedor);
-
-        menuSistema.add(mnFornecedor);
-
-        mnProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-produtos_caixas20x20.png"))); // NOI18N
-        mnProdutos.setText("Produtos");
-        mnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miCadastrarprodutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cadastrar_produto20x20.png"))); // NOI18N
-        miCadastrarprodutos.setText("Cadastrar");
-        miCadastrarprodutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miCadastrarprodutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadastrarprodutosActionPerformed(evt);
-            }
-        });
-        mnProdutos.add(miCadastrarprodutos);
-
-        miConsultarprodutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-lupa20x20.png"))); // NOI18N
-        miConsultarprodutos.setText("Consultar");
-        miConsultarprodutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miConsultarprodutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miConsultarprodutosActionPerformed(evt);
-            }
-        });
-        mnProdutos.add(miConsultarprodutos);
-
-        menuSistema.add(mnProdutos);
-
-        mnServicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-serviços20x20.png"))); // NOI18N
-        mnServicos.setText("Serviços");
-        mnServicos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miCadastrarservicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-serviços20x20.png"))); // NOI18N
-        miCadastrarservicos.setText("Cadastrar");
-        miCadastrarservicos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnServicos.add(miCadastrarservicos);
-
-        miConsultarservicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-lupa20x20.png"))); // NOI18N
-        miConsultarservicos.setText("Consultar");
-        miConsultarservicos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnServicos.add(miConsultarservicos);
-
-        menuSistema.add(mnServicos);
-
-        jMenuBar1.add(menuSistema);
-
-        menuReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-reservas32x32.png"))); // NOI18N
-        menuReservas.setText("Reservas   |");
-        menuReservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jMenuItem14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cadastrar_reserva20x20.png"))); // NOI18N
-        jMenuItem14.setText("Nova Reserva");
-        jMenuItem14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuReservas.add(jMenuItem14);
-
-        mnConsultarreserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-consultar_reserva20x20.png"))); // NOI18N
-        mnConsultarreserva.setText("Consultar Reserva");
-        mnConsultarreserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-calendario_data20x20.png"))); // NOI18N
-        jMenuItem4.setText("Por Data");
-        jMenuItem4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        mnConsultarreserva.add(jMenuItem4);
-
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-hospede20x20.png"))); // NOI18N
-        jMenuItem5.setText("Por Hóspede");
-        jMenuItem5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnConsultarreserva.add(jMenuItem5);
-
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-espera20x20.png"))); // NOI18N
-        jMenuItem6.setText("Lista de Espera");
-        jMenuItem6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnConsultarreserva.add(jMenuItem6);
-
-        menuReservas.add(mnConsultarreserva);
-
-        mnFinalizarreserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-finalizar_reserva20x20.png"))); // NOI18N
-        mnFinalizarreserva.setText("Check-in/out");
-        mnFinalizarreserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-calendario_check20x20.png"))); // NOI18N
-        jMenuItem7.setText("Rápido");
-        jMenuItem7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnFinalizarreserva.add(jMenuItem7);
-
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-pessoas20x20.png"))); // NOI18N
-        jMenuItem8.setText("Em Massa");
-        jMenuItem8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnFinalizarreserva.add(jMenuItem8);
-
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-calendario_red20x20.png"))); // NOI18N
-        jMenuItem9.setText("Antecipado");
-        jMenuItem9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnFinalizarreserva.add(jMenuItem9);
-
-        menuReservas.add(mnFinalizarreserva);
-
-        jMenuBar1.add(menuReservas);
-
-        menuVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-vendas32x32.png"))); // NOI18N
-        menuVendas.setText("Vendas   |");
-        menuVendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-produtos_comida20x20.png"))); // NOI18N
-        miProdutos.setText("Produtos");
-        miProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuVendas.add(miProdutos);
-
-        miServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-serviços20x20.png"))); // NOI18N
-        miServico.setText("Serviços");
-        miServico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miServico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miServicoActionPerformed(evt);
-            }
-        });
-        menuVendas.add(miServico);
-
-        jMenuBar1.add(menuVendas);
-
-        menuFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-financeiro32x32.png"))); // NOI18N
-        menuFinanceiro.setText("Financeiro   |");
-        menuFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        mnContasapagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-contas_a_pagar20x20.png"))); // NOI18N
-        mnContasapagar.setText("Contas a Pagar");
-        mnContasapagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miCadastrarcontasapagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cadastrar_conta20x20.png"))); // NOI18N
-        miCadastrarcontasapagar.setText("Cadastar");
-        miCadastrarcontasapagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnContasapagar.add(miCadastrarcontasapagar);
-
-        miConsultarcontasapagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-lupa20x20.png"))); // NOI18N
-        miConsultarcontasapagar.setText("Consultar");
-        miConsultarcontasapagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnContasapagar.add(miConsultarcontasapagar);
-
-        menuFinanceiro.add(mnContasapagar);
-
-        mnContasareceber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-contas_a_receber20x20.png"))); // NOI18N
-        mnContasareceber.setText("Contas a Receber");
-        mnContasareceber.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miCadastrarcontasareceber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cadastrar_conta20x20.png"))); // NOI18N
-        miCadastrarcontasareceber.setText("Cadastrar");
-        miCadastrarcontasareceber.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnContasareceber.add(miCadastrarcontasareceber);
-
-        miConsultarcontasareceber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-lupa20x20.png"))); // NOI18N
-        miConsultarcontasareceber.setText("Consultar");
-        miConsultarcontasareceber.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnContasareceber.add(miConsultarcontasareceber);
-
-        menuFinanceiro.add(mnContasareceber);
-
-        mnBalancofinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-relatorio_cifrao20x20.png"))); // NOI18N
-        mnBalancofinanceiro.setText("Balanço");
-        mnBalancofinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miDiario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-hora20x20.png"))); // NOI18N
-        miDiario.setText("Diário");
-        miDiario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnBalancofinanceiro.add(miDiario);
-
-        miMensal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-calendario20x20.png"))); // NOI18N
-        miMensal.setText("Mensal");
-        miMensal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnBalancofinanceiro.add(miMensal);
-
-        menuFinanceiro.add(mnBalancofinanceiro);
-
-        jMenuBar1.add(menuFinanceiro);
-
-        menuRelatório.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-relatorio32x32.png"))); // NOI18N
-        menuRelatório.setText("Relatório   |");
-        menuRelatório.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        mnRelatoriofinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-relatorio_cifrao20x20.png"))); // NOI18N
-        mnRelatoriofinanceiro.setText("Financeiro");
-        mnRelatoriofinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miRelatoriocontasapagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-contas_a_pagar20x20.png"))); // NOI18N
-        miRelatoriocontasapagar.setText("Fluxo de Caixa");
-        miRelatoriocontasapagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miRelatoriocontasapagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miRelatoriocontasapagarActionPerformed(evt);
-            }
-        });
-        mnRelatoriofinanceiro.add(miRelatoriocontasapagar);
-
-        miRelatoriocontasareceber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-contas_a_receber20x20.png"))); // NOI18N
-        miRelatoriocontasareceber.setText("Inadimplência");
-        miRelatoriocontasareceber.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miRelatoriocontasareceber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miRelatoriocontasareceberActionPerformed(evt);
-            }
-        });
-        mnRelatoriofinanceiro.add(miRelatoriocontasareceber);
-
-        menuRelatório.add(mnRelatoriofinanceiro);
-
-        mnRelatorioreservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-relatorio_reservas20x20.png"))); // NOI18N
-        mnRelatorioreservas.setText("Reservas");
-        mnRelatorioreservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miRelatorioquartosdisponiveis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-quartos20x20.png"))); // NOI18N
-        miRelatorioquartosdisponiveis.setText("Quartos Disponiveis");
-        miRelatorioquartosdisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnRelatorioreservas.add(miRelatorioquartosdisponiveis);
-
-        miRelatorioquartosocupados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-quartos_ocupados20x20.png"))); // NOI18N
-        miRelatorioquartosocupados.setText("Quartos Ocupados");
-        miRelatorioquartosocupados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnRelatorioreservas.add(miRelatorioquartosocupados);
-
-        miRelatorioreservasfuturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-reservas_futuras20x20.png"))); // NOI18N
-        miRelatorioreservasfuturas.setText("Reservas Futuras");
-        miRelatorioreservasfuturas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnRelatorioreservas.add(miRelatorioreservasfuturas);
-
-        menuRelatório.add(mnRelatorioreservas);
-
-        mnRelatoriovendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-relatorio_cifrao20x20.png"))); // NOI18N
-        mnRelatoriovendas.setText("Vendas");
-        mnRelatoriovendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miRelatorioprodutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-produtos_comida20x20.png"))); // NOI18N
-        miRelatorioprodutos.setText("Produtos");
-        miRelatorioprodutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnRelatoriovendas.add(miRelatorioprodutos);
-
-        miRelatorioservicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-serviços20x20.png"))); // NOI18N
-        miRelatorioservicos.setText("Serviços");
-        miRelatorioservicos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miRelatorioservicos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miRelatorioservicosActionPerformed(evt);
-            }
-        });
-        mnRelatoriovendas.add(miRelatorioservicos);
-
-        miRelatoriopacotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-produtos_caixas20x20.png"))); // NOI18N
-        miRelatoriopacotes.setText("Pacotes");
-        miRelatoriopacotes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnRelatoriovendas.add(miRelatoriopacotes);
-
-        menuRelatório.add(mnRelatoriovendas);
-
-        miRelatoriohospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-hospede20x20.png"))); // NOI18N
-        miRelatoriohospede.setText("Hóspedes");
-        miRelatoriohospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuRelatório.add(miRelatoriohospede);
-
-        miRelatoriofuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-funcionario20x20.png"))); // NOI18N
-        miRelatoriofuncionarios.setText("Funcionários");
-        miRelatoriofuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuRelatório.add(miRelatoriofuncionarios);
-
-        miRelatoriofornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-fornecedor20x20.png"))); // NOI18N
-        miRelatoriofornecedor.setText("Fornecedor");
-        miRelatoriofornecedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuRelatório.add(miRelatoriofornecedor);
-
-        jMenuBar1.add(menuRelatório);
-
-        menuSegurança.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-segurança32x32.png"))); // NOI18N
-        menuSegurança.setText("Segurança   |");
-        menuSegurança.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        mnFazerbackup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-fazer_backup20x20.png"))); // NOI18N
-        mnFazerbackup.setText("Backup");
-        mnFazerbackup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miAgendarbackup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-backup_salvar20x20.png"))); // NOI18N
-        miAgendarbackup.setText("Agendar");
-        miAgendarbackup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnFazerbackup.add(miAgendarbackup);
-
-        miRestaurarbackup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-restaurar_backup20x20.png"))); // NOI18N
-        miRestaurarbackup.setText("Restaurar");
-        miRestaurarbackup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnFazerbackup.add(miRestaurarbackup);
-
-        menuSegurança.add(mnFazerbackup);
-
-        mnAuditoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-auditoria20x20.png"))); // NOI18N
-        mnAuditoria.setText("Auditoria");
-        mnAuditoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miLogsdeacesso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-acesso20x20.png"))); // NOI18N
-        miLogsdeacesso.setText("Logs de Acesso");
-        miLogsdeacesso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnAuditoria.add(miLogsdeacesso);
-
-        menuSegurança.add(mnAuditoria);
-
-        jMenuBar1.add(menuSegurança);
-
-        menuFerramentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-feramentas32x32.png"))); // NOI18N
-        menuFerramentas.setText("Ferramentas   |");
-        menuFerramentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-informacao20x20.png"))); // NOI18N
-        miSobre.setText("Sobre");
-        miSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuFerramentas.add(miSobre);
-
-        mnTeladefundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-tela_de_fundo20x20.png"))); // NOI18N
-        mnTeladefundo.setText("Personalização");
-        mnTeladefundo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        miAddimagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-add_imagem20x20.png"))); // NOI18N
-        miAddimagem.setText("Add Imagem");
-        miAddimagem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnTeladefundo.add(miAddimagem);
-
-        miRemoverimagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-remover_imagem20x20.png"))); // NOI18N
-        miRemoverimagem.setText("Remover Imagem");
-        miRemoverimagem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnTeladefundo.add(miRemoverimagem);
-
-        miRestaurarpadrao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-restaurar_padrao20x20.png"))); // NOI18N
-        miRestaurarpadrao.setText("Restaurar Padrão");
-        miRestaurarpadrao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnTeladefundo.add(miRestaurarpadrao);
-
-        menuFerramentas.add(mnTeladefundo);
-
-        jMenuBar1.add(menuFerramentas);
-
-        menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-sair32x32.png"))); // NOI18N
-        menuSair.setText("Sair");
-        menuSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuSairMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(menuSair);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlRodape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(telaFundo)
+                .addComponent(pnlRodape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(spBarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, 1182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spBarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(telaFundo))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spBarralateral, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
-                    .addComponent(telaFundo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlRodape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(telaFundo)
+                        .addGap(209, 209, 209)
+                        .addComponent(pnlRodape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(spBarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
-        setSize(new java.awt.Dimension(999, 617));
+        setSize(new java.awt.Dimension(898, 795));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void miCadastrarfuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarfuncionariosActionPerformed
-            CadFuncionarioView tela = new CadFuncionarioView();        
-            telaFundo.add(tela);
-            tela.setVisible(true);
-    }//GEN-LAST:event_miCadastrarfuncionariosActionPerformed
-
-    private void miConsultarquartosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarquartosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miConsultarquartosActionPerformed
-
-    private void miConsultarhospedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarhospedeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miConsultarhospedeActionPerformed
-
-    private void miRelatoriocontasareceberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriocontasareceberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miRelatoriocontasareceberActionPerformed
-
-    private void miCadastrarprodutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarprodutosActionPerformed
-        CadProdutoView tela = new CadProdutoView ();// TODO add your handling code here:
-        telaFundo.add(tela);
-        tela.setVisible(true);
-    }//GEN-LAST:event_miCadastrarprodutosActionPerformed
-
-    private void miRelatorioservicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatorioservicosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miRelatorioservicosActionPerformed
-
-    private void btnLogoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoffActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-                
-    }//GEN-LAST:event_btnLogoffActionPerformed
-
-    private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_menuSairMouseClicked
-
-    private void miConsultarprodutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarprodutosActionPerformed
-        ConsultarProdutoView tela = new ConsultarProdutoView ();
-        telaFundo.add(tela);
-        tela.setVisible(true);
-    }//GEN-LAST:event_miConsultarprodutosActionPerformed
-
-    private void miConsultarfuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarfuncionariosActionPerformed
-         ConsultarFuncionarioView tela = new ConsultarFuncionarioView ();
-        telaFundo.add(tela);
-        tela.setVisible(true);
-    }//GEN-LAST:event_miConsultarfuncionariosActionPerformed
-
-    private void miCadastarfornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastarfornecedorActionPerformed
-       // TelaCadFornecedor tela = new TelaCadFornecedor ();
-       // telaFundo.add(tela);
-       // tela.setVisible(true);
-    }//GEN-LAST:event_miCadastarfornecedorActionPerformed
-
-    private void miPerfisdeacessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPerfisdeacessoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miPerfisdeacessoActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void miServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miServicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miServicoActionPerformed
-
-    private void miRelatoriocontasapagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriocontasapagarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miRelatoriocontasapagarActionPerformed
-
-    private void miIndividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miIndividualActionPerformed
-            CadHospedeFisicoView tela = new CadHospedeFisicoView ();
-            telaFundo.add(tela);
-            tela.setVisible(true);
-
-    }//GEN-LAST:event_miIndividualActionPerformed
-
-    private void miEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEmpresaActionPerformed
-            CadHospedeJuridicoView tela = new CadHospedeJuridicoView ();
-            telaFundo.add(tela);
-            tela.setVisible(true);
-
-    }//GEN-LAST:event_miEmpresaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -936,15 +269,6 @@ public class PrincipalView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogoff;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblCargodousuario;
     private javax.swing.JLabel lblData;
@@ -956,75 +280,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel lblNomedousuario;
     private javax.swing.JLabel lblNomehotelbarralateral;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JMenu menuFerramentas;
-    private javax.swing.JMenu menuFinanceiro;
-    private javax.swing.JMenu menuRelatório;
-    private javax.swing.JMenu menuReservas;
-    private javax.swing.JMenu menuSair;
-    private javax.swing.JMenu menuSegurança;
-    private javax.swing.JMenu menuSistema;
-    private javax.swing.JMenu menuVendas;
-    private javax.swing.JMenuItem miAddimagem;
-    private javax.swing.JMenuItem miAgendarbackup;
-    private javax.swing.JMenuItem miBlacklist;
-    private javax.swing.JMenuItem miCadastarfornecedor;
-    private javax.swing.JMenuItem miCadastrarcontasapagar;
-    private javax.swing.JMenuItem miCadastrarcontasareceber;
-    private javax.swing.JMenuItem miCadastrarfuncionarios;
-    private javax.swing.JMenuItem miCadastrarprodutos;
-    private javax.swing.JMenuItem miCadastrarquartos;
-    private javax.swing.JMenuItem miCadastrarservicos;
-    private javax.swing.JMenuItem miConsultarcontasapagar;
-    private javax.swing.JMenuItem miConsultarcontasareceber;
-    private javax.swing.JMenuItem miConsultarfornecedor;
-    private javax.swing.JMenuItem miConsultarfuncionarios;
-    private javax.swing.JMenuItem miConsultarhospede;
-    private javax.swing.JMenuItem miConsultarprodutos;
-    private javax.swing.JMenuItem miConsultarquartos;
-    private javax.swing.JMenuItem miConsultarservicos;
-    private javax.swing.JMenuItem miDiario;
-    private javax.swing.JMenuItem miEmpresa;
-    private javax.swing.JMenuItem miGrupos;
-    private javax.swing.JMenuItem miIndividual;
-    private javax.swing.JMenuItem miLimpeza;
-    private javax.swing.JMenuItem miLogsdeacesso;
-    private javax.swing.JMenuItem miMensal;
-    private javax.swing.JMenuItem miPerfisdeacesso;
-    private javax.swing.JMenuItem miProdutos;
-    private javax.swing.JMenuItem miRelatoriocontasapagar;
-    private javax.swing.JMenuItem miRelatoriocontasareceber;
-    private javax.swing.JMenuItem miRelatoriofornecedor;
-    private javax.swing.JMenuItem miRelatoriofuncionarios;
-    private javax.swing.JMenuItem miRelatoriohospede;
-    private javax.swing.JMenuItem miRelatoriopacotes;
-    private javax.swing.JMenuItem miRelatorioprodutos;
-    private javax.swing.JMenuItem miRelatorioquartosdisponiveis;
-    private javax.swing.JMenuItem miRelatorioquartosocupados;
-    private javax.swing.JMenuItem miRelatorioreservasfuturas;
-    private javax.swing.JMenuItem miRelatorioservicos;
-    private javax.swing.JMenuItem miRemoverimagem;
-    private javax.swing.JMenuItem miRestaurarbackup;
-    private javax.swing.JMenuItem miRestaurarpadrao;
-    private javax.swing.JMenuItem miServico;
-    private javax.swing.JMenuItem miSobre;
-    private javax.swing.JMenu mnAuditoria;
-    private javax.swing.JMenu mnBalancofinanceiro;
-    private javax.swing.JMenu mnCadastro;
-    private javax.swing.JMenu mnConsultarreserva;
-    private javax.swing.JMenu mnContasapagar;
-    private javax.swing.JMenu mnContasareceber;
-    private javax.swing.JMenu mnFazerbackup;
-    private javax.swing.JMenu mnFinalizarreserva;
-    private javax.swing.JMenu mnFornecedor;
-    private javax.swing.JMenu mnFuncionarios;
-    private javax.swing.JMenu mnHospedes;
-    private javax.swing.JMenu mnProdutos;
-    private javax.swing.JMenu mnQuartos;
-    private javax.swing.JMenu mnRelatoriofinanceiro;
-    private javax.swing.JMenu mnRelatorioreservas;
-    private javax.swing.JMenu mnRelatoriovendas;
-    private javax.swing.JMenu mnServicos;
-    private javax.swing.JMenu mnTeladefundo;
     private javax.swing.JPanel pnlBarralateral;
     private javax.swing.JPanel pnlRodape;
     private javax.swing.JSeparator sepRodape;
