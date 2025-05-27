@@ -48,8 +48,14 @@ public class PrincipalView extends javax.swing.JFrame {
         lblGraudeacessodousuario = new javax.swing.JLabel();
         btnLogoff = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        mnCadastro = new javax.swing.JMenu();
+        miHospede = new javax.swing.JMenuItem();
+        jSeparator6 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jSeparator7 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        mnReservas = new javax.swing.JMenu();
+        mnConsultas = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Hotel ABEF - Principal");
@@ -156,10 +162,6 @@ public class PrincipalView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator3)
             .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(27, 27, 27))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,7 +192,10 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(lblUsuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblNomedousuario)))
+                        .addComponent(lblNomedousuario))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel4)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -229,15 +234,39 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(223, 176, 95));
 
-        jMenu1.setBackground(new java.awt.Color(223, 176, 95));
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cadastro20x20.png"))); // NOI18N
-        jMenu1.setText("Cadastro  |");
-        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenu1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu1);
+        mnCadastro.setBackground(new java.awt.Color(223, 176, 95));
+        mnCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cadastro32x32.png"))); // NOI18N
+        mnCadastro.setText("     Cadastro          |");
+        mnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnCadastro.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        miHospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-hospede20x20.png"))); // NOI18N
+        miHospede.setText("Hóspede");
+        miHospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnCadastro.add(miHospede);
+        mnCadastro.add(jSeparator6);
+
+        jMenuItem2.setText("jMenuItem2");
+        mnCadastro.add(jMenuItem2);
+        mnCadastro.add(jSeparator7);
+
+        jMenuItem3.setText("jMenuItem3");
+        mnCadastro.add(jMenuItem3);
+
+        jMenuBar1.add(mnCadastro);
+
+        mnReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-reservas32x32.png"))); // NOI18N
+        mnReservas.setText("     Reservas          |");
+        mnReservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnReservas.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jMenuBar1.add(mnReservas);
+        mnReservas.getAccessibleContext().setAccessibleDescription("");
+
+        mnConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-lupa32x32.png"))); // NOI18N
+        mnConsultas.setText("    Consultas          |");
+        mnConsultas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnConsultas.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jMenuBar1.add(mnConsultas);
 
         setJMenuBar(jMenuBar1);
 
@@ -264,7 +293,7 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(989, 727));
@@ -320,9 +349,9 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
@@ -330,11 +359,17 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblCargodousuario;
     private javax.swing.JLabel lblGacesso;
     private javax.swing.JLabel lblGraudeacessodousuario;
     private javax.swing.JLabel lblNomedousuario;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JMenuItem miHospede;
+    private javax.swing.JMenu mnCadastro;
+    private javax.swing.JMenu mnConsultas;
+    private javax.swing.JMenu mnReservas;
     // End of variables declaration//GEN-END:variables
 }
