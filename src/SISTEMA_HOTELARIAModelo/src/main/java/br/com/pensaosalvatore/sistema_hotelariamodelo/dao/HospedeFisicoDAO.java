@@ -1,5 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.StatusHospede;
 import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.HospedeFisicoDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -216,6 +217,89 @@ public class HospedeFisicoDAO {
             }
         }
     }
+    
+    public HospedeFisicoDTO selecionarPorId(int idFuncionario) throws SQLException {
+         Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        
+        HospedeFisicoDTO HospedeFisico = null;
+        
+        try {
+            conn = connectionFactory.conectaBD();
+            String sql = "SELECT * FROM HOSPEDEFISICO WHERE ID = ?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, idHospedeFisico);
+            rs = pstm.executeQuery();
+            
+            if (rs.next()) {
+                HospedeFisico = new HospedeFisicoDTO();
+                HospedeFisico.setIdHospedeFisico(rs.getInt("ID"));
+                HospedeFisico.setNome(rs.getString("NOME"));
+                HospedeFisico.setSobrenome(rs.getString("SOBRENOME"));
+                HospedeFisico.setCpf(rs.getString("CPF"));
+                HospedeFisico.setRg(rs.getInt("RG"));
+                HospedeFisico.setProfissao(rs.getString("PROFISSAO"));
+                HospedeFisico.setStatus(StatusHospede.valueOf(rs.getString("STATUS_HospedeFisico")));
+                
+                
+            }    
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return HospedeFisico;
+    }
+    
+    public List<HospedeFisicoDTO> listarPorNome(String nome) throws SQLException {
+        List<HospedeFisicoDTO> lista = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        
+        try {
+            conn = connectionFactory.conectaBD();
+            String sql = "SELECT * FROM HOSPEDEFISICO WHERE NOME LIKE ?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, "%" + nome + "%");
+            rs = pstm.executeQuery();
+            
+            while (rs.next()) {
+                Hospedefisico = new HospedeFisicoDTO();
+                HospedeFisico.setIdHospedeFisico(rs.getInt("ID"));
+                HospedeFisico.setNome(rs.getString("NOME"));
+                HospedeFisico.setSobrenome(rs.getString("SOBRENOME"));
+                HospedeFisico.setCpf(rs.getString("CPF"));
+                HospedeFisico.setRg(rs.getInt("RG"));
+                HospedeFisico.setProfissao(rs.getString("PROFISSAO"));
+                HospedeFisico.setStatus(StatusHospede.valueOf(rs.getString("STATUS_HospedeFisico")));
+                
+                lista.add(HospedeFisico);
+                
+            }
+                
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return lista;
+        
+        
+        
             
 }
 
