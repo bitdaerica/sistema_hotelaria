@@ -131,7 +131,7 @@ public class ServicoDAO{
         
         if (rs.next()){
             ServicoDTO s = new ServicoDTO();
-            s.setId(rs.getInt("id"));
+            s.setIdServico(rs.getInt("idServico"));
             s.setNome(rs.getString("nome"));
             s.setDescricao(rs.getString("descricao"));
             

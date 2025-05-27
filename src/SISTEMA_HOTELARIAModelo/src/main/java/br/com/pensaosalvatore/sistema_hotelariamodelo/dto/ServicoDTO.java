@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  */
 public class ServicoDTO {
 
-    private Integer id;
+    private Integer idServico;
     private Integer codigoservico;
     private String nome;
     private CategoriaServico categoria;
@@ -37,8 +37,8 @@ public class ServicoDTO {
     public ServicoDTO() {
     }
 
-    public ServicoDTO(Integer id, Integer codigoservico, String nome, CategoriaServico categoria, String descricao, String localprestacao, String tempomedioexecucao, Status statusservico, BigDecimal precobase, BigDecimal taxasadicionais, String formapagamento, BigDecimal custooperacional, BigDecimal desconto, String horariosdisponiveis, String diassemana, Integer capacidademaxima, Integer antecedenciaminima, String funcionarioresponsavel, String recursosnecessarios, Integer idademinima, String acessibilidade, String restricoessaude, String observacoes) {
-        this.id = id;
+    public ServicoDTO(Integer idServico, Integer codigoservico, String nome, CategoriaServico categoria, String descricao, String localprestacao, String tempomedioexecucao, Status statusservico, BigDecimal precobase, BigDecimal taxasadicionais, String formapagamento, BigDecimal custooperacional, BigDecimal desconto, String horariosdisponiveis, String diassemana, Integer capacidademaxima, Integer antecedenciaminima, String funcionarioresponsavel, String recursosnecessarios, Integer idademinima, String acessibilidade, String restricoessaude, String observacoes) {
+        this.idServico = idServico;
         this.codigoservico = codigoservico;
         this.nome = nome;
         this.categoria = categoria;
@@ -64,12 +64,12 @@ public class ServicoDTO {
     }
 
     
-    public Integer getId() {
-        return id;
+    public Integer getIdServico() {
+        return idServico;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdServico(Integer idServico) {
+        this.idServico = idServico;
     }
 
     public Integer getCodigoservico() {

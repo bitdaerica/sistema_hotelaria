@@ -22,33 +22,11 @@ public class PessoaDAO {
     public void inserirPessoa(PessoaDTO p) throws SQLException {
         Connection conn = null;
         PreparedStatement pstm = null;
-        ResultSet rs = null;
+        
 
         try {
             conn = connectionFactory.conectaBD();
             conn.setAutoCommit(false);
-
-            String sqlEndereco = "INSERT INTO ENDERECO (RUA, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            pstm = conn.prepareStatement(sqlEndereco, Statement.RETURN_GENERATED_KEYS);
-            pstm.setString(1, p.getRua());
-            pstm.setString(2, p.getNumero());
-            pstm.setString(3, p.getComplemento());
-            pstm.setString(4, p.getBairro());
-            pstm.setString(5, p.getCidade());
-            pstm.setString(6, p.getEstado().name());
-            pstm.setString(7, p.getCep());
-            pstm.executeUpdate();
-
-            rs = pstm.getGeneratedKeys();
-            int idEndereco = 0;
-
-            if (rs.next()) {
-                idEndereco = rs.getInt(1);
-            }
-
-            pstm.close();
-
-            rs.close();
 
             String sqlPessoa = "INSERT INTO PESSOA (EMAIL, FIXO, CELULAR, WHATSAPP, OBSERVACOES, ID_ENDERECO) VALUES (?, ?, ?, ?, ?, ?)";
             pstm = conn.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS);
@@ -57,11 +35,18 @@ public class PessoaDAO {
             pstm.setString(3, p.getCelular());
             pstm.setBoolean(4, p.getWhatsapp());
             pstm.setString(5, p.getObservacoes());
-            pstm.setInt(6, idEndereco);
 
             pstm.executeUpdate();
 
             conn.commit();
+            
+            ResultSet rs = pstm.getGeneratedKeys();
+            int idPessoa = -1;
+            if (rs.next()) {
+                idPessoa = rs.getInt(1); // 1 representa a primeira coluna do resultado
+                p.setId(idPessoa);
+            }
+            rs.close();
 
         } catch (SQLException e) {
             if (conn != null) {

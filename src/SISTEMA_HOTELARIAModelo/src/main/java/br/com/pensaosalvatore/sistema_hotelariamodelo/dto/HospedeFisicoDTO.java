@@ -16,64 +16,35 @@ import java.util.Date;
  */
 public class HospedeFisicoDTO extends PessoaDTO {
 
-    private Integer idHospedeFisico;
-
     private String nome;
-
     private String sobrenome;
-
     private Date datadenascimento;
-
     private Genero genero;
-
     private String cpf;
-
     private Integer rg;
-
     private String naturalidade;
-
     private EstadoCivil estadocivil;
-
     private String foto;
-
     private String profissao;
-
     private StatusHospede status;
-
     private TipoDocumento tipodocumento;
-
     private Integer numerodocumento;
-
     private String orgaoemissor;
-
     private Date datadeemissao;
-
     private Date datadecadastro;
-
     private String preferenciadecontato;
-
     private PreferenciaQuarto preferenciadequarto;
-
     private Andar preferenciadeandar;
-
     private Date ultimavisita;
-
     private TipoCama preferenciadecama;
-
     private String itensespeciais;
-
     private String interesses;
-
     private String notasinternas;
-
     private String empresavinculada;
-
     private String cnpj;
-
     private String cargo;
-
     private String responsavelpelofaturamento;
-
+    
     public HospedeFisicoDTO() {
 
     }

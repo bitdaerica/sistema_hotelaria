@@ -13,6 +13,7 @@ import java.util.List;
 /**
  *
  * @author Érica_Almeida
+ * @deprecated 
  */
 public class EnderecoDAO {
 

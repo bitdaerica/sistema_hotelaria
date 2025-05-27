@@ -27,50 +27,11 @@ public class HospedeFisicoDAO {
             conn = connectionFactory.conectaBD();
             conn.setAutoCommit(false);
 
-            String sqlEndereco = "INSERT INTO ENDERECO (RUA, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            pstm = conn.prepareStatement(sqlEndereco, Statement.RETURN_GENERATED_KEYS);
-            pstm.setString(1, hf.getRua());
-            pstm.setString(2, hf.getNumero());
-            pstm.setString(3, hf.getComplemento());
-            pstm.setString(4, hf.getBairro());
-            pstm.setString(5, hf.getCidade());
-            pstm.setString(6, hf.getEstado().name());
-            pstm.setString(7, hf.getCep());
+            //chamando pessoa par fazer inserir a pessoa primeira
+            PessoaDAO dao = new PessoaDAO();
 
-            pstm.executeUpdate();
-
-            rs = pstm.getGeneratedKeys();
-            int idEndereco = 0;
-
-            if (rs.next()) {
-                idEndereco = rs.getInt(1);
-            }
-
-            pstm.close();
-
-            rs.close();
-
-            String sqlPessoa = "INSERT INTO PESSOA (EMAIL, FIXO, CELULAR, WHATSAPP, OBSERVACOES, ID_ENDERECO) VALUES (?, ?, ?, ?, ?, ?)";
-            pstm = conn.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS);
-            pstm.setString(1, hf.getEmail());
-            pstm.setString(2, hf.getFixo());
-            pstm.setString(3, hf.getCelular());
-            pstm.setBoolean(4, hf.getWhatsapp());
-            pstm.setString(5, hf.getObservacoes());
-            pstm.setInt(6, idEndereco);
-            pstm.executeUpdate();
-
-            rs = pstm.getGeneratedKeys();
-            int idPessoa = 0;
-
-            if (rs.next()) {
-                idPessoa = rs.getInt(1);
-            }
-
-            pstm.close();
-
-            rs.close();
-
+            dao.inserirPessoa(hf);
+            
             String sqlHospedeFisico = "INSERT INTO HOSPEDE_FISICO (NOME, SOBRENOME, DATA_NASCIMENTO, GENERO, CPF, RG, NATURALIDADE, ESTADO_CIVIL, FOTO,"
                     + " PROFISSAO, STATUS_HOSPEDE, TIPO_DOC, NUMERO_DOC, ORGAO_EMISSOR, DATA_EMISSAO, DATA_CADASTRO, PREFERENCIA_CONTATO, "
                     + "PREFERENCIA_QUARTO, PREFERENCIA_ANDAR, ULTIMA_VISITA, PREFERENCIA_CAMA, ITENS_ESPECIAIS, INTERESSES, NOTAS_INTERNAS, "
@@ -107,7 +68,7 @@ public class HospedeFisicoDAO {
             pstm.setString(26, hf.getCnpj());
             pstm.setString(27, hf.getCargo());
             pstm.setString(28, hf.getResponsavelpelofaturamento());
-            pstm.setInt(29,  hf.getIdPessoa()); 
+            pstm.setInt(29,  hf.getId()); 
             
             pstm.executeUpdate();
 

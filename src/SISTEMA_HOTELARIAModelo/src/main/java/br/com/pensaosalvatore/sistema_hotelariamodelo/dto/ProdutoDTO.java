@@ -11,49 +11,31 @@ import java.util.Date;
  * @author 202412170006
  */
 public class ProdutoDTO {
-    private Integer id;
-    
-    private String nome;
-    
-    private String descricao;
-    
-    private Categoria categoria;
-    
-    private String marca;
-    
-    private Integer codbarra;
-    
-    private Integer qtdemestoque;
-    
-    private Integer qtdestoqueminimo;
-    
-    private Integer qtdestoquemaximo;
-    
-    private String localizacaonoestoque;
-    
-    private BigDecimal precocusto;
-    
-    private BigDecimal precovenda;
-    
-    private BigDecimal desconto;
-      
-    private String fornecedor;
-    
-    private Date datadefabricacao;
-    
-    private Date datadevalidade;
-    
-    private Double garantia;
-    
-    private Status status;
-    
+    private Integer idProduto;    
+    private String nome;    
+    private String descricao;    
+    private Categoria categoria;    
+    private String marca;    
+    private Integer codbarra;    
+    private Integer qtdemestoque;    
+    private Integer qtdestoqueminimo;    
+    private Integer qtdestoquemaximo;    
+    private String localizacaonoestoque;    
+    private BigDecimal precocusto;    
+    private BigDecimal precovenda;    
+    private BigDecimal desconto;      
+    private String fornecedor;    
+    private Date datadefabricacao;    
+    private Date datadevalidade;    
+    private Double garantia;    
+    private Status status;    
     private String observacoes;
-
+    
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(Integer id, String nome, String descricao, Categoria categoria, String marca, Integer codbarra, Integer qtdemestoque, Integer qtdestoqueminimo, Integer qtdestoquemaximo, String localizacaonoestoque, BigDecimal precocusto, BigDecimal precovenda, BigDecimal desconto, String fornecedor, Date datadefabricacao, Date datadevalidade, Double garantia, Status status, String observacoes) {
-        this.id = id;
+    public ProdutoDTO(Integer idProduto, String nome, String descricao, Categoria categoria, String marca, Integer codbarra, Integer qtdemestoque, Integer qtdestoqueminimo, Integer qtdestoquemaximo, String localizacaonoestoque, BigDecimal precocusto, BigDecimal precovenda, BigDecimal desconto, String fornecedor, Date datadefabricacao, Date datadevalidade, Double garantia, Status status, String observacoes) {
+        this.idProduto = idProduto;
         this.nome = nome;
         this.descricao = descricao;
         this.categoria = categoria;
@@ -74,12 +56,12 @@ public class ProdutoDTO {
         this.observacoes = observacoes;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdProduto() {
+        return idProduto;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdProduto(Integer idProduto) {
+        this.idProduto = idProduto;
     }
 
     public String getNome() {

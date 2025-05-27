@@ -325,6 +325,8 @@ public class CadHospedeFisicoView extends javax.swing.JInternalFrame {
         lblProfissao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblProfissao.setText("Profissão:");
 
+        txtProfissao.setEditable(false);
+
         lblRg.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblRg.setText("*RG:");
 

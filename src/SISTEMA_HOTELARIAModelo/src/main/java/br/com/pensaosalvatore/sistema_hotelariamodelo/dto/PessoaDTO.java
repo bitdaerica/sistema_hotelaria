@@ -6,35 +6,38 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Estado;
  *
  * @author Érica_Almeida
  */
-public class PessoaDTO extends EnderecoDTO {
+public class PessoaDTO  {
 
-    protected Integer idPessoa;
+    protected Integer id;
     protected String email;
     protected String fixo;
     protected String celular;
     protected Boolean whatsapp;
     protected String observacoes;
+    private EnderecoDTO endereco;
 
     public PessoaDTO() {
     }
 
-    public PessoaDTO(Integer idPessoa, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep) {
-        super(idEndereco, rua, numero, complemento, bairro, cidade, estado, cep);
-        this.idPessoa = idPessoa;
+    public PessoaDTO(Integer idPessoa, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep, EnderecoDTO endereco) {
+        this.id = idPessoa;
         this.email = email;
         this.fixo = fixo;
         this.celular = celular;
         this.whatsapp = whatsapp;
         this.observacoes = observacoes;
+        this.endereco = endereco;
     }
 
-    public Integer getIdPessoa() {
-        return idPessoa;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdPessoa(Integer idPessoa) {
-        this.idPessoa = idPessoa;
+    public void setId(Integer id) {
+        this.id = id;
     }
+
+
 
     public String getEmail() {
         return email;
