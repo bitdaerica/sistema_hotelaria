@@ -1,3 +1,4 @@
+br\com\pensaosalvatore\sistema_hotelaria\desktop\view\reserva\RealizarReservaView$1.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\funcionario\ConsultarFuncionarioView.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\hospedefisico\CadHospedeFisicoView$1.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\quarto\CadQuartoView.class
@@ -5,10 +6,10 @@ br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\funcionario\ConsultarFunc
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\autenticacao\AutenticacaoView$4.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\hospedefisico\CadHospedeFisicoView.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\hospedefisico\CadHospedeFisicoView$4.class
-br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\principal\PrincipalView.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\autenticacao\AutenticacaoView$1.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\funcionario\CadFuncionarioView$8.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\hospedefisico\CadHospedeFisicoView$7.class
+br\com\pensaosalvatore\sistema_hotelaria\desktop\view\reserva\RealizarReservaView.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\funcionario\CadFuncionarioView.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\principal\PrincipalView$2.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\autenticacao\AutenticacaoView.class
@@ -20,6 +21,8 @@ br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\hospedefisico\CadHospedeF
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\funcionario\CadFuncionarioView$6.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\funcionario\CadFuncionarioView$10.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\autenticacao\AutenticacaoView$5.class
+br\com\pensaosalvatore\sistema_hotelaria\desktop\view\reserva\RealizarReservaView$2.class
+br\com\pensaosalvatore\sistema_hotelaria\desktop\view\principal\PrincipalView$3.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\funcionario\CadFuncionarioView$7.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\funcionario\CadFuncionarioView$1.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\funcionario\ConsultarFuncionarioView$2.class
@@ -34,6 +37,5 @@ br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\hospedefisico\CadHospedeF
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\autenticacao\AutenticacaoView$2.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\funcionario\CadFuncionarioView$3.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\hospedefisico\CadHospedeFisicoView$2.class
-br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\principal\PrincipalView$1.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\hospedefisico\CadHospedeFisicoView$8.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\visao\funcionario\CadFuncionarioView$9.class
