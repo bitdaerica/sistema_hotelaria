@@ -41,7 +41,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
 
         lblLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblLogin.setForeground(new java.awt.Color(188, 123, 61));
-        lblLogin.setText("Login:");
+        lblLogin.setText("Usuário:");
         getContentPane().add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, -1, -1));
 
         txtUsuario.setForeground(new java.awt.Color(202, 146, 58));
