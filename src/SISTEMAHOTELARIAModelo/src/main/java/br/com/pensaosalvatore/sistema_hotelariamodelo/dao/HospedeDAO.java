@@ -1,6 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.UsuarioDTO;
+import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.HospedeDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,14 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Data Access Object (DAO) Create-Retrive-Update-Delete (CRUD)
  *
  * @author 202412170006
  */
-public class UsuarioDAO {
+public class HospedeDAO {
 
     private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
 
-    public void inserirUsuario(UsuarioDTO u) throws SQLException {
+    public void inserirHospede(HospedeDTO h) throws SQLException {
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -25,19 +26,21 @@ public class UsuarioDAO {
             conn = connectionFactory.conectaBD();
             conn.setAutoCommit(false);
 
-             //chamando pessoa par fazer inserir a pessoa primeira
+            //chamando pessoa par fazer inserir a pessoa primeira
             PessoaDAO dao = new PessoaDAO();
 
-            dao.inserirPessoa(u);
+            dao.inserirPessoa(h);
 
-            String sqlUsuario = "INSERT INTO FUNCIONARIO () VALUES ()";
-            pstm = conn.prepareStatement(sqlUsuario);
+            String sqlHospede = "INSERT INTO HOSPEDE_FISICO ()"
+                    + " VALUES()";
 
-            
-            
-            pstm.setString(24, u.getSenha());
-            pstm.setString(25, u.getGraudeacesso().toString());
-            pstm.setInt(26, u.getId());
+            pstm = conn.prepareStatement(sqlHospede);
+
+            pstm.setString(1, h.getNome());
+            pstm.setString(4, h.getGenero().name());
+            pstm.setString(5, h.getCpf());
+            pstm.setString(10, h.getProfissao());
+            pstm.setInt(29, h.getId());
 
             pstm.executeUpdate();
 
@@ -59,7 +62,7 @@ public class UsuarioDAO {
 
     }
 
-    public void alterarUsuario(UsuarioDTO u) throws SQLException {
+    public void alterarHospede(HospedeDTO h) throws SQLException {
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -68,15 +71,18 @@ public class UsuarioDAO {
             conn = connectionFactory.conectaBD();
             conn.setAutoCommit(false);
 
-            
+            PessoaDAO dao = new PessoaDAO();
 
-            String sqlUsuario = "UPDATE FUNCIONARIO SET  WHERE ID = ?";
-            pstm = conn.prepareStatement(sqlUsuario);
+            dao.inserirPessoa(h);
 
+            String sqlHospede = "UPDATE HOSPEDE_FISICO SET NOME =  ?, SOBRENOME =  ?, DATA_NASCIMENTO =  ?, GENERO =  ?, CPF =  ?, RG =  ?, NATURALIDADE =  ?, ESTADO_CIVIL =  ?, FOTO =  ?, PROFISSAO =  ?, STATUS_HOSPEDE =  ?, TIPO_DOC =  ?, NUMERO_DOC =  ?, ORGAO_EMISSOR =  ?, DATA_EMISSAO =  ?, DATA_CADASTRO =  ?, PREFERENCIA_CONTATO =  ?, PREFERENCIA_QUARTO =  ?, PREFERENCIA_ANDAR =  ?, ULTIMA_VISITA =  ?, PREFERENCIA_CAMA =  ?, ITENS_ESPECIAIS =  ?, INTERESSES =  ?, NOTAS_INTERNAS =  ?, EMPRESA_VINCULADA =  ?, CNPJ =  ?, CARGO =  ?, RESPONSAVEL_FATURAMENTO =  ? WHERE ID =  ?";
+            pstm = conn.prepareStatement(sqlHospede);
 
-            pstm.setString(24, u.getSenha());
-            pstm.setString(25, u.getGraudeacesso().toString());
-
+            pstm.setString(1, h.getNome());
+            pstm.setString(4, h.getGenero().name());
+            pstm.setString(5, h.getCpf());
+            pstm.setString(10, h.getProfissao());
+            pstm.setInt(29, h.getId());
 
             pstm.executeUpdate();
 
@@ -96,27 +102,28 @@ public class UsuarioDAO {
         }
     }
 
-    public UsuarioDTO selecionarPorId(int id) throws SQLException {
+    public HospedeDTO selecionarPorId(int id) throws SQLException {
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
 
-        UsuarioDTO usuario = null;
+        HospedeDTO hospede = null;
 
         try {
             conn = connectionFactory.conectaBD();
-            String sql = "SELECT * FROM usuario WHERE ID = ?";
+            String sql = "SELECT * FROM HOSPEDE WHERE ID = ?";
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, id);
             rs = pstm.executeQuery();
 
             if (rs.next()) {
-                usuario = new UsuarioDTO();
-                usuario.setId(rs.getInt("ID"));
-                usuario.setNome(rs.getString("NOME"));
-                usuario.setCpf(rs.getString("CPF"));
+                hospede = new HospedeDTO();
+                hospede.setId(rs.getInt("ID"));
+                hospede.setNome(rs.getString("NOME"));
+                hospede.setCpf(rs.getString("CPF"));
+                hospede.setProfissao(rs.getString("PROFISSAO"));
                 
-                
+
             }
         } finally {
             if (rs != null) {
@@ -129,29 +136,29 @@ public class UsuarioDAO {
                 conn.close();
             }
         }
-        return usuario;
+        return hospede;
     }
-
-    public List<UsuarioDTO> listarTodos() throws SQLException {
-        List<UsuarioDTO> lista = new ArrayList<>();
+    
+    public List<HospedeDTO> listarTodos() throws SQLException {
+        List<HospedeDTO> lista = new ArrayList<>();
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
 
         try {
             conn = connectionFactory.conectaBD();
-            String sql = "SELECT * FROM Usuario";
+            String sql = "SELECT * FROM hospede";
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
 
             while (rs.next()) {
-                UsuarioDTO usuario = new UsuarioDTO();
-                usuario.setId(rs.getInt("ID"));
-                usuario.setNome(rs.getString("NOME"));
-                usuario.setCpf(rs.getString("CPF"));
+                HospedeDTO hospede = new HospedeDTO();
+                hospede.setId(rs.getInt("ID"));
+                hospede.setNome(rs.getString("NOME"));
+                hospede.setCpf(rs.getString("CPF"));
                 
 
-                lista.add(usuario);
+                lista.add(hospede);
             }
         } finally {
             if (rs != null) {
@@ -167,28 +174,30 @@ public class UsuarioDAO {
         return lista;
     }
 
-    public List<UsuarioDTO> listarPorNome(String nome) throws SQLException {
-        List<UsuarioDTO> lista = new ArrayList<>();
+    public List<HospedeDTO> listarPorNome(String nome) throws SQLException {
+        List<HospedeDTO> lista = new ArrayList<>();
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
 
         try {
             conn = connectionFactory.conectaBD();
-            String sql = "SELECT * FROM usuario WHERE NOME LIKE ?";
+            String sql = "SELECT * FROM HOSPEDEFISICO WHERE NOME LIKE ?";
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, "%" + nome + "%");
             rs = pstm.executeQuery();
 
             while (rs.next()) {
-                UsuarioDTO usuario = new UsuarioDTO();
-                usuario.setId(rs.getInt("ID"));
-                usuario.setNome(rs.getString("NOME"));
-                usuario.setCpf(rs.getString("CPF"));
-                
+                HospedeDTO hospede = new HospedeDTO();
+                hospede.setId(rs.getInt("ID"));
+                hospede.setNome(rs.getString("NOME"));
+                hospede.setCpf(rs.getString("CPF"));
+                hospede.setProfissao(rs.getString("PROFISSAO"));
 
-                lista.add(usuario);
+                lista.add(hospede);
+
             }
+
         } finally {
             if (rs != null) {
                 rs.close();
@@ -201,9 +210,10 @@ public class UsuarioDAO {
             }
         }
         return lista;
+
     }
 
-    public void excluirUsuario(int id) throws SQLException {
+     public void excluirHospede(int id) throws SQLException {
         Connection conn = null;
         PreparedStatement pstm = null;
 
@@ -211,7 +221,7 @@ public class UsuarioDAO {
             conn = connectionFactory.conectaBD();
             conn.setAutoCommit(false);
 
-            String sql = "DELETE FROM usuario WHERE Id = ?";
+            String sql = "DELETE FROM hospede WHERE Id = ?";
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, id);
             pstm.executeUpdate();
@@ -232,4 +242,4 @@ public class UsuarioDAO {
         }
     }
 
-}
+}  

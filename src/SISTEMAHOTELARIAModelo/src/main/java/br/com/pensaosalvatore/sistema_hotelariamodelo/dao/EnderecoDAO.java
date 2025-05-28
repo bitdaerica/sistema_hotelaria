@@ -13,7 +13,7 @@ import java.util.List;
 /**
  *
  * @author Érica_Almeida
- * @deprecated 
+ *
  */
 public class EnderecoDAO {
 
@@ -44,7 +44,7 @@ public class EnderecoDAO {
             if (affectedRows > 0) {
                 try (ResultSet generatedKeys = pstm.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
-                        endereco.setIdEndereco(generatedKeys.getInt(1));
+                        endereco.setId(generatedKeys.getInt(1));
                     }
                 }
             } else {
@@ -65,7 +65,7 @@ public class EnderecoDAO {
             pstm.setString(5, endereco.getCidade());
             pstm.setString(6, endereco.getEstado().name());
             pstm.setString(7, endereco.getCep());
-            pstm.setInt(8, endereco.getIdEndereco());
+            pstm.setInt(8, endereco.getId());
 
             pstm.executeUpdate();
         }
@@ -79,7 +79,7 @@ public class EnderecoDAO {
 
             while (rs.next()) {
                 EnderecoDTO endereco = new EnderecoDTO();
-                endereco.setIdEndereco(rs.getInt("id"));
+                endereco.setId(rs.getInt("id"));
                 endereco.setRua(rs.getString("rua"));
                 endereco.setNumero(rs.getString("numero"));
                 endereco.setComplemento(rs.getString("complemento"));
@@ -105,7 +105,7 @@ public class EnderecoDAO {
             try (ResultSet rs = pstm.executeQuery()) {
                 if (rs.next()) {
                     endereco = new EnderecoDTO();
-                    endereco.setIdEndereco(rs.getInt("id"));
+                    endereco.setId(rs.getInt("id"));
                     endereco.setRua(rs.getString("rua"));
                     endereco.setNumero(rs.getString("numero"));
                     endereco.setComplemento(rs.getString("complemento"));

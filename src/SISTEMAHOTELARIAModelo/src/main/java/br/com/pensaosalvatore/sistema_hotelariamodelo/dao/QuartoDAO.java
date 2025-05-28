@@ -6,8 +6,8 @@ package br.com.pensaosalvatore.sistema_hotelariamodelo.dao;
 
 /**
  *
- * @author 202412170006
+ * @author Érica_Almeida
  */
-public class FornecedorDAO {
+public class QuartoDAO {
     
 }

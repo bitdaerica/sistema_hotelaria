@@ -1,31 +1,37 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Estado;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
+import java.util.Date;
 
 /**
  *
  * @author Érica_Almeida
  */
-public class PessoaDTO  {
+ public class PessoaDTO {
 
-    protected Integer id;
-    protected String email;
-    protected String fixo;
-    protected String celular;
-    protected Boolean whatsapp;
-    protected String observacoes;
+    private Integer id;
+    private String nome;
+    private Genero genero;
+    private Date dataNascimento;
+    private String cpf;
+    private String email;
+    private String fixo;
+    private String celular;
+    private Boolean whatsapp;
+    private String observacoes;
     private EnderecoDTO endereco;
 
     public PessoaDTO() {
     }
 
-    public PessoaDTO(Integer idPessoa, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Integer idEndereco, String rua, String numero, String complemento, String bairro, String cidade, Estado estado, String cep, EnderecoDTO endereco) {
-        this.id = idPessoa;
+    public PessoaDTO(Integer id, String nome, Genero genero, String cpf, String email, String celular, Boolean whatsapp, EnderecoDTO endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.genero = genero;
+        this.cpf = cpf;
         this.email = email;
-        this.fixo = fixo;
         this.celular = celular;
         this.whatsapp = whatsapp;
-        this.observacoes = observacoes;
         this.endereco = endereco;
     }
 
@@ -37,7 +43,37 @@ public class PessoaDTO  {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
     public String getEmail() {
         return email;
@@ -79,84 +115,12 @@ public class PessoaDTO  {
         this.observacoes = observacoes;
     }
 
-    @Override
-    public Integer getIdEndereco() {
-        return idEndereco;
+    public EnderecoDTO getEndereco() {
+        return endereco;
     }
 
-    @Override
-    public void setIdEndereco(Integer idEndereco) {
-        this.idEndereco = idEndereco;
-    }
-
-    @Override
-    public String getRua() {
-        return rua;
-    }
-
-    @Override
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    @Override
-    public String getNumero() {
-        return numero;
-    }
-
-    @Override
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    @Override
-    public String getComplemento() {
-        return complemento;
-    }
-
-    @Override
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    @Override
-    public String getBairro() {
-        return bairro;
-    }
-
-    @Override
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    @Override
-    public String getCidade() {
-        return cidade;
-    }
-
-    @Override
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    @Override
-    public Estado getEstado() {
-        return estado;
-    }
-
-    @Override
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
-    @Override
-    public String getCep() {
-        return cep;
-    }
-
-    @Override
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setEndereco(EnderecoDTO endereco) {
+        this.endereco = endereco;
     }
 
 }

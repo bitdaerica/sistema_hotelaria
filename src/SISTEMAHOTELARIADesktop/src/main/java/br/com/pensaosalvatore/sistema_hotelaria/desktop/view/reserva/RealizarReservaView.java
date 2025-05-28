@@ -27,6 +27,7 @@ public class RealizarReservaView extends javax.swing.JFrame {
     private void initComponents() {
 
         lblCadastro = new javax.swing.JLabel();
+        txtValor = new javax.swing.JTextField();
         cmbQuarto = new javax.swing.JComboBox<>();
         cmbHospede = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -36,6 +37,7 @@ public class RealizarReservaView extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         fmtDataentrada = new javax.swing.JFormattedTextField();
         fmtDatasaida = new javax.swing.JFormattedTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -54,9 +56,12 @@ public class RealizarReservaView extends javax.swing.JFrame {
         lblCadastro.setText("Cadastro de Reserva");
         getContentPane().add(lblCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 470, 50));
 
-        getContentPane().add(cmbQuarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 230, 30));
+        txtValor.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 230, -1));
 
-        getContentPane().add(cmbHospede, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 230, 60));
+        getContentPane().add(cmbQuarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 230, 30));
+
+        getContentPane().add(cmbHospede, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 230, 60));
 
         txtObservacoes.setColumns(20);
         txtObservacoes.setRows(5);
@@ -66,13 +71,14 @@ public class RealizarReservaView extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Quarto:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
+        jLabel5.setText("Valor:");
+        jLabel5.setToolTipText("");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Data de Saída:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,12 +88,17 @@ public class RealizarReservaView extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Hóspede:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Data de Entrada:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Quarto:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
 
         try {
             fmtDataentrada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -95,14 +106,14 @@ public class RealizarReservaView extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         fmtDataentrada.setText("22  /05  /2025    ");
-        getContentPane().add(fmtDataentrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 228, 34));
+        getContentPane().add(fmtDataentrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 228, 34));
 
         try {
             fmtDatasaida.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        getContentPane().add(fmtDatasaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 229, 34));
+        getContentPane().add(fmtDatasaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 229, 34));
 
         jTable1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -131,7 +142,7 @@ public class RealizarReservaView extends javax.swing.JFrame {
         bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
         bntCancelar.setText("Cancelar");
         bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 320, 120, 40));
+        getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 320, 120, 40));
 
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
         btnSalvar.setText("Salvar");
@@ -191,6 +202,7 @@ public class RealizarReservaView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -198,5 +210,6 @@ public class RealizarReservaView extends javax.swing.JFrame {
     private javax.swing.JLabel lblCadastro;
     private javax.swing.JLabel lblFundo;
     private javax.swing.JTextArea txtObservacoes;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
