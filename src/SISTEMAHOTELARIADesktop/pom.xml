@@ -7,11 +7,6 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>org.netbeans.external</groupId>
-            <artifactId>AbsoluteLayout</artifactId>
-            <version>RELEASE250</version>
-        </dependency>
-        <dependency>
             <groupId>br.com.pensaosalvatore</groupId>
             <artifactId>SISTEMA_HOTELARIAModelo</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -20,7 +15,7 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.release>24</maven.compiler.release>
         <exec.mainClass>br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao.AutenticacaoView</exec.mainClass>
     </properties>
 </project>

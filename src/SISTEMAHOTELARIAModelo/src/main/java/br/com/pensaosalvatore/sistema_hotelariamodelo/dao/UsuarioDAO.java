@@ -108,7 +108,7 @@ public class UsuarioDAO {
             rs = pstm.executeQuery();
 
             if (rs.next()) {
-                usuario = new UsuarioDTO(0, nome, senha);
+                usuario = new UsuarioDTO();
                 usuario.setId(rs.getInt("ID"));
                 usuario.setNome(rs.getString("NOME"));
                 usuario.setCpf(rs.getString("CPF"));
@@ -141,7 +141,7 @@ public class UsuarioDAO {
             rs = pstm.executeQuery();
 
             while (rs.next()) {
-                UsuarioDTO usuario = new UsuarioDTO(0, nome, senha);
+                UsuarioDTO usuario = new UsuarioDTO();
                 usuario.setId(rs.getInt("ID"));
                 usuario.setNome(rs.getString("NOME"));
                 usuario.setCpf(rs.getString("CPF"));
@@ -176,7 +176,7 @@ public class UsuarioDAO {
             rs = pstm.executeQuery();
 
             while (rs.next()) {
-                UsuarioDTO usuario = new UsuarioDTO(0, nome, senha);
+                UsuarioDTO usuario = new UsuarioDTO();
                 usuario.setId(rs.getInt("ID"));
                 usuario.setNome(rs.getString("NOME"));
                 usuario.setCpf(rs.getString("CPF"));

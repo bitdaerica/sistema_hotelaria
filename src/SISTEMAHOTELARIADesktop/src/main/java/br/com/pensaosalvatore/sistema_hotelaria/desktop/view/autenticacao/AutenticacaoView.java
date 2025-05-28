@@ -1,9 +1,7 @@
 
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao;
 
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+
 
 /**
  *
@@ -210,7 +208,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
-    public void exibeMensagemString mensagem){
+ /**   public void exibeMensagemString mensagem){
             JOptionPane.showConfirmDialog(null,mensagem);
             
             
@@ -233,6 +231,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
         this.txtUsuario = txtUsuario;
     }
 
-
+*/
 
 }
+
