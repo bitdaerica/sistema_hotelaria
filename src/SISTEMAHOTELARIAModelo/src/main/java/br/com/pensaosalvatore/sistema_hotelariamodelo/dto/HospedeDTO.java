@@ -1,7 +1,11 @@
 package br.com.pensaosalvatore.sistema_hotelariamodelo.dto;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,11 +21,16 @@ public class HospedeDTO extends PessoaDTO {
 
     }
 
-    public HospedeDTO(String nacionalidade, String profissao, Date dataCadastro, Integer id, String nome, Genero genero, String cpf, String email, String celular, Boolean whatsapp, EnderecoDTO endereco) {
+    public HospedeDTO(String nacionalidade, String profissao, String dataCadastro, Integer id, String nome, Genero genero, String cpf, String email, String celular, Boolean whatsapp, EnderecoDTO endereco) {
         super(id, nome, genero, cpf, email, celular, whatsapp, endereco);
         this.nacionalidade = nacionalidade;
         this.profissao = profissao;
-        this.dataCadastro = dataCadastro;
+         try {
+           this.dataCadastro  = new SimpleDateFormat("dd/MM/yyyy").parse(dataCadastro);
+        } catch (ParseException ex) {
+            Logger.getLogger(ReservaDTO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     public String getNacionalidade() {
@@ -47,7 +56,4 @@ public class HospedeDTO extends PessoaDTO {
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
-    
-    
-
 }
