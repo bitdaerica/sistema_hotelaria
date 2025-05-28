@@ -20,9 +20,7 @@ public class EnderecoDAO {
     private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
 
     public EnderecoDAO() {
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+        
     }
 
     public void inserir(EnderecoDTO endereco) throws SQLException {

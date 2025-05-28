@@ -19,25 +19,21 @@ public class UsuarioDAO {
     public void inserirUsuario(UsuarioDTO u) throws SQLException {
         Connection conn = null;
         PreparedStatement pstm = null;
-        ResultSet rs = null;
 
         try {
             conn = connectionFactory.conectaBD();
             conn.setAutoCommit(false);
 
-             //chamando pessoa par fazer inserir a pessoa primeira
+            //chamando pessoadao para inserir usuario em pessoa primeira
             PessoaDAO dao = new PessoaDAO();
-
             dao.inserirPessoa(u);
 
-            String sqlUsuario = "INSERT INTO FUNCIONARIO () VALUES ()";
+            String sqlUsuario = "INSERT INTO USUARIO (ID, SENHA, GRAU_DE_ACESSO) VALUES (?, ?, ?)";
             pstm = conn.prepareStatement(sqlUsuario);
 
-            
-            
-            pstm.setString(24, u.getSenha());
-            pstm.setString(25, u.getGraudeacesso().toString());
-            pstm.setInt(26, u.getId());
+            pstm.setInt(1, u.getId());
+            pstm.setString(2, u.getSenha());
+            pstm.setString(3, u.getGraudeacesso().name());
 
             pstm.executeUpdate();
 
@@ -67,16 +63,17 @@ public class UsuarioDAO {
         try {
             conn = connectionFactory.conectaBD();
             conn.setAutoCommit(false);
-
             
+            //chamando pessoadao para inserir o usuario em pessoa primeira
+            PessoaDAO dao = new PessoaDAO();
+            dao.alterarPessoa(u);
 
-            String sqlUsuario = "UPDATE FUNCIONARIO SET  WHERE ID = ?";
+            String sqlUsuario = "UPDATE usuario SET senha = ?, graudeacesso = ? WHERE ID = ?";
             pstm = conn.prepareStatement(sqlUsuario);
 
-
-            pstm.setString(24, u.getSenha());
-            pstm.setString(25, u.getGraudeacesso().toString());
-
+            pstm.setInt(1, u.getId());
+            pstm.setString(2, u.getSenha());
+            pstm.setString(3, u.getGraudeacesso().name());
 
             pstm.executeUpdate();
 
@@ -115,8 +112,7 @@ public class UsuarioDAO {
                 usuario.setId(rs.getInt("ID"));
                 usuario.setNome(rs.getString("NOME"));
                 usuario.setCpf(rs.getString("CPF"));
-                
-                
+
             }
         } finally {
             if (rs != null) {
@@ -149,7 +145,6 @@ public class UsuarioDAO {
                 usuario.setId(rs.getInt("ID"));
                 usuario.setNome(rs.getString("NOME"));
                 usuario.setCpf(rs.getString("CPF"));
-                
 
                 lista.add(usuario);
             }
@@ -185,7 +180,6 @@ public class UsuarioDAO {
                 usuario.setId(rs.getInt("ID"));
                 usuario.setNome(rs.getString("NOME"));
                 usuario.setCpf(rs.getString("CPF"));
-                
 
                 lista.add(usuario);
             }
@@ -216,6 +210,10 @@ public class UsuarioDAO {
             pstm.setInt(1, id);
             pstm.executeUpdate();
 
+            //chamando pessoadao para excluir usuario em pessoa tbm
+            //PessoaDAO dao = new PessoaDAO();
+            //dao.escluirPessoa(id);
+            
             conn.commit();
         } catch (SQLException e) {
             if (conn != null) {
