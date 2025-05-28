@@ -12,7 +12,7 @@ public class UsuarioDTO extends PessoaDTO {
     private String senha;
     private GraudeAcesso graudeacesso;
 
-    public UsuarioDTO() {
+    public UsuarioDTO(int par, String nome, String senha) {
     }
 
     public UsuarioDTO(String senha, GraudeAcesso graudeacesso, Integer id, String nome, Genero genero, String cpf, String email, String celular, Boolean whatsapp, EnderecoDTO endereco) {

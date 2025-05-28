@@ -1,7 +1,7 @@
 
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.principal;
 
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.reserva.RealizarReservaView;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.reserva.ReservaView;
 
 /**
  *
@@ -391,7 +391,7 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoffActionPerformed
 
     private void miRealizarreservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRealizarreservaActionPerformed
-        RealizarReservaView tela = new RealizarReservaView ();
+        ReservaView tela = new ReservaView ();
         telaFundo.add(tela);
         tela.setVisible(true);
 

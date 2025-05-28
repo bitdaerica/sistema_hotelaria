@@ -1,6 +1,10 @@
 
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Érica_Almeida
@@ -205,4 +209,30 @@ public class AutenticacaoView extends javax.swing.JFrame {
     private javax.swing.JPasswordField pfSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public void exibeMensagemString mensagem){
+            JOptionPane.showConfirmDialog(null,mensagem);
+            
+            
+
+}
+
+    public JPasswordField getPfSenha() {
+        return pfSenha;
+    }
+
+    public void setPfSenha(JPasswordField pfSenha) {
+        this.pfSenha = pfSenha;
+    }
+
+    public JTextField getTxtUsuario() {
+        return txtUsuario;
+    }
+
+    public void setTxtUsuario(JTextField txtUsuario) {
+        this.txtUsuario = txtUsuario;
+    }
+
+
+
 }

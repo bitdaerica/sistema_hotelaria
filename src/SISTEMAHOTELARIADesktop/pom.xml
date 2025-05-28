@@ -11,6 +11,12 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE250</version>
         </dependency>
+        <dependency>
+            <groupId>br.com.pensaosalvatore</groupId>
+            <artifactId>SISTEMA_HOTELARIAModelo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

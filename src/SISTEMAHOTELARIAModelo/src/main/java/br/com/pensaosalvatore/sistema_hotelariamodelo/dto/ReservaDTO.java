@@ -22,8 +22,10 @@ public class ReservaDTO {
     private BigDecimal valor;
     private String observacoes;
 
-    public ReservaDTO(int par, HospedeDTO hospede1, QuartoDTO quarto1, int par1, String string, String string1) {
+    public ReservaDTO() {
     }
+
+    
 
     public ReservaDTO(Integer id, HospedeDTO hospede, QuartoDTO quarto,  BigDecimal valor, String datadeentrada, String datadesaida) {
         this.id = id;
