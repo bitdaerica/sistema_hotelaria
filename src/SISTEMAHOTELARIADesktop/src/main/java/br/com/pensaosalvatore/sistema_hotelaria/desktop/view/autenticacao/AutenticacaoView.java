@@ -208,6 +208,8 @@ public class AutenticacaoView extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
+    
+}
  /**   public void exibeMensagemString mensagem){
             JOptionPane.showConfirmDialog(null,mensagem);
             
@@ -233,5 +235,5 @@ public class AutenticacaoView extends javax.swing.JFrame {
 
 */
 
-}
+
 

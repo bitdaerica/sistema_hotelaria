@@ -19,11 +19,11 @@ public class AutenticacaoHelper {
         this.view = view;
     }
     
-    public UsuarioDTO obterModelo(){
+  /**  public UsuarioDTO obterModelo(){
         String nome = view.getTxtUsuario().getText();
         String senha = view.getPfSenha().getText();
         UsuarioDTO modelo = new UsuarioDTO(0, nome, senha);
         return modelo;
     }
-    
+    */
 }
