@@ -8,7 +8,7 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.GraudeAc
  * @author 202412170006
  */
 public class UsuarioDTO extends PessoaDTO {
-
+    
     private String senha;
     private GraudeAcesso graudeacesso;
 

@@ -35,7 +35,6 @@ br\com\pensaosalvatore\sistema_hotelariamodelo\dao\PessoaDAO.class
 br\com\pensaosalvatore\sistema_hotelariamodelo\dao\UsuarioDAO.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\DepartamentoFuncionario.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\CategoriaProduto.class
-br\com\pensaosalvatore\sistema_hotelariamodelo\dto\NewMain.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\Status.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\StatusFuncionario.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\RegimedeContratacao.class
