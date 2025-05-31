@@ -26,20 +26,109 @@ public class CadQuartoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        lblCadastro = new javax.swing.JLabel();
+        txtValor = new javax.swing.JTextField();
+        cmbTipodoquarto = new javax.swing.JComboBox<>();
+        txtNumero = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtObservacoes = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        bntCancelar = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pack();
+        lblCadastro.setFont(new java.awt.Font("Cambria", 1, 48)); // NOI18N
+        lblCadastro.setForeground(new java.awt.Color(255, 255, 255));
+        lblCadastro.setText("Cadastro de Quarto");
+        getContentPane().add(lblCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 470, 50));
+
+        txtValor.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 230, -1));
+
+        cmbTipodoquarto.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        cmbTipodoquarto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(cmbTipodoquarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 230, 30));
+
+        txtNumero.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        getContentPane().add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 230, -1));
+
+        txtObservacoes.setColumns(20);
+        txtObservacoes.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtObservacoes.setRows(5);
+        jScrollPane1.setViewportView(txtObservacoes);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 320, 130));
+
+        jLabel5.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Valor:");
+        jLabel5.setToolTipText("");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Observações:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Número:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Tipo:");
+        jLabel6.setToolTipText("");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 222, -1, 30));
+
+        jTable1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Id", "Número", "Tipo", "Valor"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jScrollPane2.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 850, 220));
+
+        bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
+        bntCancelar.setText("Cancelar");
+        bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 320, 120, 40));
+
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 120, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/3.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
+
+        setSize(new java.awt.Dimension(989, 727));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -78,5 +167,20 @@ public class CadQuartoView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntCancelar;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JComboBox<String> cmbTipodoquarto;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblCadastro;
+    private javax.swing.JTextField txtNumero;
+    private javax.swing.JTextArea txtObservacoes;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
