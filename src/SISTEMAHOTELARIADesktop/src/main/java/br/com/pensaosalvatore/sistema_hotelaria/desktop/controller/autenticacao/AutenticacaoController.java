@@ -1,6 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.autenticacao;
 
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao.AutenticacaoView;
+impor
 
 /**
  *
@@ -15,11 +15,15 @@ public class AutenticacaoController {
     }
 
     public void entrarNoSistema() {
+        System.out.println("Busquei algo do banco de dados");
+        
+        this.view.exibeMensagem("Entrando");
     }
 
     
-    public void buscarUsuario(){
+  //  public void buscarUsuario(){
     
     
-    }
+  //  }
+
 }

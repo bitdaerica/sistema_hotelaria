@@ -1,4 +1,4 @@
-
+/**
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.helper;
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao.AutenticacaoView;
@@ -7,10 +7,10 @@ import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao.Autent
 
 
 
-/**
+
  *
  * @author Érica_Almeida
- */
+ 
 public class AutenticacaoHelper {
     private final AutenticacaoView view;
 
@@ -18,11 +18,13 @@ public class AutenticacaoHelper {
         this.view = view;
     }
     
-  /**  public UsuarioDTO obterModelo(){
+    public UsuarioDTO obterModelo(){
         String nome = view.getTxtUsuario().getText();
         String senha = view.getPfSenha().getText();
         UsuarioDTO modelo = new UsuarioDTO(0, nome, senha);
         return modelo;
     }
-    */
+    
+   
 }
+*/
