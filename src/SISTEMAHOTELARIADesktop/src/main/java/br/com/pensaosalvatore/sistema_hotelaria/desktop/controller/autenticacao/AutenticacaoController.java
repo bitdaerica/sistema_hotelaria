@@ -1,6 +1,8 @@
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.autenticacao;
 
-impor
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.helper.AutenticacaoHelper;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao.AutenticacaoView;
+import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.UsuarioDTO;
 
 /**
  *
@@ -9,21 +11,24 @@ impor
 public class AutenticacaoController {
 
     private final AutenticacaoView view;
+    private AutenticacaoHelper helper;
 
     public AutenticacaoController(AutenticacaoView view) {
         this.view = view;
+        this.helper = new AutenticacaoHelper(view);
     }
 
-    public void entrarNoSistema() {
+    public void entarnoSistema() {
+        UsuarioDTO usuario = helper.obterModelo();
+
+    }
+
+    public void fizTarefa() {
         System.out.println("Busquei algo do banco de dados");
-        
-        this.view.exibeMensagem("Entrando");
+
+        this.view.exibeMensagem("Seja Bem-vindo!");
     }
 
-    
-  //  public void buscarUsuario(){
-    
-    
-  //  }
-
+    //  public void buscarUsuario(){
+    //  }
 }

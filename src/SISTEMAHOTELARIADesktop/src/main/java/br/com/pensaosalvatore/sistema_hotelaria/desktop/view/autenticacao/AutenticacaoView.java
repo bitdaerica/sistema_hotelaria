@@ -1,9 +1,10 @@
+
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao;
-
-
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.autenticacao.AutenticacaoController;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -34,7 +35,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
         lblLogin = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         lblSenha = new javax.swing.JLabel();
-        pfSenha = new javax.swing.JPasswordField();
+        txtSenha = new javax.swing.JPasswordField();
         btnSair = new javax.swing.JButton();
         btnEntrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -66,18 +67,18 @@ public class AutenticacaoView extends javax.swing.JFrame {
         lblSenha.setText("Senha:");
         getContentPane().add(lblSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, -1, -1));
 
-        pfSenha.setForeground(new java.awt.Color(202, 146, 58));
-        pfSenha.addActionListener(new java.awt.event.ActionListener() {
+        txtSenha.setForeground(new java.awt.Color(202, 146, 58));
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pfSenhaActionPerformed(evt);
+                txtSenhaActionPerformed(evt);
             }
         });
-        pfSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                pfSenhaKeyPressed(evt);
+                txtSenhaKeyPressed(evt);
             }
         });
-        getContentPane().add(pfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 320, 30));
+        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 320, 30));
 
         btnSair.setBackground(new java.awt.Color(188, 123, 61));
         btnSair.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -130,11 +131,11 @@ public class AutenticacaoView extends javax.swing.JFrame {
          */
     }//GEN-LAST:event_txtUsuarioKeyPressed
 
-    private void pfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfSenhaActionPerformed
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
 
-    }//GEN-LAST:event_pfSenhaActionPerformed
+    }//GEN-LAST:event_txtSenhaActionPerformed
 
-    private void pfSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pfSenhaKeyPressed
+    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
         /**
          * if (evt.getKeyCode() == KeyEvent.VK_ENTER) { if
          * (txtUsuario.getText().equals("admin") && new
@@ -150,7 +151,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
          * }
          * }
          */
-    }//GEN-LAST:event_pfSenhaKeyPressed
+    }//GEN-LAST:event_txtSenhaKeyPressed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         dispose();
@@ -169,7 +170,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
 
         }*/
 
-        this.controller.entrarNoSistema();
+        this.controller.fizTarefa();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
@@ -203,7 +204,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                 //new AutenticacaoView().setVisible(true);
+                new AutenticacaoView().setVisible(true);
             }
         });
     }
@@ -214,28 +215,20 @@ public class AutenticacaoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblSenha;
-    private javax.swing.JPasswordField pfSenha;
+    private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
-    
-}
-    public void exibeMensage(String mensagem){
-            JOptionPane.showConfirmDialog(null,mensagem);
-            
-            
-
-}
-
-
-/**
-
-    public JPasswordField getPfSenha() {
-        return pfSenha;
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
     }
 
-    public void setPfSenha(JPasswordField pfSenha) {
-        this.pfSenha = pfSenha;
+    public JPasswordField getTxtSenha() {
+        return txtSenha;
+    }
+
+    public void setTxtSenha(JPasswordField txtSenha) {
+        this.txtSenha = txtSenha;
     }
 
     public JTextField getTxtUsuario() {
@@ -246,4 +239,9 @@ public class AutenticacaoView extends javax.swing.JFrame {
         this.txtUsuario = txtUsuario;
     }
 
-*/
+    
+    
+    
+}
+
+
