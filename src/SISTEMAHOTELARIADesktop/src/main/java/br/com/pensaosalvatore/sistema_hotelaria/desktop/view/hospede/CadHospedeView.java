@@ -41,9 +41,7 @@ public class CadHospedeView extends javax.swing.JFrame {
         fmtCelular = new javax.swing.JFormattedTextField();
         fmtDataentrada1 = new javax.swing.JFormattedTextField();
         fmtFixo = new javax.swing.JFormattedTextField();
-        bntCancelar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        btnSalvar = new javax.swing.JButton();
         txtNome = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -65,6 +63,9 @@ public class CadHospedeView extends javax.swing.JFrame {
         cmbGenero1 = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         fmtCep = new javax.swing.JFormattedTextField();
+        bntNovohospede = new javax.swing.JButton();
+        btnSalvar1 = new javax.swing.JButton();
+        bntCancelar1 = new javax.swing.JButton();
         telafundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,7 +88,7 @@ public class CadHospedeView extends javax.swing.JFrame {
         txtObservacoes.setRows(5);
         jScrollPane1.setViewportView(txtObservacoes);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 550, 320, 100));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 550, 290, 100));
 
         jLabel5.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,30 +178,10 @@ public class CadHospedeView extends javax.swing.JFrame {
         });
         getContentPane().add(fmtFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, 228, 30));
 
-        bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
-        bntCancelar.setText("Cancelar");
-        bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bntCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntCancelarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 590, 120, 40));
-
         jLabel4.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("*Nome:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
-
-        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
-        btnSalvar.setText("Salvar");
-        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 120, 40));
 
         txtNome.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -352,6 +333,24 @@ public class CadHospedeView extends javax.swing.JFrame {
         });
         getContentPane().add(fmtCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 228, 30));
 
+        bntNovohospede.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        bntNovohospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
+        bntNovohospede.setText("Novo Hóspede");
+        bntNovohospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(bntNovohospede, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 580, 130, 40));
+
+        btnSalvar1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        btnSalvar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
+        btnSalvar1.setText("Salvar");
+        btnSalvar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(btnSalvar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 580, 110, 40));
+
+        bntCancelar1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        bntCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
+        bntCancelar1.setText("Cancelar");
+        bntCancelar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(bntCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 580, 110, 40));
+
         telafundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/4.png"))); // NOI18N
         getContentPane().add(telafundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -369,10 +368,6 @@ public class CadHospedeView extends javax.swing.JFrame {
     private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbEstadoActionPerformed
-
-    private void bntCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntCancelarActionPerformed
 
     private void fmtDataentrada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmtDataentrada1ActionPerformed
         // TODO add your handling code here:
@@ -430,10 +425,6 @@ public class CadHospedeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fmtCepActionPerformed
 
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -470,8 +461,9 @@ public class CadHospedeView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bntCancelar;
-    private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton bntCancelar1;
+    private javax.swing.JButton bntNovohospede;
+    private javax.swing.JButton btnSalvar1;
     private javax.swing.JRadioButton btnWhatsapp;
     private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JComboBox<String> cmbGenero1;

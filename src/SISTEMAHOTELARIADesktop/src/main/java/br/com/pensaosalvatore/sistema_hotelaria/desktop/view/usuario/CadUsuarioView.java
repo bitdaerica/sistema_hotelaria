@@ -41,9 +41,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
         fmtCelular = new javax.swing.JFormattedTextField();
         fmtFixo = new javax.swing.JFormattedTextField();
         fmtDatanascimento = new javax.swing.JFormattedTextField();
-        bntCancelar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        btnSalvar = new javax.swing.JButton();
         txtNome = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -63,7 +61,10 @@ public class CadUsuarioView extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         fmtCep = new javax.swing.JFormattedTextField();
         senha = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
+        bntNovohospede = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        bntCancelar = new javax.swing.JButton();
+        telafundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,7 +86,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
         txtObservacoes.setRows(5);
         jScrollPane1.setViewportView(txtObservacoes);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 550, 320, 100));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 550, 290, 100));
 
         jLabel5.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -175,30 +176,10 @@ public class CadUsuarioView extends javax.swing.JFrame {
         });
         getContentPane().add(fmtDatanascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, 228, 30));
 
-        bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
-        bntCancelar.setText("Cancelar");
-        bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bntCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntCancelarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 590, 120, 40));
-
         jLabel4.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("*Nome:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
-
-        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
-        btnSalvar.setText("Salvar");
-        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 120, 40));
 
         txtNome.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -327,8 +308,26 @@ public class CadUsuarioView extends javax.swing.JFrame {
         senha.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         getContentPane().add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 440, 230, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        bntNovohospede.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        bntNovohospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
+        bntNovohospede.setText("Novo Usuário");
+        bntNovohospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(bntNovohospede, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 580, 130, 40));
+
+        btnSalvar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 580, 110, 40));
+
+        bntCancelar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
+        bntCancelar.setText("Cancelar");
+        bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 580, 110, 40));
+
+        telafundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/2.png"))); // NOI18N
+        getContentPane().add(telafundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -356,14 +355,6 @@ public class CadUsuarioView extends javax.swing.JFrame {
     private void fmtDatanascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmtDatanascimentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fmtDatanascimentoActionPerformed
-
-    private void bntCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntCancelarActionPerformed
-
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
@@ -438,6 +429,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntCancelar;
+    private javax.swing.JButton bntNovohospede;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JRadioButton btnWhatsapp;
     private javax.swing.JComboBox<String> cmbEstado;
@@ -447,7 +439,6 @@ public class CadUsuarioView extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField fmtCpf;
     private javax.swing.JFormattedTextField fmtDatanascimento;
     private javax.swing.JFormattedTextField fmtFixo;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -467,6 +458,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCadastro;
     private javax.swing.JPasswordField senha;
+    private javax.swing.JLabel telafundo;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtComplemento;

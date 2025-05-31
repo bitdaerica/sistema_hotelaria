@@ -38,9 +38,10 @@ public class CadQuartoView extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        bntCancelar = new javax.swing.JButton();
+        bntNovohospede = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        bntCancelar = new javax.swing.JButton();
+        telafundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -114,18 +115,26 @@ public class CadQuartoView extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 850, 270));
 
-        bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
-        bntCancelar.setText("Cancelar");
-        bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 320, 120, 40));
+        bntNovohospede.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        bntNovohospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-quartos20x20.png"))); // NOI18N
+        bntNovohospede.setText("Novo Quarto");
+        bntNovohospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(bntNovohospede, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 130, 40));
 
+        btnSalvar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
         btnSalvar.setText("Salvar");
         btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 120, 40));
+        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 310, 110, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/3.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
+        bntCancelar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
+        bntCancelar.setText("Cancelar");
+        bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, 110, 40));
+
+        telafundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/3.png"))); // NOI18N
+        getContentPane().add(telafundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
 
         setSize(new java.awt.Dimension(989, 727));
         setLocationRelativeTo(null);
@@ -168,9 +177,9 @@ public class CadQuartoView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntCancelar;
+    private javax.swing.JButton bntNovohospede;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cmbTipodoquarto;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -179,6 +188,7 @@ public class CadQuartoView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblCadastro;
+    private javax.swing.JLabel telafundo;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextArea txtObservacoes;
     private javax.swing.JTextField txtValor;
