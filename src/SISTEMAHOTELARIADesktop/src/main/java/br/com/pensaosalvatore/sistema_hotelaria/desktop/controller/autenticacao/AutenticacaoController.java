@@ -2,7 +2,8 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.autenticacao
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.helper.AutenticacaoHelper;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao.AutenticacaoView;
-import br.com.pensaosalvatore.sistema_hotelariamodelo.dto.UsuarioDTO;
+
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dtoo.UsuarioDTO;
 
 /**
  *
