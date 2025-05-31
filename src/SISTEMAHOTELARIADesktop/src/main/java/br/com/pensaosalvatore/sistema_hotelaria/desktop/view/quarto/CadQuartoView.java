@@ -51,7 +51,7 @@ public class CadQuartoView extends javax.swing.JFrame {
         getContentPane().add(lblCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 470, 50));
 
         txtValor.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 230, -1));
+        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 230, 30));
 
         cmbTipodoquarto.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cmbTipodoquarto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -112,7 +112,7 @@ public class CadQuartoView extends javax.swing.JFrame {
         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane2.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 850, 220));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 850, 270));
 
         bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
         bntCancelar.setText("Cancelar");

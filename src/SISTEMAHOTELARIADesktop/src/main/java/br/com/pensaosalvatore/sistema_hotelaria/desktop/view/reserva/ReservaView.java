@@ -41,6 +41,7 @@ public class ReservaView extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         bntCancelar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
+        bntNovohospede = new javax.swing.JButton();
         lblFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -54,7 +55,7 @@ public class ReservaView extends javax.swing.JFrame {
         getContentPane().add(lblCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 470, 50));
 
         txtValor.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 230, -1));
+        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, 270, 30));
 
         getContentPane().add(cmbQuarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 230, 30));
 
@@ -64,23 +65,23 @@ public class ReservaView extends javax.swing.JFrame {
         txtObservacoes.setRows(5);
         jScrollPane1.setViewportView(txtObservacoes);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 320, 130));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 270, 100));
 
         jLabel5.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Valor:");
         jLabel5.setToolTipText("");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Data de Saída:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Observações:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,7 +91,7 @@ public class ReservaView extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Data de Entrada:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,14 +104,14 @@ public class ReservaView extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         fmtDataentrada.setText("22  /05  /2025    ");
-        getContentPane().add(fmtDataentrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 228, 34));
+        getContentPane().add(fmtDataentrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 228, 30));
 
         try {
             fmtDatasaida.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        getContentPane().add(fmtDatasaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 229, 34));
+        getContentPane().add(fmtDatasaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 230, 30));
 
         jTable1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -132,19 +133,28 @@ public class ReservaView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setShowGrid(true);
         jScrollPane2.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 850, 220));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 850, 270));
 
+        bntCancelar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
         bntCancelar.setText("Cancelar");
         bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 320, 120, 40));
+        getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 300, 110, 40));
 
+        btnSalvar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
         btnSalvar.setText("Salvar");
         btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 120, 40));
+        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 110, 40));
+
+        bntNovohospede.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        bntNovohospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
+        bntNovohospede.setText("Novo Hóspede");
+        bntNovohospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(bntNovohospede, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 130, 40));
 
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1.png"))); // NOI18N
         getContentPane().add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 700));
@@ -192,6 +202,7 @@ public class ReservaView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntCancelar;
+    private javax.swing.JButton bntNovohospede;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cmbHospede;
     private javax.swing.JComboBox<String> cmbQuarto;

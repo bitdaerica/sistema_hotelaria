@@ -84,7 +84,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
                 btnSairActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 610, 110, -1));
+        getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 597, 110, 40));
 
         btnEntrar.setBackground(new java.awt.Color(188, 123, 61));
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -97,7 +97,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
                 btnEntrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 610, 110, -1));
+        getContentPane().add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 597, 110, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Hotel ABEF (1).png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 800));
