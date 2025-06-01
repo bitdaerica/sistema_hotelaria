@@ -1,5 +1,3 @@
-
-
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
 import java.math.BigDecimal;
@@ -14,6 +12,7 @@ import java.util.logging.Logger;
  * @author Érica_Almeida
  */
 public class ReservaDTO {
+
     private Integer id;
     private HospedeDTO hospede;
     private QuartoDTO quarto;
@@ -25,9 +24,7 @@ public class ReservaDTO {
     public ReservaDTO() {
     }
 
-    
-
-    public ReservaDTO(Integer id, HospedeDTO hospede, QuartoDTO quarto,  BigDecimal valor, String datadeentrada, String datadesaida) {
+    public ReservaDTO(Integer id, HospedeDTO hospede, QuartoDTO quarto, BigDecimal valor, String datadeentrada, String datadesaida) {
         this.id = id;
         this.hospede = hospede;
         this.quarto = quarto;
@@ -42,7 +39,15 @@ public class ReservaDTO {
         } catch (ParseException ex) {
             Logger.getLogger(ReservaDTO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+    }
+
+    public String getDataEntradaFormatada() {
+        return new SimpleDateFormat("dd/MM/yyyy").format(datadeentrada);
+    }
+
+    public String getDataSaidaFormatada() {
+        return new SimpleDateFormat("dd/MM/yyyy").format(datadesaida);
     }
 
     public Integer getId() {
@@ -100,8 +105,5 @@ public class ReservaDTO {
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
-    
-    
-    
-    
+
 }

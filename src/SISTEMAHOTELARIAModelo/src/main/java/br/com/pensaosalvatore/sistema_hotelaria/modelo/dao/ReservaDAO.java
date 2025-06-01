@@ -1,6 +1,5 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
-
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.ReservaDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  *
@@ -77,7 +75,6 @@ public class ReservaDAO {
             }
         }
     }
-
 
     public ReservaDTO selecionarPorId(int id) throws SQLException {
         Connection conn = null;
@@ -169,27 +166,14 @@ public class ReservaDAO {
         }
         return lista;
     }
-    
-        public void excluirReserva(int id) throws SQLException {
-        Connection conn = null;
-        PreparedStatement pstm = null;
 
-        try {
-            conn = connectionFactory.conectaBD();
+    public void excluirReserva(int id) throws SQLException {
+        String sql = "DELETE FROM RESERVA WHERE ID = ?";
 
-            String sql = "DELETE FROM RESERVA WHERE ID = ?";
-            pstm = conn.prepareStatement(sql);
+        try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql)) {
             pstm.setInt(1, id);
-
             pstm.executeUpdate();
 
-        } finally {
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
         }
     }
 }

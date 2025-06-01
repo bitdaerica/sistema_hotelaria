@@ -2,6 +2,7 @@ package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.TipoQuarto;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.QuartoDTO;
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -170,5 +171,79 @@ public class QuartoDAO {
         }
         return lista;
     }
+    
+    public QuartoDTO buscarPorNumero(int numero) throws SQLException {
+        String sql = "SELECT * FROM QUARTO WHERE NUMERO = ?";
+        QuartoDTO quarto = null;
+
+        try (Connection conn = connectionFactory.conectaBD();
+             PreparedStatement pstm = conn.prepareStatement(sql)) {
+
+            pstm.setInt(1, numero);
+            try (ResultSet rs = pstm.executeQuery()) {
+                if (rs.next()) {
+                    quarto = new QuartoDTO(
+                        rs.getInt("ID"),
+                        rs.getInt("NUMERO"),
+                        TipoQuarto.valueOf(rs.getString("TIPO")),
+                        rs.getBigDecimal("VALOR"),
+                        rs.getString("DESCRICAO")
+                    );
+                }
+            }
+        }
+        return quarto;
+    }
+
+    public List<QuartoDTO> buscarPorTipo(TipoQuarto tipo) throws SQLException {
+        List<QuartoDTO> lista = new ArrayList<>();
+        String sql = "SELECT * FROM QUARTO WHERE TIPO = ?";
+
+        try (Connection conn = connectionFactory.conectaBD();
+             PreparedStatement pstm = conn.prepareStatement(sql)) {
+
+            pstm.setString(1, tipo.name());
+            try (ResultSet rs = pstm.executeQuery()) {
+                while (rs.next()) {
+                    QuartoDTO quarto = new QuartoDTO(
+                        rs.getInt("ID"),
+                        rs.getInt("NUMERO"),
+                        TipoQuarto.valueOf(rs.getString("TIPO")),
+                        rs.getBigDecimal("VALOR"),
+                        rs.getString("DESCRICAO")
+                    );
+                    lista.add(quarto);
+                }
+            }
+        }
+        return lista;
+    }
+
+    public List<QuartoDTO> buscarPorFaixaDeValor(BigDecimal valorMin, BigDecimal valorMax) throws SQLException {
+        List<QuartoDTO> lista = new ArrayList<>();
+        String sql = "SELECT * FROM QUARTO WHERE VALOR BETWEEN ? AND ?";
+
+        try (Connection conn = connectionFactory.conectaBD();
+             PreparedStatement pstm = conn.prepareStatement(sql)) {
+
+            pstm.setBigDecimal(1, valorMin);
+            pstm.setBigDecimal(2, valorMax);
+            try (ResultSet rs = pstm.executeQuery()) {
+                while (rs.next()) {
+                    QuartoDTO quarto = new QuartoDTO(
+                        rs.getInt("ID"),
+                        rs.getInt("NUMERO"),
+                        TipoQuarto.valueOf(rs.getString("TIPO")),
+                        rs.getBigDecimal("VALOR"),
+                        rs.getString("DESCRICAO")
+                    );
+                    lista.add(quarto);
+                }
+            }
+        }
+        return lista;
+    }
 }
+   
+
 

@@ -1,15 +1,14 @@
-
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.TipoQuarto;
 import java.math.BigDecimal;
-
 
 /**
  *
  * @author Érica_Almeida
  */
 public class QuartoDTO {
+
     private Integer id;
     private Integer numero;
     private TipoQuarto tipo;
@@ -66,9 +65,5 @@ public class QuartoDTO {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
-    
-    
 
-    
 }
