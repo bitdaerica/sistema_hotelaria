@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class PessoaDAO {
 
-    private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
+    private final Conexao connectionFactory = new Conexao();
     private final EnderecoDAO enderecoDAO;
 
     public PessoaDAO() {

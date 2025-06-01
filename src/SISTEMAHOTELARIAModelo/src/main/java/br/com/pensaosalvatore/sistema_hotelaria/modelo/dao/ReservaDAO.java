@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class ReservaDAO {
 
-    private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
+    private final Conexao connectionFactory = new Conexao();
 
     public void inserirReserva(ReservaDTO r) throws SQLException {
         Connection conn = null;

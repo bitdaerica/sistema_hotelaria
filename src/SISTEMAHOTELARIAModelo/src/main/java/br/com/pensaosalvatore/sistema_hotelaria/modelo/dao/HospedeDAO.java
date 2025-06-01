@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class HospedeDAO {
 
-    private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
+    private final Conexao connectionFactory = new Conexao();
 
     public void inserirHospede(HospedeDTO h) throws SQLException {
         Connection conn = null;

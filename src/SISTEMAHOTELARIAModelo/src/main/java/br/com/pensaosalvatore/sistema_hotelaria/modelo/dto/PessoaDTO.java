@@ -24,6 +24,19 @@ public class PessoaDTO {
     public PessoaDTO() {
     }
 
+    public PessoaDTO(Integer id) {
+        this.id = id;
+    }
+
+    
+    
+    public PessoaDTO(Integer id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+    
+    
+
     public PessoaDTO(Integer id, String nome, Genero genero, Date dataNascimento, String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, EnderecoDTO endereco) {
         this.id = id;
         this.nome = nome;

@@ -2,8 +2,6 @@
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao;
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.autenticacao.AutenticacaoController;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.ConnectionFactoryDAO;
-import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -205,10 +203,8 @@ public class AutenticacaoView extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AutenticacaoView().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new AutenticacaoView().setVisible(true);
         });
     }
 

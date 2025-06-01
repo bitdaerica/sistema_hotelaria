@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class EnderecoDAO {
 
-    private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
+    private final Conexao connectionFactory = new Conexao();
 
     public EnderecoDAO() {
 

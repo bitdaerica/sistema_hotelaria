@@ -1,10 +1,8 @@
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.autenticacao;
 
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.helper.AutenticacaoHelper;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao.AutenticacaoView;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dtoo.UsuarioDTO;
 
 /**
  *
@@ -13,15 +11,13 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.dtoo.UsuarioDTO;
 public class AutenticacaoController {
 
     private final AutenticacaoView view;
-    private AutenticacaoHelper helper;
+    
 
     public AutenticacaoController(AutenticacaoView view) {
         this.view = view;
-        this.helper = new AutenticacaoHelper(view);
     }
 
     public void entarnoSistema() {
-        UsuarioDTO usuario = helper.obterModelo();
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
     }

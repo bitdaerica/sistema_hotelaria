@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class QuartoDAO {
 
-    private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
+    private final Conexao connectionFactory = new Conexao();
 
     public void inserirQuarto(QuartoDTO q) throws SQLException {
         Connection conn = null;

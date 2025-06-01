@@ -15,14 +15,24 @@ import java.util.List;
  */
 public class UsuarioDAO {
 
-    private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
+    private final Conexao connection;
+
+    public UsuarioDAO(Conexao connection) {
+        this.connection = connection;
+    }
+
+    public UsuarioDAO() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+      
 
     public void inserirUsuario(UsuarioDTO u) throws SQLException {
         Connection conn = null;
         PreparedStatement pstm = null;
 
         try {
-            conn = connectionFactory.conectaBD();
+            conn = connection.conectaBD();
             conn.setAutoCommit(false);
 
             // Inserir primeiro na tabela PESSOA
@@ -54,7 +64,7 @@ public class UsuarioDAO {
         PreparedStatement pstm = null;
 
         try {
-            conn = connectionFactory.conectaBD();
+            conn = connection.conectaBD();
             conn.setAutoCommit(false);
 
             // Alterar dados na tabela PESSOA
@@ -89,7 +99,7 @@ public class UsuarioDAO {
             WHERE u.ID = ?
             """;
 
-        try (Connection conn = connectionFactory.conectaBD();
+        try (Connection conn = connection.conectaBD();
              PreparedStatement pstm = conn.prepareStatement(sql)) {
 
             pstm.setInt(1, id);
@@ -122,7 +132,7 @@ public class UsuarioDAO {
         ResultSet rs = null;
 
         try {
-            conn = connectionFactory.conectaBD();
+            conn = connection.conectaBD();
             String sql = """
                 SELECT u.ID, u.USUARIO,
                        p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL, p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
@@ -164,7 +174,7 @@ public class UsuarioDAO {
         ResultSet rs = null;
 
         try {
-            conn = connectionFactory.conectaBD();
+            conn = connection.conectaBD();
             String sql = """
                 SELECT u.ID, u.USUARIO,
                        p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL, p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
@@ -207,7 +217,7 @@ public class UsuarioDAO {
         PreparedStatement pstm = null;
 
         try {
-            conn = connectionFactory.conectaBD();
+            conn = connection.conectaBD();
             conn.setAutoCommit(false);
 
             String sql = "DELETE FROM USUARIO WHERE ID = ?";
@@ -232,7 +242,7 @@ public class UsuarioDAO {
     public boolean existeNoBancoPorUsuarioESenha(UsuarioDTO usuarioNovo) throws SQLException {
         String sql = "SELECT 1 FROM USUARIO WHERE USUARIO = ? AND SENHA = ?";
 
-        try (Connection conn = connectionFactory.conectaBD();
+        try (Connection conn = connection.conectaBD();
              PreparedStatement pstm = conn.prepareStatement(sql)) {
 
             pstm.setString(1, usuarioNovo.getUsuario());

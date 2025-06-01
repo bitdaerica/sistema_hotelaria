@@ -16,6 +16,12 @@ public class UsuarioDTO extends PessoaDTO {
 
     }
 
+    public UsuarioDTO(int id, String usuario, String senha) {
+        super(id);
+        this.usuario = usuario;
+        this.senha = senha;
+    }
+
     public UsuarioDTO(String usuario, String senha) {
         this.usuario = usuario;
         this.senha = senha;
@@ -26,9 +32,6 @@ public class UsuarioDTO extends PessoaDTO {
         this.usuario = usuario;
         this.senha = senha;
     }
-
-    
-    
 
     public String getUsuario() {
         return usuario;
@@ -46,4 +49,5 @@ public class UsuarioDTO extends PessoaDTO {
         this.senha = senha;
     }
 
+    
 }

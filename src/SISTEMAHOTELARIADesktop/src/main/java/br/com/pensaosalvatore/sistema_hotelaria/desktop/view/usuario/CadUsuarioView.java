@@ -1,8 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
+
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.usuario;
+
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.usuario.CadUsuarioController;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -10,11 +17,14 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.usuario;
  */
 public class CadUsuarioView extends javax.swing.JFrame {
 
+    private final CadUsuarioController controller;
+
     /**
      * Creates new form CadUsuarioView
      */
     public CadUsuarioView() {
         initComponents();
+        controller = new CadUsuarioController(this);
     }
 
     /**
@@ -318,6 +328,11 @@ public class CadUsuarioView extends javax.swing.JFrame {
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
         btnSalvar.setText("Salvar");
         btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 580, 110, 40));
 
         bntCancelar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -392,6 +407,11 @@ public class CadUsuarioView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fmtCepActionPerformed
 
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+           controller.salvaUsuario();
+
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -426,6 +446,167 @@ public class CadUsuarioView extends javax.swing.JFrame {
             }
         });
     }
+    
+     public JButton getBntCancelar() {
+        return bntCancelar;
+    }
+
+    public void setBntCancelar(JButton bntCancelar) {
+        this.bntCancelar = bntCancelar;
+    }
+
+    public JButton getBntNovohospede() {
+        return bntNovohospede;
+    }
+
+    public void setBntNovohospede(JButton bntNovohospede) {
+        this.bntNovohospede = bntNovohospede;
+    }
+
+    public JButton getBtnSalvar() {
+        return btnSalvar;
+    }
+
+    public void setBtnSalvar(JButton btnSalvar) {
+        this.btnSalvar = btnSalvar;
+    }
+
+    public JRadioButton getBtnWhatsapp() {
+        return btnWhatsapp;
+    }
+
+    public void setBtnWhatsapp(JRadioButton btnWhatsapp) {
+        this.btnWhatsapp = btnWhatsapp;
+    }
+
+    public JComboBox<String> getCmbEstado() {
+        return cmbEstado;
+    }
+
+    public void setCmbEstado(JComboBox<String> cmbEstado) {
+        this.cmbEstado = cmbEstado;
+    }
+
+    public JComboBox<String> getCmbGenero1() {
+        return cmbGenero1;
+    }
+
+    public void setCmbGenero1(JComboBox<String> cmbGenero1) {
+        this.cmbGenero1 = cmbGenero1;
+    }
+
+    public JFormattedTextField getFmtCelular() {
+        return fmtCelular;
+    }
+
+    public void setFmtCelular(JFormattedTextField fmtCelular) {
+        this.fmtCelular = fmtCelular;
+    }
+
+    public JFormattedTextField getFmtCep() {
+        return fmtCep;
+    }
+
+    public void setFmtCep(JFormattedTextField fmtCep) {
+        this.fmtCep = fmtCep;
+    }
+
+    public JFormattedTextField getFmtCpf() {
+        return fmtCpf;
+    }
+
+    public void setFmtCpf(JFormattedTextField fmtCpf) {
+        this.fmtCpf = fmtCpf;
+    }
+
+    public JFormattedTextField getFmtDatanascimento() {
+        return fmtDatanascimento;
+    }
+
+    public void setFmtDatanascimento(JFormattedTextField fmtDatanascimento) {
+        this.fmtDatanascimento = fmtDatanascimento;
+    }
+
+    public JFormattedTextField getFmtFixo() {
+        return fmtFixo;
+    }
+
+    public void setFmtFixo(JFormattedTextField fmtFixo) {
+        this.fmtFixo = fmtFixo;
+    }
+
+    public JPasswordField getSenha() {
+        return senha;
+    }
+
+    public void setSenha(JPasswordField senha) {
+        this.senha = senha;
+    }
+
+    public JTextField getTxtBairro() {
+        return txtBairro;
+    }
+
+    public void setTxtBairro(JTextField txtBairro) {
+        this.txtBairro = txtBairro;
+    }
+
+    public JTextField getTxtCidade() {
+        return txtCidade;
+    }
+
+    public void setTxtCidade(JTextField txtCidade) {
+        this.txtCidade = txtCidade;
+    }
+
+    public JTextField getTxtComplemento() {
+        return txtComplemento;
+    }
+
+    public void setTxtComplemento(JTextField txtComplemento) {
+        this.txtComplemento = txtComplemento;
+    }
+
+    public JTextField getTxtEmail2() {
+        return txtEmail2;
+    }
+
+    public void setTxtEmail2(JTextField txtEmail2) {
+        this.txtEmail2 = txtEmail2;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(JTextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    public JTextArea getTxtObservacoes() {
+        return txtObservacoes;
+    }
+
+    public void setTxtObservacoes(JTextArea txtObservacoes) {
+        this.txtObservacoes = txtObservacoes;
+    }
+
+    public JTextField getTxtRua() {
+        return txtRua;
+    }
+
+    public void setTxtRua(JTextField txtRua) {
+        this.txtRua = txtRua;
+    }
+
+    public JTextField getTxtUsuario() {
+        return txtUsuario;
+    }
+
+    public void setTxtUsuario(JTextField txtUsuario) {
+        this.txtUsuario = txtUsuario;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntCancelar;
@@ -468,4 +649,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
     private javax.swing.JTextField txtRua;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+   
+
 }
