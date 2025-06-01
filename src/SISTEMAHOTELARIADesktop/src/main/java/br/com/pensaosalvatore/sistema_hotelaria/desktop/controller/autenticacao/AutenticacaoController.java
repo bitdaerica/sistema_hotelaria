@@ -2,6 +2,7 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.autenticacao
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.helper.AutenticacaoHelper;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao.AutenticacaoView;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dtoo.UsuarioDTO;
 
@@ -22,6 +23,7 @@ public class AutenticacaoController {
     public void entarnoSistema() {
         UsuarioDTO usuario = helper.obterModelo();
 
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
     }
 
     public void fizTarefa() {
