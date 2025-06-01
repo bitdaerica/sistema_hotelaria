@@ -68,12 +68,12 @@ public class UsuarioDAO {
             PessoaDAO dao = new PessoaDAO();
             dao.alterarPessoa(u);
 
-            String sqlUsuario = "UPDATE usuario SET senha = ?, graudeacesso = ? WHERE ID = ?";
-            pstm = conn.prepareStatement(sqlUsuario);
+            String sql = "UPDATE USUARIO SET SENHA = ?, USUARIO = ? WHERE ID = ?";
+            pstm = conn.prepareStatement(sql);
 
-            pstm.setInt(1, u.getId());
-            pstm.setString(2, u.getSenha());
-            pstm.setString(3, u.getGraudeacesso().name());
+            pstm.setString(1, u.getSenha());
+            pstm.setString(2, u.getUsuario());
+            pstm.setInt(3, u.getId());
 
             pstm.executeUpdate();
 
@@ -94,38 +94,32 @@ public class UsuarioDAO {
     }
 
     public UsuarioDTO selecionarPorId(int id) throws SQLException {
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+        String sql = """
+            SELECT u.ID, u.USUARIO,
+                   p.NOME, p.CPF, p.EMAIL, p.CELULAR
+            FROM USUARIO u
+            INNER JOIN PESSOA p ON u.ID = p.ID
+            WHERE u.ID = ?
+            """;
 
-        UsuarioDTO usuario = null;
+        try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql)) {
 
-        try {
-            conn = connectionFactory.conectaBD();
-            String sql = "SELECT * FROM usuario WHERE ID = ?";
-            pstm = conn.prepareStatement(sql);
             pstm.setInt(1, id);
-            rs = pstm.executeQuery();
 
-            if (rs.next()) {
-                usuario = new UsuarioDTO();
-                usuario.setId(rs.getInt("ID"));
-                usuario.setNome(rs.getString("NOME"));
-                usuario.setCpf(rs.getString("CPF"));
-
-            }
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
+            try (ResultSet rs = pstm.executeQuery()) {
+                if (rs.next()) {
+                    UsuarioDTO usuario = new UsuarioDTO();
+                    usuario.setId(rs.getInt("ID"));
+                    usuario.setUsuario(rs.getString("USUARIO"));
+                    usuario.setNome(rs.getString("NOME"));
+                    usuario.setCpf(rs.getString("CPF"));
+                    usuario.setEmail(rs.getString("EMAIL"));
+                    usuario.setCelular(rs.getString("CELULAR"));
+                    return usuario;
+                }
             }
         }
-        return usuario;
+        return null;
     }
 
     public List<UsuarioDTO> listarTodos() throws SQLException {
@@ -136,15 +130,24 @@ public class UsuarioDAO {
 
         try {
             conn = connectionFactory.conectaBD();
-            String sql = "SELECT * FROM Usuario";
+            String sql = """
+                    SELECT u.ID, u.USUARIO,
+                           p.NOME, p.CPF, p.EMAIL, p.CELULAR
+                    FROM USUARIO u
+                    INNER JOIN PESSOA p ON u.ID = p.ID
+                    """;
+
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
 
             while (rs.next()) {
                 UsuarioDTO usuario = new UsuarioDTO();
                 usuario.setId(rs.getInt("ID"));
+                usuario.setUsuario(rs.getString("USUARIO"));
                 usuario.setNome(rs.getString("NOME"));
                 usuario.setCpf(rs.getString("CPF"));
+                usuario.setEmail(rs.getString("EMAIL"));
+                usuario.setCelular(rs.getString("CELULAR"));
 
                 lista.add(usuario);
             }
@@ -170,16 +173,27 @@ public class UsuarioDAO {
 
         try {
             conn = connectionFactory.conectaBD();
-            String sql = "SELECT * FROM usuario WHERE NOME LIKE ?";
+            String sql = """
+                    SELECT u.ID, u.USUARIO,
+                           p.NOME, p.CPF, p.EMAIL, p.CELULAR
+                    FROM USUARIO u
+                    INNER JOIN PESSOA p ON u.ID = p.ID
+                    WHERE p.NOME LIKE ?
+                    """;
+
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, "%" + nome + "%");
+
             rs = pstm.executeQuery();
 
             while (rs.next()) {
                 UsuarioDTO usuario = new UsuarioDTO();
                 usuario.setId(rs.getInt("ID"));
+                usuario.setUsuario(rs.getString("USUARIO"));
                 usuario.setNome(rs.getString("NOME"));
                 usuario.setCpf(rs.getString("CPF"));
+                usuario.setEmail(rs.getString("EMAIL"));
+                usuario.setCelular(rs.getString("CELULAR"));
 
                 lista.add(usuario);
             }
@@ -230,37 +244,18 @@ public class UsuarioDAO {
         }
     }
 
-    public boolean existenobdporUsuarioesenha(UsuarioDTO usuarioNovo) throws SQLException {
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+    public boolean existeNoBancoPorUsuarioESenha(UsuarioDTO usuarioNovo) throws SQLException {
 
-        try {
-            conn = connectionFactory.conectaBD();
+        String sql = "SELECT 1 FROM usuario WHERE usuario = ? AND senha = ?";
 
-            String sql = "SELECT * FROM usuario WHERE usuario = ? AND senha = ?";
-            pstm = conn.prepareStatement(sql);
+        try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql)) {
 
             pstm.setString(1, usuarioNovo.getUsuario());
             pstm.setString(2, usuarioNovo.getSenha());
 
-            rs = pstm.executeQuery();
-
-            return rs.next();
-
-        } catch (SQLException e) {
-            throw e;
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
+            try (ResultSet rs = pstm.executeQuery()) {
+                return rs.next();
             }
         }
-
     }
 }

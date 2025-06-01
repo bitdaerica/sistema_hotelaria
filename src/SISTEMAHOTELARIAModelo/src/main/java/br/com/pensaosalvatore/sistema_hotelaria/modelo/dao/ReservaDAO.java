@@ -1,7 +1,7 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dtoo.ReservaDTO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.ReservaDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

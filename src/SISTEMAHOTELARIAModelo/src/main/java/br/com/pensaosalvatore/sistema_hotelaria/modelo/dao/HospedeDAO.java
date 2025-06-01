@@ -1,6 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dtoo.HospedeDTO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.HospedeDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,7 +31,7 @@ public class HospedeDAO {
 
             dao.inserirPessoa(h);
 
-            String sqlHospede = "INSERT INTO HOSPEDE_FISICO ()"
+            String sqlHospede = "INSERT INTO hospede()"
                     + " VALUES()";
 
             pstm = conn.prepareStatement(sqlHospede);

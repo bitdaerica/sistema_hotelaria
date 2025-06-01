@@ -1,6 +1,7 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
+import java.util.Date;
 
 /**
  *
@@ -20,12 +21,14 @@ public class UsuarioDTO extends PessoaDTO {
         this.senha = senha;
     }
 
-    
-    public UsuarioDTO(String usuario, String senha, Integer id, String nome, Genero genero, String cpf, String email, String celular, Boolean whatsapp, EnderecoDTO endereco) {
-        super(id, nome, genero, cpf, email, celular, whatsapp, endereco);
+    public UsuarioDTO(Integer id, String nome, String usuario, String senha, Genero genero, Date dataNascimento, String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, EnderecoDTO endereco) {
+        super(id, nome, genero, dataNascimento, cpf, email, fixo, celular, whatsapp, observacoes, endereco);
         this.usuario = usuario;
         this.senha = senha;
     }
+
+    
+    
 
     public String getUsuario() {
         return usuario;

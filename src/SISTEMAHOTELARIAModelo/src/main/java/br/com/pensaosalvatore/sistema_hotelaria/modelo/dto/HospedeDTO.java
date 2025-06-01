@@ -21,16 +21,23 @@ public class HospedeDTO extends PessoaDTO {
 
     }
 
-    public HospedeDTO(String nacionalidade, String profissao, String dataCadastro, Integer id, String nome, Genero genero, String cpf, String email, String celular, Boolean whatsapp, EnderecoDTO endereco) {
+    public HospedeDTO(String nacionalidade, String profissao, Date dataCadastro, Integer id, String nome, Genero genero, Date dataNascimento, String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, EnderecoDTO endereco) {
+        super(id, nome, genero, dataNascimento, cpf, email, fixo, celular, whatsapp, observacoes, endereco);
+        this.nacionalidade = nacionalidade;
+        this.profissao = profissao;
+        this.dataCadastro = dataCadastro;
+    }
+
+    public HospedeDTO(Integer id, String nome, String nacionalidade, String profissao, String dataCadastro, Genero genero, String cpf, String dataNascimento, String fixo, String observacoes, String email, String celular, Boolean whatsapp, EnderecoDTO endereco) {
         super(id, nome, genero, cpf, email, celular, whatsapp, endereco);
         this.nacionalidade = nacionalidade;
         this.profissao = profissao;
-         try {
-           this.dataCadastro  = new SimpleDateFormat("dd/MM/yyyy").parse(dataCadastro);
+        try {
+            this.dataCadastro = new SimpleDateFormat("dd/MM/yyyy").parse(dataCadastro);
         } catch (ParseException ex) {
             Logger.getLogger(ReservaDTO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     public String getNacionalidade() {

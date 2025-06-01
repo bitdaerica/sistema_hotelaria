@@ -1,7 +1,7 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.TipoQuarto;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dtoo.QuartoDTO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.QuartoDTO;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

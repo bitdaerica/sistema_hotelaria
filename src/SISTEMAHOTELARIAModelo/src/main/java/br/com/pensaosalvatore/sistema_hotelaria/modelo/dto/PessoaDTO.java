@@ -7,7 +7,7 @@ import java.util.Date;
  *
  * @author Érica_Almeida
  */
- public class PessoaDTO {
+public class PessoaDTO {
 
     private Integer id;
     private String nome;
@@ -24,6 +24,20 @@ import java.util.Date;
     public PessoaDTO() {
     }
 
+    public PessoaDTO(Integer id, String nome, Genero genero, Date dataNascimento, String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, EnderecoDTO endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.genero = genero;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.email = email;
+        this.fixo = fixo;
+        this.celular = celular;
+        this.whatsapp = whatsapp;
+        this.observacoes = observacoes;
+        this.endereco = endereco;
+    }
+
     public PessoaDTO(Integer id, String nome, Genero genero, String cpf, String email, String celular, Boolean whatsapp, EnderecoDTO endereco) {
         this.id = id;
         this.nome = nome;
@@ -34,6 +48,8 @@ import java.util.Date;
         this.whatsapp = whatsapp;
         this.endereco = endereco;
     }
+
+    
 
     public Integer getId() {
         return id;
@@ -121,6 +137,23 @@ import java.util.Date;
 
     public void setEndereco(EnderecoDTO endereco) {
         this.endereco = endereco;
+    }
+
+    @Override
+    public String toString() {
+        return "PessoaDTO{"
+                + "id=" + id
+                + ", nome='" + nome + '\''
+                + ", genero=" + genero
+                + ", dataNascimento=" + dataNascimento
+                + ", cpf='" + cpf + '\''
+                + ", email='" + email + '\''
+                + ", fixo='" + fixo + '\''
+                + ", celular='" + celular + '\''
+                + ", whatsapp=" + whatsapp
+                + ", observacoes='" + observacoes + '\''
+                + ", endereco=" + endereco
+                + '}';
     }
 
 }
