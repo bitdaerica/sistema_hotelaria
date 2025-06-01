@@ -69,7 +69,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         mnSair = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel ABEF - Principal");
         setMaximumSize(new java.awt.Dimension(0, 0));
         setResizable(false);

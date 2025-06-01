@@ -1,6 +1,6 @@
 
 
-package br.com.pensaosalvatore.sistema_hotelaria.modelo.dtoo;
+package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
 import java.math.BigDecimal;
 import java.text.ParseException;

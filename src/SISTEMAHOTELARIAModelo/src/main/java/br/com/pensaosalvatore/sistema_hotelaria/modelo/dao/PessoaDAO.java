@@ -1,8 +1,9 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.EnderecoDTO;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dtoo.EnderecoDTO;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dtoo.PessoaDTO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.PessoaDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

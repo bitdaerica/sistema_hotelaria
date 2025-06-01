@@ -1,6 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dtoo.UsuarioDTO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.UsuarioDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,12 +28,12 @@ public class UsuarioDAO {
             PessoaDAO dao = new PessoaDAO();
             dao.inserirPessoa(u);
 
-            String sqlUsuario = "INSERT INTO USUARIO (ID, SENHA, GRAU_DE_ACESSO) VALUES (?, ?, ?)";
-            pstm = conn.prepareStatement(sqlUsuario);
+            String sql = "INSERT INTO USUARIO (ID, USUARIO, SENHA) VALUES (?, ?, ?)";
+            pstm = conn.prepareStatement(sql);
 
             pstm.setInt(1, u.getId());
-            pstm.setString(2, u.getSenha());
-            pstm.setString(3, u.getGraudeacesso().name());
+            pstm.setString(2, u.getUsuario());
+            pstm.setString(3, u.getSenha());
 
             pstm.executeUpdate();
 
@@ -63,7 +63,7 @@ public class UsuarioDAO {
         try {
             conn = connectionFactory.conectaBD();
             conn.setAutoCommit(false);
-            
+
             //chamando pessoadao para inserir o usuario em pessoa primeira
             PessoaDAO dao = new PessoaDAO();
             dao.alterarPessoa(u);
@@ -211,9 +211,9 @@ public class UsuarioDAO {
             pstm.executeUpdate();
 
             //chamando pessoadao para excluir usuario em pessoa tbm
-            //PessoaDAO dao = new PessoaDAO();
-            //dao.escluirPessoa(id);
-            
+            PessoaDAO dao = new PessoaDAO();
+            dao.excluirPessoa(id);
+
             conn.commit();
         } catch (SQLException e) {
             if (conn != null) {
@@ -230,4 +230,37 @@ public class UsuarioDAO {
         }
     }
 
+    public boolean existenobdporUsuarioesenha(UsuarioDTO usuarioNovo) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+
+        try {
+            conn = connectionFactory.conectaBD();
+
+            String sql = "SELECT * FROM usuario WHERE usuario = ? AND senha = ?";
+            pstm = conn.prepareStatement(sql);
+
+            pstm.setString(1, usuarioNovo.getUsuario());
+            pstm.setString(2, usuarioNovo.getSenha());
+
+            rs = pstm.executeQuery();
+
+            return rs.next();
+
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+
+    }
 }
