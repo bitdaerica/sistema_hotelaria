@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,16 +36,29 @@ public class PessoaDAO {
             String sqlPessoa = "INSERT INTO PESSOA (nome, genero, datanascimento, cpf, email, fixo, celular, whatsapp,"
                     + " observacoes, endereco_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             pstm = conn.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS);
+
             pstm.setString(1, p.getNome());
-            pstm.setString(2, p.getGenero().toString());
-            pstm.setDate(3, new java.sql.Date(p.getDataNascimento().getTime()));
+            pstm.setString(2, p.getGenero() != null ? p.getGenero().toString() : null);
+            if (p.getDataNascimento() != null) {
+                pstm.setDate(3, new java.sql.Date(p.getDataNascimento().getTime()));
+            } else {
+                pstm.setNull(3, Types.DATE);
+            }
             pstm.setString(4, p.getCpf());
             pstm.setString(5, p.getEmail());
             pstm.setString(6, p.getFixo());
             pstm.setString(7, p.getCelular());
-            pstm.setBoolean(8, p.getWhatsapp());
+            if (p.getWhatsapp() != null) {
+                pstm.setBoolean(8, p.getWhatsapp());
+            } else {
+                pstm.setNull(8, Types.BOOLEAN);
+            }
             pstm.setString(9, p.getObservacoes());
-            pstm.setInt(10, p.getEndereco().getId());
+            if (p.getEndereco() != null) {
+                pstm.setInt(10, p.getEndereco().getId());
+            } else {
+                pstm.setNull(10, Types.INTEGER);
+            }
 
             pstm.executeUpdate();
 
@@ -83,22 +97,34 @@ public class PessoaDAO {
             String sqlPessoa = "UPDATE PESSOA SET nome = ?, genero = ?, datanascimento = ?, cpf = ?,"
                     + " email = ?, fixo = ?, celular = ?, whatsapp = ?, observacoes = ?, endereco_id = ? WHERE id = ?";
             pstm = conn.prepareStatement(sqlPessoa);
+
             pstm.setString(1, p.getNome());
-            pstm.setString(2, p.getGenero().toString());
-            pstm.setDate(3, new java.sql.Date(p.getDataNascimento().getTime()));
+            pstm.setString(2, p.getGenero() != null ? p.getGenero().toString() : null);
+            if (p.getDataNascimento() != null) {
+                pstm.setDate(3, new java.sql.Date(p.getDataNascimento().getTime()));
+            } else {
+                pstm.setNull(3, Types.DATE);
+            }
             pstm.setString(4, p.getCpf());
             pstm.setString(5, p.getEmail());
             pstm.setString(6, p.getFixo());
             pstm.setString(7, p.getCelular());
-            pstm.setBoolean(8, p.getWhatsapp());
+            if (p.getWhatsapp() != null) {
+                pstm.setBoolean(8, p.getWhatsapp());
+            } else {
+                pstm.setNull(8, Types.BOOLEAN);
+            }
             pstm.setString(9, p.getObservacoes());
-            pstm.setInt(10, p.getEndereco().getId());
+            if (p.getEndereco() != null) {
+                pstm.setInt(10, p.getEndereco().getId());
+            } else {
+                pstm.setNull(10, Types.INTEGER);
+            }
 
             pstm.executeUpdate();
 
             conn.commit();
 
-            
         } catch (SQLException e) {
             if (conn != null) {
                 conn.rollback();
@@ -128,21 +154,26 @@ public class PessoaDAO {
             rs = pstm.executeQuery();
 
             if (rs.next()) {
-                pessoa = new PessoaDTO () ;
+                pessoa = new PessoaDTO();
                 pessoa.setId(rs.getInt("id"));
                 pessoa.setNome(rs.getString("nome"));
-                pessoa.setGenero(Genero.valueOf(rs.getString("genero")));
+
+                String generoStr = rs.getString("genero");
+                pessoa.setGenero(generoStr != null ? Genero.valueOf(generoStr) : null);
+
                 pessoa.setDataNascimento(rs.getDate("datanascimento"));
                 pessoa.setCpf(rs.getString("cpf"));
                 pessoa.setEmail(rs.getString("email"));
                 pessoa.setFixo(rs.getString("fixo"));
                 pessoa.setCelular(rs.getString("celular"));
-                pessoa.setWhatsapp(rs.getBoolean("whatsapp"));
+                pessoa.setWhatsapp(rs.getObject("whatsapp") != null ? rs.getBoolean("whatsapp") : null);
                 pessoa.setObservacoes(rs.getString("observacoes"));
 
                 int enderecoId = rs.getInt("endereco_id");
-                EnderecoDTO endereco = enderecoDAO.buscarPorId(enderecoId);
-                pessoa.setEndereco(endereco);
+                if (!rs.wasNull()) {
+                    EnderecoDTO endereco = enderecoDAO.buscarPorId(enderecoId);
+                    pessoa.setEndereco(endereco);
+                }
             }
         } finally {
             if (rs != null) {
@@ -174,18 +205,23 @@ public class PessoaDAO {
                 PessoaDTO pessoa = new PessoaDTO();
                 pessoa.setId(rs.getInt("id"));
                 pessoa.setNome(rs.getString("nome"));
-                pessoa.setGenero(Genero.valueOf(rs.getString("genero")));
+
+                String generoStr = rs.getString("genero");
+                pessoa.setGenero(generoStr != null ? Genero.valueOf(generoStr) : null);
+
                 pessoa.setDataNascimento(rs.getDate("datanascimento"));
                 pessoa.setCpf(rs.getString("cpf"));
                 pessoa.setEmail(rs.getString("email"));
                 pessoa.setFixo(rs.getString("fixo"));
                 pessoa.setCelular(rs.getString("celular"));
-                pessoa.setWhatsapp(rs.getBoolean("whatsapp"));
+                pessoa.setWhatsapp(rs.getObject("whatsapp") != null ? rs.getBoolean("whatsapp") : null);
                 pessoa.setObservacoes(rs.getString("observacoes"));
 
                 int enderecoId = rs.getInt("endereco_id");
-                EnderecoDTO endereco = enderecoDAO.buscarPorId(enderecoId);
-                pessoa.setEndereco(endereco);
+                if (!rs.wasNull()) {
+                    EnderecoDTO endereco = enderecoDAO.buscarPorId(enderecoId);
+                    pessoa.setEndereco(endereco);
+                }
 
                 lista.add(pessoa);
             }
@@ -218,22 +254,26 @@ public class PessoaDAO {
             rs = pstm.executeQuery();
 
             while (rs.next()) {
-                PessoaDTO pessoa = new PessoaDTO() {
-                };
+                PessoaDTO pessoa = new PessoaDTO();
                 pessoa.setId(rs.getInt("id"));
                 pessoa.setNome(rs.getString("nome"));
-                pessoa.setGenero(Genero.valueOf(rs.getString("genero")));
+
+                String generoStr = rs.getString("genero");
+                pessoa.setGenero(generoStr != null ? Genero.valueOf(generoStr) : null);
+
                 pessoa.setDataNascimento(rs.getDate("datanascimento"));
                 pessoa.setCpf(rs.getString("cpf"));
                 pessoa.setEmail(rs.getString("email"));
                 pessoa.setFixo(rs.getString("fixo"));
                 pessoa.setCelular(rs.getString("celular"));
-                pessoa.setWhatsapp(rs.getBoolean("whatsapp"));
+                pessoa.setWhatsapp(rs.getObject("whatsapp") != null ? rs.getBoolean("whatsapp") : null);
                 pessoa.setObservacoes(rs.getString("observacoes"));
 
                 int enderecoId = rs.getInt("endereco_id");
-                EnderecoDTO endereco = enderecoDAO.buscarPorId(enderecoId);
-                pessoa.setEndereco(endereco);
+                if (!rs.wasNull()) {
+                    EnderecoDTO endereco = enderecoDAO.buscarPorId(enderecoId);
+                    pessoa.setEndereco(endereco);
+                }
 
                 lista.add(pessoa);
             }

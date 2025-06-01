@@ -20,14 +20,13 @@ public class EnderecoDAO {
     private final ConnectionFactoryDAO connectionFactory = new ConnectionFactoryDAO();
 
     public EnderecoDAO() {
-        
+
     }
 
     public void inserir(EnderecoDTO endereco) throws SQLException {
         String sql = "INSERT INTO ENDERECO (RUA, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = connectionFactory.conectaBD();
-             PreparedStatement pstm = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             pstm.setString(1, endereco.getRua());
             pstm.setString(2, endereco.getNumero());
@@ -61,11 +60,14 @@ public class EnderecoDAO {
             pstm.setString(3, endereco.getComplemento());
             pstm.setString(4, endereco.getBairro());
             pstm.setString(5, endereco.getCidade());
-            pstm.setString(6, endereco.getEstado().name());
+            pstm.setString(6, endereco.getEstado() != null ? endereco.getEstado().name() : null);
             pstm.setString(7, endereco.getCep());
             pstm.setInt(8, endereco.getId());
 
-            pstm.executeUpdate();
+            int linhasAfetadas = pstm.executeUpdate();
+            if (linhasAfetadas == 0) {
+                throw new SQLException("Falha ao atualizar, endereço com ID " + endereco.getId() + " não encontrado.");
+            }
         }
     }
 
@@ -76,16 +78,7 @@ public class EnderecoDAO {
         try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
 
             while (rs.next()) {
-                EnderecoDTO endereco = new EnderecoDTO();
-                endereco.setId(rs.getInt("id"));
-                endereco.setRua(rs.getString("rua"));
-                endereco.setNumero(rs.getString("numero"));
-                endereco.setComplemento(rs.getString("complemento"));
-                endereco.setBairro(rs.getString("bairro"));
-                endereco.setCidade(rs.getString("cidade"));
-                endereco.setEstado(Enum.valueOf(Estado.class, rs.getString("estado")));
-                endereco.setCep(rs.getString("cep"));
-                lista.add(endereco);
+                lista.add(montarEndereco(rs));
             }
         }
 
@@ -100,17 +93,9 @@ public class EnderecoDAO {
 
             pstm.setInt(1, id);
 
-            try (ResultSet rs = pstm.executeQuery()) {
+             try (ResultSet rs = pstm.executeQuery()) {
                 if (rs.next()) {
-                    endereco = new EnderecoDTO();
-                    endereco.setId(rs.getInt("id"));
-                    endereco.setRua(rs.getString("rua"));
-                    endereco.setNumero(rs.getString("numero"));
-                    endereco.setComplemento(rs.getString("complemento"));
-                    endereco.setBairro(rs.getString("bairro"));
-                    endereco.setCidade(rs.getString("cidade"));
-                    endereco.setEstado(Enum.valueOf(Estado.class, rs.getString("estado")));
-                    endereco.setCep(rs.getString("cep"));
+                    endereco = montarEndereco(rs);
                 }
             }
         }
@@ -124,7 +109,31 @@ public class EnderecoDAO {
         try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql)) {
 
             pstm.setInt(1, id);
-            pstm.executeUpdate();
+
+            int linhasAfetadas = pstm.executeUpdate();
+            if (linhasAfetadas == 0) {
+                throw new SQLException("Falha ao deletar, endereço com ID " + id + " não encontrado.");
+            }
         }
+    }
+
+    private EnderecoDTO montarEndereco(ResultSet rs) throws SQLException {
+        EnderecoDTO endereco = new EnderecoDTO();
+        endereco.setId(rs.getInt("id"));
+        endereco.setRua(rs.getString("rua"));
+        endereco.setNumero(rs.getString("numero"));
+        endereco.setComplemento(rs.getString("complemento"));
+        endereco.setBairro(rs.getString("bairro"));
+        endereco.setCidade(rs.getString("cidade"));
+        endereco.setCep(rs.getString("cep"));
+
+        String estadoStr = rs.getString("estado");
+        if (estadoStr != null) {
+            endereco.setEstado(Estado.valueOf(estadoStr));
+        } else {
+            endereco.setEstado(null);
+        }
+
+        return endereco;
     }
 }
