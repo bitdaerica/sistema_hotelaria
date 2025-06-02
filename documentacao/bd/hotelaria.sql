@@ -1,0 +1,77 @@
+
+CREATE DATABASE hotelaria;
+
+USE hotelaria;
+
+
+CREATE TABLE enderecos(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	rua VARCHAR(100) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
+    bairro VARCHAR(50) NOT NULL,
+    cidade VARCHAR(50) NOT NULL,
+    estado VARCHAR(50) NOT NULL,
+	cep VARCHAR(10) NOT NULL,
+    complemento VARCHAR(50)
+);
+
+
+
+CREATE TABLE pessoas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    genero VARCHAR(50) NOT NULL,
+    data_nascimento DATE,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL,
+    fixo VARCHAR(15),
+    celular VARCHAR(15) NOT NULL,
+    whatsapp BOOLEAN DEFAULT FALSE,
+    observacoes TEXT(255),
+    id_enderecos INT,
+    FOREIGN KEY (id_enderecos) REFERENCES enderecos(id)
+);
+
+
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    senha VARCHAR(30) NOT NULL,
+    id_pessoas INT NOT NULL,
+    FOREIGN KEY (id_pessoas) REFERENCES pessoas(id)
+);
+
+
+CREATE TABLE hospedes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nacionalidade VARCHAR(100) NOT NULL,
+    profissao VARCHAR(14) NOT NULL,
+    data_cadastro DATE NOT NULL,
+    id_pessoas INT NOT NULL,
+    FOREIGN KEY (id_pessoas) REFERENCES pessoas(id)
+);
+
+
+CREATE TABLE quartos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    numero INT NOT NULL UNIQUE,
+    tipo VARCHAR(30) NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    descricao TEXT(255)
+    
+);
+
+
+CREATE TABLE reservas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+	id_hospedes INT NOT NULL,
+    id_quartos INT NOT NULL,
+    id_usuarios INT NOT NULL,
+    data_entrada DATE NOT NULL,
+    data_saida DATE NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    observacoes TEXT(255),
+    FOREIGN KEY (id_hospedes) REFERENCES hospedes(id),
+    FOREIGN KEY (id_quartos) REFERENCES quartos(id),
+    FOREIGN KEY (id_usuarios) REFERENCES usuarios(id)
+);
