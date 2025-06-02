@@ -1,8 +1,6 @@
-
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.EnderecoDAO;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.PessoaDAO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Pessoa;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
 import java.sql.Connection;
@@ -17,7 +15,6 @@ import java.util.List;
  *
  * @author 202412170006
  */
-
 public class UsuarioDAO {
 
     private final Connection connection;
@@ -26,20 +23,18 @@ public class UsuarioDAO {
         this.connection = connection;
     }
 
+    // Inserir usuário (e pessoa vinculada)
     public void inserirUsuario(Usuario usuario) throws SQLException {
-
         try {
             connection.setAutoCommit(false);
 
-            // Inserir na tabela PESSOA
-             PessoaDAO pessoaDAO = new PessoaDAO(connection, new EnderecoDAO(connection));
+            // Inserir Pessoa
+            PessoaDAO pessoaDAO = new PessoaDAO(connection, new EnderecoDAO(connection));
             pessoaDAO.inserirPessoa(usuario.getPessoa());
 
             String sql = "INSERT INTO USUARIO (usuario, senha, pessoa_id) VALUES (?, ?, ?)";
 
             try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-
-                
                 pstm.setString(1, usuario.getUsuario());
                 pstm.setString(2, usuario.getSenha());
                 pstm.setInt(3, usuario.getPessoa().getId());
@@ -53,36 +48,37 @@ public class UsuarioDAO {
                 }
             }
 
-                connection.commit();
+            connection.commit();
 
-                } catch (SQLException e) {
-                    connection.rollback();
-                    throw e;
-                } finally {
-                    
-                    connection.setAutoCommit(true);
-                }
-            }
+        } catch (SQLException e) {
+            connection.rollback();
+            throw e;
+        } finally {
+            connection.setAutoCommit(true);
         }
+    }
 
+    // Alterar usuário
     public void alterarUsuario(Usuario usuario) throws SQLException {
         PreparedStatement pstm = null;
 
         try {
             connection.setAutoCommit(false);
 
-            // Alterar na tabela PESSOA
-            PessoaDAO dao = new PessoaDAO(connection, null);
-            dao.alterarPessoa(usuario);
+            // Alterar Pessoa
+            PessoaDAO pessoaDAO = new PessoaDAO(connection, new EnderecoDAO(connection));
+            pessoaDAO.alterarPessoa(usuario.getPessoa());
 
-            String sql = "UPDATE USUARIO SET USUARIO = ?, SENHA = ? WHERE ID = ?";
+            String sql = "UPDATE USUARIO SET usuario = ?, senha = ? WHERE id = ?";
             pstm = connection.prepareStatement(sql);
             pstm.setString(1, usuario.getUsuario());
             pstm.setString(2, usuario.getSenha());
             pstm.setInt(3, usuario.getId());
+
             pstm.executeUpdate();
 
             connection.commit();
+
         } catch (SQLException e) {
             connection.rollback();
             throw e;
@@ -94,31 +90,22 @@ public class UsuarioDAO {
         }
     }
 
+    // Selecionar usuário por ID
     public Usuario selecionarPorId(int id) throws SQLException {
         String sql = """
-            SELECT u.ID, u.USUARIO,
-                   p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL, p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
-            FROM USUARIO u
-            INNER JOIN PESSOA p ON u.ID = p.ID
-            WHERE u.ID = ?
-            """;
+                SELECT u.id, u.usuario, u.senha, u.pessoa_id,
+                       p.nome, p.genero, p.data_nascimento, p.cpf, p.email, 
+                       p.fixo, p.celular, p.whatsapp, p.observacoes
+                FROM USUARIO u
+                INNER JOIN PESSOA p ON u.pessoa_id = p.id
+                WHERE u.id = ?
+                """;
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, id);
             try (ResultSet rs = pstm.executeQuery()) {
                 if (rs.next()) {
-                    Usuario usuario = new Usuario();
-                    usuario.setId(rs.getInt("ID"));
-                    usuario.setUsuario(rs.getString("USUARIO"));
-                    usuario.setNome(rs.getString("NOME"));
-                    usuario.setGenero(Genero.valueOf(rs.getString("GENERO")));
-                    usuario.setDataNascimento(rs.getDate("DATA_NASCIMENTO"));
-                    usuario.setCpf(rs.getString("CPF"));
-                    usuario.setEmail(rs.getString("EMAIL"));
-                    usuario.setFixo(rs.getString("FIXO"));
-                    usuario.setCelular(rs.getString("CELULAR"));
-                    usuario.setWhatsapp(rs.getBoolean("WHATSAPP"));
-                    usuario.setObservacoes(rs.getString("OBSERVACOES"));
+                    Usuario usuario = mapearUsuario(rs);
                     return usuario;
                 }
             }
@@ -126,65 +113,44 @@ public class UsuarioDAO {
         return null;
     }
 
+    // Listar todos os usuários
     public List<Usuario> listarTodos() throws SQLException {
         List<Usuario> lista = new ArrayList<>();
         String sql = """
-            SELECT u.ID, u.USUARIO,
-                   p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL, p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
-            FROM USUARIO u
-            INNER JOIN PESSOA p ON u.ID = p.ID
-            """;
+                SELECT u.id, u.usuario, u.senha, u.pessoa_id,
+                       p.nome, p.genero, p.data_nascimento, p.cpf, p.email, 
+                       p.fixo, p.celular, p.whatsapp, p.observacoes
+                FROM USUARIO u
+                INNER JOIN PESSOA p ON u.pessoa_id = p.id
+                """;
 
         try (PreparedStatement pstm = connection.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
 
             while (rs.next()) {
-                Usuario usuario = new Usuario();
-                usuario.setId(rs.getInt("ID"));
-                usuario.setUsuario(rs.getString("USUARIO"));
-                usuario.setNome(rs.getString("NOME"));
-                usuario.setGenero(Genero.valueOf(rs.getString("GENERO")));
-                usuario.setDataNascimento(rs.getDate("DATA_NASCIMENTO"));
-                usuario.setCpf(rs.getString("CPF"));
-                usuario.setEmail(rs.getString("EMAIL"));
-                usuario.setFixo(rs.getString("FIXO"));
-                usuario.setCelular(rs.getString("CELULAR"));
-                usuario.setWhatsapp(rs.getBoolean("WHATSAPP"));
-                usuario.setObservacoes(rs.getString("OBSERVACOES"));
-
+                Usuario usuario = mapearUsuario(rs);
                 lista.add(usuario);
             }
         }
         return lista;
     }
 
+    // Listar usuários por nome
     public List<Usuario> listarPorNome(String nome) throws SQLException {
         List<Usuario> lista = new ArrayList<>();
         String sql = """
-            SELECT u.ID, u.USUARIO,
-                   p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL, p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
-            FROM USUARIO u
-            INNER JOIN PESSOA p ON u.ID = p.ID
-            WHERE p.NOME LIKE ?
-            """;
+                SELECT u.id, u.usuario, u.senha, u.pessoa_id,
+                       p.nome, p.genero, p.data_nascimento, p.cpf, p.email, 
+                       p.fixo, p.celular, p.whatsapp, p.observacoes
+                FROM USUARIO u
+                INNER JOIN PESSOA p ON u.pessoa_id = p.id
+                WHERE p.nome LIKE ?
+                """;
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setString(1, "%" + nome + "%");
             try (ResultSet rs = pstm.executeQuery()) {
-
                 while (rs.next()) {
-                    Usuario usuario = new Usuario();
-                    usuario.setId(rs.getInt("ID"));
-                    usuario.setUsuario(rs.getString("USUARIO"));
-                    usuario.setNome(rs.getString("NOME"));
-                    usuario.setGenero(Genero.valueOf(rs.getString("GENERO")));
-                    usuario.setDataNascimento(rs.getDate("DATA_NASCIMENTO"));
-                    usuario.setCpf(rs.getString("CPF"));
-                    usuario.setEmail(rs.getString("EMAIL"));
-                    usuario.setFixo(rs.getString("FIXO"));
-                    usuario.setCelular(rs.getString("CELULAR"));
-                    usuario.setWhatsapp(rs.getBoolean("WHATSAPP"));
-                    usuario.setObservacoes(rs.getString("OBSERVACOES"));
-
+                    Usuario usuario = mapearUsuario(rs);
                     lista.add(usuario);
                 }
             }
@@ -192,22 +158,37 @@ public class UsuarioDAO {
         return lista;
     }
 
+    // Excluir usuário (e pessoa vinculada)
     public void excluirUsuario(int id) throws SQLException {
         PreparedStatement pstm = null;
 
         try {
             connection.setAutoCommit(false);
 
-            String sql = "DELETE FROM USUARIO WHERE ID = ?";
+            // Buscar o id da pessoa vinculada
+            int pessoaId = 0;
+            String buscaPessoa = "SELECT pessoa_id FROM USUARIO WHERE id = ?";
+            try (PreparedStatement busca = connection.prepareStatement(buscaPessoa)) {
+                busca.setInt(1, id);
+                try (ResultSet rs = busca.executeQuery()) {
+                    if (rs.next()) {
+                        pessoaId = rs.getInt("pessoa_id");
+                    }
+                }
+            }
+
+            // Excluir na tabela USUARIO
+            String sql = "DELETE FROM USUARIO WHERE id = ?";
             pstm = connection.prepareStatement(sql);
             pstm.setInt(1, id);
             pstm.executeUpdate();
 
-            // Excluir também na tabela PESSOA
-            PessoaDAO dao = new PessoaDAO(connection, null);
-            dao.excluirPessoa(id);
+            // Excluir na tabela PESSOA
+            PessoaDAO pessoaDAO = new PessoaDAO(connection, new EnderecoDAO(connection));
+            pessoaDAO.excluirPessoa(pessoaId);
 
             connection.commit();
+
         } catch (SQLException e) {
             connection.rollback();
             throw e;
@@ -219,8 +200,9 @@ public class UsuarioDAO {
         }
     }
 
+    // Verificar se usuário existe no banco (login)
     public boolean existeNoBancoPorUsuarioESenha(Usuario usuarioNovo) throws SQLException {
-        String sql = "SELECT 1 FROM USUARIO WHERE USUARIO = ? AND SENHA = ?";
+        String sql = "SELECT 1 FROM USUARIO WHERE usuario = ? AND senha = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setString(1, usuarioNovo.getUsuario());
@@ -231,5 +213,28 @@ public class UsuarioDAO {
             }
         }
     }
-}
+
+    // 🔥 Método auxiliar para mapear resultado para objeto Usuario
+    private Usuario mapearUsuario(ResultSet rs) throws SQLException {
+        Usuario usuario = new Usuario();
+        usuario.setId(rs.getInt("id"));
+        usuario.setUsuario(rs.getString("usuario"));
+        usuario.setSenha(rs.getString("senha"));
+
+        Pessoa pessoa = new Pessoa();
+        pessoa.setId(rs.getInt("pessoa_id"));
+        pessoa.setNome(rs.getString("nome"));
+        pessoa.setGenero(Genero.valueOf(rs.getString("genero")));
+        pessoa.setDataNascimento(rs.getDate("data_nascimento"));
+        pessoa.setCpf(rs.getString("cpf"));
+        pessoa.setEmail(rs.getString("email"));
+        pessoa.setFixo(rs.getString("fixo"));
+        pessoa.setCelular(rs.getString("celular"));
+        pessoa.setWhatsapp(rs.getBoolean("whatsapp"));
+        pessoa.setObservacoes(rs.getString("observacoes"));
+
+        usuario.setPessoa(pessoa);
+
+        return usuario;
+    }
 }

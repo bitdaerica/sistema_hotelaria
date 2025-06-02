@@ -12,14 +12,14 @@ public class Usuario extends Pessoa {
     private String usuario;
     private String senha;
 
+    // Construtores
     public Usuario() {
-
+        super();
     }
 
     public Usuario(Integer id) {
         super(id);
     }
-    
 
     public Usuario(int id, String usuario, String senha) {
         super(id);
@@ -32,12 +32,14 @@ public class Usuario extends Pessoa {
         this.senha = senha;
     }
 
-    public Usuario(Integer id, String nome, String usuario, String senha, Genero genero, Date dataNascimento, String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Endereco endereco) {
+    public Usuario(Integer id, String nome, String usuario, String senha, Genero genero, Date dataNascimento,
+            String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Endereco endereco) {
         super(id, nome, genero, dataNascimento, cpf, email, fixo, celular, whatsapp, observacoes, endereco);
         this.usuario = usuario;
         this.senha = senha;
     }
 
+    // Getters e Setters
     public String getUsuario() {
         return usuario;
     }
@@ -54,9 +56,42 @@ public class Usuario extends Pessoa {
         this.senha = senha;
     }
 
+    /**
+     * Retorna uma instância de Pessoa com os dados herdados do usuário.Útil
+     * para operações que precisam da entidade Pessoa (como o DAO).
+     *
+     * @return
+     */
     public Pessoa getPessoa() {
-        return null;
+        Pessoa pessoa = new Pessoa();
+        pessoa.setId(this.getId());
+        pessoa.setNome(this.getNome());
+        pessoa.setGenero(this.getGenero());
+        pessoa.setDataNascimento(this.getDataNascimento());
+        pessoa.setCpf(this.getCpf());
+        pessoa.setEmail(this.getEmail());
+        pessoa.setFixo(this.getFixo());
+        pessoa.setCelular(this.getCelular());
+        pessoa.setWhatsapp(this.getWhatsapp());
+        pessoa.setObservacoes(this.getObservacoes());
+        pessoa.setEndereco(this.getEndereco());
+        return pessoa;
     }
 
-    
+    public void setPessoa(Pessoa pessoa) {
+        if (pessoa != null) {
+            this.setId(pessoa.getId());
+            this.setNome(pessoa.getNome());
+            this.setGenero(pessoa.getGenero());
+            this.setDataNascimento(pessoa.getDataNascimento());
+            this.setCpf(pessoa.getCpf());
+            this.setEmail(pessoa.getEmail());
+            this.setFixo(pessoa.getFixo());
+            this.setCelular(pessoa.getCelular());
+            this.setWhatsapp(pessoa.getWhatsapp());
+            this.setObservacoes(pessoa.getObservacoes());
+            this.setEndereco(pessoa.getEndereco());
+        }
+
+    }
 }

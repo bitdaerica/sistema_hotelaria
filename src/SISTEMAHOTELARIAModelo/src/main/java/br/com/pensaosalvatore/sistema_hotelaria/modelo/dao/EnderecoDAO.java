@@ -24,6 +24,9 @@ public class EnderecoDAO {
     }
 
     public void inserir(Endereco endereco) throws SQLException {
+        if (endereco == null) {
+            throw new IllegalArgumentException("Endereço não pode ser nulo.");
+        }
         String sql = "INSERT INTO ENDERECO (RUA, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -75,8 +78,7 @@ public class EnderecoDAO {
         List<Endereco> lista = new ArrayList<>();
         String sql = "SELECT * FROM ENDERECO";
 
-        try (PreparedStatement pstm = connection.prepareStatement(sql);
-             ResultSet rs = pstm.executeQuery()) {
+        try (PreparedStatement pstm = connection.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
 
             while (rs.next()) {
                 lista.add(montarEndereco(rs));

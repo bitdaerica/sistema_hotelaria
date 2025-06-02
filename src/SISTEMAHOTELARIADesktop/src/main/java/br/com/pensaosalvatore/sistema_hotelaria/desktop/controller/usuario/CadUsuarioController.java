@@ -69,9 +69,8 @@ public class CadUsuarioController {
         usuario.setWhatsapp(whatsapp);
         usuario.setObservacoes(observacoes);
 
-        try {
-            Connection conexao = Conexao.getConnection();
-            UsuarioDAO usuarioDao = new UsuarioDAO(null);
+        try (Connection conexao = Conexao.getConnection()) {  // try-with-resources para fechar conexão automaticamente
+            UsuarioDAO usuarioDao = new UsuarioDAO(conexao);
             usuarioDao.inserirUsuario(usuario);
             JOptionPane.showMessageDialog(null, "Usuário salvo com sucesso!");
         } catch (SQLException ex) {
