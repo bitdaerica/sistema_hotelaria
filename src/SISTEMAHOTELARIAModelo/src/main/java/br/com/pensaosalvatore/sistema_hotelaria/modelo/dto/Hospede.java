@@ -1,10 +1,10 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -14,30 +14,26 @@ public class Hospede extends Pessoa {
 
     private String nacionalidade;
     private String profissao;
-    private Date dataCadastro;
+    private LocalDate dataCadastro;
 
     public Hospede() {
-
+        super();
     }
 
-    public Hospede(String nacionalidade, String profissao, Date dataCadastro, Integer id, String nome, String genero, Date dataNascimento, String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Endereco endereco) {
-        super(id, nome, genero, dataNascimento, cpf, email, fixo, celular, whatsapp, observacoes, endereco);
-        this.nacionalidade = nacionalidade;
-        this.profissao = profissao;
-        this.dataCadastro = dataCadastro;
+    public Hospede(Integer id) {
+        super(id);
     }
 
-    public Hospede(Integer id, String nome, String nacionalidade, String profissao, String dataCadastro, String genero, String cpf, String dataNascimento, String fixo, String observacoes, String email, String celular, Boolean whatsapp, Endereco endereco) {
+    public Hospede(Integer id, String nome, String nacionalidade, String profissao, String dataCadastro,
+            String genero, String cpf, String dataNascimento, String fixo, String observacoes,
+            String email, String celular, Boolean whatsapp, Endereco endereco) {
         super(id, nome, genero, cpf, email, celular, whatsapp, endereco);
         this.nacionalidade = nacionalidade;
         this.profissao = profissao;
-        try {
-            this.dataCadastro = new SimpleDateFormat("dd/MM/yyyy").parse(dataCadastro);
-        } catch (ParseException ex) {
-            Logger.getLogger(Reserva.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        this.dataCadastro = LocalDate.parse(dataCadastro, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
+
+   
 
     public String getNacionalidade() {
         return nacionalidade;
@@ -55,11 +51,31 @@ public class Hospede extends Pessoa {
         this.profissao = profissao;
     }
 
-    public Date getDataCadastro() {
+    public LocalDate getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
+    public void setDataCadastro(LocalDate dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+
+    // 🔸 toString() opcional, para debug
+    @Override
+    public String toString() {
+        return "Hospede{"
+                + "id=" + getId()
+                + ", nome='" + getNome() + '\''
+                + ", genero='" + getGenero() + '\''
+                + ", dataNascimento=" + getDataNascimento()
+                + ", cpf='" + getCpf() + '\''
+                + ", email='" + getEmail() + '\''
+                + ", fixo='" + getFixo() + '\''
+                + ", celular='" + getCelular() + '\''
+                + ", whatsapp=" + getWhatsapp()
+                + ", observacoes='" + getObservacoes() + '\''
+                + ", nacionalidade='" + nacionalidade + '\''
+                + ", profissao='" + profissao + '\''
+                + ", dataCadastro=" + dataCadastro
+                + '}';
     }
 }

@@ -1,6 +1,5 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Estado;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Endereco;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,7 +35,7 @@ public class EnderecoDAO {
             pstm.setString(3, endereco.getComplemento());
             pstm.setString(4, endereco.getBairro());
             pstm.setString(5, endereco.getCidade());
-            pstm.setString(6, endereco.getEstado() != null ? endereco.getEstado().name() : null);
+            pstm.setString(6, endereco.getEstado());
             pstm.setString(7, endereco.getCep());
 
             int affectedRows = pstm.executeUpdate();
@@ -63,7 +62,7 @@ public class EnderecoDAO {
             pstm.setString(3, endereco.getComplemento());
             pstm.setString(4, endereco.getBairro());
             pstm.setString(5, endereco.getCidade());
-            pstm.setString(6, endereco.getEstado() != null ? endereco.getEstado().name() : null);
+            pstm.setString(6, endereco.getEstado());
             pstm.setString(7, endereco.getCep());
             pstm.setInt(8, endereco.getId());
 
@@ -126,14 +125,10 @@ public class EnderecoDAO {
         endereco.setComplemento(rs.getString("complemento"));
         endereco.setBairro(rs.getString("bairro"));
         endereco.setCidade(rs.getString("cidade"));
+        endereco.setEstado(rs.getString("estado"));
         endereco.setCep(rs.getString("cep"));
 
-        String estadoStr = rs.getString("estado");
-        if (estadoStr != null) {
-            endereco.setEstado(Estado.valueOf(estadoStr));
-        } else {
-            endereco.setEstado(null);
-        }
+        
 
         return endereco;
     }

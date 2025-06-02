@@ -1,6 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -31,7 +31,7 @@ public class Usuario extends Pessoa {
         this.senha = senha;
     }
 
-    public Usuario(Integer id, String nome, String usuario, String senha, String genero, Date dataNascimento,
+    public Usuario(Integer id, String nome, String usuario, String senha, String genero, LocalDate dataNascimento,
             String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Endereco endereco) {
         super(id, nome, genero, dataNascimento, cpf, email, fixo, celular, whatsapp, observacoes, endereco);
         this.usuario = usuario;
@@ -57,42 +57,5 @@ public class Usuario extends Pessoa {
     
     
 
-    /**
-     * Retorna uma instância de Pessoa com os dados herdados do usuário.Útil
-     * para operações que precisam da entidade Pessoa (como o DAO).
-     *
-     * @return
-     */
-    public Pessoa getPessoa() {
-        Pessoa pessoa = new Pessoa();
-        pessoa.setId(this.getId());
-        pessoa.setNome(this.getNome());
-        pessoa.setGenero(this.getGenero());
-        pessoa.setDataNascimento(this.getDataNascimento());
-        pessoa.setCpf(this.getCpf());
-        pessoa.setEmail(this.getEmail());
-        pessoa.setFixo(this.getFixo());
-        pessoa.setCelular(this.getCelular());
-        pessoa.setWhatsapp(this.getWhatsapp());
-        pessoa.setObservacoes(this.getObservacoes());
-        pessoa.setEndereco(this.getEndereco());
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        if (pessoa != null) {
-            this.setId(pessoa.getId());
-            this.setNome(pessoa.getNome());
-            this.setGenero(pessoa.getGenero());
-            this.setDataNascimento(pessoa.getDataNascimento());
-            this.setCpf(pessoa.getCpf());
-            this.setEmail(pessoa.getEmail());
-            this.setFixo(pessoa.getFixo());
-            this.setCelular(pessoa.getCelular());
-            this.setWhatsapp(pessoa.getWhatsapp());
-            this.setObservacoes(pessoa.getObservacoes());
-            this.setEndereco(pessoa.getEndereco());
-        }
-
-    }
+    
 }

@@ -3,10 +3,10 @@ package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Endereco;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Pessoa;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,23 +25,29 @@ public class PessoaDAO {
         this.enderecoDAO = enderecoDAO;
     }
 
-    public void inserirPessoa(Pessoa p) throws SQLException {
+    public int inserirPessoa(Pessoa p) throws SQLException {
         String sql = "INSERT INTO PESSOA (nome, genero, datanascimento, cpf, email, fixo, celular, whatsapp, observacoes, endereco_id) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement pstm = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             preencherStatement(pstm, p);
             pstm.executeUpdate();
 
             try (ResultSet rs = pstm.getGeneratedKeys()) {
                 if (rs.next()) {
-                    p.setId(rs.getInt(1));
+                    return rs.getInt(1); // Retorna o ID gerado
+                } else {
+                    throw new SQLException("Falha ao obter o ID da pessoa.");
                 }
             }
         }
     }
 
     public void alterarPessoa(Pessoa p) throws SQLException {
+        if (p.getId() <= 0) {
+            throw new IllegalArgumentException("ID inválido para atualização.");
+        }
+
         String sql = "UPDATE PESSOA SET nome = ?, genero = ?, datanascimento = ?, cpf = ?, email = ?, fixo = ?, celular = ?, "
                 + "whatsapp = ?, observacoes = ?, endereco_id = ? WHERE id = ?";
 
@@ -71,8 +77,8 @@ public class PessoaDAO {
         String sql = "SELECT * FROM PESSOA";
         List<Pessoa> lista = new ArrayList<>();
 
-        try (PreparedStatement pstm = connection.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
-
+        try (PreparedStatement pstm = connection.prepareStatement(sql);
+             ResultSet rs = pstm.executeQuery()) {
             while (rs.next()) {
                 lista.add(mapearPessoa(rs));
             }
@@ -81,11 +87,11 @@ public class PessoaDAO {
     }
 
     public List<Pessoa> listarPorNome(String nome) throws SQLException {
-        String sql = "SELECT * FROM PESSOA WHERE NOME LIKE ?";
+        String sql = "SELECT * FROM PESSOA WHERE LOWER(NOME) LIKE ?";
         List<Pessoa> lista = new ArrayList<>();
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-            pstm.setString(1, "%" + nome + "%");
+            pstm.setString(1, "%" + nome.toLowerCase() + "%");
 
             try (ResultSet rs = pstm.executeQuery()) {
                 while (rs.next()) {
@@ -111,9 +117,9 @@ public class PessoaDAO {
         pstm.setString(2, p.getGenero());
 
         if (p.getDataNascimento() != null) {
-            pstm.setDate(3, new java.sql.Date(p.getDataNascimento().getTime()));
+            pstm.setDate(3, Date.valueOf(p.getDataNascimento()));
         } else {
-            pstm.setNull(3, Types.DATE);
+            pstm.setNull(3, Types.DATE);  // Corrigido para evitar exceção
         }
 
         pstm.setString(4, p.getCpf());
@@ -142,7 +148,14 @@ public class PessoaDAO {
         pessoa.setId(rs.getInt("id"));
         pessoa.setNome(rs.getString("nome"));
         pessoa.setGenero(rs.getString("genero"));
-        pessoa.setDataNascimento(rs.getDate("datanascimento"));
+
+        Date dataSQL = rs.getDate("datanascimento");
+        if (dataSQL != null) {
+            pessoa.setDataNascimento(dataSQL.toLocalDate());
+        } else {
+            pessoa.setDataNascimento(null);
+        }
+
         pessoa.setCpf(rs.getString("cpf"));
         pessoa.setEmail(rs.getString("email"));
         pessoa.setFixo(rs.getString("fixo"));

@@ -1,7 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -12,7 +11,7 @@ public class Pessoa {
     private Integer id;
     private String nome;
     private String genero;
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
     private String cpf;
     private String email;
     private String fixo;
@@ -28,16 +27,12 @@ public class Pessoa {
         this.id = id;
     }
 
-    
-    
     public Pessoa(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
-    
-    
 
-    public Pessoa(Integer id, String nome, String genero, Date dataNascimento, String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Endereco endereco) {
+    public Pessoa(Integer id, String nome, String genero, LocalDate dataNascimento, String cpf, String email, String fixo, String celular, boolean whatsapp, String observacoes, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.genero = genero;
@@ -61,8 +56,6 @@ public class Pessoa {
         this.whatsapp = whatsapp;
         this.endereco = endereco;
     }
-
-    
 
     public Integer getId() {
         return id;
@@ -88,11 +81,11 @@ public class Pessoa {
         this.genero = genero;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

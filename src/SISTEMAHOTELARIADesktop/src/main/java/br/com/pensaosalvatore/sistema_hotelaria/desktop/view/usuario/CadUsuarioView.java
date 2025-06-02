@@ -1,12 +1,10 @@
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.usuario;
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.usuario.CadUsuarioController;
-import java.sql.SQLException;
-import java.util.List;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
@@ -19,14 +17,17 @@ import javax.swing.JTextField;
 public class CadUsuarioView extends javax.swing.JFrame {
 
     private final CadUsuarioController controller;
+    private Usuario usuario;
+    private UsuarioDAO usuarioDAO;
 
     /**
      * Creates new form CadUsuarioView
      */
     public CadUsuarioView() {
         initComponents();
-        controller = new CadUsuarioController(this);
-        
+        controller = new CadUsuarioController(this, usuarioDAO);
+        usuario = new Usuario();
+
     }
 
     /**
@@ -325,6 +326,11 @@ public class CadUsuarioView extends javax.swing.JFrame {
         bntNovohospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
         bntNovohospede.setText("Novo Usuário");
         bntNovohospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bntNovohospede.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntNovohospedeActionPerformed(evt);
+            }
+        });
         getContentPane().add(bntNovohospede, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 580, 130, 40));
 
         btnSalvar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -342,6 +348,11 @@ public class CadUsuarioView extends javax.swing.JFrame {
         bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
         bntCancelar.setText("Cancelar");
         bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bntCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntCancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 580, 110, 40));
 
         txtEstado.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -408,13 +419,22 @@ public class CadUsuarioView extends javax.swing.JFrame {
     }//GEN-LAST:event_fmtCepActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        controller.salvaUsuario();
+        controller.salvar();
         //controller.mostrarTela();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumeroActionPerformed
+
+    private void bntNovohospedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNovohospedeActionPerformed
+        controller.novo();
+        
+    }//GEN-LAST:event_bntNovohospedeActionPerformed
+
+    private void bntCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCancelarActionPerformed
+        controller.cancelar();
+    }//GEN-LAST:event_bntCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -498,7 +518,6 @@ public class CadUsuarioView extends javax.swing.JFrame {
     public void setTxtGenero(JTextField txtGenero) {
         this.txtGenero = txtGenero;
     }
-
 
     public JFormattedTextField getFmtCelular() {
         return fmtCelular;
@@ -664,7 +683,5 @@ public class CadUsuarioView extends javax.swing.JFrame {
     private javax.swing.JTextField txtRua;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
-
-   
 
 }
