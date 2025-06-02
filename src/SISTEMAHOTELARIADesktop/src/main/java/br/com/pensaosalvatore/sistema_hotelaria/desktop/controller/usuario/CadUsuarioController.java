@@ -1,9 +1,9 @@
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.usuario;
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.usuario.CadUsuarioView;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.Conexao;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Conexao;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.UsuarioDTO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -24,51 +24,52 @@ public class CadUsuarioController {
     }
 
     public void salvaUsuario() {
-            // Pegando os dados da view
-    String nome = view.getTxtNome().getText();
-    String usuarioStr = view.getTxtUsuario().getText();
-    String senha = new String(view.getSenha().getPassword());
-    String email = view.getTxtEmail2().getText();
-    String cpf = view.getFmtCpf().getText();
-    String celular = view.getFmtCelular().getText();
-    String fixo = view.getFmtFixo().getText();
-    String dataNascimento = view.getFmtDatanascimento().getText();
-    String genero = view.getCmbGenero1().getSelectedItem().toString();
-    boolean whatsapp = view.getBtnWhatsapp().isSelected();
-    String observacoes = view.getTxtObservacoes().getText();
+        // Pegando os dados da view
+        String nome = view.getTxtNome().getText();
+        String usuarioStr = view.getTxtUsuario().getText();
+        String senha = new String(view.getSenha().getPassword());
+        String email = view.getTxtEmail2().getText();
+        String cpf = view.getFmtCpf().getText();
+        String celular = view.getFmtCelular().getText();
+        String fixo = view.getFmtFixo().getText();
+        String dataNascimento = view.getFmtDatanascimento().getText();
+        String genero = view.getCmbGenero1().getSelectedItem().toString();
+        boolean whatsapp = view.getBtnWhatsapp().isSelected();
+        String observacoes = view.getTxtObservacoes().getText();
 
-    String cep = view.getFmtCep().getText();
-    String rua = view.getTxtRua().getText();
-    String bairro = view.getTxtBairro().getText();
-    String cidade = view.getTxtCidade().getText();
-    String estado = view.getCmbEstado().getSelectedItem().toString();
-    String complemento = view.getTxtComplemento().getText();
+        String cep = view.getFmtCep().getText();
+        String rua = view.getTxtRua().getText();
+        String numero = view.getTxtNumero().getText();
+        String bairro = view.getTxtBairro().getText();
+        String cidade = view.getTxtCidade().getText();
+        String estado = view.getCmbEstado().getSelectedItem().toString();
+        String complemento = view.getTxtComplemento().getText();
 
-    // Criando o objeto DTO
-    UsuarioDTO usuarioDTO = new UsuarioDTO();
-    usuarioDTO.setNome(nome);
-    usuarioDTO.setUsuario(usuarioStr);
-    usuarioDTO.setSenha(senha);
-    usuarioDTO.setEmail(email);
-    usuarioDTO.setCpf(cpf);
-    usuarioDTO.setCelular(celular);
-    usuarioDTO.setFixo(fixo);
-    usuarioDTO.setWhatsapp(whatsapp);
-    usuarioDTO.setObservacoes(observacoes);
-    
+        // Criando o objeto DTO
+        Usuario usuario = new Usuario();
+        usuario.setNome(nome);
+        usuario.setUsuario(usuarioStr);
+        usuario.setSenha(senha);
+        usuario.setEmail(email);
+        usuario.setCpf(cpf);
+        usuario.setCelular(celular);
+        usuario.setFixo(fixo);
+        usuario.setWhatsapp(whatsapp);
+        usuario.setObservacoes(observacoes);
 
-    // Salvando no banco
-    try {
-        Connection conn = new Conexao().conectaBD();
-        UsuarioDAO usuarioDao = new UsuarioDAO((Conexao) conn);
-        usuarioDao.inserirUsuario(usuarioDTO);
+        // Salvando no banco
+        try {
 
-        JOptionPane.showMessageDialog(null, "Usuário salvo com sucesso!");
-    } catch (SQLException ex) {
-        Logger.getLogger(CadUsuarioView.class.getName()).log(Level.SEVERE, null, ex);
-        JOptionPane.showMessageDialog(null, "Erro ao salvar usuário: " + ex.getMessage());
+            Connection conexao = Conexao.getConnection();
+            UsuarioDAO usuarioDao = new UsuarioDAO(null);
+            usuarioDao.inserirUsuario(usuario);
+
+            JOptionPane.showMessageDialog(null, "Usuário salvo com sucesso!");
+        } catch (SQLException ex) {
+            Logger.getLogger(CadUsuarioView.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro ao salvar usuário: " + ex.getMessage());
+        }
     }
-}
 
     public void limparCampos() {
         view.getTxtNome().setText("");
@@ -83,10 +84,11 @@ public class CadUsuarioController {
         view.getBtnWhatsapp().setSelected(false);
         view.getTxtObservacoes().setText("");
 
-       view.getFmtCep().setText("");
+        view.getFmtCep().setText("");
         view.getTxtRua().setText("");
         view.getTxtBairro().setText("");
         view.getTxtCidade().setText("");
+        view.getTxtNumero().setText("");
         view.getCmbEstado().setSelectedIndex(0);
         view.getTxtComplemento().setText("");
     }
@@ -94,6 +96,11 @@ public class CadUsuarioController {
     public void cancelar() {
         limparCampos();
         JOptionPane.showMessageDialog(null, "Operação cancelada.");
+    }
+
+    public void mostrarTela() {
+        CadUsuarioView mostrar = new CadUsuarioView();
+        mostrar.setVisible(true);
     }
 
 }

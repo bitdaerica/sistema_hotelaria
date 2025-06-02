@@ -1,6 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.ReservaDTO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Reserva;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,18 +15,16 @@ import java.util.List;
  */
 public class ReservaDAO {
 
-    private final Conexao connectionFactory = new Conexao();
+    private final Connection connection;
 
-    public void inserirReserva(ReservaDTO r) throws SQLException {
-        Connection conn = null;
-        PreparedStatement pstm = null;
+    public ReservaDAO(Connection connection) {
+        this.connection = connection;
+    }
 
-        try {
-            conn = connectionFactory.conectaBD();
+    public void inserirReserva(Reserva r) throws SQLException {
+        String sql = "INSERT INTO RESERVA (HOSPEDE_ID, QUARTO_ID, DATA_ENTRADA, DATA_SAIDA, VALOR, OBSERVACOES) VALUES (?, ?, ?, ?, ?, ?)";
 
-            String sql = "INSERT INTO RESERVA (HOSPEDE_ID, QUARTO_ID, DATA_ENTRADA, DATA_SAIDA, VALOR, OBSERVACOES) VALUES (?, ?, ?, ?, ?, ?)";
-            pstm = conn.prepareStatement(sql);
-
+        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, r.getHospede().getId());
             pstm.setInt(2, r.getQuarto().getId());
             pstm.setDate(3, new Date(r.getDatadeentrada().getTime()));
@@ -35,27 +33,13 @@ public class ReservaDAO {
             pstm.setString(6, r.getObservacoes());
 
             pstm.executeUpdate();
-
-        } finally {
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
         }
     }
 
-    public void alterarReserva(ReservaDTO r) throws SQLException {
-        Connection conn = null;
-        PreparedStatement pstm = null;
+    public void alterarReserva(Reserva r) throws SQLException {
+        String sql = "UPDATE RESERVA SET HOSPEDE_ID = ?, QUARTO_ID = ?, DATA_ENTRADA = ?, DATA_SAIDA = ?, VALOR = ?, OBSERVACOES = ? WHERE ID = ?";
 
-        try {
-            conn = connectionFactory.conectaBD();
-
-            String sql = "UPDATE RESERVA SET HOSPEDE_ID = ?, QUARTO_ID = ?, DATA_ENTRADA = ?, DATA_SAIDA = ?, VALOR = ?, OBSERVACOES = ? WHERE ID = ?";
-            pstm = conn.prepareStatement(sql);
-
+        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, r.getHospede().getId());
             pstm.setInt(2, r.getQuarto().getId());
             pstm.setDate(3, new Date(r.getDatadeentrada().getTime()));
@@ -65,115 +49,69 @@ public class ReservaDAO {
             pstm.setInt(7, r.getId());
 
             pstm.executeUpdate();
-
-        } finally {
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
         }
     }
 
-    public ReservaDTO selecionarPorId(int id) throws SQLException {
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+    public Reserva selecionarPorId(int id) throws SQLException {
+        String sql = "SELECT * FROM RESERVA WHERE ID = ?";
 
-        ReservaDTO reserva = null;
-
-        try {
-            conn = connectionFactory.conectaBD();
-
-            String sql = "SELECT * FROM RESERVA WHERE ID = ?";
-            pstm = conn.prepareStatement(sql);
+        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, id);
 
-            rs = pstm.executeQuery();
-
-            if (rs.next()) {
-                reserva = new ReservaDTO();
-                reserva.setId(rs.getInt("ID"));
-
-                // Hospede e Quarto são objetos, então você precisa buscar eles pelos DAOs
-                HospedeDAO hospedeDAO = new HospedeDAO();
-                QuartoDAO quartoDAO = new QuartoDAO();
-
-                reserva.setHospede(hospedeDAO.selecionarPorId(rs.getInt("HOSPEDE_ID")));
-                reserva.setQuarto(quartoDAO.selecionarPorId(rs.getInt("QUARTO_ID")));
-
-                reserva.setDatadeentrada(rs.getDate("DATA_ENTRADA"));
-                reserva.setDatadesaida(rs.getDate("DATA_SAIDA"));
-                reserva.setValor(rs.getBigDecimal("VALOR"));
-                reserva.setObservacoes(rs.getString("OBSERVACOES"));
-            }
-
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
+            try (ResultSet rs = pstm.executeQuery()) {
+                if (rs.next()) {
+                    return montarReserva(rs);
+                }
             }
         }
-        return reserva;
+
+        return null;
     }
 
-    public List<ReservaDTO> listarTodas() throws SQLException {
-        List<ReservaDTO> lista = new ArrayList<>();
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+    public List<Reserva> listarTodas() throws SQLException {
+        List<Reserva> lista = new ArrayList<>();
+        String sql = "SELECT * FROM RESERVA";
 
-        try {
-            conn = connectionFactory.conectaBD();
-
-            String sql = "SELECT * FROM RESERVA";
-            pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
-
-            HospedeDAO hospedeDAO = new HospedeDAO();
-            QuartoDAO quartoDAO = new QuartoDAO();
+        try (PreparedStatement pstm = connection.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
 
             while (rs.next()) {
-                ReservaDTO reserva = new ReservaDTO();
-
-                reserva.setId(rs.getInt("ID"));
-                reserva.setHospede(hospedeDAO.selecionarPorId(rs.getInt("HOSPEDE_ID")));
-                reserva.setQuarto(quartoDAO.selecionarPorId(rs.getInt("QUARTO_ID")));
-                reserva.setDatadeentrada(rs.getDate("DATA_ENTRADA"));
-                reserva.setDatadesaida(rs.getDate("DATA_SAIDA"));
-                reserva.setValor(rs.getBigDecimal("VALOR"));
-                reserva.setObservacoes(rs.getString("OBSERVACOES"));
-
-                lista.add(reserva);
-            }
-
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
+                lista.add(montarReserva(rs));
             }
         }
+
         return lista;
     }
 
     public void excluirReserva(int id) throws SQLException {
         String sql = "DELETE FROM RESERVA WHERE ID = ?";
 
-        try (Connection conn = connectionFactory.conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql)) {
+        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, id);
-            pstm.executeUpdate();
-
+            int linhasAfetadas = pstm.executeUpdate();
+            if (linhasAfetadas == 0) {
+                throw new SQLException("Reserva com ID " + id + " não encontrada.");
+            }
         }
+    }
+
+    // 🔥 Método privado para montar a Reserva a partir do ResultSet
+    private Reserva montarReserva(ResultSet rs) throws SQLException {
+        Reserva reserva = new Reserva();
+
+        reserva.setId(rs.getInt("ID"));
+
+        // Carregar Hospede e Quarto usando os respectivos DAOs, passando a mesma conexão
+        HospedeDAO hospedeDAO = new HospedeDAO(connection);
+        QuartoDAO quartoDAO = new QuartoDAO(connection);
+
+        reserva.setHospede(hospedeDAO.selecionarPorId(rs.getInt("HOSPEDE_ID")));
+        reserva.setQuarto(quartoDAO.selecionarPorId(rs.getInt("QUARTO_ID")));
+
+        reserva.setDatadeentrada(rs.getDate("DATA_ENTRADA"));
+        reserva.setDatadesaida(rs.getDate("DATA_SAIDA"));
+        reserva.setValor(rs.getBigDecimal("VALOR"));
+        reserva.setObservacoes(rs.getString("OBSERVACOES"));
+
+        return reserva;
     }
 }

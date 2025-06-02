@@ -1,8 +1,8 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.EnderecoDTO;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.PessoaDTO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Endereco;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Pessoa;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,306 +18,160 @@ import java.util.List;
  */
 public class PessoaDAO {
 
-    private final Conexao connectionFactory = new Conexao();
+    private final Connection connection;
     private final EnderecoDAO enderecoDAO;
 
-    public PessoaDAO() {
-        this.enderecoDAO = new EnderecoDAO();
+    public PessoaDAO(Connection connection, EnderecoDAO enderecoDAO) {
+        this.connection = connection;
+        this.enderecoDAO = enderecoDAO;
     }
 
-    public void inserirPessoa(PessoaDTO p) throws SQLException {
-        Connection conn = null;
-        PreparedStatement pstm = null;
+    public void inserirPessoa(Pessoa p) throws SQLException {
+        String sql = "INSERT INTO PESSOA (nome, genero, datanascimento, cpf, email, fixo, celular, whatsapp, observacoes, endereco_id) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try {
-            conn = connectionFactory.conectaBD();
-            conn.setAutoCommit(false);
+        try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-            String sqlPessoa = "INSERT INTO PESSOA (nome, genero, datanascimento, cpf, email, fixo, celular, whatsapp,"
-                    + " observacoes, endereco_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            pstm = conn.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS);
-
-            pstm.setString(1, p.getNome());
-            pstm.setString(2, p.getGenero() != null ? p.getGenero().toString() : null);
-            if (p.getDataNascimento() != null) {
-                pstm.setDate(3, new java.sql.Date(p.getDataNascimento().getTime()));
-            } else {
-                pstm.setNull(3, Types.DATE);
-            }
-            pstm.setString(4, p.getCpf());
-            pstm.setString(5, p.getEmail());
-            pstm.setString(6, p.getFixo());
-            pstm.setString(7, p.getCelular());
-            if (p.getWhatsapp() != null) {
-                pstm.setBoolean(8, p.getWhatsapp());
-            } else {
-                pstm.setNull(8, Types.BOOLEAN);
-            }
-            pstm.setString(9, p.getObservacoes());
-            if (p.getEndereco() != null) {
-                pstm.setInt(10, p.getEndereco().getId());
-            } else {
-                pstm.setNull(10, Types.INTEGER);
-            }
+            preencherStatement(pstm, p);
 
             pstm.executeUpdate();
-
-            conn.commit();
 
             try (ResultSet rs = pstm.getGeneratedKeys()) {
-                int idPessoa = -1;
                 if (rs.next()) {
-                    idPessoa = rs.getInt(1); // 1 representa a primeira coluna do resultado
-                    p.setId(idPessoa);
+                    p.setId(rs.getInt(1));
                 }
             }
 
-        } catch (SQLException e) {
-            if (conn != null) {
-                conn.rollback();
-            }
-            throw e;
-        } finally {
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
         }
     }
 
-    public void alterarPessoa(PessoaDTO p) throws SQLException {
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        try {
-            conn = connectionFactory.conectaBD();
-            conn.setAutoCommit(false);
+    public void alterarPessoa(Pessoa p) throws SQLException {
+        String sql = "UPDATE PESSOA SET nome = ?, genero = ?, datanascimento = ?, cpf = ?, email = ?, fixo = ?, celular = ?, "
+                + "whatsapp = ?, observacoes = ?, endereco_id = ? WHERE id = ?";
 
-            String sqlPessoa = "UPDATE PESSOA SET nome = ?, genero = ?, datanascimento = ?, cpf = ?,"
-                    + " email = ?, fixo = ?, celular = ?, whatsapp = ?, observacoes = ?, endereco_id = ? WHERE id = ?";
-            pstm = conn.prepareStatement(sqlPessoa);
+        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 
-            pstm.setString(1, p.getNome());
-            pstm.setString(2, p.getGenero() != null ? p.getGenero().toString() : null);
-            if (p.getDataNascimento() != null) {
-                pstm.setDate(3, new java.sql.Date(p.getDataNascimento().getTime()));
-            } else {
-                pstm.setNull(3, Types.DATE);
-            }
-            pstm.setString(4, p.getCpf());
-            pstm.setString(5, p.getEmail());
-            pstm.setString(6, p.getFixo());
-            pstm.setString(7, p.getCelular());
-            if (p.getWhatsapp() != null) {
-                pstm.setBoolean(8, p.getWhatsapp());
-            } else {
-                pstm.setNull(8, Types.BOOLEAN);
-            }
-            pstm.setString(9, p.getObservacoes());
-            if (p.getEndereco() != null) {
-                pstm.setInt(10, p.getEndereco().getId());
-            } else {
-                pstm.setNull(10, Types.INTEGER);
-            }
+            preencherStatement(pstm, p);
+            pstm.setInt(11, p.getId());
 
             pstm.executeUpdate();
-
-            conn.commit();
-
-        } catch (SQLException e) {
-            if (conn != null) {
-                conn.rollback();
-            }
-            throw e;
-        } finally {
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
         }
     }
 
-    public PessoaDTO selecionarPorId(int id) throws SQLException {
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        PessoaDTO pessoa = null;
+    public Pessoa selecionarPorId(int id) throws SQLException {
+        String sql = "SELECT * FROM PESSOA WHERE ID = ?";
+        Pessoa pessoa = null;
 
-        try {
-            conn = connectionFactory.conectaBD();
-            String sql = "SELECT * FROM PESSOA WHERE ID = ?";
-            pstm = conn.prepareStatement(sql);
+        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, id);
-            rs = pstm.executeQuery();
-
-            if (rs.next()) {
-                pessoa = new PessoaDTO();
-                pessoa.setId(rs.getInt("id"));
-                pessoa.setNome(rs.getString("nome"));
-
-                String generoStr = rs.getString("genero");
-                pessoa.setGenero(generoStr != null ? Genero.valueOf(generoStr) : null);
-
-                pessoa.setDataNascimento(rs.getDate("datanascimento"));
-                pessoa.setCpf(rs.getString("cpf"));
-                pessoa.setEmail(rs.getString("email"));
-                pessoa.setFixo(rs.getString("fixo"));
-                pessoa.setCelular(rs.getString("celular"));
-                pessoa.setWhatsapp(rs.getObject("whatsapp") != null ? rs.getBoolean("whatsapp") : null);
-                pessoa.setObservacoes(rs.getString("observacoes"));
-
-                int enderecoId = rs.getInt("endereco_id");
-                if (!rs.wasNull()) {
-                    EnderecoDTO endereco = enderecoDAO.buscarPorId(enderecoId);
-                    pessoa.setEndereco(endereco);
+            try (ResultSet rs = pstm.executeQuery()) {
+                if (rs.next()) {
+                    pessoa = mapearPessoa(rs);
                 }
-            }
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
             }
         }
         return pessoa;
     }
 
-    public List<PessoaDTO> listarTodos() throws SQLException {
-        List<PessoaDTO> lista = new ArrayList<>();
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+    public List<Pessoa> listarTodos() throws SQLException {
+        String sql = "SELECT * FROM PESSOA";
+        List<Pessoa> lista = new ArrayList<>();
 
-        try {
-            conn = connectionFactory.conectaBD();
-            String sql = "SELECT * FROM PESSOA";
-            pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
+        try (PreparedStatement pstm = connection.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
 
             while (rs.next()) {
-                PessoaDTO pessoa = new PessoaDTO();
-                pessoa.setId(rs.getInt("id"));
-                pessoa.setNome(rs.getString("nome"));
-
-                String generoStr = rs.getString("genero");
-                pessoa.setGenero(generoStr != null ? Genero.valueOf(generoStr) : null);
-
-                pessoa.setDataNascimento(rs.getDate("datanascimento"));
-                pessoa.setCpf(rs.getString("cpf"));
-                pessoa.setEmail(rs.getString("email"));
-                pessoa.setFixo(rs.getString("fixo"));
-                pessoa.setCelular(rs.getString("celular"));
-                pessoa.setWhatsapp(rs.getObject("whatsapp") != null ? rs.getBoolean("whatsapp") : null);
-                pessoa.setObservacoes(rs.getString("observacoes"));
-
-                int enderecoId = rs.getInt("endereco_id");
-                if (!rs.wasNull()) {
-                    EnderecoDTO endereco = enderecoDAO.buscarPorId(enderecoId);
-                    pessoa.setEndereco(endereco);
-                }
-
-                lista.add(pessoa);
-            }
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
+                lista.add(mapearPessoa(rs));
             }
         }
+
         return lista;
     }
 
-    public List<PessoaDTO> listarPorNome(String nome) throws SQLException {
-        List< PessoaDTO> lista = new ArrayList<>();
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+    public List<Pessoa> listarPorNome(String nome) throws SQLException {
+        String sql = "SELECT * FROM PESSOA WHERE NOME LIKE ?";
+        List<Pessoa> lista = new ArrayList<>();
 
-        try {
-            conn = connectionFactory.conectaBD();
-
-            String sql = "SELECT * FROM PESSOA WHERE NOME LIKE ?";
-            pstm = conn.prepareStatement(sql);
+        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setString(1, "%" + nome + "%");
-            rs = pstm.executeQuery();
 
-            while (rs.next()) {
-                PessoaDTO pessoa = new PessoaDTO();
-                pessoa.setId(rs.getInt("id"));
-                pessoa.setNome(rs.getString("nome"));
-
-                String generoStr = rs.getString("genero");
-                pessoa.setGenero(generoStr != null ? Genero.valueOf(generoStr) : null);
-
-                pessoa.setDataNascimento(rs.getDate("datanascimento"));
-                pessoa.setCpf(rs.getString("cpf"));
-                pessoa.setEmail(rs.getString("email"));
-                pessoa.setFixo(rs.getString("fixo"));
-                pessoa.setCelular(rs.getString("celular"));
-                pessoa.setWhatsapp(rs.getObject("whatsapp") != null ? rs.getBoolean("whatsapp") : null);
-                pessoa.setObservacoes(rs.getString("observacoes"));
-
-                int enderecoId = rs.getInt("endereco_id");
-                if (!rs.wasNull()) {
-                    EnderecoDTO endereco = enderecoDAO.buscarPorId(enderecoId);
-                    pessoa.setEndereco(endereco);
+            try (ResultSet rs = pstm.executeQuery()) {
+                while (rs.next()) {
+                    lista.add(mapearPessoa(rs));
                 }
-
-                lista.add(pessoa);
-            }
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
             }
         }
-        return lista;
 
+        return lista;
     }
 
     public void excluirPessoa(int id) throws SQLException {
-        Connection conn = null;
-        PreparedStatement pstm = null;
+        String sql = "DELETE FROM PESSOA WHERE ID = ?";
 
-        try {
-            conn = connectionFactory.conectaBD();
-            conn.setAutoCommit(false);
-
-            String sql = "DELETE FROM PESSOA WHERE Id = ?";
-            pstm = conn.prepareStatement(sql);
+        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, id);
             pstm.executeUpdate();
-
-            conn.commit();
-        } catch (SQLException e) {
-            if (conn != null) {
-                conn.rollback();
-            }
-            throw e;
-        } finally {
-            if (pstm != null) {
-                pstm.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
         }
+    }
+
+    // ----------------------
+    // Métodos auxiliares
+    // ----------------------
+    private void preencherStatement(PreparedStatement pstm, Pessoa p) throws SQLException {
+        pstm.setString(1, p.getNome());
+        pstm.setString(2, p.getGenero() != null ? p.getGenero().toString() : null);
+
+        if (p.getDataNascimento() != null) {
+            pstm.setDate(3, new java.sql.Date(p.getDataNascimento().getTime()));
+        } else {
+            pstm.setNull(3, Types.DATE);
+        }
+
+        pstm.setString(4, p.getCpf());
+        pstm.setString(5, p.getEmail());
+        pstm.setString(6, p.getFixo());
+        pstm.setString(7, p.getCelular());
+
+        if (p.getWhatsapp() != null) {
+            pstm.setBoolean(8, p.getWhatsapp());
+        } else {
+            pstm.setNull(8, Types.BOOLEAN);
+        }
+
+        pstm.setString(9, p.getObservacoes());
+
+        if (p.getEndereco() != null) {
+            pstm.setInt(10, p.getEndereco().getId());
+        } else {
+            pstm.setNull(10, Types.INTEGER);
+        }
+    }
+
+    private Pessoa mapearPessoa(ResultSet rs) throws SQLException {
+        Pessoa pessoa = new Pessoa();
+
+        pessoa.setId(rs.getInt("id"));
+        pessoa.setNome(rs.getString("nome"));
+
+        String generoStr = rs.getString("genero");
+        pessoa.setGenero(generoStr != null ? Genero.valueOf(generoStr) : null);
+
+        pessoa.setDataNascimento(rs.getDate("datanascimento"));
+        pessoa.setCpf(rs.getString("cpf"));
+        pessoa.setEmail(rs.getString("email"));
+        pessoa.setFixo(rs.getString("fixo"));
+        pessoa.setCelular(rs.getString("celular"));
+
+        Object whatsappObj = rs.getObject("whatsapp");
+        pessoa.setWhatsapp(whatsappObj != null ? rs.getBoolean("whatsapp") : null);
+
+        pessoa.setObservacoes(rs.getString("observacoes"));
+
+        int enderecoId = rs.getInt("endereco_id");
+        if (!rs.wasNull()) {
+            Endereco endereco = enderecoDAO.buscarPorId(enderecoId);
+            pessoa.setEndereco(endereco);
+        }
+
+        return pessoa;
     }
 }

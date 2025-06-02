@@ -369,7 +369,8 @@ public class CadHospedeView extends javax.swing.JFrame {
         telafundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/4.png"))); // NOI18N
         getContentPane().add(telafundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        pack();
+        setSize(new java.awt.Dimension(989, 726));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void fmtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmtCpfActionPerformed

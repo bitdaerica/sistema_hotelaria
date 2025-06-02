@@ -33,7 +33,6 @@ br\com\pensaosalvatore\sistema_hotelaria\desktop\view\autenticacao\AutenticacaoV
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\principal\PrincipalView$3.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\hospede\CadHospedeView$16.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\hospede\CadHospedeView$8.class
-br\com\pensaosalvatore\sistema_hotelaria\desktop\controller\helper\ReservaHelper.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\hospede\CadHospedeView.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\quarto\CadQuartoView$2.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\hospede\CadHospedeView$19.class

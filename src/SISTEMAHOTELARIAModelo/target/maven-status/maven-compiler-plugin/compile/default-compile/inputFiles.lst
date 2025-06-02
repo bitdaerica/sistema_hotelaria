@@ -1,11 +1,10 @@
-C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\Conexao.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\EnderecoDAO.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\HospedeDAO.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\PessoaDAO.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\QuartoDAO.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\ReservaDAO.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\UsuarioDAO.java
-C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\EnderecoDTO.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Endereco.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\Andar.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\CargoFuncionario.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\Categoria.java
@@ -32,8 +31,9 @@ C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAM
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\TipodeContrato.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\TipoDocumento.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\TipoQuarto.java
-C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\HospedeDTO.java
-C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\PessoaDTO.java
-C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\QuartoDTO.java
-C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\ReservaDTO.java
-C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\UsuarioDTO.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Hospede.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Pessoa.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Quarto.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Reserva.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Usuario.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\Conexao.java

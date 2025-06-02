@@ -1,6 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.HospedeDTO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Hospede;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,22 +16,25 @@ import java.util.List;
  */
 public class HospedeDAO {
 
-    private final Conexao connectionFactory = new Conexao();
+    private final Connection connection;
 
-    public void inserirHospede(HospedeDTO h) throws SQLException {
-        Connection conn = null;
+    public HospedeDAO(Connection connection) {
+        this.connection = connection;
+    }
+
+    // ✅ Inserir hóspede
+    public void inserirHospede(Hospede h) throws SQLException {
         PreparedStatement pstm = null;
 
         try {
-            conn = connectionFactory.conectaBD();
-            conn.setAutoCommit(false);
+            connection.setAutoCommit(false);
 
-            // Inserir primeiro na tabela PESSOA
-            PessoaDAO dao = new PessoaDAO();
-            dao.inserirPessoa(h);
+            // Inserir na tabela PESSOA
+            PessoaDAO pessoaDAO = new PessoaDAO(connection, null);
+            pessoaDAO.inserirPessoa(h);
 
             String sql = "INSERT INTO HOSPEDE (ID, NACIONALIDADE, PROFISSAO, DATA_CADASTRO) VALUES (?, ?, ?, ?)";
-            pstm = conn.prepareStatement(sql);
+            pstm = connection.prepareStatement(sql);
 
             pstm.setInt(1, h.getId());
             pstm.setString(2, h.getNacionalidade());
@@ -39,32 +42,29 @@ public class HospedeDAO {
             pstm.setDate(4, new java.sql.Date(h.getDataCadastro().getTime()));
 
             pstm.executeUpdate();
-
-            conn.commit();
+            connection.commit();
 
         } catch (SQLException e) {
-            if (conn != null) conn.rollback();
+            connection.rollback();
             throw e;
         } finally {
             if (pstm != null) pstm.close();
-            if (conn != null) conn.close();
         }
     }
 
-    public void alterarHospede(HospedeDTO h) throws SQLException {
-        Connection conn = null;
+    // ✅ Alterar hóspede
+    public void alterarHospede(Hospede h) throws SQLException {
         PreparedStatement pstm = null;
 
         try {
-            conn = connectionFactory.conectaBD();
-            conn.setAutoCommit(false);
+            connection.setAutoCommit(false);
 
-            // Alterar dados na tabela PESSOA
-            PessoaDAO dao = new PessoaDAO();
-            dao.alterarPessoa(h);
+            // Alterar na tabela PESSOA
+            PessoaDAO pessoaDAO = new PessoaDAO(connection, null);
+            pessoaDAO.alterarPessoa(h);
 
             String sql = "UPDATE HOSPEDE SET NACIONALIDADE = ?, PROFISSAO = ?, DATA_CADASTRO = ? WHERE ID = ?";
-            pstm = conn.prepareStatement(sql);
+            pstm = connection.prepareStatement(sql);
 
             pstm.setString(1, h.getNacionalidade());
             pstm.setString(2, h.getProfissao());
@@ -72,19 +72,18 @@ public class HospedeDAO {
             pstm.setInt(4, h.getId());
 
             pstm.executeUpdate();
-
-            conn.commit();
+            connection.commit();
 
         } catch (SQLException e) {
-            if (conn != null) conn.rollback();
+            connection.rollback();
             throw e;
         } finally {
             if (pstm != null) pstm.close();
-            if (conn != null) conn.close();
         }
     }
 
-    public HospedeDTO selecionarPorId(int id) throws SQLException {
+    // ✅ Buscar hóspede por ID
+    public Hospede selecionarPorId(int id) throws SQLException {
         String sql = """
             SELECT h.ID, h.NACIONALIDADE, h.PROFISSAO, h.DATA_CADASTRO,
                    p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL,
@@ -94,157 +93,110 @@ public class HospedeDAO {
             WHERE h.ID = ?
             """;
 
-        try (Connection conn = connectionFactory.conectaBD();
-             PreparedStatement pstm = conn.prepareStatement(sql)) {
-
+        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, id);
 
             try (ResultSet rs = pstm.executeQuery()) {
                 if (rs.next()) {
-                    HospedeDTO h = new HospedeDTO();
-                    h.setId(rs.getInt("ID"));
-                    h.setNome(rs.getString("NOME"));
-                    h.setGenero(Genero.valueOf(rs.getString("GENERO")));
-                    h.setDataNascimento(rs.getDate("DATA_NASCIMENTO"));
-                    h.setCpf(rs.getString("CPF"));
-                    h.setEmail(rs.getString("EMAIL"));
-                    h.setFixo(rs.getString("FIXO"));
-                    h.setCelular(rs.getString("CELULAR"));
-                    h.setWhatsapp(rs.getBoolean("WHATSAPP"));
-                    h.setObservacoes(rs.getString("OBSERVACOES"));
-
-                    h.setNacionalidade(rs.getString("NACIONALIDADE"));
-                    h.setProfissao(rs.getString("PROFISSAO"));
-                    h.setDataCadastro(rs.getDate("DATA_CADASTRO"));
-
-                    // Você pode buscar o endereço com EnderecoDAO aqui, se desejar
-
-                    return h;
+                    return mapearHospede(rs);
                 }
             }
         }
         return null;
     }
 
-    public List<HospedeDTO> listarTodos() throws SQLException {
-        List<HospedeDTO> lista = new ArrayList<>();
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+    // ✅ Listar todos os hóspedes
+    public List<Hospede> listarTodos() throws SQLException {
+        List<Hospede> lista = new ArrayList<>();
 
-        try {
-            conn = connectionFactory.conectaBD();
-            String sql = """
-                SELECT h.ID, h.NACIONALIDADE, h.PROFISSAO, h.DATA_CADASTRO,
-                       p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL,
-                       p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
-                FROM HOSPEDE h
-                INNER JOIN PESSOA p ON h.ID = p.ID
-                """;
+        String sql = """
+            SELECT h.ID, h.NACIONALIDADE, h.PROFISSAO, h.DATA_CADASTRO,
+                   p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL,
+                   p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
+            FROM HOSPEDE h
+            INNER JOIN PESSOA p ON h.ID = p.ID
+            """;
 
-            pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
+        try (PreparedStatement pstm = connection.prepareStatement(sql);
+             ResultSet rs = pstm.executeQuery()) {
 
             while (rs.next()) {
-                HospedeDTO h = new HospedeDTO();
-                h.setId(rs.getInt("ID"));
-                h.setNome(rs.getString("NOME"));
-                h.setGenero(Genero.valueOf(rs.getString("GENERO")));
-                h.setDataNascimento(rs.getDate("DATA_NASCIMENTO"));
-                h.setCpf(rs.getString("CPF"));
-                h.setEmail(rs.getString("EMAIL"));
-                h.setFixo(rs.getString("FIXO"));
-                h.setCelular(rs.getString("CELULAR"));
-                h.setWhatsapp(rs.getBoolean("WHATSAPP"));
-                h.setObservacoes(rs.getString("OBSERVACOES"));
-
-                h.setNacionalidade(rs.getString("NACIONALIDADE"));
-                h.setProfissao(rs.getString("PROFISSAO"));
-                h.setDataCadastro(rs.getDate("DATA_CADASTRO"));
-
-                lista.add(h);
+                lista.add(mapearHospede(rs));
             }
-        } finally {
-            if (rs != null) rs.close();
-            if (pstm != null) pstm.close();
-            if (conn != null) conn.close();
         }
         return lista;
     }
 
-    public List<HospedeDTO> listarPorNome(String nome) throws SQLException {
-        List<HospedeDTO> lista = new ArrayList<>();
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+    // ✅ Listar hóspedes por nome
+    public List<Hospede> listarPorNome(String nome) throws SQLException {
+        List<Hospede> lista = new ArrayList<>();
 
-        try {
-            conn = connectionFactory.conectaBD();
-            String sql = """
-                SELECT h.ID, h.NACIONALIDADE, h.PROFISSAO, h.DATA_CADASTRO,
-                       p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL,
-                       p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
-                FROM HOSPEDE h
-                INNER JOIN PESSOA p ON h.ID = p.ID
-                WHERE p.NOME LIKE ?
-                """;
+        String sql = """
+            SELECT h.ID, h.NACIONALIDADE, h.PROFISSAO, h.DATA_CADASTRO,
+                   p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL,
+                   p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
+            FROM HOSPEDE h
+            INNER JOIN PESSOA p ON h.ID = p.ID
+            WHERE p.NOME LIKE ?
+            """;
 
-            pstm = conn.prepareStatement(sql);
+        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setString(1, "%" + nome + "%");
 
-            rs = pstm.executeQuery();
-
-            while (rs.next()) {
-                HospedeDTO h = new HospedeDTO();
-                h.setId(rs.getInt("ID"));
-                h.setNome(rs.getString("NOME"));
-                h.setGenero(Genero.valueOf(rs.getString("GENERO")));
-                h.setDataNascimento(rs.getDate("DATA_NASCIMENTO"));
-                h.setCpf(rs.getString("CPF"));
-                h.setEmail(rs.getString("EMAIL"));
-                h.setFixo(rs.getString("FIXO"));
-                h.setCelular(rs.getString("CELULAR"));
-                h.setWhatsapp(rs.getBoolean("WHATSAPP"));
-                h.setObservacoes(rs.getString("OBSERVACOES"));
-
-                h.setNacionalidade(rs.getString("NACIONALIDADE"));
-                h.setProfissao(rs.getString("PROFISSAO"));
-                h.setDataCadastro(rs.getDate("DATA_CADASTRO"));
-
-                lista.add(h);
+            try (ResultSet rs = pstm.executeQuery()) {
+                while (rs.next()) {
+                    lista.add(mapearHospede(rs));
+                }
             }
-        } finally {
-            if (rs != null) rs.close();
-            if (pstm != null) pstm.close();
-            if (conn != null) conn.close();
         }
         return lista;
     }
 
+    // ✅ Excluir hóspede
     public void excluirHospede(int id) throws SQLException {
-        Connection conn = null;
         PreparedStatement pstm = null;
 
         try {
-            conn = connectionFactory.conectaBD();
-            conn.setAutoCommit(false);
+            connection.setAutoCommit(false);
 
             String sql = "DELETE FROM HOSPEDE WHERE ID = ?";
-            pstm = conn.prepareStatement(sql);
+            pstm = connection.prepareStatement(sql);
             pstm.setInt(1, id);
             pstm.executeUpdate();
 
-            // Excluir também da tabela PESSOA
-            PessoaDAO dao = new PessoaDAO();
-            dao.excluirPessoa(id);
+            // Excluir também na tabela PESSOA
+            PessoaDAO pessoaDAO = new PessoaDAO(connection, null);
+            pessoaDAO.excluirPessoa(id);
 
-            conn.commit();
+            connection.commit();
+
         } catch (SQLException e) {
-            if (conn != null) conn.rollback();
+            connection.rollback();
             throw e;
         } finally {
             if (pstm != null) pstm.close();
-            if (conn != null) conn.close();
         }
+    }
+
+    // 🔸 Método auxiliar para mapear o ResultSet para objeto Hospede
+    private Hospede mapearHospede(ResultSet rs) throws SQLException {
+        Hospede h = new Hospede();
+
+        h.setId(rs.getInt("ID"));
+        h.setNome(rs.getString("NOME"));
+        h.setGenero(Genero.valueOf(rs.getString("GENERO")));
+        h.setDataNascimento(rs.getDate("DATA_NASCIMENTO"));
+        h.setCpf(rs.getString("CPF"));
+        h.setEmail(rs.getString("EMAIL"));
+        h.setFixo(rs.getString("FIXO"));
+        h.setCelular(rs.getString("CELULAR"));
+        h.setWhatsapp(rs.getBoolean("WHATSAPP"));
+        h.setObservacoes(rs.getString("OBSERVACOES"));
+
+        h.setNacionalidade(rs.getString("NACIONALIDADE"));
+        h.setProfissao(rs.getString("PROFISSAO"));
+        h.setDataCadastro(rs.getDate("DATA_CADASTRO"));
+
+        return h;
     }
 }
