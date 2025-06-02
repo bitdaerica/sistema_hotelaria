@@ -21,7 +21,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
     public AutenticacaoView() {
         initComponents();
         controller = new AutenticacaoController(this);
-        //ConnectionFactoryDAO.Connection connection();
+        
     }
 
     /**

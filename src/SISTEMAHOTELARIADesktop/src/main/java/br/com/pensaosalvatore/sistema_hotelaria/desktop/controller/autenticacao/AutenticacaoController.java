@@ -2,7 +2,9 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.autenticacao
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao.AutenticacaoView;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
-
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Conexao;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  *
@@ -11,15 +13,16 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
 public class AutenticacaoController {
 
     private final AutenticacaoView view;
-    
 
     public AutenticacaoController(AutenticacaoView view) {
         this.view = view;
     }
 
-    public void entarnoSistema() {
+    public void entarnoSistema() throws SQLException {
 
-        UsuarioDAO usuarioDAO = new UsuarioDAO(null);
+        Connection connection = Conexao.getConnection();
+        UsuarioDAO usuarioDAO = new UsuarioDAO(connection);
+
     }
 
     public void fizTarefa() {

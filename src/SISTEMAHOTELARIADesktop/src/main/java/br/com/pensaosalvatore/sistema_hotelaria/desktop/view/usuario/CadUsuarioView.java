@@ -3,6 +3,11 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.usuario;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.usuario.CadUsuarioController;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Conexao;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPasswordField;
@@ -22,9 +27,14 @@ public class CadUsuarioView extends javax.swing.JFrame {
 
     /**
      * Creates new form CadUsuarioView
+     *
+     * @throws java.sql.SQLException
      */
-    public CadUsuarioView() {
+    public CadUsuarioView() throws SQLException {
         initComponents();
+        Connection connection = Conexao.getConnection(); // ou o jeito que você cria a conexão
+        usuarioDAO = new UsuarioDAO(connection);
+
         controller = new CadUsuarioController(this, usuarioDAO);
         usuario = new Usuario();
 
@@ -429,7 +439,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
 
     private void bntNovohospedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNovohospedeActionPerformed
         controller.novo();
-        
+
     }//GEN-LAST:event_bntNovohospedeActionPerformed
 
     private void bntCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCancelarActionPerformed
@@ -466,7 +476,11 @@ public class CadUsuarioView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadUsuarioView().setVisible(true);
+                try {
+                    new CadUsuarioView().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(CadUsuarioView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

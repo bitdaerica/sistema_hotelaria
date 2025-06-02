@@ -6,6 +6,7 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.DataUtils;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Endereco;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Pessoa;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Conexao;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -27,12 +28,13 @@ public class CadUsuarioController {
 
     
     public CadUsuarioController(CadUsuarioView view, UsuarioDAO usuarioDAO1) throws SQLException {
-        this.view = view;
-        this.usuarioDAO = new UsuarioDAO();
-        this.usuario = new Usuario();
-        this.pessoa = new Pessoa();
-        this.endereco = new Endereco();
-    }
+    this.view = view;
+    Connection connection = Conexao.getConnection();  // cria a conexão
+    this.usuarioDAO = new UsuarioDAO(connection);          // passa para o DAO
+    this.usuario = new Usuario();
+    this.pessoa = new Pessoa();
+    this.endereco = new Endereco();
+}
 
     
     public void salvar() {

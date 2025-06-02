@@ -1,8 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
-
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Conexao;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -20,11 +18,9 @@ public class UsuarioDAO {
 
     private final Connection connection;
 
-    public UsuarioDAO() throws SQLException {
-        this.connection = Conexao.getConnection();
+    public UsuarioDAO(Connection connection) {
+        this.connection = connection;
     }
-
-    
 
     // Inserir usuário (e pessoa vinculada)
     public void inserirUsuario(Usuario usuario) throws SQLException {
@@ -118,8 +114,7 @@ public class UsuarioDAO {
                 INNER JOIN PESSOA p ON u.pessoa_id = p.id
                 """;
 
-        try (PreparedStatement pstm = connection.prepareStatement(sql);
-             ResultSet rs = pstm.executeQuery()) {
+        try (PreparedStatement pstm = connection.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
 
             while (rs.next()) {
                 lista.add(mapearUsuario(rs));
