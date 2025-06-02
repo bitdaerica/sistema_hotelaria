@@ -24,7 +24,6 @@ public class CadUsuarioController {
     }
 
     public void salvaUsuario() {
-        // Pegando os dados da view
         String nome = view.getTxtNome().getText();
         String usuarioStr = view.getTxtUsuario().getText();
         String senha = new String(view.getSenha().getPassword());
@@ -33,7 +32,14 @@ public class CadUsuarioController {
         String celular = view.getFmtCelular().getText();
         String fixo = view.getFmtFixo().getText();
         String dataNascimento = view.getFmtDatanascimento().getText();
-        String genero = view.getCmbGenero1().getSelectedItem().toString();
+
+        Object selectedGenero = view.getCmbGenero1().getSelectedItem();
+        if (selectedGenero == null) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um gênero.");
+            return;
+        }
+        String genero = selectedGenero.toString();
+
         boolean whatsapp = view.getBtnWhatsapp().isSelected();
         String observacoes = view.getTxtObservacoes().getText();
 
@@ -42,10 +48,16 @@ public class CadUsuarioController {
         String numero = view.getTxtNumero().getText();
         String bairro = view.getTxtBairro().getText();
         String cidade = view.getTxtCidade().getText();
-        String estado = view.getCmbEstado().getSelectedItem().toString();
+
+        Object selectedEstado = view.getCmbEstado().getSelectedItem();
+        if (selectedEstado == null) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um estado.");
+            return;
+        }
+        String estado = selectedEstado.toString();
+
         String complemento = view.getTxtComplemento().getText();
 
-        // Criando o objeto DTO
         Usuario usuario = new Usuario();
         usuario.setNome(nome);
         usuario.setUsuario(usuarioStr);
@@ -57,13 +69,10 @@ public class CadUsuarioController {
         usuario.setWhatsapp(whatsapp);
         usuario.setObservacoes(observacoes);
 
-        // Salvando no banco
         try {
-
             Connection conexao = Conexao.getConnection();
             UsuarioDAO usuarioDao = new UsuarioDAO(null);
             usuarioDao.inserirUsuario(usuario);
-
             JOptionPane.showMessageDialog(null, "Usuário salvo com sucesso!");
         } catch (SQLException ex) {
             Logger.getLogger(CadUsuarioView.class.getName()).log(Level.SEVERE, null, ex);

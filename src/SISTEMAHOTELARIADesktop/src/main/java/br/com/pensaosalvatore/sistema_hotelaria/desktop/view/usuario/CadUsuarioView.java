@@ -86,6 +86,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
         lblCadastro.setText("Cadastro de Usuário");
         getContentPane().add(lblCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 470, 50));
 
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TO", "PA" }));
         cmbEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbEstadoActionPerformed(evt);
@@ -306,6 +307,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
         jLabel18.setText("Complemento:");
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
 
+        cmbGenero1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masulino" }));
         cmbGenero1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbGenero1ActionPerformed(evt);
@@ -425,7 +427,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
            controller.salvaUsuario();
-            controller.mostrarTela();
+           //controller.mostrarTela();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed

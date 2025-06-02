@@ -16,6 +16,11 @@ public class Usuario extends Pessoa {
 
     }
 
+    public Usuario(Integer id) {
+        super(id);
+    }
+    
+
     public Usuario(int id, String usuario, String senha) {
         super(id);
         this.usuario = usuario;
@@ -47,6 +52,10 @@ public class Usuario extends Pessoa {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Pessoa getPessoa() {
+        return null;
     }
 
     

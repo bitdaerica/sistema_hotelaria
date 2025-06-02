@@ -45,7 +45,10 @@
     <Component class="javax.swing.JComboBox" name="cmbEstado">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
+          <StringArray count="2">
+            <StringItem index="0" value="TO"/>
+            <StringItem index="1" value="PA"/>
+          </StringArray>
         </Property>
       </Properties>
       <Events>
@@ -545,7 +548,10 @@
     <Component class="javax.swing.JComboBox" name="cmbGenero1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
+          <StringArray count="2">
+            <StringItem index="0" value="Feminino"/>
+            <StringItem index="1" value="Masulino"/>
+          </StringArray>
         </Property>
       </Properties>
       <Events>

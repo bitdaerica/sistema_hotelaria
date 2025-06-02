@@ -31,9 +31,7 @@ public class PessoaDAO {
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-
             preencherStatement(pstm, p);
-
             pstm.executeUpdate();
 
             try (ResultSet rs = pstm.getGeneratedKeys()) {
@@ -41,7 +39,6 @@ public class PessoaDAO {
                     p.setId(rs.getInt(1));
                 }
             }
-
         }
     }
 
@@ -50,10 +47,8 @@ public class PessoaDAO {
                 + "whatsapp = ?, observacoes = ?, endereco_id = ? WHERE id = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-
             preencherStatement(pstm, p);
             pstm.setInt(11, p.getId());
-
             pstm.executeUpdate();
         }
     }
@@ -83,7 +78,6 @@ public class PessoaDAO {
                 lista.add(mapearPessoa(rs));
             }
         }
-
         return lista;
     }
 
@@ -100,7 +94,6 @@ public class PessoaDAO {
                 }
             }
         }
-
         return lista;
     }
 
@@ -113,9 +106,7 @@ public class PessoaDAO {
         }
     }
 
-    // ----------------------
-    // Métodos auxiliares
-    // ----------------------
+    // ---------------------- MÉTODOS AUXILIARES ----------------------
     private void preencherStatement(PreparedStatement pstm, Pessoa p) throws SQLException {
         pstm.setString(1, p.getNome());
         pstm.setString(2, p.getGenero() != null ? p.getGenero().toString() : null);
@@ -167,9 +158,11 @@ public class PessoaDAO {
         pessoa.setObservacoes(rs.getString("observacoes"));
 
         int enderecoId = rs.getInt("endereco_id");
-        if (!rs.wasNull()) {
+        if (!rs.wasNull() && enderecoDAO != null) {
             Endereco endereco = enderecoDAO.buscarPorId(enderecoId);
             pessoa.setEndereco(endereco);
+        } else {
+            pessoa.setEndereco(null);
         }
 
         return pessoa;

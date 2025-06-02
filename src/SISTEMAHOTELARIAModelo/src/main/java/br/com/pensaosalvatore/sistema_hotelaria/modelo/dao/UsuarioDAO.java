@@ -1,11 +1,15 @@
+
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.EnderecoDAO;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.PessoaDAO;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +17,7 @@ import java.util.List;
  *
  * @author 202412170006
  */
+
 public class UsuarioDAO {
 
     private final Connection connection;
@@ -22,31 +27,43 @@ public class UsuarioDAO {
     }
 
     public void inserirUsuario(Usuario usuario) throws SQLException {
-        PreparedStatement pstm = null;
 
         try {
             connection.setAutoCommit(false);
 
             // Inserir na tabela PESSOA
-            PessoaDAO dao = new PessoaDAO(connection, null);
-            dao.inserirPessoa(usuario);
+             PessoaDAO pessoaDAO = new PessoaDAO(connection, new EnderecoDAO(connection));
+            pessoaDAO.inserirPessoa(usuario.getPessoa());
 
-            String sql = "INSERT INTO USUARIO (ID, USUARIO, SENHA) VALUES (?, ?, ?)";
-            pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, usuario.getId());
-            pstm.setString(2, usuario.getUsuario());
-            pstm.setString(3, usuario.getSenha());
-            pstm.executeUpdate();
+            String sql = "INSERT INTO USUARIO (usuario, senha, pessoa_id) VALUES (?, ?, ?)";
 
-            connection.commit();
-        } catch (SQLException e) {
-            connection.rollback();
-            throw e;
-        } finally {
-            if (pstm != null) pstm.close();
-            connection.setAutoCommit(true);
+            try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+                
+                pstm.setString(1, usuario.getUsuario());
+                pstm.setString(2, usuario.getSenha());
+                pstm.setInt(3, usuario.getPessoa().getId());
+
+                pstm.executeUpdate();
+
+                try (ResultSet rs = pstm.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        usuario.setId(rs.getInt(1));
+                    }
+                }
+            }
+
+                connection.commit();
+
+                } catch (SQLException e) {
+                    connection.rollback();
+                    throw e;
+                } finally {
+                    
+                    connection.setAutoCommit(true);
+                }
+            }
         }
-    }
 
     public void alterarUsuario(Usuario usuario) throws SQLException {
         PreparedStatement pstm = null;
@@ -70,7 +87,9 @@ public class UsuarioDAO {
             connection.rollback();
             throw e;
         } finally {
-            if (pstm != null) pstm.close();
+            if (pstm != null) {
+                pstm.close();
+            }
             connection.setAutoCommit(true);
         }
     }
@@ -116,8 +135,7 @@ public class UsuarioDAO {
             INNER JOIN PESSOA p ON u.ID = p.ID
             """;
 
-        try (PreparedStatement pstm = connection.prepareStatement(sql);
-             ResultSet rs = pstm.executeQuery()) {
+        try (PreparedStatement pstm = connection.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
 
             while (rs.next()) {
                 Usuario usuario = new Usuario();
@@ -194,7 +212,9 @@ public class UsuarioDAO {
             connection.rollback();
             throw e;
         } finally {
-            if (pstm != null) pstm.close();
+            if (pstm != null) {
+                pstm.close();
+            }
             connection.setAutoCommit(true);
         }
     }
@@ -211,4 +231,5 @@ public class UsuarioDAO {
             }
         }
     }
+}
 }
