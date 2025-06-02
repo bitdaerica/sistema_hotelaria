@@ -21,11 +21,7 @@ public class UsuarioDAO {
         this.connection = connection;
     }
 
-    public UsuarioDAO() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-      
+          
 
     public void inserirUsuario(UsuarioDTO u) throws SQLException {
         Connection conn = null;

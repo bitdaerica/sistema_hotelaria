@@ -19,7 +19,7 @@ public class AutenticacaoController {
 
     public void entarnoSistema() {
 
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        UsuarioDAO usuarioDAO = new UsuarioDAO(null);
     }
 
     public void fizTarefa() {

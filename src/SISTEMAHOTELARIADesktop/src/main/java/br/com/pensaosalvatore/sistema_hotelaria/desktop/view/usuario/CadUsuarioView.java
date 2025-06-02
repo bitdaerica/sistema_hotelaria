@@ -65,6 +65,8 @@ public class CadUsuarioView extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         txtRua = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        txtNumero = new javax.swing.JTextField();
         txtComplemento = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         cmbGenero1 = new javax.swing.JComboBox<>();
@@ -89,7 +91,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
                 cmbEstadoActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 290, 230, 30));
+        getContentPane().add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 230, 30));
 
         txtObservacoes.setColumns(20);
         txtObservacoes.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -122,7 +124,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("*Usuário:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, -1, 30));
 
         jLabel12.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,7 +137,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
                 txtUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, 230, 30));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 440, 230, 30));
 
         try {
             fmtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -203,7 +205,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("*Senha:");
         jLabel8.setToolTipText("");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, -1, 30));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 490, -1, 30));
 
         jLabel9.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,7 +216,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("*Cep:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 340, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, -1, -1));
 
         btnWhatsapp.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         btnWhatsapp.setForeground(new java.awt.Color(255, 255, 255));
@@ -263,7 +265,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("*Estado:");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, -1, -1));
 
         txtRua.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtRua.addActionListener(new java.awt.event.ActionListener() {
@@ -277,6 +279,19 @@ public class CadUsuarioView extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("*Rua:");
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, 30));
+
+        jLabel20.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("*Numero:");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, -1, 40));
+
+        txtNumero.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumeroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 290, 230, 30));
 
         txtComplemento.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtComplemento.addActionListener(new java.awt.event.ActionListener() {
@@ -313,10 +328,10 @@ public class CadUsuarioView extends javax.swing.JFrame {
                 fmtCepActionPerformed(evt);
             }
         });
-        getContentPane().add(fmtCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 228, 30));
+        getContentPane().add(fmtCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, 228, 30));
 
         senha.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
-        getContentPane().add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 440, 230, 30));
+        getContentPane().add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 230, 30));
 
         bntNovohospede.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         bntNovohospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
@@ -411,6 +426,10 @@ public class CadUsuarioView extends javax.swing.JFrame {
            controller.salvaUsuario();
 
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -629,6 +648,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -645,6 +665,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
     private javax.swing.JTextField txtComplemento;
     private javax.swing.JTextField txtEmail2;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNumero;
     private javax.swing.JTextArea txtObservacoes;
     private javax.swing.JTextField txtRua;
     private javax.swing.JTextField txtUsuario;

@@ -66,6 +66,8 @@ public class CadHospedeView extends javax.swing.JFrame {
         bntNovohospede = new javax.swing.JButton();
         btnSalvar1 = new javax.swing.JButton();
         bntCancelar1 = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        txtNumero = new javax.swing.JTextField();
         telafundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -81,7 +83,7 @@ public class CadHospedeView extends javax.swing.JFrame {
                 cmbEstadoActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 230, 30));
+        getContentPane().add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 530, 230, 30));
 
         txtObservacoes.setColumns(20);
         txtObservacoes.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -113,7 +115,7 @@ public class CadHospedeView extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Nacionalidade:");
+        jLabel6.setText("*Nacionalidade:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, 30));
 
         jLabel12.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
@@ -195,7 +197,7 @@ public class CadHospedeView extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("*Profissão:");
         jLabel8.setToolTipText("");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,7 +208,7 @@ public class CadHospedeView extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("*Cep:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, -1, -1));
 
         txtProfissao.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtProfissao.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +262,7 @@ public class CadHospedeView extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("*Bairro:");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, -1, 30));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, -1, 30));
 
         txtBairro.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtBairro.addActionListener(new java.awt.event.ActionListener() {
@@ -268,7 +270,7 @@ public class CadHospedeView extends javax.swing.JFrame {
                 txtBairroActionPerformed(evt);
             }
         });
-        getContentPane().add(txtBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, 230, 30));
+        getContentPane().add(txtBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 230, 30));
 
         txtCidade.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtCidade.addActionListener(new java.awt.event.ActionListener() {
@@ -276,12 +278,12 @@ public class CadHospedeView extends javax.swing.JFrame {
                 txtCidadeActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 440, 230, 30));
+        getContentPane().add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, 230, 30));
 
         jLabel16.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("*Estado:");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, -1, -1));
 
         txtRua.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtRua.addActionListener(new java.awt.event.ActionListener() {
@@ -319,7 +321,7 @@ public class CadHospedeView extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("*Cidade:");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, -1, -1));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, -1, -1));
 
         try {
             fmtCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -331,25 +333,38 @@ public class CadHospedeView extends javax.swing.JFrame {
                 fmtCepActionPerformed(evt);
             }
         });
-        getContentPane().add(fmtCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 228, 30));
+        getContentPane().add(fmtCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 380, 228, 30));
 
         bntNovohospede.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         bntNovohospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
         bntNovohospede.setText("Novo Hóspede");
         bntNovohospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(bntNovohospede, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 580, 130, 40));
+        getContentPane().add(bntNovohospede, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 610, 130, 40));
 
         btnSalvar1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnSalvar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
         btnSalvar1.setText("Salvar");
         btnSalvar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btnSalvar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 580, 110, 40));
+        getContentPane().add(btnSalvar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 610, 110, 40));
 
         bntCancelar1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         bntCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
         bntCancelar1.setText("Cancelar");
         bntCancelar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(bntCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 580, 110, 40));
+        getContentPane().add(bntCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 610, 110, 40));
+
+        jLabel20.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("*Numero:");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, -1, 30));
+
+        txtNumero.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumeroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 230, 30));
 
         telafundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/4.png"))); // NOI18N
         getContentPane().add(telafundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -425,6 +440,10 @@ public class CadHospedeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fmtCepActionPerformed
 
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -483,6 +502,7 @@ public class CadHospedeView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -499,6 +519,7 @@ public class CadHospedeView extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail2;
     private javax.swing.JTextField txtNacionalidade;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNumero;
     private javax.swing.JTextArea txtObservacoes;
     private javax.swing.JTextField txtProfissao;
     private javax.swing.JTextField txtRua;

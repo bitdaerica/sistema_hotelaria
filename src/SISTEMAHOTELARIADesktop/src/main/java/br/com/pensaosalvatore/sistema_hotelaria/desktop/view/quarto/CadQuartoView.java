@@ -59,7 +59,7 @@ public class CadQuartoView extends javax.swing.JFrame {
         getContentPane().add(cmbTipodoquarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 230, 30));
 
         txtNumero.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        getContentPane().add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 230, -1));
+        getContentPane().add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 230, 30));
 
         txtObservacoes.setColumns(20);
         txtObservacoes.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -70,7 +70,7 @@ public class CadQuartoView extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Valor:");
+        jLabel5.setText("*Valor:");
         jLabel5.setToolTipText("");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
 
@@ -81,12 +81,12 @@ public class CadQuartoView extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Número:");
+        jLabel3.setText("*Número:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Tipo:");
+        jLabel6.setText("*Tipo:");
         jLabel6.setToolTipText("");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 222, -1, 30));
 

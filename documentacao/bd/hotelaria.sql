@@ -4,41 +4,74 @@ CREATE DATABASE hotelaria;
 USE hotelaria;
 
 
-CREATE TABLE endereço();
-
-CREATE TABLE usuarios (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    senha VARCHAR(100) NOT NULL,
-    tipo ENUM('admin', 'funcionario') NOT NULL
+CREATE TABLE endereco(
+id INT PRIMARY KEY AUTO_INCREMENT,
+   rua VARCHAR(100) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
+    bairro VARCHAR(50) NOT NULL,
+    cidade VARCHAR(50) NOT NULL,
+    estado ENUM('AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO') NOT NULL,
+     cep VARCHAR(10) NOT NULL,
+    complemento VARCHAR(50)
 );
 
 
-CREATE TABLE hospedes (
+
+CREATE TABLE Pessoa (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
+    genero ENUM('MASCULINO', 'FEMININO', 'OUTRO') NOT NULL,
+    dataNascimento DATE,
     cpf VARCHAR(14) NOT NULL UNIQUE,
-    telefone VARCHAR(20),
-    foto LONGBLOB
+    email VARCHAR(100) NOT NULL,
+    fixo VARCHAR(15),
+    celular VARCHAR(15) NOT NULL,
+    whatsapp BOOLEAN DEFAULT FALSE,
+    observacoes VARCHAR(255),
+    idEndereco INT,
+    FOREIGN KEY (idEndereco) REFERENCES Endereco(id)
 );
 
 
-CREATE TABLE quartos (
+CREATE TABLE usuario (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    senha VARCHAR(50) NOT NULL,
+    idPessoa INT NOT NULL,
+    FOREIGN KEY (idPessoa) REFERENCES pessoa(id)
+);
+
+
+CREATE TABLE hospede (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nacionalidade VARCHAR(100) NOT NULL,
+    profissao VARCHAR(14) NOT NULL,
+    dataCadastro DATE NOT NULL,
+    idPessoa INT NOT NULL,
+    FOREIGN KEY (idPessoa) REFERENCES pessoa(id)
+);
+
+
+CREATE TABLE quarto (
     id INT PRIMARY KEY AUTO_INCREMENT,
     numero INT NOT NULL UNIQUE,
     tipo ENUM('simples', 'duplo', 'suite') NOT NULL,
-    preco DECIMAL(10,2) NOT NULL,
-    status ENUM('livre', 'ocupado') DEFAULT 'livre'
+    valor DECIMAL(10,2) NOT NULL,
+    descricao VARCHAR(255)
+    
 );
 
 
-CREATE TABLE reservas (
+CREATE TABLE reserva (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    id_hospede INT NOT NULL,
-    id_quarto INT NOT NULL,
-    data_entrada DATE NOT NULL,
-    data_saida DATE NOT NULL,
-    FOREIGN KEY (id_hospede) REFERENCES hospedes(id),
-    FOREIGN KEY (id_quarto) REFERENCES quartos(id)
+	idHospede INT NOT NULL,
+    idQuarto INT NOT NULL,
+    idUsuario INT NOT NULL,
+    datadeentrada DATE NOT NULL,
+    datadesaida DATE NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    observacoes VARCHAR(255),
+    FOREIGN KEY (idHospede) REFERENCES hospede(id),
+    FOREIGN KEY (idQuarto) REFERENCES quarto(id),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(id)
 );
