@@ -1,6 +1,5 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
 import java.util.Date;
 
 /**
@@ -32,7 +31,7 @@ public class Usuario extends Pessoa {
         this.senha = senha;
     }
 
-    public Usuario(Integer id, String nome, String usuario, String senha, Genero genero, Date dataNascimento,
+    public Usuario(Integer id, String nome, String usuario, String senha, String genero, Date dataNascimento,
             String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Endereco endereco) {
         super(id, nome, genero, dataNascimento, cpf, email, fixo, celular, whatsapp, observacoes, endereco);
         this.usuario = usuario;
@@ -55,6 +54,8 @@ public class Usuario extends Pessoa {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+    
 
     /**
      * Retorna uma instância de Pessoa com os dados herdados do usuário.Útil

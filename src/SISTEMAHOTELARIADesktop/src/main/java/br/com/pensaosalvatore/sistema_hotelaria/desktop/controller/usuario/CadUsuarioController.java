@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 public class CadUsuarioController {
 
     private CadUsuarioView view;
-
+    
     public CadUsuarioController(CadUsuarioView view) {
         this.view = view;
 
@@ -32,13 +32,7 @@ public class CadUsuarioController {
         String celular = view.getFmtCelular().getText();
         String fixo = view.getFmtFixo().getText();
         String dataNascimento = view.getFmtDatanascimento().getText();
-
-        Object selectedGenero = view.getCmbGenero1().getSelectedItem();
-        if (selectedGenero == null) {
-            JOptionPane.showMessageDialog(null, "Por favor, selecione um gênero.");
-            return;
-        }
-        String genero = selectedGenero.toString();
+        String genero = view.getTxtGenero().getText();
 
         boolean whatsapp = view.getBtnWhatsapp().isSelected();
         String observacoes = view.getTxtObservacoes().getText();
@@ -49,12 +43,7 @@ public class CadUsuarioController {
         String bairro = view.getTxtBairro().getText();
         String cidade = view.getTxtCidade().getText();
 
-        Object selectedEstado = view.getCmbEstado().getSelectedItem();
-        if (selectedEstado == null) {
-            JOptionPane.showMessageDialog(null, "Por favor, selecione um estado.");
-            return;
-        }
-        String estado = selectedEstado.toString();
+        String estado = view.getTxtEstado().getText();
 
         String complemento = view.getTxtComplemento().getText();
 
@@ -88,7 +77,7 @@ public class CadUsuarioController {
         view.getFmtCelular().setText("");
         view.getFmtFixo().setText("");
         view.getFmtDatanascimento().setText("");
-        view.getCmbGenero1().setSelectedIndex(0);
+        view.getTxtGenero().setText("");
         view.getBtnWhatsapp().setSelected(false);
         view.getTxtObservacoes().setText("");
 
@@ -97,7 +86,7 @@ public class CadUsuarioController {
         view.getTxtBairro().setText("");
         view.getTxtCidade().setText("");
         view.getTxtNumero().setText("");
-        view.getCmbEstado().setSelectedIndex(0);
+        view.getTxtEstado().setText("");
         view.getTxtComplemento().setText("");
     }
 
@@ -110,5 +99,9 @@ public class CadUsuarioController {
         CadUsuarioView mostrar = new CadUsuarioView();
         mostrar.setVisible(true);
     }
+
+    
+
+    
 
 }

@@ -2,7 +2,6 @@ package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Pessoa;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -224,7 +223,7 @@ public class UsuarioDAO {
         Pessoa pessoa = new Pessoa();
         pessoa.setId(rs.getInt("pessoa_id"));
         pessoa.setNome(rs.getString("nome"));
-        pessoa.setGenero(Genero.valueOf(rs.getString("genero")));
+        pessoa.setGenero(rs.getString("genero"));
         pessoa.setDataNascimento(rs.getDate("data_nascimento"));
         pessoa.setCpf(rs.getString("cpf"));
         pessoa.setEmail(rs.getString("email"));

@@ -14,14 +14,14 @@ public class Endereco {
     private String complemento;
     private String bairro;
     private String cidade;
-    private Estado estado;
+    private String estado;
     private String cep;
 
     public Endereco() {
 
     }
 
-    public Endereco(Integer id, String rua, String numero, String bairro, String cidade, Estado estado, String cep) {
+    public Endereco(Integer id, String rua, String numero, String bairro, String cidade, String estado, String cep) {
         this.id = id;
         this.rua = rua;
         this.numero = numero;
@@ -79,11 +79,11 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    public Estado getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 

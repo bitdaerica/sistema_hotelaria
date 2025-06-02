@@ -11,7 +11,7 @@ public class Pessoa {
 
     private Integer id;
     private String nome;
-    private Genero genero;
+    private String genero;
     private Date dataNascimento;
     private String cpf;
     private String email;
@@ -37,7 +37,7 @@ public class Pessoa {
     
     
 
-    public Pessoa(Integer id, String nome, Genero genero, Date dataNascimento, String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Endereco endereco) {
+    public Pessoa(Integer id, String nome, String genero, Date dataNascimento, String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.genero = genero;
@@ -51,7 +51,7 @@ public class Pessoa {
         this.endereco = endereco;
     }
 
-    public Pessoa(Integer id, String nome, Genero genero, String cpf, String email, String celular, Boolean whatsapp, Endereco endereco) {
+    public Pessoa(Integer id, String nome, String genero, String cpf, String email, String celular, Boolean whatsapp, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.genero = genero;
@@ -80,11 +80,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public Genero getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(Genero genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 

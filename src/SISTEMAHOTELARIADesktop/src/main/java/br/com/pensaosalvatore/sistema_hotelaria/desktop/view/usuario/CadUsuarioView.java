@@ -1,11 +1,12 @@
-
-
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.usuario;
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.usuario.CadUsuarioController;
+import java.sql.SQLException;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
@@ -25,6 +26,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
     public CadUsuarioView() {
         initComponents();
         controller = new CadUsuarioController(this);
+        
     }
 
     /**
@@ -37,7 +39,6 @@ public class CadUsuarioView extends javax.swing.JFrame {
     private void initComponents() {
 
         lblCadastro = new javax.swing.JLabel();
-        cmbEstado = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservacoes = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
@@ -69,13 +70,14 @@ public class CadUsuarioView extends javax.swing.JFrame {
         txtNumero = new javax.swing.JTextField();
         txtComplemento = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        cmbGenero1 = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         fmtCep = new javax.swing.JFormattedTextField();
         senha = new javax.swing.JPasswordField();
         bntNovohospede = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         bntCancelar = new javax.swing.JButton();
+        txtEstado = new javax.swing.JTextField();
+        txtGenero = new javax.swing.JTextField();
         telafundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -85,14 +87,6 @@ public class CadUsuarioView extends javax.swing.JFrame {
         lblCadastro.setForeground(new java.awt.Color(255, 255, 255));
         lblCadastro.setText("Cadastro de Usuário");
         getContentPane().add(lblCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 470, 50));
-
-        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TO", "PA" }));
-        cmbEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbEstadoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 230, 30));
 
         txtObservacoes.setColumns(20);
         txtObservacoes.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -307,14 +301,6 @@ public class CadUsuarioView extends javax.swing.JFrame {
         jLabel18.setText("Complemento:");
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
 
-        cmbGenero1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masulino" }));
-        cmbGenero1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbGenero1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbGenero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 230, 30));
-
         jLabel19.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("*Cidade:");
@@ -358,16 +344,16 @@ public class CadUsuarioView extends javax.swing.JFrame {
         bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 580, 110, 40));
 
+        txtEstado.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 230, 30));
+        getContentPane().add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 230, 30));
+
         telafundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/2.png"))); // NOI18N
         getContentPane().add(telafundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setSize(new java.awt.Dimension(989, 727));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbEstadoActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
@@ -417,17 +403,13 @@ public class CadUsuarioView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtComplementoActionPerformed
 
-    private void cmbGenero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGenero1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbGenero1ActionPerformed
-
     private void fmtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmtCepActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fmtCepActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-           controller.salvaUsuario();
-           //controller.mostrarTela();
+        controller.salvaUsuario();
+        //controller.mostrarTela();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
@@ -468,8 +450,8 @@ public class CadUsuarioView extends javax.swing.JFrame {
             }
         });
     }
-    
-     public JButton getBntCancelar() {
+
+    public JButton getBntCancelar() {
         return bntCancelar;
     }
 
@@ -501,21 +483,22 @@ public class CadUsuarioView extends javax.swing.JFrame {
         this.btnWhatsapp = btnWhatsapp;
     }
 
-    public JComboBox<String> getCmbEstado() {
-        return cmbEstado;
+    public JTextField getTxtEstado() {
+        return txtEstado;
     }
 
-    public void setCmbEstado(JComboBox<String> cmbEstado) {
-        this.cmbEstado = cmbEstado;
+    public void setTxtEstado(JTextField txtEstado) {
+        this.txtEstado = txtEstado;
     }
 
-    public JComboBox<String> getCmbGenero1() {
-        return cmbGenero1;
+    public JTextField getTxtGenero() {
+        return txtGenero;
     }
 
-    public void setCmbGenero1(JComboBox<String> cmbGenero1) {
-        this.cmbGenero1 = cmbGenero1;
+    public void setTxtGenero(JTextField txtGenero) {
+        this.txtGenero = txtGenero;
     }
+
 
     public JFormattedTextField getFmtCelular() {
         return fmtCelular;
@@ -636,8 +619,6 @@ public class CadUsuarioView extends javax.swing.JFrame {
     public void setTxtNumero(JTextField txtNumero) {
         this.txtNumero = txtNumero;
     }
-    
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -645,8 +626,6 @@ public class CadUsuarioView extends javax.swing.JFrame {
     private javax.swing.JButton bntNovohospede;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JRadioButton btnWhatsapp;
-    private javax.swing.JComboBox<String> cmbEstado;
-    private javax.swing.JComboBox<String> cmbGenero1;
     private javax.swing.JFormattedTextField fmtCelular;
     private javax.swing.JFormattedTextField fmtCep;
     private javax.swing.JFormattedTextField fmtCpf;
@@ -677,6 +656,8 @@ public class CadUsuarioView extends javax.swing.JFrame {
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtComplemento;
     private javax.swing.JTextField txtEmail2;
+    private javax.swing.JTextField txtEstado;
+    private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextArea txtObservacoes;

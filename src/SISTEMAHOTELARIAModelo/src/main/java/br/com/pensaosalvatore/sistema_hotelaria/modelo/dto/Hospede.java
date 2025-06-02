@@ -1,6 +1,5 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,14 +20,14 @@ public class Hospede extends Pessoa {
 
     }
 
-    public Hospede(String nacionalidade, String profissao, Date dataCadastro, Integer id, String nome, Genero genero, Date dataNascimento, String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Endereco endereco) {
+    public Hospede(String nacionalidade, String profissao, Date dataCadastro, Integer id, String nome, String genero, Date dataNascimento, String cpf, String email, String fixo, String celular, Boolean whatsapp, String observacoes, Endereco endereco) {
         super(id, nome, genero, dataNascimento, cpf, email, fixo, celular, whatsapp, observacoes, endereco);
         this.nacionalidade = nacionalidade;
         this.profissao = profissao;
         this.dataCadastro = dataCadastro;
     }
 
-    public Hospede(Integer id, String nome, String nacionalidade, String profissao, String dataCadastro, Genero genero, String cpf, String dataNascimento, String fixo, String observacoes, String email, String celular, Boolean whatsapp, Endereco endereco) {
+    public Hospede(Integer id, String nome, String nacionalidade, String profissao, String dataCadastro, String genero, String cpf, String dataNascimento, String fixo, String observacoes, String email, String celular, Boolean whatsapp, Endereco endereco) {
         super(id, nome, genero, cpf, email, celular, whatsapp, endereco);
         this.nacionalidade = nacionalidade;
         this.profissao = profissao;

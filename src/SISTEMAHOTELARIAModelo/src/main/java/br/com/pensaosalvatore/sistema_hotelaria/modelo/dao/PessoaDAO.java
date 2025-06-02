@@ -1,6 +1,5 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.Genero;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Endereco;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Pessoa;
 import java.sql.Connection;
@@ -109,7 +108,7 @@ public class PessoaDAO {
     // ---------------------- MÉTODOS AUXILIARES ----------------------
     private void preencherStatement(PreparedStatement pstm, Pessoa p) throws SQLException {
         pstm.setString(1, p.getNome());
-        pstm.setString(2, p.getGenero() != null ? p.getGenero().toString() : null);
+        pstm.setString(2, p.getGenero());
 
         if (p.getDataNascimento() != null) {
             pstm.setDate(3, new java.sql.Date(p.getDataNascimento().getTime()));
@@ -142,10 +141,7 @@ public class PessoaDAO {
 
         pessoa.setId(rs.getInt("id"));
         pessoa.setNome(rs.getString("nome"));
-
-        String generoStr = rs.getString("genero");
-        pessoa.setGenero(generoStr != null ? Genero.valueOf(generoStr) : null);
-
+        pessoa.setGenero(rs.getString("genero"));
         pessoa.setDataNascimento(rs.getDate("datanascimento"));
         pessoa.setCpf(rs.getString("cpf"));
         pessoa.setEmail(rs.getString("email"));
@@ -167,4 +163,5 @@ public class PessoaDAO {
 
         return pessoa;
     }
+
 }
