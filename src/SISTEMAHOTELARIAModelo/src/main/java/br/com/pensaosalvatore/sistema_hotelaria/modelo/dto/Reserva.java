@@ -78,7 +78,7 @@ public class Reserva {
         return data_entrada;
     }
 
-    public void setDatadeentrada(Date data_entrada) {
+    public void setData_entrada(Date data_entrada) {
         this.data_entrada = data_entrada;
     }
 

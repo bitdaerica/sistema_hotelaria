@@ -26,17 +26,17 @@ public class EnderecoDAO {
         if (endereco == null) {
             throw new IllegalArgumentException("Endereço não pode ser nulo.");
         }
-        String sql = "INSERT INTO ENDERECO (RUA, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO enderecos (rua, numero, bairro, cidade, estado, cep, complemento) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             pstm.setString(1, endereco.getRua());
             pstm.setString(2, endereco.getNumero());
-            pstm.setString(3, endereco.getComplemento());
-            pstm.setString(4, endereco.getBairro());
-            pstm.setString(5, endereco.getCidade());
-            pstm.setString(6, endereco.getEstado());
-            pstm.setString(7, endereco.getCep());
+            pstm.setString(3, endereco.getBairro());
+            pstm.setString(4, endereco.getCidade());
+            pstm.setString(5, endereco.getEstado());
+            pstm.setString(6, endereco.getCep());
+            pstm.setString(7, endereco.getComplemento());
 
             int affectedRows = pstm.executeUpdate();
 
@@ -53,17 +53,17 @@ public class EnderecoDAO {
     }
 
     public void atualizar(Endereco endereco) throws SQLException {
-        String sql = "UPDATE ENDERECO SET RUA=?, NUMERO=?, COMPLEMENTO=?, BAIRRO=?, CIDADE=?, ESTADO=?, CEP=? WHERE id=?";
+        String sql = "UPDATE enderecos SET rua = ? , numero = ? , bairro = ? , cidade = ? , estado = ? , cep = ? , complemento = ? WHERE id=?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 
             pstm.setString(1, endereco.getRua());
             pstm.setString(2, endereco.getNumero());
-            pstm.setString(3, endereco.getComplemento());
-            pstm.setString(4, endereco.getBairro());
-            pstm.setString(5, endereco.getCidade());
-            pstm.setString(6, endereco.getEstado());
-            pstm.setString(7, endereco.getCep());
+            pstm.setString(3, endereco.getBairro());
+            pstm.setString(4, endereco.getCidade());
+            pstm.setString(5, endereco.getEstado());
+            pstm.setString(6, endereco.getCep());
+            pstm.setString(7, endereco.getComplemento());
             pstm.setInt(8, endereco.getId());
 
             int linhasAfetadas = pstm.executeUpdate();
@@ -75,7 +75,7 @@ public class EnderecoDAO {
 
     public List<Endereco> listar() throws SQLException {
         List<Endereco> lista = new ArrayList<>();
-        String sql = "SELECT * FROM ENDERECO";
+        String sql = "SELECT * FROM enderecos";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
 
@@ -88,7 +88,7 @@ public class EnderecoDAO {
     }
 
     public Endereco buscarPorId(int id) throws SQLException {
-        String sql = "SELECT * FROM ENDERECO WHERE id=?";
+        String sql = "SELECT * FROM enderecos WHERE id=?";
         Endereco endereco = null;
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -105,7 +105,7 @@ public class EnderecoDAO {
     }
 
     public void deletar(int id) throws SQLException {
-        String sql = "DELETE FROM ENDERECO WHERE id=?";
+        String sql = "DELETE FROM enderecos WHERE id=?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, id);
