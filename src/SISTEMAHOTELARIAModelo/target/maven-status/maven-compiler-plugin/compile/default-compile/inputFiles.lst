@@ -38,3 +38,5 @@ C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAM
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Reserva.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Usuario.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\Conexao.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\ValidacaoException.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\ValidadorQuarto.java

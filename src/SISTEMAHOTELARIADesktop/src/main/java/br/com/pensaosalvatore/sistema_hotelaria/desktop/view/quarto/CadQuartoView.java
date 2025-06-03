@@ -1,5 +1,11 @@
-
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.quarto;
+
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.quarto.CadQuartoController;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Quarto;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidadorQuarto;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -7,11 +13,15 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.quarto;
  */
 public class CadQuartoView extends javax.swing.JFrame {
 
+    private final CadQuartoController controller;
+
     /**
      * Creates new form CadQuartoView
      */
     public CadQuartoView() {
         initComponents();
+        controller = new CadQuartoController(this);
+
     }
 
     /**
@@ -115,18 +125,33 @@ public class CadQuartoView extends javax.swing.JFrame {
         bntNovohospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-quartos20x20.png"))); // NOI18N
         bntNovohospede.setText("Novo Quarto");
         bntNovohospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bntNovohospede.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntNovohospedeActionPerformed(evt);
+            }
+        });
         getContentPane().add(bntNovohospede, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 130, 40));
 
         btnSalvar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
         btnSalvar.setText("Salvar");
         btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 310, 110, 40));
 
         bntCancelar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
         bntCancelar.setText("Cancelar");
         bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bntCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntCancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, 110, 40));
 
         telafundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/3.png"))); // NOI18N
@@ -135,6 +160,33 @@ public class CadQuartoView extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(989, 727));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        try {
+            Quarto quarto = ValidadorQuarto.validar(
+                    txtNumero.getText(),
+                    txtTipo.getText(),
+                    txtValor.getText(),
+                    txtObservacoes.getText()
+            );
+
+            controller.salvar(quarto);
+
+        } catch (ValidacaoException e) {
+            JOptionPane.showMessageDialog(this,
+                    e.getMessage(),
+                    "Validação",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void bntNovohospedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNovohospedeActionPerformed
+        controller.limparFormulario();
+    }//GEN-LAST:event_bntNovohospedeActionPerformed
+
+    private void bntCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCancelarActionPerformed
+        controller.limparFormulario();
+    }//GEN-LAST:event_bntCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,6 +222,46 @@ public class CadQuartoView extends javax.swing.JFrame {
             }
         });
     }
+
+    public void limparCampos() {
+        txtNumero.setText("");
+        txtTipo.setText("");
+        txtValor.setText("");
+        txtObservacoes.setText("");
+        txtNumero.requestFocus(); // Coloca o foco no primeiro campo
+    }
+
+    public void popularTabela(java.util.List<Quarto> quartos) {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0); // Limpa a tabela
+
+        for (Quarto quarto : quartos) {
+            model.addRow(new Object[]{
+                quarto.getId(),
+                quarto.getNumero(),
+                quarto.getTipo(),
+                quarto.getValor()
+            });
+        }
+    }
+
+    // Getters para os campos de texto
+    public javax.swing.JTextField getTxtNumero() {
+        return txtNumero;
+    }
+
+    public javax.swing.JTextField getTxtTipo() {
+        return txtTipo;
+    }
+
+    public javax.swing.JTextField getTxtValor() {
+        return txtValor;
+    }
+
+    public javax.swing.JTextArea getTxtObservacoes() {
+        return txtObservacoes;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntCancelar;

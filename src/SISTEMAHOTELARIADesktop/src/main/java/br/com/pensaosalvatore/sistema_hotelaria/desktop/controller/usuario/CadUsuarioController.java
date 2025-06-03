@@ -47,7 +47,7 @@ public class CadUsuarioController {
                 JOptionPane.showMessageDialog(null, "Usuário atualizado com sucesso!");
             }
 
-            limparCampos();
+            
             novo();
 
         } catch (SQLException ex) {
@@ -62,39 +62,19 @@ public class CadUsuarioController {
         usuario = new Usuario();
         pessoa = new Pessoa();
         endereco = new Endereco();
-        limparCampos();
+        
         JOptionPane.showMessageDialog(null, "Pronto para novo cadastro.");
     }
 
     
     public void cancelar() {
-        limparCampos();
+       
         JOptionPane.showMessageDialog(null, "Operação cancelada.");
         view.dispose();
     }
 
    
-    public void limparCampos() {
-        
-        view.getTxtNome().setText("");
-        view.getTxtUsuario().setText("");
-        view.getSenha().setText("");
-        view.getTxtEmail2().setText("");
-        view.getFmtCpf().setText("");
-        view.getFmtCelular().setText("");
-        view.getFmtFixo().setText("");
-        view.getFmtDatanascimento().setText("");
-        view.getTxtGenero().setText("");
-        view.getBtnWhatsapp().setSelected(false);
-        view.getTxtObservacoes().setText("");
-        view.getFmtCep().setText("");
-        view.getTxtRua().setText("");
-        view.getTxtNumero().setText("");
-        view.getTxtBairro().setText("");
-        view.getTxtCidade().setText("");
-        view.getTxtEstado().setText("");
-        view.getTxtComplemento().setText("");
-    }
+    
 
     // para pegar dados da view e preencher os objetos
     private void preencherDadosDoFormulario() {

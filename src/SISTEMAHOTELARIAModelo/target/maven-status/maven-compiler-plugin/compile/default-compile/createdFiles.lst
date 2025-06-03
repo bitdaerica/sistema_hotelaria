@@ -20,6 +20,7 @@ br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\QuartoDAO.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\Estado.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\StatusProduto.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\TipoDocumento.class
+br\com\pensaosalvatore\sistema_hotelaria\modelo\util\ValidacaoException.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\EnderecoDAO.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\CategoriaServico.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\TipoQuarto.class
@@ -30,6 +31,7 @@ br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\StatusReserva.c
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\TipoCobranca.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Endereco.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\Andar.class
+br\com\pensaosalvatore\sistema_hotelaria\modelo\util\ValidadorQuarto.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\DepartamentoFuncionario.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\CategoriaProduto.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Quarto.class

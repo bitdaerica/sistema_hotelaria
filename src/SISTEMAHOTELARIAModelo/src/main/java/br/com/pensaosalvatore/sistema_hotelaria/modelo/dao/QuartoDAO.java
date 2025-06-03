@@ -1,6 +1,5 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.TipoQuarto;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Quarto;
 import java.math.BigDecimal;
 import java.sql.*;
@@ -19,6 +18,7 @@ public class QuartoDAO {
         this.connection = connection;
     }
 
+    
     // Inserir quarto
     public void inserir(Quarto q) throws SQLException {
         String sql = "INSERT INTO quartos (numero, tipo, valor, descricao) VALUES (?, ?, ?, ?)";
@@ -121,28 +121,7 @@ public class QuartoDAO {
         return quarto;
     }
 
-    // Buscar quartos por tipo
-    public List<Quarto> buscarPorTipo(TipoQuarto tipo) throws SQLException {
-        List<Quarto> lista = new ArrayList<>();
-        String sql = "SELECT * FROM quartos WHERE TIPO = ?";
-
-        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-            pstm.setString(1, tipo.name());
-            try (ResultSet rs = pstm.executeQuery()) {
-                while (rs.next()) {
-                    Quarto quarto = new Quarto(
-                            rs.getInt("ID"),
-                            rs.getInt("numero"),
-                           rs.getString("tipo"),
-                            rs.getBigDecimal("valor"),
-                            rs.getString("descricao")
-                    );
-                    lista.add(quarto);
-                }
-            }
-        }
-        return lista;
-    }
+    
 
     // Buscar quartos por faixa de valor
     public List<Quarto> buscarPorFaixaDeValor(BigDecimal valorMin, BigDecimal valorMax) throws SQLException {
