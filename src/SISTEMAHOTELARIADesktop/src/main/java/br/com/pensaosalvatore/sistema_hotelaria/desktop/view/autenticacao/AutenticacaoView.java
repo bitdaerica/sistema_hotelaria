@@ -170,7 +170,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
 
         }*/
-
+        controller.mostrar();
         this.controller.fizTarefa();
     }//GEN-LAST:event_btnEntrarActionPerformed
 

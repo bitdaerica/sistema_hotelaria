@@ -24,13 +24,13 @@ public class HospedeDAO {
     }
 
     // Inserir hóspede (Pessoa + Hospede)
-    public void inserirHospede(Hospede h) throws SQLException {
+    public void inserir(Hospede h) throws SQLException {
         try {
             connection.setAutoCommit(false);
 
             // Inserir Pessoa
             PessoaDAO pessoaDAO = new PessoaDAO(connection, new EnderecoDAO(connection));
-            int idPessoa = pessoaDAO.inserirPessoa(h);
+            int idPessoa = pessoaDAO.inserir(h);
             h.setId(idPessoa);
 
             String sql = "INSERT INTO HOSPEDE (ID, NACIONALIDADE, PROFISSAO, DATA_CADASTRO) VALUES (?, ?, ?, ?)";
@@ -56,14 +56,14 @@ public class HospedeDAO {
     }
 
     // Alterar hóspede (Pessoa + Hospede)
-    public void alterarHospede(Hospede h) throws SQLException {
+    public void alterar(Hospede h) throws SQLException {
         PreparedStatement pstm = null;
         try {
             connection.setAutoCommit(false);
 
             // Atualiza Pessoa
             PessoaDAO pessoaDAO = new PessoaDAO(connection, null);
-            pessoaDAO.alterarPessoa(h);
+            pessoaDAO.alterar(h);
 
             String sql = "UPDATE HOSPEDE SET NACIONALIDADE = ?, PROFISSAO = ?, DATA_CADASTRO = ? WHERE ID = ?";
             pstm = connection.prepareStatement(sql);
@@ -158,7 +158,7 @@ public class HospedeDAO {
     }
 
     // Excluir hóspede (HOSPEDE + PESSOA)
-    public void excluirHospede(int id) throws SQLException {
+    public void excluir(int id) throws SQLException {
         PreparedStatement pstm = null;
         try {
             connection.setAutoCommit(false);
@@ -169,7 +169,7 @@ public class HospedeDAO {
             pstm.executeUpdate();
 
             PessoaDAO pessoaDAO = new PessoaDAO(connection, null);
-            pessoaDAO.excluirPessoa(id);
+            pessoaDAO.excluir(id);
 
             connection.commit();
         } catch (SQLException e) {

@@ -23,8 +23,6 @@ public class CadUsuarioController {
     private Usuario usuario;
     private Pessoa pessoa;
     private Endereco endereco;
-    private Connection Connection;
-    private Usuario Usuario;
 
     
     public CadUsuarioController(CadUsuarioView view, UsuarioDAO usuarioDAO1) throws SQLException {
@@ -42,10 +40,10 @@ public class CadUsuarioController {
             preencherDadosDoFormulario();
 
             if (usuario.getId() == null) {
-                usuarioDAO.inserirUsuario(usuario);
+                usuarioDAO.inserir(usuario);
                 JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
             } else {
-                usuarioDAO.alterarUsuario(usuario);
+                usuarioDAO.alterar(usuario);
                 JOptionPane.showMessageDialog(null, "Usuário atualizado com sucesso!");
             }
 
@@ -77,6 +75,7 @@ public class CadUsuarioController {
 
    
     public void limparCampos() {
+        
         view.getTxtNome().setText("");
         view.getTxtUsuario().setText("");
         view.getSenha().setText("");

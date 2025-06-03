@@ -21,7 +21,7 @@ public class ReservaDAO {
         this.connection = connection;
     }
 
-    public void inserirReserva(Reserva r) throws SQLException {
+    public void inserir(Reserva r) throws SQLException {
         String sql = "INSERT INTO RESERVA (HOSPEDE_ID, QUARTO_ID, DATA_ENTRADA, DATA_SAIDA, VALOR, OBSERVACOES) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -36,7 +36,7 @@ public class ReservaDAO {
         }
     }
 
-    public void alterarReserva(Reserva r) throws SQLException {
+    public void alterar(Reserva r) throws SQLException {
         String sql = "UPDATE RESERVA SET HOSPEDE_ID = ?, QUARTO_ID = ?, DATA_ENTRADA = ?, DATA_SAIDA = ?, VALOR = ?, OBSERVACOES = ? WHERE ID = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -82,7 +82,7 @@ public class ReservaDAO {
         return lista;
     }
 
-    public void excluirReserva(int id) throws SQLException {
+    public void excluir(int id) throws SQLException {
         String sql = "DELETE FROM RESERVA WHERE ID = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {

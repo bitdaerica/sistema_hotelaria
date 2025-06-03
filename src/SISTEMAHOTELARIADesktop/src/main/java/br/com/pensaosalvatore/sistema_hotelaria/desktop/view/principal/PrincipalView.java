@@ -1,7 +1,11 @@
 
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.principal;
 
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.principal.PrincipalController;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.reserva.ReservaView;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -9,11 +13,13 @@ import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.reserva.ReservaView
  */
 public class PrincipalView extends javax.swing.JFrame {
 
+    private final PrincipalController controller;
     /**
      * Creates new form PrincipalView
      */
     public PrincipalView() {
         initComponents();
+        controller = new PrincipalController (this);
     }
 
     /**
@@ -256,6 +262,11 @@ public class PrincipalView extends javax.swing.JFrame {
         miHospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-hospede20x20.png"))); // NOI18N
         miHospede.setText("Hóspede");
         miHospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        miHospede.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miHospedeActionPerformed(evt);
+            }
+        });
         mnCadastro.add(miHospede);
         mnCadastro.add(jSeparator6);
 
@@ -263,6 +274,11 @@ public class PrincipalView extends javax.swing.JFrame {
         miQuartos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-quartos20x20.png"))); // NOI18N
         miQuartos.setText("Quartos");
         miQuartos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        miQuartos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miQuartosActionPerformed(evt);
+            }
+        });
         mnCadastro.add(miQuartos);
         mnCadastro.add(jSeparator7);
 
@@ -270,6 +286,11 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-funcionario20x20.png"))); // NOI18N
         jMenuItem3.setText("Usuário");
         jMenuItem3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         mnCadastro.add(jMenuItem3);
 
         jMenuBar1.add(mnCadastro);
@@ -391,12 +412,26 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoffActionPerformed
 
     private void miRealizarreservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRealizarreservaActionPerformed
-        ReservaView tela = new ReservaView ();
-        telaFundo.add(tela);
-        tela.setVisible(true);
+        controller.realizarReserva();
 
 
     }//GEN-LAST:event_miRealizarreservaActionPerformed
+
+    private void miHospedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miHospedeActionPerformed
+        controller.entrarCadastroHospede();
+    }//GEN-LAST:event_miHospedeActionPerformed
+
+    private void miQuartosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miQuartosActionPerformed
+        controller.entrarCadastroQuarto();
+    }//GEN-LAST:event_miQuartosActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        try {
+            controller.entrarCadastroUsuario();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments

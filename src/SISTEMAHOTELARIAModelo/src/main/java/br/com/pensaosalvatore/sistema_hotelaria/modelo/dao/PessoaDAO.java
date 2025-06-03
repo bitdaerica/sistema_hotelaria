@@ -25,7 +25,7 @@ public class PessoaDAO {
         this.enderecoDAO = enderecoDAO;
     }
 
-    public int inserirPessoa(Pessoa p) throws SQLException {
+    public int inserir(Pessoa p) throws SQLException {
         String sql = "INSERT INTO PESSOA (nome, genero, datanascimento, cpf, email, fixo, celular, whatsapp, observacoes, endereco_id) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -43,7 +43,7 @@ public class PessoaDAO {
         }
     }
 
-    public void alterarPessoa(Pessoa p) throws SQLException {
+    public void alterar(Pessoa p) throws SQLException {
         if (p.getId() <= 0) {
             throw new IllegalArgumentException("ID inválido para atualização.");
         }
@@ -102,7 +102,7 @@ public class PessoaDAO {
         return lista;
     }
 
-    public void excluirPessoa(int id) throws SQLException {
+    public void excluir(int id) throws SQLException {
         String sql = "DELETE FROM PESSOA WHERE ID = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -111,7 +111,6 @@ public class PessoaDAO {
         }
     }
 
-    // ---------------------- MÉTODOS AUXILIARES ----------------------
     private void preencherStatement(PreparedStatement pstm, Pessoa p) throws SQLException {
         pstm.setString(1, p.getNome());
         pstm.setString(2, p.getGenero());

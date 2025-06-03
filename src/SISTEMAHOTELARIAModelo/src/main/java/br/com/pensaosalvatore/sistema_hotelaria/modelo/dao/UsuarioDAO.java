@@ -1,6 +1,8 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -23,13 +25,13 @@ public class UsuarioDAO {
     }
 
     // Inserir usuário (e pessoa vinculada)
-    public void inserirUsuario(Usuario usuario) throws SQLException {
+    public void inserir(Usuario usuario) throws SQLException {
         try {
             connection.setAutoCommit(false);
 
             // Inserir na tabela PESSOA primeiro
             PessoaDAO pessoaDAO = new PessoaDAO(connection, new EnderecoDAO(connection));
-            int idPessoa = pessoaDAO.inserirPessoa(usuario);
+            int idPessoa = pessoaDAO.inserir(usuario);
             usuario.setId(idPessoa);
 
             // Inserir na tabela USUARIO
@@ -53,13 +55,13 @@ public class UsuarioDAO {
     }
 
     // Alterar usuário
-    public void alterarUsuario(Usuario usuario) throws SQLException {
+    public void alterar(Usuario usuario) throws SQLException {
         try {
             connection.setAutoCommit(false);
 
             // Alterar dados na tabela PESSOA
             PessoaDAO pessoaDAO = new PessoaDAO(connection, new EnderecoDAO(connection));
-            pessoaDAO.alterarPessoa(usuario);
+            pessoaDAO.alterar(usuario);
 
             // Alterar dados na tabela USUARIO
             String sql = "UPDATE USUARIO SET usuario = ?, senha = ? WHERE pessoa_id = ?";
@@ -147,7 +149,7 @@ public class UsuarioDAO {
     }
 
     // Excluir usuário (e a pessoa vinculada)
-    public void excluirUsuario(int id) throws SQLException {
+    public void excluir(int id) throws SQLException {
         try {
             connection.setAutoCommit(false);
 
@@ -160,7 +162,7 @@ public class UsuarioDAO {
 
             // Excluir na tabela PESSOA
             PessoaDAO pessoaDAO = new PessoaDAO(connection, new EnderecoDAO(connection));
-            pessoaDAO.excluirPessoa(id);
+            pessoaDAO.excluir(id);
 
             connection.commit();
 

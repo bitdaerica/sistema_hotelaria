@@ -21,7 +21,7 @@ public class QuartoDAO {
     }
 
     // Inserir quarto
-    public void inserirQuarto(Quarto q) throws SQLException {
+    public void inserir(Quarto q) throws SQLException {
         String sql = "INSERT INTO QUARTO (NUMERO, TIPO, VALOR, DESCRICAO) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -34,7 +34,7 @@ public class QuartoDAO {
     }
 
     // Alterar quarto
-    public void alterarQuarto(Quarto q) throws SQLException {
+    public void alterar(Quarto q) throws SQLException {
         String sql = "UPDATE QUARTO SET NUMERO = ?, TIPO = ?, VALOR = ?, DESCRICAO = ? WHERE ID = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -48,7 +48,7 @@ public class QuartoDAO {
     }
 
     // Excluir quarto
-    public void excluirQuarto(int id) throws SQLException {
+    public void excluir(int id) throws SQLException {
         String sql = "DELETE FROM QUARTO WHERE ID = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
