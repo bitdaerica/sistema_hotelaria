@@ -1,6 +1,5 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.enumeradores.TipoQuarto;
 import java.math.BigDecimal;
 
 /**
@@ -11,14 +10,14 @@ public class Quarto {
 
     private Integer id;
     private Integer numero;
-    private TipoQuarto tipo;
+    private String tipo;
     private BigDecimal valor;
     private String descricao;
 
     public Quarto() {
     }
 
-    public Quarto(Integer id, Integer numero, TipoQuarto tipo, BigDecimal valor, String descricao) {
+    public Quarto(Integer id, Integer numero, String tipo, BigDecimal valor, String descricao) {
         this.id = id;
         this.numero = numero;
         this.tipo = tipo;
@@ -42,11 +41,11 @@ public class Quarto {
         this.numero = numero;
     }
 
-    public TipoQuarto getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoQuarto tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 

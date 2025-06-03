@@ -3,7 +3,6 @@ package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 
 /**
@@ -14,7 +13,7 @@ public class Hospede extends Pessoa {
 
     private String nacionalidade;
     private String profissao;
-    private LocalDate dataCadastro;
+    private LocalDate data_cadastro;
 
     public Hospede() {
         super();
@@ -24,13 +23,13 @@ public class Hospede extends Pessoa {
         super(id);
     }
 
-    public Hospede(Integer id, String nome, String nacionalidade, String profissao, String dataCadastro,
-            String genero, String cpf, String dataNascimento, String fixo, String observacoes,
+    public Hospede(Integer id, String nome, String nacionalidade, String profissao, String data_cadastro,
+            String genero, String cpf, String data_nascimento, String fixo, String observacoes,
             String email, String celular, Boolean whatsapp, Endereco endereco) {
         super(id, nome, genero, cpf, email, celular, whatsapp, endereco);
         this.nacionalidade = nacionalidade;
         this.profissao = profissao;
-        this.dataCadastro = LocalDate.parse(dataCadastro, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.data_cadastro = LocalDate.parse(data_cadastro, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
    
@@ -51,12 +50,12 @@ public class Hospede extends Pessoa {
         this.profissao = profissao;
     }
 
-    public LocalDate getDataCadastro() {
-        return dataCadastro;
+    public LocalDate getData_cadastro() {
+        return data_cadastro;
     }
 
-    public void setDataCadastro(LocalDate dataCadastro) {
-        this.dataCadastro = dataCadastro;
+    public void setData_cadastro(LocalDate data_cadastro) {
+        this.data_cadastro = data_cadastro;
     }
 
     // 🔸 toString() opcional, para debug
@@ -66,7 +65,7 @@ public class Hospede extends Pessoa {
                 + "id=" + getId()
                 + ", nome='" + getNome() + '\''
                 + ", genero='" + getGenero() + '\''
-                + ", dataNascimento=" + getDataNascimento()
+                + ", data_nascimento=" + getData_nascimento()
                 + ", cpf='" + getCpf() + '\''
                 + ", email='" + getEmail() + '\''
                 + ", fixo='" + getFixo() + '\''
@@ -75,7 +74,7 @@ public class Hospede extends Pessoa {
                 + ", observacoes='" + getObservacoes() + '\''
                 + ", nacionalidade='" + nacionalidade + '\''
                 + ", profissao='" + profissao + '\''
-                + ", dataCadastro=" + dataCadastro
+                + ", data_cadastro=" + data_cadastro
                 + '}';
     }
 }

@@ -6,7 +6,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,16 +32,16 @@ public class HospedeDAO {
             int idPessoa = pessoaDAO.inserir(h);
             h.setId(idPessoa);
 
-            String sql = "INSERT INTO HOSPEDE (ID, NACIONALIDADE, PROFISSAO, DATA_CADASTRO) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO hospedes (nacionalidade, profissao, data_cadastro, id_pessoas) VALUES (?, ?, ?, ?)";
             try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-                pstm.setInt(1, h.getId());
-                pstm.setString(2, h.getNacionalidade());
-                pstm.setString(3, h.getProfissao());
-                if (h.getDataCadastro() != null) {
-                    pstm.setDate(4, Date.valueOf(h.getDataCadastro()));
+                pstm.setString(1, h.getNacionalidade());
+                pstm.setString(2, h.getProfissao());
+                if (h.getData_cadastro() != null) {
+                    pstm.setDate(3, Date.valueOf(h.getData_cadastro()));
                 } else {
-                    pstm.setNull(4, java.sql.Types.DATE);
+                    pstm.setNull(3, java.sql.Types.DATE);
                 }
+                pstm.setInt(4, h.getId());
 
                 pstm.executeUpdate();
             }
@@ -65,12 +64,12 @@ public class HospedeDAO {
             PessoaDAO pessoaDAO = new PessoaDAO(connection, null);
             pessoaDAO.alterar(h);
 
-            String sql = "UPDATE HOSPEDE SET NACIONALIDADE = ?, PROFISSAO = ?, DATA_CADASTRO = ? WHERE ID = ?";
+            String sql = "UPDATE hospedes SET nacionalidade = ? , profissao = ? , data_cadastro = ? WHERE ID = ?";
             pstm = connection.prepareStatement(sql);
             pstm.setString(1, h.getNacionalidade());
             pstm.setString(2, h.getProfissao());
-            if (h.getDataCadastro() != null) {
-                pstm.setDate(3, Date.valueOf(h.getDataCadastro())); // índice 3 para dataCadastro
+            if (h.getData_cadastro() != null) {
+                pstm.setDate(3, Date.valueOf(h.getData_cadastro())); // índice 3 para dataCadastro
             } else {
                 pstm.setNull(3, java.sql.Types.DATE);
             }
@@ -92,19 +91,19 @@ public class HospedeDAO {
     // Buscar hóspede por ID (com join em Pessoa)
     public Hospede selecionarPorId(int id) throws SQLException {
         String sql = """
-            SELECT h.ID, h.NACIONALIDADE, h.PROFISSAO, h.DATA_CADASTRO,
-                   p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL,
-                   p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
-            FROM HOSPEDE h
-            INNER JOIN PESSOA p ON h.ID = p.ID
-            WHERE h.ID = ?
+            SELECT h.id, h.nacionalidade, h.profissao, h.data_cadastro,
+                   p.nome, p.genero, p.data_nascimento, p.cpf, p.email,
+                   p.fixo, p.celular, p.whatsapp, p.observacoes
+            FROM hospedes h
+            INNER JOIN pessoas p ON h.id = p.id
+            WHERE h.id = ?
             """;
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, id);
             try (ResultSet rs = pstm.executeQuery()) {
                 if (rs.next()) {
-                    return mapearHospede(rs);
+                    return mapear(rs);
                 }
             }
         }
@@ -116,18 +115,18 @@ public class HospedeDAO {
         List<Hospede> lista = new ArrayList<>();
 
         String sql = """
-            SELECT h.ID, h.NACIONALIDADE, h.PROFISSAO, h.DATA_CADASTRO,
-                   p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL,
-                   p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
-            FROM HOSPEDE h
-            INNER JOIN PESSOA p ON h.ID = p.ID
+            SELECT h.id, h.nacionalidade, h.profissao, h.data_cadastro,
+                   p.nome, p.genero, p.data_nascimento, p.cpf, p.email,
+                   p.fixo, p.celular, p.whatsapp, p.observacoes
+            FROM hospedes h
+            INNER JOIN pessoas p ON h.id = p.id
             """;
 
         try (PreparedStatement pstm = connection.prepareStatement(sql);
              ResultSet rs = pstm.executeQuery()) {
 
             while (rs.next()) {
-                lista.add(mapearHospede(rs));
+                lista.add(mapear(rs));
             }
         }
         return lista;
@@ -138,19 +137,19 @@ public class HospedeDAO {
         List<Hospede> lista = new ArrayList<>();
 
         String sql = """
-            SELECT h.ID, h.NACIONALIDADE, h.PROFISSAO, h.DATA_CADASTRO,
-                   p.NOME, p.GENERO, p.DATA_NASCIMENTO, p.CPF, p.EMAIL,
-                   p.FIXO, p.CELULAR, p.WHATSAPP, p.OBSERVACOES
-            FROM HOSPEDE h
-            INNER JOIN PESSOA p ON h.ID = p.ID
-            WHERE p.NOME LIKE ?
+            SELECT h.id, h.nacionalidade, h.profissao, h.data_cadastro,
+                   p.nome, p.genero, p.data_nascimento, p.cpf, p.email,
+                   p.fixo, p.celular, p.whatsapp, p.observacoes
+            FROM hospedes h
+            INNER JOIN pessoas p ON h.id = p.id
+            WHERE p.nome LIKE ?
             """;
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setString(1, "%" + nome + "%");
             try (ResultSet rs = pstm.executeQuery()) {
                 while (rs.next()) {
-                    lista.add(mapearHospede(rs));
+                    lista.add(mapear(rs));
                 }
             }
         }
@@ -163,7 +162,7 @@ public class HospedeDAO {
         try {
             connection.setAutoCommit(false);
 
-            String sql = "DELETE FROM HOSPEDE WHERE ID = ?";
+            String sql = "DELETE FROM hospedes WHERE ID = ?";
             pstm = connection.prepareStatement(sql);
             pstm.setInt(1, id);
             pstm.executeUpdate();
@@ -184,37 +183,37 @@ public class HospedeDAO {
     }
 
     // Método auxiliar para mapear ResultSet para Hospede
-    private Hospede mapearHospede(ResultSet rs) throws SQLException {
+    private Hospede mapear(ResultSet rs) throws SQLException {
         Hospede h = new Hospede();
 
-        h.setId(rs.getInt("ID"));
-        h.setNome(rs.getString("NOME"));
-        h.setGenero(rs.getString("GENERO"));
+        h.setId(rs.getInt("id"));
+        h.setNome(rs.getString("nome"));
+        h.setGenero(rs.getString("genero"));
 
-        Date dataNascimentoSQL = rs.getDate("DATA_NASCIMENTO");
-        if (dataNascimentoSQL != null) {
-            h.setDataNascimento(dataNascimentoSQL.toLocalDate());
+        Date data_nascimentoSQL = rs.getDate("data_nascimento");
+        if (data_nascimentoSQL != null) {
+            h.setData_nascimento(data_nascimentoSQL.toLocalDate());
         } else {
-            h.setDataNascimento(null);
+            h.setData_nascimento(null);
         }
 
-        h.setCpf(rs.getString("CPF"));
-        h.setEmail(rs.getString("EMAIL"));
-        h.setFixo(rs.getString("FIXO"));
-        h.setCelular(rs.getString("CELULAR"));
+        h.setCpf(rs.getString("cpf"));
+        h.setEmail(rs.getString("email"));
+        h.setFixo(rs.getString("fixo"));
+        h.setCelular(rs.getString("celular"));
 
-        Object whatsappObj = rs.getObject("WHATSAPP");
-        h.setWhatsapp(whatsappObj != null ? rs.getBoolean("WHATSAPP") : null);
+        Object whatsappObj = rs.getObject("whatsapp");
+        h.setWhatsapp(whatsappObj != null ? rs.getBoolean("whatsapp") : null);
 
-        h.setObservacoes(rs.getString("OBSERVACOES"));
-        h.setNacionalidade(rs.getString("NACIONALIDADE"));
-        h.setProfissao(rs.getString("PROFISSAO"));
+        h.setObservacoes(rs.getString("observacoes"));
+        h.setNacionalidade(rs.getString("nacionalidade"));
+        h.setProfissao(rs.getString("profissao"));
 
-        Date dataCadastroSQL = rs.getDate("DATA_CADASTRO");
-        if (dataCadastroSQL != null) {
-            h.setDataCadastro(dataCadastroSQL.toLocalDate());
+        Date data_cadastroSQL = rs.getDate("data_cadastro");
+        if (data_cadastroSQL != null) {
+            h.setData_cadastro(data_cadastroSQL.toLocalDate());
         } else {
-            h.setDataCadastro(null);
+            h.setData_cadastro(null);
         }
 
         return h;

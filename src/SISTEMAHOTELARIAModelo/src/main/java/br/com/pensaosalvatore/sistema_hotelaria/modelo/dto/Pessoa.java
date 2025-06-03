@@ -11,7 +11,7 @@ public class Pessoa {
     private Integer id;
     private String nome;
     private String genero;
-    private LocalDate dataNascimento;
+    private LocalDate data_nascimento;
     private String cpf;
     private String email;
     private String fixo;
@@ -32,11 +32,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public Pessoa(Integer id, String nome, String genero, LocalDate dataNascimento, String cpf, String email, String fixo, String celular, boolean whatsapp, String observacoes, Endereco endereco) {
+    public Pessoa(Integer id, String nome, String genero, LocalDate data_nascimento, String cpf, String email, String fixo, String celular, boolean whatsapp, String observacoes, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.genero = genero;
-        this.dataNascimento = dataNascimento;
+        this.data_nascimento = data_nascimento;
         this.cpf = cpf;
         this.email = email;
         this.fixo = fixo;
@@ -81,12 +81,12 @@ public class Pessoa {
         this.genero = genero;
     }
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
+    public LocalDate getData_nascimento() {
+        return data_nascimento;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setData_nascimento(LocalDate data_nascimento) {
+        this.data_nascimento = data_nascimento;
     }
 
     public String getCpf() {
@@ -151,7 +151,7 @@ public class Pessoa {
                 + "id=" + id
                 + ", nome='" + nome + '\''
                 + ", genero=" + genero
-                + ", dataNascimento=" + dataNascimento
+                + ", data_nascimento=" + data_nascimento
                 + ", cpf='" + cpf + '\''
                 + ", email='" + email + '\''
                 + ", fixo='" + fixo + '\''

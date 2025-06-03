@@ -105,7 +105,7 @@ public class CadUsuarioController {
         pessoa.setCpf(view.getFmtCpf().getText());
         pessoa.setCelular(view.getFmtCelular().getText());
         pessoa.setFixo(view.getFmtFixo().getText());
-        pessoa.setDataNascimento(DataUtils.stringParaLocalDate(view.getFmtDatanascimento().getText()));
+        pessoa.setData_nascimento(DataUtils.stringParaLocalDate(view.getFmtDatanascimento().getText()));
         pessoa.setGenero(view.getTxtGenero().getText());
         pessoa.setWhatsapp(view.getBtnWhatsapp().isSelected());
         pessoa.setObservacoes(view.getTxtObservacoes().getText());

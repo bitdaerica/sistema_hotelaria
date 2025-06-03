@@ -25,8 +25,8 @@ public class CadQuartoView extends javax.swing.JFrame {
 
         lblCadastro = new javax.swing.JLabel();
         txtValor = new javax.swing.JTextField();
-        cmbTipodoquarto = new javax.swing.JComboBox<>();
         txtNumero = new javax.swing.JTextField();
+        txtTipo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservacoes = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
@@ -51,12 +51,11 @@ public class CadQuartoView extends javax.swing.JFrame {
         txtValor.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 230, 30));
 
-        cmbTipodoquarto.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cmbTipodoquarto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(cmbTipodoquarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 230, 30));
-
         txtNumero.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         getContentPane().add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 230, 30));
+
+        txtTipo.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        getContentPane().add(txtTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 230, 30));
 
         txtObservacoes.setColumns(20);
         txtObservacoes.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -176,7 +175,6 @@ public class CadQuartoView extends javax.swing.JFrame {
     private javax.swing.JButton bntCancelar;
     private javax.swing.JButton bntNovohospede;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JComboBox<String> cmbTipodoquarto;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -188,6 +186,7 @@ public class CadQuartoView extends javax.swing.JFrame {
     private javax.swing.JLabel telafundo;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextArea txtObservacoes;
+    private javax.swing.JTextField txtTipo;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

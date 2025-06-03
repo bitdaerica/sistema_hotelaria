@@ -26,7 +26,7 @@ public class PessoaDAO {
     }
 
     public int inserir(Pessoa p) throws SQLException {
-        String sql = "INSERT INTO PESSOA (nome, genero, datanascimento, cpf, email, fixo, celular, whatsapp, observacoes, endereco_id) "
+        String sql = "INSERT INTO pessoas (nome, genero, data_nascimento, cpf, email, fixo, celular, whatsapp, observacoes, id_enderecos) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
@@ -48,8 +48,8 @@ public class PessoaDAO {
             throw new IllegalArgumentException("ID inválido para atualização.");
         }
 
-        String sql = "UPDATE PESSOA SET nome = ?, genero = ?, datanascimento = ?, cpf = ?, email = ?, fixo = ?, celular = ?, "
-                + "whatsapp = ?, observacoes = ?, endereco_id = ? WHERE id = ?";
+        String sql = "UPDATE pessoas SET nome = ?, genero = ?, data_nascimento = ?, cpf = ?, email = ?, fixo = ?, celular = ?, "
+                + "whatsapp = ?, observacoes = ?, id_enderecos = ? WHERE id = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             preencherStatement(pstm, p);
@@ -59,7 +59,7 @@ public class PessoaDAO {
     }
 
     public Pessoa selecionarPorId(int id) throws SQLException {
-        String sql = "SELECT * FROM PESSOA WHERE ID = ?";
+        String sql = "SELECT * FROM pessoas WHERE ID = ?";
         Pessoa pessoa = null;
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -74,7 +74,7 @@ public class PessoaDAO {
     }
 
     public List<Pessoa> listarTodos() throws SQLException {
-        String sql = "SELECT * FROM PESSOA";
+        String sql = "SELECT * FROM pessoas";
         List<Pessoa> lista = new ArrayList<>();
 
         try (PreparedStatement pstm = connection.prepareStatement(sql);
@@ -87,7 +87,7 @@ public class PessoaDAO {
     }
 
     public List<Pessoa> listarPorNome(String nome) throws SQLException {
-        String sql = "SELECT * FROM PESSOA WHERE LOWER(NOME) LIKE ?";
+        String sql = "SELECT * FROM pessoas WHERE LOWER(NOME) LIKE ?";
         List<Pessoa> lista = new ArrayList<>();
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -103,7 +103,7 @@ public class PessoaDAO {
     }
 
     public void excluir(int id) throws SQLException {
-        String sql = "DELETE FROM PESSOA WHERE ID = ?";
+        String sql = "DELETE FROM pessoas WHERE ID = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, id);
@@ -115,8 +115,8 @@ public class PessoaDAO {
         pstm.setString(1, p.getNome());
         pstm.setString(2, p.getGenero());
 
-        if (p.getDataNascimento() != null) {
-            pstm.setDate(3, Date.valueOf(p.getDataNascimento()));
+        if (p.getData_nascimento() != null) {
+            pstm.setDate(3, Date.valueOf(p.getData_nascimento()));
         } else {
             pstm.setNull(3, Types.DATE);  // Corrigido para evitar exceção
         }
@@ -148,11 +148,11 @@ public class PessoaDAO {
         pessoa.setNome(rs.getString("nome"));
         pessoa.setGenero(rs.getString("genero"));
 
-        Date dataSQL = rs.getDate("datanascimento");
+        Date dataSQL = rs.getDate("data_nascimento");
         if (dataSQL != null) {
-            pessoa.setDataNascimento(dataSQL.toLocalDate());
+            pessoa.setData_nascimento(dataSQL.toLocalDate());
         } else {
-            pessoa.setDataNascimento(null);
+            pessoa.setData_nascimento(null);
         }
 
         pessoa.setCpf(rs.getString("cpf"));

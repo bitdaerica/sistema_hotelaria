@@ -16,26 +16,26 @@ public class Reserva {
     private Integer id;
     private Hospede hospede;
     private Quarto quarto;
-    private Date datadeentrada;
-    private Date datadesaida;
+    private Date data_entrada;
+    private Date data_saida;
     private BigDecimal valor;
     private String observacoes;
 
     public Reserva() {
     }
 
-    public Reserva(Integer id, Hospede hospede, Quarto quarto, BigDecimal valor, String datadeentrada, String datadesaida) {
+    public Reserva(Integer id, Hospede hospede, Quarto quarto, BigDecimal valor, String data_entrada, String data_saida) {
         this.id = id;
         this.hospede = hospede;
         this.quarto = quarto;
         this.valor = valor;
         try {
-            this.datadeentrada = new SimpleDateFormat("dd/MM/yyyy").parse(datadeentrada);
+            this.data_entrada = new SimpleDateFormat("dd/MM/yyyy").parse(data_entrada);
         } catch (ParseException ex) {
             Logger.getLogger(Reserva.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            this.datadesaida = new SimpleDateFormat("dd/MM/yyyy").parse(datadesaida);
+            this.data_saida = new SimpleDateFormat("dd/MM/yyyy").parse(data_saida);
         } catch (ParseException ex) {
             Logger.getLogger(Reserva.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -43,11 +43,11 @@ public class Reserva {
     }
 
     public String getDataEntradaFormatada() {
-        return new SimpleDateFormat("dd/MM/yyyy").format(datadeentrada);
+        return new SimpleDateFormat("dd/MM/yyyy").format(data_entrada);
     }
 
     public String getDataSaidaFormatada() {
-        return new SimpleDateFormat("dd/MM/yyyy").format(datadesaida);
+        return new SimpleDateFormat("dd/MM/yyyy").format(data_saida);
     }
 
     public Integer getId() {
@@ -74,20 +74,20 @@ public class Reserva {
         this.quarto = quarto;
     }
 
-    public Date getDatadeentrada() {
-        return datadeentrada;
+    public Date getData_entrada() {
+        return data_entrada;
     }
 
-    public void setDatadeentrada(Date datadeentrada) {
-        this.datadeentrada = datadeentrada;
+    public void setDatadeentrada(Date data_entrada) {
+        this.data_entrada = data_entrada;
     }
 
-    public Date getDatadesaida() {
-        return datadesaida;
+    public Date getData_saida() {
+        return data_saida;
     }
 
-    public void setDatadesaida(Date datadesaida) {
-        this.datadesaida = datadesaida;
+    public void setData_saida(Date data_saida) {
+        this.data_saida = data_saida;
     }
 
     public BigDecimal getValor() {

@@ -22,13 +22,13 @@ public class ReservaDAO {
     }
 
     public void inserir(Reserva r) throws SQLException {
-        String sql = "INSERT INTO RESERVA (HOSPEDE_ID, QUARTO_ID, DATA_ENTRADA, DATA_SAIDA, VALOR, OBSERVACOES) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO reservas (id_hospedes, id_quartos, data_entrada, data_saida, valor, observacoes) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, r.getHospede().getId());
             pstm.setInt(2, r.getQuarto().getId());
-            pstm.setDate(3, new Date(r.getDatadeentrada().getTime()));
-            pstm.setDate(4, new Date(r.getDatadesaida().getTime()));
+            pstm.setDate(3, new Date(r.getData_entrada().getTime()));
+            pstm.setDate(4, new Date(r.getData_saida().getTime()));
             pstm.setBigDecimal(5, r.getValor());
             pstm.setString(6, r.getObservacoes());
 
@@ -37,13 +37,13 @@ public class ReservaDAO {
     }
 
     public void alterar(Reserva r) throws SQLException {
-        String sql = "UPDATE RESERVA SET HOSPEDE_ID = ?, QUARTO_ID = ?, DATA_ENTRADA = ?, DATA_SAIDA = ?, VALOR = ?, OBSERVACOES = ? WHERE ID = ?";
+        String sql = "UPDATE reservas SET id_hospedes = ?, id_quartos = ?, data_entrada = ? , data_saida = ? , valor = ? , observacoes = ? WHERE id = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, r.getHospede().getId());
             pstm.setInt(2, r.getQuarto().getId());
-            pstm.setDate(3, new Date(r.getDatadeentrada().getTime()));
-            pstm.setDate(4, new Date(r.getDatadesaida().getTime()));
+            pstm.setDate(3, new Date(r.getData_entrada().getTime()));
+            pstm.setDate(4, new Date(r.getData_saida().getTime()));
             pstm.setBigDecimal(5, r.getValor());
             pstm.setString(6, r.getObservacoes());
             pstm.setInt(7, r.getId());
@@ -83,7 +83,7 @@ public class ReservaDAO {
     }
 
     public void excluir(int id) throws SQLException {
-        String sql = "DELETE FROM RESERVA WHERE ID = ?";
+        String sql = "DELETE FROM reservas WHERE ID = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, id);
@@ -104,13 +104,13 @@ public class ReservaDAO {
         HospedeDAO hospedeDAO = new HospedeDAO(connection);
         QuartoDAO quartoDAO = new QuartoDAO(connection);
 
-        reserva.setHospede(hospedeDAO.selecionarPorId(rs.getInt("HOSPEDE_ID")));
-        reserva.setQuarto(quartoDAO.selecionarPorId(rs.getInt("QUARTO_ID")));
+        reserva.setHospede(hospedeDAO.selecionarPorId(rs.getInt("id_hospedes")));
+        reserva.setQuarto(quartoDAO.selecionarPorId(rs.getInt("id_quartos")));
 
-        reserva.setDatadeentrada(rs.getDate("DATA_ENTRADA"));
-        reserva.setDatadesaida(rs.getDate("DATA_SAIDA"));
-        reserva.setValor(rs.getBigDecimal("VALOR"));
-        reserva.setObservacoes(rs.getString("OBSERVACOES"));
+        reserva.setData_entrada(rs.getDate("data_entrada"));
+        reserva.setData_saida(rs.getDate("data_saida"));
+        reserva.setValor(rs.getBigDecimal("valor"));
+        reserva.setObservacoes(rs.getString("observacoes"));
 
         return reserva;
     }

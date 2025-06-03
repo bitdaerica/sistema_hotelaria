@@ -7,7 +7,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  *
  * @author Érica_Almeida
@@ -22,11 +21,11 @@ public class QuartoDAO {
 
     // Inserir quarto
     public void inserir(Quarto q) throws SQLException {
-        String sql = "INSERT INTO QUARTO (NUMERO, TIPO, VALOR, DESCRICAO) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO quartos (numero, tipo, valor, descricao) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, q.getNumero());
-            pstm.setString(2, q.getTipo().toString());
+            pstm.setString(2, q.getTipo());
             pstm.setBigDecimal(3, q.getValor());
             pstm.setString(4, q.getDescricao());
             pstm.executeUpdate();
@@ -35,11 +34,11 @@ public class QuartoDAO {
 
     // Alterar quarto
     public void alterar(Quarto q) throws SQLException {
-        String sql = "UPDATE QUARTO SET NUMERO = ?, TIPO = ?, VALOR = ?, DESCRICAO = ? WHERE ID = ?";
+        String sql = "UPDATE quartos SET numero = ? , tipo = ? , valor = ?, descricao = ? WHERE ID = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, q.getNumero());
-            pstm.setString(2, q.getTipo().toString());
+            pstm.setString(2, q.getTipo());
             pstm.setBigDecimal(3, q.getValor());
             pstm.setString(4, q.getDescricao());
             pstm.setInt(5, q.getId());
@@ -49,7 +48,7 @@ public class QuartoDAO {
 
     // Excluir quarto
     public void excluir(int id) throws SQLException {
-        String sql = "DELETE FROM QUARTO WHERE ID = ?";
+        String sql = "DELETE FROM quartos WHERE ID = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setInt(1, id);
@@ -59,7 +58,7 @@ public class QuartoDAO {
 
     // Buscar quarto por ID
     public Quarto selecionarPorId(int id) throws SQLException {
-        String sql = "SELECT * FROM QUARTO WHERE ID = ?";
+        String sql = "SELECT * FROM quartos WHERE ID = ?";
         Quarto quarto = null;
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -67,11 +66,11 @@ public class QuartoDAO {
             try (ResultSet rs = pstm.executeQuery()) {
                 if (rs.next()) {
                     quarto = new Quarto(
-                        rs.getInt("ID"),
-                        rs.getInt("NUMERO"),
-                        TipoQuarto.valueOf(rs.getString("TIPO")),
-                        rs.getBigDecimal("VALOR"),
-                        rs.getString("DESCRICAO")
+                            rs.getInt("ID"),
+                            rs.getInt("numero"),
+                           rs.getString("tipo"),
+                            rs.getBigDecimal("valor"),
+                            rs.getString("descricao")
                     );
                 }
             }
@@ -82,18 +81,17 @@ public class QuartoDAO {
     // Listar todos os quartos
     public List<Quarto> listarTodos() throws SQLException {
         List<Quarto> lista = new ArrayList<>();
-        String sql = "SELECT * FROM QUARTO";
+        String sql = "SELECT * FROM quartos";
 
-        try (PreparedStatement pstm = connection.prepareStatement(sql);
-             ResultSet rs = pstm.executeQuery()) {
+        try (PreparedStatement pstm = connection.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
 
             while (rs.next()) {
                 Quarto quarto = new Quarto(
-                    rs.getInt("ID"),
-                    rs.getInt("NUMERO"),
-                    TipoQuarto.valueOf(rs.getString("TIPO")),
-                    rs.getBigDecimal("VALOR"),
-                    rs.getString("DESCRICAO")
+                        rs.getInt("ID"),
+                            rs.getInt("numero"),
+                           rs.getString("tipo"),
+                            rs.getBigDecimal("valor"),
+                            rs.getString("descricao")
                 );
                 lista.add(quarto);
             }
@@ -103,7 +101,7 @@ public class QuartoDAO {
 
     // Buscar quarto por número
     public Quarto buscarPorNumero(int numero) throws SQLException {
-        String sql = "SELECT * FROM QUARTO WHERE NUMERO = ?";
+        String sql = "SELECT * FROM quartos WHERE NUMERO = ?";
         Quarto quarto = null;
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -111,11 +109,11 @@ public class QuartoDAO {
             try (ResultSet rs = pstm.executeQuery()) {
                 if (rs.next()) {
                     quarto = new Quarto(
-                        rs.getInt("ID"),
-                        rs.getInt("NUMERO"),
-                        TipoQuarto.valueOf(rs.getString("TIPO")),
-                        rs.getBigDecimal("VALOR"),
-                        rs.getString("DESCRICAO")
+                            rs.getInt("ID"),
+                            rs.getInt("numero"),
+                           rs.getString("tipo"),
+                            rs.getBigDecimal("valor"),
+                            rs.getString("descricao")
                     );
                 }
             }
@@ -126,18 +124,18 @@ public class QuartoDAO {
     // Buscar quartos por tipo
     public List<Quarto> buscarPorTipo(TipoQuarto tipo) throws SQLException {
         List<Quarto> lista = new ArrayList<>();
-        String sql = "SELECT * FROM QUARTO WHERE TIPO = ?";
+        String sql = "SELECT * FROM quartos WHERE TIPO = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setString(1, tipo.name());
             try (ResultSet rs = pstm.executeQuery()) {
                 while (rs.next()) {
                     Quarto quarto = new Quarto(
-                        rs.getInt("ID"),
-                        rs.getInt("NUMERO"),
-                        TipoQuarto.valueOf(rs.getString("TIPO")),
-                        rs.getBigDecimal("VALOR"),
-                        rs.getString("DESCRICAO")
+                            rs.getInt("ID"),
+                            rs.getInt("numero"),
+                           rs.getString("tipo"),
+                            rs.getBigDecimal("valor"),
+                            rs.getString("descricao")
                     );
                     lista.add(quarto);
                 }
@@ -149,7 +147,7 @@ public class QuartoDAO {
     // Buscar quartos por faixa de valor
     public List<Quarto> buscarPorFaixaDeValor(BigDecimal valorMin, BigDecimal valorMax) throws SQLException {
         List<Quarto> lista = new ArrayList<>();
-        String sql = "SELECT * FROM QUARTO WHERE VALOR BETWEEN ? AND ?";
+        String sql = "SELECT * FROM quartos WHERE VALOR BETWEEN ? AND ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setBigDecimal(1, valorMin);
@@ -157,11 +155,11 @@ public class QuartoDAO {
             try (ResultSet rs = pstm.executeQuery()) {
                 while (rs.next()) {
                     Quarto quarto = new Quarto(
-                        rs.getInt("ID"),
-                        rs.getInt("NUMERO"),
-                        TipoQuarto.valueOf(rs.getString("TIPO")),
-                        rs.getBigDecimal("VALOR"),
-                        rs.getString("DESCRICAO")
+                            rs.getInt("ID"),
+                            rs.getInt("numero"),
+                           rs.getString("tipo"),
+                            rs.getBigDecimal("valor"),
+                            rs.getString("descricao")
                     );
                     lista.add(quarto);
                 }

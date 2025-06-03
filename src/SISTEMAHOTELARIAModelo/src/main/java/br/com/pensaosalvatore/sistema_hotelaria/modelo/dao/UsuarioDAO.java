@@ -1,7 +1,6 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -35,7 +34,7 @@ public class UsuarioDAO {
             usuario.setId(idPessoa);
 
             // Inserir na tabela USUARIO
-            String sql = "INSERT INTO USUARIO (usuario, senha, pessoa_id) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO usuarios (usuario, senha, pessoa_id) VALUES (?, ?, ?)";
             try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 pstm.setString(1, usuario.getUsuario());
                 pstm.setString(2, usuario.getSenha());
@@ -64,7 +63,7 @@ public class UsuarioDAO {
             pessoaDAO.alterar(usuario);
 
             // Alterar dados na tabela USUARIO
-            String sql = "UPDATE USUARIO SET usuario = ?, senha = ? WHERE pessoa_id = ?";
+            String sql = "UPDATE usuarios SET usuario = ?, senha = ? WHERE pessoa_id = ?";
             try (PreparedStatement pstm = connection.prepareStatement(sql)) {
                 pstm.setString(1, usuario.getUsuario());
                 pstm.setString(2, usuario.getSenha());
@@ -89,8 +88,8 @@ public class UsuarioDAO {
                 SELECT u.usuario, u.senha,
                        p.id, p.nome, p.genero, p.data_nascimento, p.cpf, p.email,
                        p.fixo, p.celular, p.whatsapp, p.observacoes
-                FROM USUARIO u
-                INNER JOIN PESSOA p ON u.pessoa_id = p.id
+                FROM usuarios u
+                INNER JOIN pessoas p ON u.id = p.id
                 WHERE p.id = ?
                 """;
 
@@ -112,8 +111,8 @@ public class UsuarioDAO {
                 SELECT u.usuario, u.senha,
                        p.id, p.nome, p.genero, p.data_nascimento, p.cpf, p.email,
                        p.fixo, p.celular, p.whatsapp, p.observacoes
-                FROM USUARIO u
-                INNER JOIN PESSOA p ON u.pessoa_id = p.id
+                FROM usuarios u
+                INNER JOIN pessoas p ON u.d = p.id
                 """;
 
         try (PreparedStatement pstm = connection.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
@@ -132,8 +131,8 @@ public class UsuarioDAO {
                 SELECT u.usuario, u.senha,
                        p.id, p.nome, p.genero, p.data_nascimento, p.cpf, p.email,
                        p.fixo, p.celular, p.whatsapp, p.observacoes
-                FROM USUARIO u
-                INNER JOIN PESSOA p ON u.pessoa_id = p.id
+                FROM usuarios u
+                INNER JOIN pessoas p ON u.id = p.id
                 WHERE p.nome LIKE ?
                 """;
 
@@ -154,7 +153,7 @@ public class UsuarioDAO {
             connection.setAutoCommit(false);
 
             // Excluir na tabela USUARIO
-            String sqlUsuario = "DELETE FROM USUARIO WHERE pessoa_id = ?";
+            String sqlUsuario = "DELETE FROM usuarios WHERE id = ?";
             try (PreparedStatement pstm = connection.prepareStatement(sqlUsuario)) {
                 pstm.setInt(1, id);
                 pstm.executeUpdate();
@@ -176,7 +175,7 @@ public class UsuarioDAO {
 
     // Verificar login (usuário e senha)
     public boolean existeNoBancoPorUsuarioESenha(Usuario usuario) throws SQLException {
-        String sql = "SELECT 1 FROM USUARIO WHERE usuario = ? AND senha = ?";
+        String sql = "SELECT 1 FROM ususarios WHERE usuario = ? AND senha = ?";
 
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setString(1, usuario.getUsuario());
@@ -199,7 +198,7 @@ public class UsuarioDAO {
         usuario.setGenero(rs.getString("genero"));
 
         Date dataSQL = rs.getDate("data_nascimento");
-        usuario.setDataNascimento(dataSQL != null ? dataSQL.toLocalDate() : null);
+        usuario.setData_nascimento(dataSQL != null ? dataSQL.toLocalDate() : null);
 
         usuario.setCpf(rs.getString("cpf"));
         usuario.setEmail(rs.getString("email"));
