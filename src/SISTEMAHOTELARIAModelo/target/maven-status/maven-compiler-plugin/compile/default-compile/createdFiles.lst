@@ -1,5 +1,6 @@
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\HospedeDAO.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\GraudeAcesso.class
+br\com\pensaosalvatore\sistema_hotelaria\modelo\util\SecurityUtil.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Usuario.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\PessoaDAO.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\EstadoCivil.class
@@ -31,12 +32,11 @@ br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\StatusReserva.c
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\TipoCobranca.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Endereco.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\Andar.class
-br\com\pensaosalvatore\sistema_hotelaria\modelo\util\ValidadorQuarto.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\DepartamentoFuncionario.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\CategoriaProduto.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Quarto.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\Status.class
-br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\DataUtils.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\StatusFuncionario.class
+br\com\pensaosalvatore\sistema_hotelaria\modelo\util\ValidacaoUtil.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\RegimedeContratacao.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Hospede.class

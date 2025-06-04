@@ -27,7 +27,6 @@ public class CadHospedeView extends javax.swing.JFrame {
     private void initComponents() {
 
         lblCadastro = new javax.swing.JLabel();
-        cmbEstado = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservacoes = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
@@ -42,7 +41,7 @@ public class CadHospedeView extends javax.swing.JFrame {
         fmtDataentrada1 = new javax.swing.JFormattedTextField();
         fmtFixo = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
+        txtGenero = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -54,13 +53,12 @@ public class CadHospedeView extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtBairro = new javax.swing.JTextField();
-        txtCidade = new javax.swing.JTextField();
+        txtEstado = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         txtRua = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         txtComplemento = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        cmbGenero1 = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         fmtCep = new javax.swing.JFormattedTextField();
         bntNovohospede = new javax.swing.JButton();
@@ -68,6 +66,8 @@ public class CadHospedeView extends javax.swing.JFrame {
         bntCancelar1 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         txtNumero = new javax.swing.JTextField();
+        txtCidade = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         telafundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -77,13 +77,6 @@ public class CadHospedeView extends javax.swing.JFrame {
         lblCadastro.setForeground(new java.awt.Color(255, 255, 255));
         lblCadastro.setText("Cadastro de Hóspede");
         getContentPane().add(lblCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 470, 50));
-
-        cmbEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbEstadoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 530, 230, 30));
 
         txtObservacoes.setColumns(20);
         txtObservacoes.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -185,13 +178,13 @@ public class CadHospedeView extends javax.swing.JFrame {
         jLabel4.setText("*Nome:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
 
-        txtNome.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
+        txtGenero.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
+                txtGeneroActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 230, 30));
+        getContentPane().add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 230, 30));
 
         jLabel8.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -272,13 +265,13 @@ public class CadHospedeView extends javax.swing.JFrame {
         });
         getContentPane().add(txtBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 230, 30));
 
-        txtCidade.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        txtCidade.addActionListener(new java.awt.event.ActionListener() {
+        txtEstado.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCidadeActionPerformed(evt);
+                txtEstadoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, 230, 30));
+        getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 530, 230, 30));
 
         jLabel16.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
@@ -310,13 +303,6 @@ public class CadHospedeView extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Complemento:");
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, -1, -1));
-
-        cmbGenero1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbGenero1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbGenero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 230, 30));
 
         jLabel19.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
@@ -366,6 +352,22 @@ public class CadHospedeView extends javax.swing.JFrame {
         });
         getContentPane().add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 230, 30));
 
+        txtCidade.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCidadeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, 230, 30));
+
+        txtNome.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 230, 30));
+
         telafundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/4.png"))); // NOI18N
         getContentPane().add(telafundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -377,13 +379,9 @@ public class CadHospedeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fmtCpfActionPerformed
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+    private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
-
-    private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbEstadoActionPerformed
+    }//GEN-LAST:event_txtGeneroActionPerformed
 
     private void fmtDataentrada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmtDataentrada1ActionPerformed
         // TODO add your handling code here:
@@ -421,9 +419,9 @@ public class CadHospedeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBairroActionPerformed
 
-    private void txtCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidadeActionPerformed
+    private void txtEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCidadeActionPerformed
+    }//GEN-LAST:event_txtEstadoActionPerformed
 
     private void txtRuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRuaActionPerformed
         // TODO add your handling code here:
@@ -433,10 +431,6 @@ public class CadHospedeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtComplementoActionPerformed
 
-    private void cmbGenero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGenero1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbGenero1ActionPerformed
-
     private void fmtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmtCepActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fmtCepActionPerformed
@@ -444,6 +438,14 @@ public class CadHospedeView extends javax.swing.JFrame {
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumeroActionPerformed
+
+    private void txtCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCidadeActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -485,8 +487,6 @@ public class CadHospedeView extends javax.swing.JFrame {
     private javax.swing.JButton bntNovohospede;
     private javax.swing.JButton btnSalvar1;
     private javax.swing.JRadioButton btnWhatsapp;
-    private javax.swing.JComboBox<String> cmbEstado;
-    private javax.swing.JComboBox<String> cmbGenero1;
     private javax.swing.JFormattedTextField fmtCelular;
     private javax.swing.JFormattedTextField fmtCep;
     private javax.swing.JFormattedTextField fmtCpf;
@@ -518,6 +518,8 @@ public class CadHospedeView extends javax.swing.JFrame {
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtComplemento;
     private javax.swing.JTextField txtEmail2;
+    private javax.swing.JTextField txtEstado;
+    private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtNacionalidade;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumero;

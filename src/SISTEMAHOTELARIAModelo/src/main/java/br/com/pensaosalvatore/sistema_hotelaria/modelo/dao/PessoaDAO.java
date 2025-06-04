@@ -115,8 +115,8 @@ public class PessoaDAO {
         pstm.setString(1, p.getNome());
         pstm.setString(2, p.getGenero());
 
-        if (p.getData_nascimento() != null) {
-            pstm.setDate(3, Date.valueOf(p.getData_nascimento()));
+        if (p.getDatanascimento() != null) {
+            pstm.setDate(3, Date.valueOf(p.getDatanascimento()));
         } else {
             pstm.setNull(3, Types.DATE);  // Corrigido para evitar exceção
         }
@@ -150,9 +150,9 @@ public class PessoaDAO {
 
         Date dataSQL = rs.getDate("data_nascimento");
         if (dataSQL != null) {
-            pessoa.setData_nascimento(dataSQL.toLocalDate());
+            pessoa.setDatanascimento(dataSQL.toLocalDate());
         } else {
-            pessoa.setData_nascimento(null);
+            pessoa.setDatanascimento(null);
         }
 
         pessoa.setCpf(rs.getString("cpf"));

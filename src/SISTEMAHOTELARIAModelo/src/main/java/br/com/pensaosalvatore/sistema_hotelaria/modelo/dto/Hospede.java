@@ -13,7 +13,7 @@ public class Hospede extends Pessoa {
 
     private String nacionalidade;
     private String profissao;
-    private LocalDate data_cadastro;
+    private LocalDate datacadastro;
 
     public Hospede() {
         super();
@@ -29,7 +29,7 @@ public class Hospede extends Pessoa {
         super(id, nome, genero, cpf, email, celular, whatsapp, endereco);
         this.nacionalidade = nacionalidade;
         this.profissao = profissao;
-        this.data_cadastro = LocalDate.parse(data_cadastro, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.datacadastro = LocalDate.parse(data_cadastro, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
    
@@ -50,12 +50,12 @@ public class Hospede extends Pessoa {
         this.profissao = profissao;
     }
 
-    public LocalDate getData_cadastro() {
-        return data_cadastro;
+    public LocalDate getDatacadastro() {
+        return datacadastro;
     }
 
-    public void setData_cadastro(LocalDate data_cadastro) {
-        this.data_cadastro = data_cadastro;
+    public void setDatacadastro(LocalDate datacadastro) {
+        this.datacadastro = datacadastro;
     }
 
     // 🔸 toString() opcional, para debug
@@ -65,7 +65,7 @@ public class Hospede extends Pessoa {
                 + "id=" + getId()
                 + ", nome='" + getNome() + '\''
                 + ", genero='" + getGenero() + '\''
-                + ", data_nascimento=" + getData_nascimento()
+                + ", datanascimento=" + getDatanascimento()
                 + ", cpf='" + getCpf() + '\''
                 + ", email='" + getEmail() + '\''
                 + ", fixo='" + getFixo() + '\''
@@ -74,7 +74,7 @@ public class Hospede extends Pessoa {
                 + ", observacoes='" + getObservacoes() + '\''
                 + ", nacionalidade='" + nacionalidade + '\''
                 + ", profissao='" + profissao + '\''
-                + ", data_cadastro=" + data_cadastro
+                + ", datacadastro=" + datacadastro
                 + '}';
     }
 }

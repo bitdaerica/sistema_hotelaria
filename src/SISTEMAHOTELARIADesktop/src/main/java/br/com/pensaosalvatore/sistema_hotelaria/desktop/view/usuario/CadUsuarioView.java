@@ -2,14 +2,14 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.usuario;
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.usuario.CadUsuarioController;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Conexao;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
@@ -22,7 +22,6 @@ import javax.swing.JTextField;
 public class CadUsuarioView extends javax.swing.JFrame {
 
     private final CadUsuarioController controller;
-    private Usuario usuario;
     private UsuarioDAO usuarioDAO;
 
     /**
@@ -33,11 +32,8 @@ public class CadUsuarioView extends javax.swing.JFrame {
     public CadUsuarioView() throws SQLException {
         initComponents();
         Connection connection = Conexao.getConnection(); // ou o jeito que você cria a conexão
-        usuarioDAO = new UsuarioDAO(connection);
 
         controller = new CadUsuarioController(this, usuarioDAO);
-        usuario = new Usuario();
-
     }
 
     /**
@@ -429,8 +425,15 @@ public class CadUsuarioView extends javax.swing.JFrame {
     }//GEN-LAST:event_fmtCepActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        controller.salvar();
-        //controller.mostrarTela();
+        try {
+            controller.salvar();
+        } catch (ValidacaoException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
@@ -485,173 +488,99 @@ public class CadUsuarioView extends javax.swing.JFrame {
         });
     }
 
-    public JButton getBntCancelar() {
-        return bntCancelar;
-    }
-
-    public void setBntCancelar(JButton bntCancelar) {
-        this.bntCancelar = bntCancelar;
-    }
-
-    public JButton getBntNovohospede() {
-        return bntNovohospede;
-    }
-
-    public void setBntNovohospede(JButton bntNovohospede) {
-        this.bntNovohospede = bntNovohospede;
-    }
-
-    public JButton getBtnSalvar() {
-        return btnSalvar;
-    }
-
-    public void setBtnSalvar(JButton btnSalvar) {
-        this.btnSalvar = btnSalvar;
+    public void limparCampos() {
+        txtNome.setText("");
+        txtEmail2.setText("");
+        fmtCpf.setText("");
+        fmtCelular.setText("");
+        fmtFixo.setText("");
+        fmtDatanascimento.setText("");
+        txtGenero.setText("");
+        btnWhatsapp.setSelected(false);
+        txtObservacoes.setText("");
+        fmtCep.setText("");
+        txtRua.setText("");
+        txtNumero.setText("");
+        txtBairro.setText("");
+        txtCidade.setText("");
+        txtEstado.setText("");
+        txtComplemento.setText("");
+        txtUsuario.setText("");
+        senha.setText("");
     }
 
     public JRadioButton getBtnWhatsapp() {
         return btnWhatsapp;
     }
 
-    public void setBtnWhatsapp(JRadioButton btnWhatsapp) {
-        this.btnWhatsapp = btnWhatsapp;
-    }
-
-    public JTextField getTxtEstado() {
-        return txtEstado;
-    }
-
-    public void setTxtEstado(JTextField txtEstado) {
-        this.txtEstado = txtEstado;
-    }
-
-    public JTextField getTxtGenero() {
-        return txtGenero;
-    }
-
-    public void setTxtGenero(JTextField txtGenero) {
-        this.txtGenero = txtGenero;
-    }
-
     public JFormattedTextField getFmtCelular() {
         return fmtCelular;
-    }
-
-    public void setFmtCelular(JFormattedTextField fmtCelular) {
-        this.fmtCelular = fmtCelular;
     }
 
     public JFormattedTextField getFmtCep() {
         return fmtCep;
     }
 
-    public void setFmtCep(JFormattedTextField fmtCep) {
-        this.fmtCep = fmtCep;
-    }
-
-    public JFormattedTextField getFmtCpf() {
-        return fmtCpf;
-    }
-
-    public void setFmtCpf(JFormattedTextField fmtCpf) {
-        this.fmtCpf = fmtCpf;
-    }
-
     public JFormattedTextField getFmtDatanascimento() {
         return fmtDatanascimento;
-    }
-
-    public void setFmtDatanascimento(JFormattedTextField fmtDatanascimento) {
-        this.fmtDatanascimento = fmtDatanascimento;
     }
 
     public JFormattedTextField getFmtFixo() {
         return fmtFixo;
     }
 
-    public void setFmtFixo(JFormattedTextField fmtFixo) {
-        this.fmtFixo = fmtFixo;
-    }
-
     public JPasswordField getSenha() {
         return senha;
-    }
-
-    public void setSenha(JPasswordField senha) {
-        this.senha = senha;
     }
 
     public JTextField getTxtBairro() {
         return txtBairro;
     }
 
-    public void setTxtBairro(JTextField txtBairro) {
-        this.txtBairro = txtBairro;
-    }
-
-    public JTextField getTxtCidade() {
-        return txtCidade;
-    }
-
-    public void setTxtCidade(JTextField txtCidade) {
-        this.txtCidade = txtCidade;
-    }
-
     public JTextField getTxtComplemento() {
         return txtComplemento;
-    }
-
-    public void setTxtComplemento(JTextField txtComplemento) {
-        this.txtComplemento = txtComplemento;
     }
 
     public JTextField getTxtEmail2() {
         return txtEmail2;
     }
 
-    public void setTxtEmail2(JTextField txtEmail2) {
-        this.txtEmail2 = txtEmail2;
+    public JTextField getTxtEstado() {
+        return txtEstado;
+    }
+
+    public JTextField getTxtGenero() {
+        return txtGenero;
     }
 
     public JTextField getTxtNome() {
         return txtNome;
     }
 
-    public void setTxtNome(JTextField txtNome) {
-        this.txtNome = txtNome;
+    public JTextField getTxtNumero() {
+        return txtNumero;
     }
 
     public JTextArea getTxtObservacoes() {
         return txtObservacoes;
     }
 
-    public void setTxtObservacoes(JTextArea txtObservacoes) {
-        this.txtObservacoes = txtObservacoes;
-    }
-
     public JTextField getTxtRua() {
         return txtRua;
-    }
-
-    public void setTxtRua(JTextField txtRua) {
-        this.txtRua = txtRua;
     }
 
     public JTextField getTxtUsuario() {
         return txtUsuario;
     }
 
-    public void setTxtUsuario(JTextField txtUsuario) {
-        this.txtUsuario = txtUsuario;
+    public JFormattedTextField getFmtCpf() {
+        return fmtCpf;
     }
 
-    public JTextField getTxtNumero() {
-        return txtNumero;
+    public JTextField getTxtCidade() {
+        return txtCidade;
     }
-
-    public void setTxtNumero(JTextField txtNumero) {
-        this.txtNumero = txtNumero;
-    }
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

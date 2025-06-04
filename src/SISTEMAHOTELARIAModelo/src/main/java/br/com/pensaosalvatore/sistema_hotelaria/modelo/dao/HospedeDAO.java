@@ -36,8 +36,8 @@ public class HospedeDAO {
             try (PreparedStatement pstm = connection.prepareStatement(sql)) {
                 pstm.setString(1, h.getNacionalidade());
                 pstm.setString(2, h.getProfissao());
-                if (h.getData_cadastro() != null) {
-                    pstm.setDate(3, Date.valueOf(h.getData_cadastro()));
+                if (h.getDatacadastro() != null) {
+                    pstm.setDate(3, Date.valueOf(h.getDatacadastro()));
                 } else {
                     pstm.setNull(3, java.sql.Types.DATE);
                 }
@@ -68,8 +68,8 @@ public class HospedeDAO {
             pstm = connection.prepareStatement(sql);
             pstm.setString(1, h.getNacionalidade());
             pstm.setString(2, h.getProfissao());
-            if (h.getData_cadastro() != null) {
-                pstm.setDate(3, Date.valueOf(h.getData_cadastro())); // índice 3 para dataCadastro
+            if (h.getDatacadastro() != null) {
+                pstm.setDate(3, Date.valueOf(h.getDatacadastro())); // índice 3 para dataCadastro
             } else {
                 pstm.setNull(3, java.sql.Types.DATE);
             }
@@ -190,11 +190,11 @@ public class HospedeDAO {
         h.setNome(rs.getString("nome"));
         h.setGenero(rs.getString("genero"));
 
-        Date data_nascimentoSQL = rs.getDate("data_nascimento");
-        if (data_nascimentoSQL != null) {
-            h.setData_nascimento(data_nascimentoSQL.toLocalDate());
+        Date datanascimentoSQL = rs.getDate("data_nascimento");
+        if (datanascimentoSQL != null) {
+            h.setDatanascimento(datanascimentoSQL.toLocalDate());
         } else {
-            h.setData_nascimento(null);
+            h.setDatanascimento(null);
         }
 
         h.setCpf(rs.getString("cpf"));
@@ -209,11 +209,11 @@ public class HospedeDAO {
         h.setNacionalidade(rs.getString("nacionalidade"));
         h.setProfissao(rs.getString("profissao"));
 
-        Date data_cadastroSQL = rs.getDate("data_cadastro");
-        if (data_cadastroSQL != null) {
-            h.setData_cadastro(data_cadastroSQL.toLocalDate());
+        Date datacadastroSQL = rs.getDate("data_cadastro");
+        if (datacadastroSQL != null) {
+            h.setDatacadastro(datacadastroSQL.toLocalDate());
         } else {
-            h.setData_cadastro(null);
+            h.setDatacadastro(null);
         }
 
         return h;
