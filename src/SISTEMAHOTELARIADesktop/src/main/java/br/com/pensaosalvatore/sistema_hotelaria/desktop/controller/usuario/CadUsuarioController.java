@@ -23,12 +23,13 @@ public class CadUsuarioController {
     private final UsuarioDAO usuarioDAO;
 
     public CadUsuarioController(CadUsuarioView view, UsuarioDAO usuarioDAO) {
-          if (view == null || usuarioDAO == null) {
+        if (view == null || usuarioDAO == null) {
             throw new IllegalArgumentException("Dependências não podem ser nulas");
         }
         this.view = view;
         this.usuarioDAO = usuarioDAO;
     }
+
 
     public void salvar() throws ValidacaoException {
         try {
@@ -80,7 +81,7 @@ public class CadUsuarioController {
             novo(); // Limpar campos após salvar
 
         } catch (SQLException e) {
-            throw new ValidacaoException("Erro no banco de dados", e);
+            tratarErroSQL(e);
         } catch (DateTimeParseException e) {
             throw new ValidacaoException("Data de nascimento inválida! Use o formato DD/MM/AAAA", e);
         } catch (ValidacaoException | HeadlessException e) {
@@ -148,7 +149,7 @@ public class CadUsuarioController {
                 mensagem = "Dado duplicado: " + e.getMessage();
             }
         } else {
-            mensagem = "Erro ao acessar o banco de dados: " + e.getMessage();
+            mensagem = "Erro ao tratar: " + e.getMessage();
         }
 
         JOptionPane.showMessageDialog(view, mensagem, "Erro no Banco de Dados", JOptionPane.ERROR_MESSAGE);

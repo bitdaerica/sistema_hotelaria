@@ -33,7 +33,7 @@ public class PrincipalController {
     }
 
     public void entrarCadastroUsuario() throws SQLException {
-        CadUsuarioView tela = new CadUsuarioView();
+        CadUsuarioView tela = new CadUsuarioView(null);
         tela.setVisible(true);
 
     }

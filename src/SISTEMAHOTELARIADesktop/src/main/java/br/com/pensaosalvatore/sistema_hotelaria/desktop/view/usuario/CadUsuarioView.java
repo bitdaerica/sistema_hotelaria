@@ -4,7 +4,6 @@ import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.usuario.CadUs
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Conexao;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,18 +21,14 @@ import javax.swing.JTextField;
 public class CadUsuarioView extends javax.swing.JFrame {
 
     private final CadUsuarioController controller;
-    private UsuarioDAO usuarioDAO;
 
-    /**
-     * Creates new form CadUsuarioView
-     *
-     * @throws java.sql.SQLException
-     */
-    public CadUsuarioView() throws SQLException {
+    public CadUsuarioView(UsuarioDAO usuarioDAO) {
+        if (usuarioDAO == null) {
+            throw new IllegalArgumentException("UsuarioDAO não pode ser nulo");
+        }
+
         initComponents();
-        Connection connection = Conexao.getConnection(); // ou o jeito que você cria a conexão
-
-        controller = new CadUsuarioController(this, usuarioDAO);
+        this.controller = new CadUsuarioController(this, usuarioDAO);
     }
 
     /**
@@ -449,41 +444,17 @@ public class CadUsuarioView extends javax.swing.JFrame {
         controller.cancelar();
     }//GEN-LAST:event_bntCancelarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadUsuarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadUsuarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadUsuarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadUsuarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new CadUsuarioView().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(CadUsuarioView.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                UsuarioDAO usuarioDAO = new UsuarioDAO(Conexao.getConnection());
+                new CadUsuarioView(usuarioDAO).setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(CadUsuarioView.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null,
+                        "Erro ao conectar com o banco de dados:\n" + ex.getMessage(),
+                        "Erro de conexão",
+                        JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -580,7 +551,6 @@ public class CadUsuarioView extends javax.swing.JFrame {
     public JTextField getTxtCidade() {
         return txtCidade;
     }
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
