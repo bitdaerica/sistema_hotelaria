@@ -134,7 +134,7 @@ modelo.util.validadores
 - 👤 **Érica Almeida**  
 Desenvolvedora em formação 🚀
 
-## 🤝 Contribuintes
+### 🤝 Contribuintes
 - 👤 **Ana Carla**
 - 👤 **Brunna Luyza**  
 ---
