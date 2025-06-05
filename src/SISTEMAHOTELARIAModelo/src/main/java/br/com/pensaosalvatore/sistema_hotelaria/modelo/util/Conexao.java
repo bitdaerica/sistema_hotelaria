@@ -25,7 +25,7 @@ public class Conexao {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                connection.setAutoCommit(false); // Desativa o auto-commit para controlar transações manualmente
+                connection.setAutoCommit(true); // Desativa o auto-commit para controlar transações manualmente
                 return connection;
             } catch (ClassNotFoundException e) {
                 JOptionPane.showMessageDialog(null,
@@ -43,7 +43,7 @@ public class Conexao {
         }
         return connection;
     }
-
+    
     public static void fecharConexao() {
         if (connection != null) {
             try {
@@ -76,4 +76,5 @@ public class Conexao {
             }
         }
     }
+
 }

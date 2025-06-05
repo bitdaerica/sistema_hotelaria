@@ -24,7 +24,7 @@ public class CadQuartoController {
             Connection connection = Conexao.getConnection();
             this.quartoDAO = new QuartoDAO(connection);
             this.carregarQuartos();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(view, "Erro ao conectar ao banco de dados: " + e.getMessage());
         }
     }
