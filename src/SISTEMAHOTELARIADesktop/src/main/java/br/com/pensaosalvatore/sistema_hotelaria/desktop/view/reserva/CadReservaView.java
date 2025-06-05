@@ -84,9 +84,9 @@ public class CadReservaView extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("*Usuário:");
+        jLabel5.setText("*Funcionário:");
         jLabel5.setToolTipText("");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 80, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 110, -1));
 
         jLabel7.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,20 +128,17 @@ public class CadReservaView extends javax.swing.JFrame {
         }
         getContentPane().add(fmtDatasaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 230, 30));
 
-        jTable1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "Ana Carla", "25", "25/12/1997", "26/12/1997"},
-                {"2", "Brunna Luyza", "12", "04/09/2004", "15/11/2004"},
-                {"3", "Lulinha Silva", "01", "12/02/2012", "02/09/2012"},
-                {"4", "Joaozinho", "06", "23/12/2010", "05/01/2011"}
+
             },
             new String [] {
-                "Id", "Nome", "Quarto", "Data de Entrada", "Data de Saída"
+                "Data de Entrada", "Data de Saida", "Valor da Reserva", "Nome do Hóspede", "Numero do Quarto", "Funcionário"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -199,7 +196,7 @@ public class CadReservaView extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("*Valor:");
+        jLabel8.setText("*Valor :");
         jLabel8.setToolTipText("");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(515, 250, 60, -1));
 

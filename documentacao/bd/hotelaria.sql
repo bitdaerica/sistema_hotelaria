@@ -34,13 +34,13 @@ CREATE TABLE enderecos(
 );
 
 
+
 CREATE TABLE usuarios (
     id INT PRIMARY KEY AUTO_INCREMENT,
     usuario VARCHAR(50) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
-    id_pessoas INT NOT NULL,
     CONSTRAINT fk_usuarios_pessoas 
-	FOREIGN KEY (id_pessoas) 
+	FOREIGN KEY (id) 
 	REFERENCES pessoas(id) 
 	ON DELETE CASCADE
 );
@@ -51,9 +51,8 @@ CREATE TABLE hospedes (
     nacionalidade VARCHAR(100) NOT NULL,
     profissao VARCHAR(14) NOT NULL,
     data_cadastro DATE NOT NULL,
-    id_pessoas INT NOT NULL,
     CONSTRAINT fk_hospedes_pessoas 
-	FOREIGN KEY (id_pessoas) 
+	FOREIGN KEY (id) 
 	REFERENCES pessoas(id) 
 	ON DELETE CASCADE
 );
@@ -67,7 +66,6 @@ CREATE TABLE quartos (
     descricao TEXT(255)
 );
 
-select * from reservas;
 
 CREATE TABLE reservas (
     id INT PRIMARY KEY AUTO_INCREMENT,

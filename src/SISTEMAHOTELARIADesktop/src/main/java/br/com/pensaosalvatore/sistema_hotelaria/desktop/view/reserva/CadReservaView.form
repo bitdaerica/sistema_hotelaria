@@ -116,12 +116,12 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="*Usu&#xe1;rio:"/>
+        <Property name="text" type="java.lang.String" value="*Funcion&#xe1;rio:"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="500" y="300" width="80" height="-1"/>
+          <AbsoluteConstraints x="470" y="300" width="110" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -245,40 +245,16 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Cambria" size="12" style="0"/>
+              <Font name="Cambria" size="12" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="4">
-                <Column editable="false" title="Id" type="java.lang.Object">
-                  <Data value="1"/>
-                  <Data value="2"/>
-                  <Data value="3"/>
-                  <Data value="4"/>
-                </Column>
-                <Column editable="false" title="Nome" type="java.lang.Object">
-                  <Data value="Ana Carla"/>
-                  <Data value="Brunna Luyza"/>
-                  <Data value="Lulinha Silva"/>
-                  <Data value="Joaozinho"/>
-                </Column>
-                <Column editable="false" title="Quarto" type="java.lang.Object">
-                  <Data value="25"/>
-                  <Data value="12"/>
-                  <Data value="01"/>
-                  <Data value="06"/>
-                </Column>
-                <Column editable="false" title="Data de Entrada" type="java.lang.Object">
-                  <Data value="25/12/1997"/>
-                  <Data value="04/09/2004"/>
-                  <Data value="12/02/2012"/>
-                  <Data value="23/12/2010"/>
-                </Column>
-                <Column editable="false" title="Data de Sa&#xed;da" type="java.lang.Object">
-                  <Data value="26/12/1997"/>
-                  <Data value="15/11/2004"/>
-                  <Data value="02/09/2012"/>
-                  <Data value="05/01/2011"/>
-                </Column>
+              <Table columnCount="6" rowCount="0">
+                <Column editable="false" title="Data de Entrada" type="java.lang.Object"/>
+                <Column editable="false" title="Data de Saida" type="java.lang.Object"/>
+                <Column editable="false" title="Valor da Reserva" type="java.lang.Object"/>
+                <Column editable="false" title="Nome do H&#xf3;spede" type="java.lang.Object"/>
+                <Column editable="true" title="Numero do Quarto" type="java.lang.Object"/>
+                <Column editable="true" title="Funcion&#xe1;rio" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="showGrid" type="boolean" value="true"/>
@@ -382,7 +358,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="*Valor:"/>
+        <Property name="text" type="java.lang.String" value="*Valor :"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Constraints>
