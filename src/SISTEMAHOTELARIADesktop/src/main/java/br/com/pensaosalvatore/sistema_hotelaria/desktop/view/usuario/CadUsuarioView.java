@@ -7,7 +7,6 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -122,8 +121,8 @@ public class CadUsuarioView extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Data de Nascimento:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 160, -1));
+        jLabel12.setText("*Data de Nascimento:");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 170, -1));
 
         txtUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {

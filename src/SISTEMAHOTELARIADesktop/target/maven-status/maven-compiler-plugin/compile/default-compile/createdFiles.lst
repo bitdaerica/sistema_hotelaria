@@ -5,9 +5,11 @@ br\com\pensaosalvatore\sistema_hotelaria\desktop\view\hospede\CadHospedeView$4.c
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\autenticacao\AutenticacaoView$1.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\quarto\CadQuartoView.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\controller\usuario\CadUsuarioController.class
+br\com\pensaosalvatore\sistema_hotelaria\desktop\view\hospede\CadHospedeView$22.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\principal\PrincipalView$2.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\autenticacao\AutenticacaoView.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\hospede\CadHospedeView$14.class
+br\com\pensaosalvatore\sistema_hotelaria\desktop\view\hospede\CadHospedeView$21.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\hospede\CadHospedeView$15.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\reserva\ReservaView$1.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\usuario\CadUsuarioView$5.class
@@ -49,6 +51,7 @@ br\com\pensaosalvatore\sistema_hotelaria\desktop\view\hospede\CadHospedeView$2.c
 NewMain.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\principal\PrincipalView$4.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\controller\reserva\ReservaController.class
+br\com\pensaosalvatore\sistema_hotelaria\desktop\view\hospede\CadHospedeView$20.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\quarto\CadQuartoView$1.class
 br\com\pensaosalvatore\sistema_hotelaria\desktop\view\autenticacao\AutenticacaoView$5.class
 teste.class

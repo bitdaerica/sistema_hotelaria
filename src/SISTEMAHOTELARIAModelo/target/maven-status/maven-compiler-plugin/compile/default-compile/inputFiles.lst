@@ -39,7 +39,11 @@ C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAM
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\Conexao.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\DocumentoUtil.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\SecurityUtil.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\validacao\ValidadorData.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\validacao\ValidadorEndereco.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\validacao\ValidadorHospede.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\validacao\ValidadorQuarto.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\validacao\ValidadorReserva.java
+C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\validacao\ValidadorUsuario.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\ValidacaoException.java
 C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\Validador.java
-C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\validadores\ValidadorQuarto.java
-C:\Users\Érica_Almeida\Documents\GitHub\sistema_hotelaria\src\SISTEMAHOTELARIAModelo\src\main\java\br\com\pensaosalvatore\sistema_hotelaria\modelo\util\validadores\ValidadorUsuario.java

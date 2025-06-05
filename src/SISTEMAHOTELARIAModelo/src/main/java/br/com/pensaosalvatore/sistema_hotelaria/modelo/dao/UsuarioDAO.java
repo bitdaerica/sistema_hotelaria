@@ -37,24 +37,24 @@ public class UsuarioDAO {
         try {
             connection.setAutoCommit(false);
 
-            try (PreparedStatement stmtPessoa = connection.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS); PreparedStatement stmtEndereco = connection.prepareStatement(sqlEndereco); PreparedStatement stmtUsuario = connection.prepareStatement(sqlUsuario)) {
+            try (PreparedStatement pstmtPessoa = connection.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS); PreparedStatement pstmtEndereco = connection.prepareStatement(sqlEndereco); PreparedStatement pstmtUsuario = connection.prepareStatement(sqlUsuario)) {
 
                 // Inserir pessoa
-                stmtPessoa.setString(1, usuario.getNome());
-                stmtPessoa.setString(2, usuario.getGenero());
-                stmtPessoa.setDate(3, Date.valueOf(usuario.getDatanascimento()));
-                stmtPessoa.setString(4, usuario.getCpf());
-                stmtPessoa.setString(5, usuario.getEmail());
-                stmtPessoa.setString(6, usuario.getFixo());
-                stmtPessoa.setString(7, usuario.getCelular());
-                stmtPessoa.setBoolean(8, usuario.getWhatsapp());
-                stmtPessoa.setString(9, usuario.getObservacoes());
+                pstmtPessoa.setString(1, usuario.getNome());
+                pstmtPessoa.setString(2, usuario.getGenero());
+                pstmtPessoa.setDate(3, Date.valueOf(usuario.getDatanascimento()));
+                pstmtPessoa.setString(4, usuario.getCpf());
+                pstmtPessoa.setString(5, usuario.getEmail());
+                pstmtPessoa.setString(6, usuario.getFixo());
+                pstmtPessoa.setString(7, usuario.getCelular());
+                pstmtPessoa.setBoolean(8, usuario.getWhatsapp());
+                pstmtPessoa.setString(9, usuario.getObservacoes());
 
-                stmtPessoa.executeUpdate();
+                pstmtPessoa.executeUpdate();
 
                 // Obter o ID gerado para a pessoa
                 int idPessoa;
-                try (ResultSet rs = stmtPessoa.getGeneratedKeys()) {
+                try (ResultSet rs = pstmtPessoa.getGeneratedKeys()) {
                     if (!rs.next()) {
                         throw new SQLException("Falha ao gerar ID de pessoa");
                     }
@@ -63,22 +63,22 @@ public class UsuarioDAO {
 
                 // Inserir endereço
                 Endereco endereco = usuario.getEndereco();
-                stmtEndereco.setString(1, endereco.getRua());
-                stmtEndereco.setString(2, endereco.getNumero());
-                stmtEndereco.setString(3, endereco.getComplemento());
-                stmtEndereco.setString(4, endereco.getBairro());
-                stmtEndereco.setString(5, endereco.getCidade());
-                stmtEndereco.setString(6, endereco.getEstado());
-                stmtEndereco.setString(7, endereco.getCep());
-                stmtEndereco.setInt(8, idPessoa);
-                stmtEndereco.executeUpdate();
+                pstmtEndereco.setString(1, endereco.getRua());
+                pstmtEndereco.setString(2, endereco.getNumero());
+                pstmtEndereco.setString(3, endereco.getComplemento());
+                pstmtEndereco.setString(4, endereco.getBairro());
+                pstmtEndereco.setString(5, endereco.getCidade());
+                pstmtEndereco.setString(6, endereco.getEstado());
+                pstmtEndereco.setString(7, endereco.getCep());
+                pstmtEndereco.setInt(8, idPessoa);
+                pstmtEndereco.executeUpdate();
 
                 // Inserir usuário
-                stmtUsuario.setInt(1, idPessoa);
-                stmtUsuario.setString(2, usuario.getUsuario());
-                stmtUsuario.setString(3, SecurityUtil.hashPassword(usuario.getSenha()));
+                pstmtUsuario.setInt(1, idPessoa);
+                pstmtUsuario.setString(2, usuario.getUsuario());
+                pstmtUsuario.setString(3, SecurityUtil.hashPassword(usuario.getSenha()));
 
-                stmtUsuario.executeUpdate();
+                pstmtUsuario.executeUpdate();
 
                 connection.commit();
             }
@@ -100,38 +100,38 @@ public class UsuarioDAO {
         try {
             connection.setAutoCommit(false);
 
-            try (PreparedStatement stmtPessoa = connection.prepareStatement(sqlPessoa); PreparedStatement stmtEndereco = connection.prepareStatement(sqlEndereco); PreparedStatement stmtUsuario = connection.prepareStatement(sqlUsuario)) {
+            try (PreparedStatement pstmtPessoa = connection.prepareStatement(sqlPessoa); PreparedStatement pstmtEndereco = connection.prepareStatement(sqlEndereco); PreparedStatement pstmtUsuario = connection.prepareStatement(sqlUsuario)) {
 
                 // Atualizar pessoa
-                stmtPessoa.setString(1, usuario.getNome());
-                stmtPessoa.setString(2, usuario.getGenero());
-                stmtPessoa.setDate(3, Date.valueOf(usuario.getDatanascimento()));
-                stmtPessoa.setString(4, usuario.getCpf());
-                stmtPessoa.setString(5, usuario.getEmail());
-                stmtPessoa.setString(6, usuario.getFixo());
-                stmtPessoa.setString(7, usuario.getCelular());
-                stmtPessoa.setBoolean(8, usuario.getWhatsapp());
-                stmtPessoa.setString(9, usuario.getObservacoes());
-                stmtPessoa.setInt(10, usuario.getId());
-                stmtPessoa.executeUpdate();
+                pstmtPessoa.setString(1, usuario.getNome());
+                pstmtPessoa.setString(2, usuario.getGenero());
+                pstmtPessoa.setDate(3, Date.valueOf(usuario.getDatanascimento()));
+                pstmtPessoa.setString(4, usuario.getCpf());
+                pstmtPessoa.setString(5, usuario.getEmail());
+                pstmtPessoa.setString(6, usuario.getFixo());
+                pstmtPessoa.setString(7, usuario.getCelular());
+                pstmtPessoa.setBoolean(8, usuario.getWhatsapp());
+                pstmtPessoa.setString(9, usuario.getObservacoes());
+                pstmtPessoa.setInt(10, usuario.getId());
+                pstmtPessoa.executeUpdate();
 
                 // Atualizar endereço
                 Endereco endereco = usuario.getEndereco();
-                stmtEndereco.setString(1, endereco.getRua());
-                stmtEndereco.setString(2, endereco.getNumero());
-                stmtEndereco.setString(3, endereco.getComplemento());
-                stmtEndereco.setString(4, endereco.getBairro());
-                stmtEndereco.setString(5, endereco.getCidade());
-                stmtEndereco.setString(6, endereco.getEstado());
-                stmtEndereco.setString(7, endereco.getCep());
-                stmtEndereco.setInt(8, usuario.getId());
-                stmtEndereco.executeUpdate();
+                pstmtEndereco.setString(1, endereco.getRua());
+                pstmtEndereco.setString(2, endereco.getNumero());
+                pstmtEndereco.setString(3, endereco.getComplemento());
+                pstmtEndereco.setString(4, endereco.getBairro());
+                pstmtEndereco.setString(5, endereco.getCidade());
+                pstmtEndereco.setString(6, endereco.getEstado());
+                pstmtEndereco.setString(7, endereco.getCep());
+                pstmtEndereco.setInt(8, usuario.getId());
+                pstmtEndereco.executeUpdate();
 
                 // Atualizar usuário
-                stmtUsuario.setString(1, usuario.getUsuario());
-                stmtUsuario.setString(2, SecurityUtil.hashPassword(usuario.getSenha()));
-                stmtUsuario.setInt(3, usuario.getId());
-                stmtUsuario.executeUpdate();
+                pstmtUsuario.setString(1, usuario.getUsuario());
+                pstmtUsuario.setString(2, SecurityUtil.hashPassword(usuario.getSenha()));
+                pstmtUsuario.setInt(3, usuario.getId());
+                pstmtUsuario.executeUpdate();
 
                 connection.commit();
             }
@@ -150,9 +150,9 @@ public class UsuarioDAO {
                 + "JOIN enderecos e ON p.id = e.id_pessoas "
                 + "WHERE p.id = ?";
 
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            try (ResultSet rs = stmt.executeQuery()) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
                     return mapearUsuario(rs);
                 }
@@ -168,7 +168,7 @@ public class UsuarioDAO {
                 + "JOIN usuarios u ON p.id = u.id_pessoas "
                 + "JOIN enderecos e ON p.id = e.id_pessoas";
 
-        try (PreparedStatement stmt = connection.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
                 usuarios.add(mapearUsuario(rs));
             }
@@ -184,9 +184,9 @@ public class UsuarioDAO {
                 + "JOIN enderecos e ON p.id = e.id_pessoas "
                 + "WHERE p.nome LIKE ?";
 
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, "%" + nome + "%");
-            try (ResultSet rs = stmt.executeQuery()) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setString(1, "%" + nome + "%");
+            try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
                     usuarios.add(mapearUsuario(rs));
                 }
@@ -204,16 +204,16 @@ public class UsuarioDAO {
         try {
             connection.setAutoCommit(false);
 
-            try (PreparedStatement stmtUsuario = connection.prepareStatement(sqlUsuario); PreparedStatement stmtEndereco = connection.prepareStatement(sqlEndereco); PreparedStatement stmtPessoa = connection.prepareStatement(sqlPessoa)) {
+            try (PreparedStatement pstmtUsuario = connection.prepareStatement(sqlUsuario); PreparedStatement pstmtEndereco = connection.prepareStatement(sqlEndereco); PreparedStatement pstmtPessoa = connection.prepareStatement(sqlPessoa)) {
 
-                stmtUsuario.setInt(1, id);
-                stmtUsuario.executeUpdate();
+                pstmtUsuario.setInt(1, id);
+                pstmtUsuario.executeUpdate();
 
-                stmtEndereco.setInt(1, id);
-                stmtEndereco.executeUpdate();
+                pstmtEndereco.setInt(1, id);
+                pstmtEndereco.executeUpdate();
 
-                stmtPessoa.setInt(1, id);
-                stmtPessoa.executeUpdate();
+                pstmtPessoa.setInt(1, id);
+                pstmtPessoa.executeUpdate();
 
                 connection.commit();
             }
@@ -229,9 +229,9 @@ public class UsuarioDAO {
     public boolean existeNoBancoPorUsuarioESenha(Usuario usuario) throws SQLException {
         String sql = "SELECT senha FROM usuario WHERE usuario = ?";
 
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, usuario.getUsuario());
-            try (ResultSet rs = stmt.executeQuery()) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setString(1, usuario.getUsuario());
+            try (ResultSet rs = pstmt.executeQuery()) {
 
                 if (rs.next()) {
                     String senhaHash = rs.getString("senha");

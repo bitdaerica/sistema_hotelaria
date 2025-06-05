@@ -1,20 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.hospede;
+
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.hospede.CadHospedeController;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
+import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
  * @author 202412170006
  */
 public class CadHospedeView extends javax.swing.JFrame {
+    
+    private final CadHospedeController controller;
 
     /**
      * Creates new form CadHospedeView
      */
     public CadHospedeView() {
         initComponents();
+        controller = new CadHospedeController(this);
     }
 
     /**
@@ -38,8 +46,8 @@ public class CadHospedeView extends javax.swing.JFrame {
         txtNacionalidade = new javax.swing.JTextField();
         fmtCpf = new javax.swing.JFormattedTextField();
         fmtCelular = new javax.swing.JFormattedTextField();
-        fmtDataentrada1 = new javax.swing.JFormattedTextField();
         fmtFixo = new javax.swing.JFormattedTextField();
+        fmtDatanascimento = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         txtGenero = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -113,8 +121,8 @@ public class CadHospedeView extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Data de Nascimento:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 160, -1));
+        jLabel12.setText("*Data de Nascimento:");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 170, -1));
 
         txtNacionalidade.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtNacionalidade.addActionListener(new java.awt.event.ActionListener() {
@@ -149,29 +157,29 @@ public class CadHospedeView extends javax.swing.JFrame {
         getContentPane().add(fmtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, 120, 30));
 
         try {
-            fmtDataentrada1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+            fmtFixo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        fmtDataentrada1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fmtDataentrada1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(fmtDataentrada1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 228, 30));
-
-        try {
-            fmtFixo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        fmtFixo.setText("22  /05  /2025    ");
         fmtFixo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fmtFixoActionPerformed(evt);
             }
         });
-        getContentPane().add(fmtFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, 228, 30));
+        getContentPane().add(fmtFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 228, 30));
+
+        try {
+            fmtDatanascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        fmtDatanascimento.setText("22  /05  /2025    ");
+        fmtDatanascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fmtDatanascimentoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fmtDatanascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, 228, 30));
 
         jLabel4.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,6 +222,7 @@ public class CadHospedeView extends javax.swing.JFrame {
         btnWhatsapp.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         btnWhatsapp.setForeground(new java.awt.Color(255, 255, 255));
         btnWhatsapp.setText("Whatsapp");
+        btnWhatsapp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnWhatsapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnWhatsappActionPerformed(evt);
@@ -325,18 +334,33 @@ public class CadHospedeView extends javax.swing.JFrame {
         bntNovohospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-adicionar_pessoa20x20.png"))); // NOI18N
         bntNovohospede.setText("Novo Hóspede");
         bntNovohospede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bntNovohospede.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntNovohospedeActionPerformed(evt);
+            }
+        });
         getContentPane().add(bntNovohospede, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 610, 130, 40));
 
         btnSalvar1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnSalvar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-confirmar20x20.png"))); // NOI18N
         btnSalvar1.setText("Salvar");
         btnSalvar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalvar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvar1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSalvar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 610, 110, 40));
 
         bntCancelar1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         bntCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-cancelar20x20.png"))); // NOI18N
         bntCancelar1.setText("Cancelar");
         bntCancelar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bntCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntCancelar1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(bntCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 610, 110, 40));
 
         jLabel20.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
@@ -383,9 +407,9 @@ public class CadHospedeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGeneroActionPerformed
 
-    private void fmtDataentrada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmtDataentrada1ActionPerformed
+    private void fmtFixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmtFixoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fmtDataentrada1ActionPerformed
+    }//GEN-LAST:event_fmtFixoActionPerformed
 
     private void txtNacionalidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNacionalidadeActionPerformed
         // TODO add your handling code here:
@@ -399,9 +423,9 @@ public class CadHospedeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnWhatsappActionPerformed
 
-    private void fmtFixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmtFixoActionPerformed
+    private void fmtDatanascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fmtDatanascimentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fmtFixoActionPerformed
+    }//GEN-LAST:event_fmtDatanascimentoActionPerformed
 
     private void txtProfissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProfissaoActionPerformed
         // TODO add your handling code here:
@@ -447,6 +471,25 @@ public class CadHospedeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
+    private void btnSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvar1ActionPerformed
+        try {
+            controller.salvar();
+        } catch (ValidacaoException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnSalvar1ActionPerformed
+
+    private void bntNovohospedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNovohospedeActionPerformed
+        controller.novo();
+    }//GEN-LAST:event_bntNovohospedeActionPerformed
+
+    private void bntCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCancelar1ActionPerformed
+        controller.cancelar();
+    }//GEN-LAST:event_bntCancelar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -482,6 +525,106 @@ public class CadHospedeView extends javax.swing.JFrame {
         });
     }
 
+    public void limparCampos() {
+        txtNome.setText("");
+        txtEmail2.setText("");
+        fmtCpf.setText("");
+        fmtCelular.setText("");
+        fmtFixo.setText("");
+        fmtDatanascimento.setText("");
+        txtGenero.setText("");
+        btnWhatsapp.setSelected(false);
+        txtObservacoes.setText("");
+        fmtCep.setText("");
+        txtRua.setText("");
+        txtNumero.setText("");
+        txtBairro.setText("");
+        txtCidade.setText("");
+        txtEstado.setText("");
+        txtComplemento.setText("");
+        txtNacionalidade.setText("");
+        txtProfissao.setText("");
+        fmtDatacadastro.setText("");
+    }
+    
+    public JRadioButton getBtnWhatsapp() {
+        return btnWhatsapp;
+    }
+
+    public JFormattedTextField getFmtCelular() {
+        return fmtCelular;
+    }
+
+    public JFormattedTextField getFmtCep() {
+        return fmtCep;
+    }
+
+    public JFormattedTextField getFmtCpf() {
+        return fmtCpf;
+    }
+
+    public JFormattedTextField getFmtDatacadastro() {
+        return fmtDatacadastro;
+    }
+
+    public JFormattedTextField getFmtDatanascimento() {
+        return fmtDatanascimento;
+    }
+
+    public JFormattedTextField getFmtFixo() {
+        return fmtFixo;
+    }
+
+    public JTextField getTxtBairro() {
+        return txtBairro;
+    }
+
+    public JTextField getTxtCidade() {
+        return txtCidade;
+    }
+
+    public JTextField getTxtComplemento() {
+        return txtComplemento;
+    }
+
+    public JTextField getTxtEmail2() {
+        return txtEmail2;
+    }
+
+    public JTextField getTxtEstado() {
+        return txtEstado;
+    }
+
+    public JTextField getTxtGenero() {
+        return txtGenero;
+    }
+
+    public JTextField getTxtNacionalidade() {
+        return txtNacionalidade;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public JTextField getTxtNumero() {
+        return txtNumero;
+    }
+
+    public JTextArea getTxtObservacoes() {
+        return txtObservacoes;
+    }
+
+    public JTextField getTxtProfissao() {
+        return txtProfissao;
+    }
+
+    public JTextField getTxtRua() {
+        return txtRua;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntCancelar1;
     private javax.swing.JButton bntNovohospede;
@@ -491,7 +634,7 @@ public class CadHospedeView extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField fmtCep;
     private javax.swing.JFormattedTextField fmtCpf;
     private javax.swing.JFormattedTextField fmtDatacadastro;
-    private javax.swing.JFormattedTextField fmtDataentrada1;
+    private javax.swing.JFormattedTextField fmtDatanascimento;
     private javax.swing.JFormattedTextField fmtFixo;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

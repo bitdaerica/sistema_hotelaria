@@ -1,11 +1,13 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dao;
 
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Endereco;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Hospede;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,203 +21,243 @@ public class HospedeDAO {
     private final Connection connection;
 
     public HospedeDAO(Connection connection) {
+        if (connection == null) {
+            throw new IllegalArgumentException("Connection não pode ser nula");
+        }
         this.connection = connection;
     }
 
-    // Inserir hóspede (Pessoa + Hospede)
-    public void inserir(Hospede h) throws SQLException {
+    // Inserir hospede (e pessoa vinculada)
+    public void inserir(Hospede hospede) throws SQLException {
+        String sqlPessoa = "INSERT INTO pessoas (nome, genero, data_nascimento, cpf, email, fixo, celular, whatsapp, observacoes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlEndereco = "INSERT INTO enderecos (rua, numero, complemento, bairro, cidade, estado, cep, id_pessoas) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlHospede = "INSERT INTO hospedes (id_pessoas, nacionalidade, profissao, data_cadastro) VALUES (?, ?, ?, ?)";
+
         try {
             connection.setAutoCommit(false);
 
-            // Inserir Pessoa
-            PessoaDAO pessoaDAO = new PessoaDAO(connection, new EnderecoDAO(connection));
-            int idPessoa = pessoaDAO.inserir(h);
-            h.setId(idPessoa);
+            try (PreparedStatement pstmtPessoa = connection.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS); PreparedStatement pstmtEndereco = connection.prepareStatement(sqlEndereco); PreparedStatement pstmtHospede = connection.prepareStatement(sqlHospede)) {
 
-            String sql = "INSERT INTO hospedes (nacionalidade, profissao, data_cadastro, id_pessoas) VALUES (?, ?, ?, ?)";
-            try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-                pstm.setString(1, h.getNacionalidade());
-                pstm.setString(2, h.getProfissao());
-                if (h.getDatacadastro() != null) {
-                    pstm.setDate(3, Date.valueOf(h.getDatacadastro()));
-                } else {
-                    pstm.setNull(3, java.sql.Types.DATE);
+                // Inserir pessoa
+                pstmtPessoa.setString(1, hospede.getNome());
+                pstmtPessoa.setString(2, hospede.getGenero());
+                pstmtPessoa.setDate(3, Date.valueOf(hospede.getDatanascimento()));
+                pstmtPessoa.setString(4, hospede.getCpf());
+                pstmtPessoa.setString(5, hospede.getEmail());
+                pstmtPessoa.setString(6, hospede.getFixo());
+                pstmtPessoa.setString(7, hospede.getCelular());
+                pstmtPessoa.setBoolean(8, hospede.getWhatsapp());
+                pstmtPessoa.setString(9, hospede.getObservacoes());
+
+                pstmtPessoa.executeUpdate();
+
+                // Obter o ID gerado para a pessoa
+                int idPessoa;
+                try (ResultSet rs = pstmtPessoa.getGeneratedKeys()) {
+                    if (!rs.next()) {
+                        throw new SQLException("Falha ao gerar ID de pessoa");
+                    }
+                    idPessoa = rs.getInt(1);
                 }
-                pstm.setInt(4, h.getId());
 
-                pstm.executeUpdate();
+                // Inserir endereço
+                Endereco endereco = hospede.getEndereco();
+                pstmtEndereco.setString(1, endereco.getRua());
+                pstmtEndereco.setString(2, endereco.getNumero());
+                pstmtEndereco.setString(3, endereco.getComplemento());
+                pstmtEndereco.setString(4, endereco.getBairro());
+                pstmtEndereco.setString(5, endereco.getCidade());
+                pstmtEndereco.setString(6, endereco.getEstado());
+                pstmtEndereco.setString(7, endereco.getCep());
+                pstmtEndereco.setInt(8, idPessoa);
+                pstmtEndereco.executeUpdate();
+
+                // Inserir hospede
+                pstmtHospede.setInt(1, idPessoa);
+                pstmtHospede.setString(2, hospede.getNacionalidade());
+                pstmtHospede.setString(3, hospede.getProfissao());
+                pstmtHospede.setDate(4, Date.valueOf(hospede.getDatacadastro()));
+
+                pstmtHospede.executeUpdate();
+
+                connection.commit();
             }
-            connection.commit();
         } catch (SQLException e) {
             connection.rollback();
             throw e;
         } finally {
             connection.setAutoCommit(true);
+
         }
     }
 
-    // Alterar hóspede (Pessoa + Hospede)
-    public void alterar(Hospede h) throws SQLException {
-        PreparedStatement pstm = null;
+    // Alterar hospede
+    public void alterar(Hospede hospede) throws SQLException {
+        String sqlPessoa = "UPDATE pessoas SET nome = ?, genero = ?, data_nascimento = ?, cpf = ?, email = ?, fixo = ?, celular = ?, whatsapp = ?, observacoes = ? WHERE id = ?";
+        String sqlEndereco = "UPDATE enderecos SET rua = ?, numero = ?, complemento = ?, bairro = ?, cidade = ?, estado = ?, cep = ? WHERE id_pessoas = ?";
+        String sqlHospede = "UPDATE hospedes SET nacionalidade = ?, profissao = ?, data_cadastro = ? WHERE id_pessoas = ?";
+
         try {
             connection.setAutoCommit(false);
 
-            // Atualiza Pessoa
-            PessoaDAO pessoaDAO = new PessoaDAO(connection, null);
-            pessoaDAO.alterar(h);
+            try (PreparedStatement pstmtPessoa = connection.prepareStatement(sqlPessoa); PreparedStatement pstmtEndereco = connection.prepareStatement(sqlEndereco); PreparedStatement pstmtHospede = connection.prepareStatement(sqlHospede)) {
 
-            String sql = "UPDATE hospedes SET nacionalidade = ? , profissao = ? , data_cadastro = ? WHERE ID = ?";
-            pstm = connection.prepareStatement(sql);
-            pstm.setString(1, h.getNacionalidade());
-            pstm.setString(2, h.getProfissao());
-            if (h.getDatacadastro() != null) {
-                pstm.setDate(3, Date.valueOf(h.getDatacadastro())); // índice 3 para dataCadastro
-            } else {
-                pstm.setNull(3, java.sql.Types.DATE);
+                // Atualizar pessoa
+                pstmtPessoa.setString(1, hospede.getNome());
+                pstmtPessoa.setString(2, hospede.getGenero());
+                pstmtPessoa.setDate(3, Date.valueOf(hospede.getDatanascimento()));
+                pstmtPessoa.setString(4, hospede.getCpf());
+                pstmtPessoa.setString(5, hospede.getEmail());
+                pstmtPessoa.setString(6, hospede.getFixo());
+                pstmtPessoa.setString(7, hospede.getCelular());
+                pstmtPessoa.setBoolean(8, hospede.getWhatsapp());
+                pstmtPessoa.setString(9, hospede.getObservacoes());
+                pstmtPessoa.setInt(10, hospede.getId());
+                pstmtPessoa.executeUpdate();
+
+                // Atualizar endereço
+                Endereco endereco = hospede.getEndereco();
+                pstmtEndereco.setString(1, endereco.getRua());
+                pstmtEndereco.setString(2, endereco.getNumero());
+                pstmtEndereco.setString(3, endereco.getComplemento());
+                pstmtEndereco.setString(4, endereco.getBairro());
+                pstmtEndereco.setString(5, endereco.getCidade());
+                pstmtEndereco.setString(6, endereco.getEstado());
+                pstmtEndereco.setString(7, endereco.getCep());
+                pstmtEndereco.setInt(8, hospede.getId());
+                pstmtEndereco.executeUpdate();
+
+                // Atualizar hospede
+                pstmtHospede.setString(1, hospede.getNacionalidade());
+                pstmtHospede.setString(2, hospede.getProfissao());
+                pstmtHospede.setDate(3, Date.valueOf(hospede.getDatacadastro()));
+                pstmtHospede.setInt(4, hospede.getId());
+                pstmtHospede.executeUpdate();
+
+                connection.commit();
             }
-            pstm.setInt(4, h.getId()); // índice 4 para id
-
-            pstm.executeUpdate();
-            connection.commit();
         } catch (SQLException e) {
             connection.rollback();
             throw e;
         } finally {
-            if (pstm != null) {
-                pstm.close();
-            }
             connection.setAutoCommit(true);
         }
     }
 
-    // Buscar hóspede por ID (com join em Pessoa)
+    // Selecionar hospede por ID
     public Hospede selecionarPorId(int id) throws SQLException {
-        String sql = """
-            SELECT h.id, h.nacionalidade, h.profissao, h.data_cadastro,
-                   p.nome, p.genero, p.data_nascimento, p.cpf, p.email,
-                   p.fixo, p.celular, p.whatsapp, p.observacoes
-            FROM hospedes h
-            INNER JOIN pessoas p ON h.id = p.id
-            WHERE h.id = ?
-            """;
+        String sql = "SELECT p.*, h.nacionalidade, h.profissao, h.data_cadastro, e.* FROM pessoas p "
+                + "JOIN hospedes h ON p.id = h.id_pessoas "
+                + "JOIN enderecos e ON p.id = e.id_pessoas "
+                + "WHERE p.id = ?";
 
-        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-            pstm.setInt(1, id);
-            try (ResultSet rs = pstm.executeQuery()) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    return mapear(rs);
+                    return mapearHospede(rs);
                 }
             }
         }
         return null;
     }
 
-    // Listar todos os hóspedes
+    // Listar todos os hospedes
     public List<Hospede> listarTodos() throws SQLException {
-        List<Hospede> lista = new ArrayList<>();
+        List<Hospede> hospedes = new ArrayList<>();
+        String sql = "SELECT p.*, h.nacionalidade, h.profissao, h.data_cadastro, e.* FROM pessoas p "
+                + "JOIN hospedes h ON p.id = h.id_pessoas "
+                + "JOIN enderecos e ON p.id = e.id_pessoas";
 
-        String sql = """
-            SELECT h.id, h.nacionalidade, h.profissao, h.data_cadastro,
-                   p.nome, p.genero, p.data_nascimento, p.cpf, p.email,
-                   p.fixo, p.celular, p.whatsapp, p.observacoes
-            FROM hospedes h
-            INNER JOIN pessoas p ON h.id = p.id
-            """;
-
-        try (PreparedStatement pstm = connection.prepareStatement(sql);
-             ResultSet rs = pstm.executeQuery()) {
-
+        try (PreparedStatement pstmt = connection.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
-                lista.add(mapear(rs));
+                hospedes.add(mapearHospede(rs));
             }
         }
-        return lista;
+        return hospedes;
     }
 
-    // Listar hóspedes por nome (LIKE)
+    // Listar hospede por nome
     public List<Hospede> listarPorNome(String nome) throws SQLException {
-        List<Hospede> lista = new ArrayList<>();
+        List<Hospede> hospedes = new ArrayList<>();
+        String sql = "SELECT p.*, h.nacionalidade, h.profissao, h.data_cadastro, e.* FROM pessoas p "
+                + "JOIN hospedes h ON p.id = h.id_pessoas "
+                + "JOIN enderecos e ON p.id = e.id_pessoas "
+                + "WHERE p.nome LIKE ?";
 
-        String sql = """
-            SELECT h.id, h.nacionalidade, h.profissao, h.data_cadastro,
-                   p.nome, p.genero, p.data_nascimento, p.cpf, p.email,
-                   p.fixo, p.celular, p.whatsapp, p.observacoes
-            FROM hospedes h
-            INNER JOIN pessoas p ON h.id = p.id
-            WHERE p.nome LIKE ?
-            """;
-
-        try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-            pstm.setString(1, "%" + nome + "%");
-            try (ResultSet rs = pstm.executeQuery()) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setString(1, "%" + nome + "%");
+            try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
-                    lista.add(mapear(rs));
+                    hospedes.add(mapearHospede(rs));
                 }
             }
         }
-        return lista;
+        return hospedes;
     }
 
-    // Excluir hóspede (HOSPEDE + PESSOA)
+    // Excluir hospede (e a pessoa vinculada)
     public void excluir(int id) throws SQLException {
-        PreparedStatement pstm = null;
+        String sqlHospede = "DELETE FROM hospedes WHERE id_pessoas = ?";
+        String sqlEndereco = "DELETE FROM enderecos WHERE id_pessoas = ?";
+        String sqlPessoa = "DELETE FROM pessoas WHERE id = ?";
+
         try {
             connection.setAutoCommit(false);
 
-            String sql = "DELETE FROM hospedes WHERE ID = ?";
-            pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, id);
-            pstm.executeUpdate();
+            try (PreparedStatement pstmtHospede = connection.prepareStatement(sqlHospede); PreparedStatement pstmtEndereco = connection.prepareStatement(sqlEndereco); PreparedStatement pstmtPessoa = connection.prepareStatement(sqlPessoa)) {
 
-            PessoaDAO pessoaDAO = new PessoaDAO(connection, null);
-            pessoaDAO.excluir(id);
+                pstmtHospede.setInt(1, id);
+                pstmtHospede.executeUpdate();
 
-            connection.commit();
+                pstmtEndereco.setInt(1, id);
+                pstmtEndereco.executeUpdate();
+
+                pstmtPessoa.setInt(1, id);
+                pstmtPessoa.executeUpdate();
+
+                connection.commit();
+            }
         } catch (SQLException e) {
             connection.rollback();
             throw e;
         } finally {
-            if (pstm != null) {
-                pstm.close();
-            }
             connection.setAutoCommit(true);
         }
     }
 
-    // Método auxiliar para mapear ResultSet para Hospede
-    private Hospede mapear(ResultSet rs) throws SQLException {
-        Hospede h = new Hospede();
+    
 
-        h.setId(rs.getInt("id"));
-        h.setNome(rs.getString("nome"));
-        h.setGenero(rs.getString("genero"));
+    // Mapear o resultado SQL para o objeto Hospede
+    private Hospede mapearHospede(ResultSet rs) throws SQLException {
+        Hospede hospede = new Hospede();
+        hospede.setId(rs.getInt("id"));
+        hospede.setNome(rs.getString("nome"));
+        hospede.setGenero(rs.getString("genero"));
+        hospede.setDatanascimento(rs.getDate("data_nascimento").toLocalDate());
+        hospede.setCpf(rs.getString("cpf"));
+        hospede.setEmail(rs.getString("email"));
+        hospede.setFixo(rs.getString("fixo"));
+        hospede.setCelular(rs.getString("celular"));
+        hospede.setWhatsapp(rs.getBoolean("whatsapp"));
+        hospede.setObservacoes(rs.getString("observacoes"));
+        hospede.setNacionalidade(rs.getString("nacionalidade"));
+        hospede.setProfissao(rs.getString("profissao"));
+        hospede.setDatacadastro(rs.getDate("data_cadastro").toLocalDate());
 
-        Date datanascimentoSQL = rs.getDate("data_nascimento");
-        if (datanascimentoSQL != null) {
-            h.setDatanascimento(datanascimentoSQL.toLocalDate());
-        } else {
-            h.setDatanascimento(null);
-        }
 
-        h.setCpf(rs.getString("cpf"));
-        h.setEmail(rs.getString("email"));
-        h.setFixo(rs.getString("fixo"));
-        h.setCelular(rs.getString("celular"));
+        Endereco endereco = new Endereco();
+        endereco.setRua(rs.getString("rua"));
+        endereco.setNumero(rs.getString("numero"));
+        endereco.setComplemento(rs.getString("complemento"));
+        endereco.setBairro(rs.getString("bairro"));
+        endereco.setCidade(rs.getString("cidade"));
+        endereco.setEstado(rs.getString("estado"));
+        endereco.setCep(rs.getString("cep"));
 
-        Object whatsappObj = rs.getObject("whatsapp");
-        h.setWhatsapp(whatsappObj != null ? rs.getBoolean("whatsapp") : null);
+        hospede.setEndereco(endereco);
 
-        h.setObservacoes(rs.getString("observacoes"));
-        h.setNacionalidade(rs.getString("nacionalidade"));
-        h.setProfissao(rs.getString("profissao"));
-
-        Date datacadastroSQL = rs.getDate("data_cadastro");
-        if (datacadastroSQL != null) {
-            h.setDatacadastro(datacadastroSQL.toLocalDate());
-        } else {
-            h.setDatacadastro(null);
-        }
-
-        return h;
+        return hospede;
     }
+    
 }

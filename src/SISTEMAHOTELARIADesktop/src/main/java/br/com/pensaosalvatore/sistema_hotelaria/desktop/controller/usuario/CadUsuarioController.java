@@ -25,11 +25,10 @@ public class CadUsuarioController {
 
     private final CadUsuarioView view;
     private UsuarioDAO usuarioDAO;
-    
 
     public CadUsuarioController(CadUsuarioView view) {
-        
-        this.view = view; 
+
+        this.view = view;
         try {
             Connection connection = Conexao.getConnection();
             this.usuarioDAO = new UsuarioDAO(connection);
@@ -37,10 +36,11 @@ public class CadUsuarioController {
             JOptionPane.showMessageDialog(view, "Erro ao conectar ao banco de dados: " + e.getMessage());
         }
     }
-    
-    
-   
 
+    public void mostrar() {
+        CadUsuarioView v = new CadUsuarioView();
+        v.setVisible(true);
+    }
 
     public void salvar() throws ValidacaoException {
         try {
