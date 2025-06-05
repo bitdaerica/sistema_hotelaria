@@ -58,7 +58,7 @@ public class Hospede extends Pessoa {
         this.datacadastro = datacadastro;
     }
 
-    // 🔸 toString() opcional, para debug
+    // 🔸 toString()  para debug
     @Override
     public String toString() {
         return "Hospede{"

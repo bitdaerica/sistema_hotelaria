@@ -65,4 +65,10 @@ public class Quarto {
         this.descricao = descricao;
     }
 
+    @Override
+    public String toString() {
+        return id + " - " + numero;
+    }
+
+    
 }

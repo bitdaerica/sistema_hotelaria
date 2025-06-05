@@ -31,7 +31,7 @@ public class HospedeDAO {
     public void inserir(Hospede hospede) throws SQLException {
         String sqlPessoa = "INSERT INTO pessoas (nome, genero, data_nascimento, cpf, email, fixo, celular, whatsapp, observacoes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String sqlEndereco = "INSERT INTO enderecos (rua, numero, complemento, bairro, cidade, estado, cep, id_pessoas) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        String sqlHospede = "INSERT INTO hospedes (id_pessoas, nacionalidade, profissao, data_cadastro) VALUES (?, ?, ?, ?)";
+        String sqlHospede = "INSERT INTO hospedes (id, nacionalidade, profissao, data_cadastro) VALUES (?, ?, ?, ?)";
 
         try {
             connection.setAutoCommit(false);

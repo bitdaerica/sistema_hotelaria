@@ -32,7 +32,7 @@ public class UsuarioDAO {
     public void inserir(Usuario usuario) throws SQLException {
         String sqlPessoa = "INSERT INTO pessoas (nome, genero, data_nascimento, cpf, email, fixo, celular, whatsapp, observacoes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String sqlEndereco = "INSERT INTO enderecos (rua, numero, complemento, bairro, cidade, estado, cep, id_pessoas) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        String sqlUsuario = "INSERT INTO usuarios (id_pessoas, usuario, senha) VALUES (?, ?, ?)";
+        String sqlUsuario = "INSERT INTO usuarios (id, usuario, senha) VALUES (?, ?, ?)";
 
         try {
             connection.setAutoCommit(false);

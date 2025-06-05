@@ -3,7 +3,7 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.principal;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.hospede.CadHospedeView;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.principal.PrincipalView;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.quarto.CadQuartoView;
-import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.reserva.ReservaView;
+import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.reserva.CadReservaView;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.usuario.CadUsuarioView;
 
 /**
@@ -38,7 +38,7 @@ public class PrincipalController {
     }
 
     public void realizarReserva() {
-        ReservaView tela = new ReservaView();
+        CadReservaView tela = new CadReservaView();
         tela.setVisible(true);
 
     }

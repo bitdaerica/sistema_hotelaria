@@ -9,7 +9,6 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Conexao;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.DocumentoUtil;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.validacao.ValidadorHospede;
-import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;

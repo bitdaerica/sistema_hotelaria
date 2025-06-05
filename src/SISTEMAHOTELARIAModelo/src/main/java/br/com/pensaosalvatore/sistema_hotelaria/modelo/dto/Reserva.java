@@ -1,11 +1,8 @@
 package br.com.pensaosalvatore.sistema_hotelaria.modelo.dto;
 
 import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.time.LocalDate;
+
 
 /**
  *
@@ -14,40 +11,26 @@ import java.util.logging.Logger;
 public class Reserva {
 
     private Integer id;
-    private Hospede hospede;
-    private Quarto quarto;
-    private Date data_entrada;
-    private Date data_saida;
+    private LocalDate dataentrada;
+    private LocalDate datasaida;
     private BigDecimal valor;
     private String observacoes;
+    private int idHospedes;
+    private int idQuartos;
+    private int idUsuarios;
 
     public Reserva() {
     }
 
-    public Reserva(Integer id, Hospede hospede, Quarto quarto, BigDecimal valor, String data_entrada, String data_saida) {
+    public Reserva(Integer id, LocalDate dataentrada, LocalDate datasaida, BigDecimal valor, String observacoes, int idHospedes, int idQuartos, int idUsuarios) {
         this.id = id;
-        this.hospede = hospede;
-        this.quarto = quarto;
+        this.dataentrada = dataentrada;
+        this.datasaida = datasaida;
         this.valor = valor;
-        try {
-            this.data_entrada = new SimpleDateFormat("dd/MM/yyyy").parse(data_entrada);
-        } catch (ParseException ex) {
-            Logger.getLogger(Reserva.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            this.data_saida = new SimpleDateFormat("dd/MM/yyyy").parse(data_saida);
-        } catch (ParseException ex) {
-            Logger.getLogger(Reserva.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    public String getDataEntradaFormatada() {
-        return new SimpleDateFormat("dd/MM/yyyy").format(data_entrada);
-    }
-
-    public String getDataSaidaFormatada() {
-        return new SimpleDateFormat("dd/MM/yyyy").format(data_saida);
+        this.observacoes = observacoes;
+        this.idHospedes = idHospedes;
+        this.idQuartos = idQuartos;
+        this.idUsuarios = idUsuarios;
     }
 
     public Integer getId() {
@@ -58,36 +41,20 @@ public class Reserva {
         this.id = id;
     }
 
-    public Hospede getHospede() {
-        return hospede;
+    public LocalDate getDataentrada() {
+        return dataentrada;
     }
 
-    public void setHospede(Hospede hospede) {
-        this.hospede = hospede;
+    public void setDataentrada(LocalDate dataentrada) {
+        this.dataentrada = dataentrada;
     }
 
-    public Quarto getQuarto() {
-        return quarto;
+    public LocalDate getDatasaida() {
+        return datasaida;
     }
 
-    public void setQuarto(Quarto quarto) {
-        this.quarto = quarto;
-    }
-
-    public Date getData_entrada() {
-        return data_entrada;
-    }
-
-    public void setData_entrada(Date data_entrada) {
-        this.data_entrada = data_entrada;
-    }
-
-    public Date getData_saida() {
-        return data_saida;
-    }
-
-    public void setData_saida(Date data_saida) {
-        this.data_saida = data_saida;
+    public void setDatasaida(LocalDate datasaida) {
+        this.datasaida = datasaida;
     }
 
     public BigDecimal getValor() {
@@ -105,5 +72,31 @@ public class Reserva {
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
+
+    public int getIdHospedes() {
+        return idHospedes;
+    }
+
+    public void setIdHospedes(int idHospedes) {
+        this.idHospedes = idHospedes;
+    }
+
+    public int getIdQuartos() {
+        return idQuartos;
+    }
+
+    public void setIdQuartos(int idQuartos) {
+        this.idQuartos = idQuartos;
+    }
+
+    public int getIdUsuarios() {
+        return idUsuarios;
+    }
+
+    public void setIdUsuarios(int idUsuarios) {
+        this.idUsuarios = idUsuarios;
+    }
+    
+    
 
 }
