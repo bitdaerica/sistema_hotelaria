@@ -129,11 +129,14 @@ modelo.util.validadores
 
 ---
 
-## ✍️ Autor(a)
+## ✍️ Autora
 
 - 👤 **Érica Almeida**  
 Desenvolvedora em formação 🚀
 
+## 🤝 Contribuintes
+- 👤 **Ana Carla**
+- 👤 **Brunna Luyza**  
 ---
 
 ## 🤝 Contribuição
