@@ -87,5 +87,19 @@ public class CadQuartoController {
 
     public void limparFormulario() {
         view.limparCampos();
+        JOptionPane.showMessageDialog(null, "Pronto para novo cadastro.");
+    }
+    
+    public void cancelar() {
+        int resposta = JOptionPane.showConfirmDialog(
+                view,
+                "Deseja realmente cancelar o cadastro?",
+                "Confirmar Cancelamento",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (resposta == JOptionPane.YES_OPTION) {
+            view.dispose(); // Fechar a janela
+        }
     }
 }

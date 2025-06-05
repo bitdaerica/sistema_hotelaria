@@ -1,4 +1,4 @@
-package br.com.pensaosalvatore.sistema_hotelaria.modelo.util.validadores;
+package br.com.pensaosalvatore.sistema_hotelaria.modelo.util.validacao;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Validador;
 import javax.swing.JComponent;

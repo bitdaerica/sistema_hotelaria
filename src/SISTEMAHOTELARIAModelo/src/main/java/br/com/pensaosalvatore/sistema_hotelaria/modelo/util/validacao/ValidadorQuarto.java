@@ -1,5 +1,5 @@
 
-package br.com.pensaosalvatore.sistema_hotelaria.modelo.util.validadores;
+package br.com.pensaosalvatore.sistema_hotelaria.modelo.util.validacao;
 
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Quarto;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;

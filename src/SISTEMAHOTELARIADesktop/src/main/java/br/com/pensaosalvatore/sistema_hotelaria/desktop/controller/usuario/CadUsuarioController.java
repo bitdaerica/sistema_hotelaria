@@ -8,7 +8,7 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Conexao;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.DocumentoUtil;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.validadores.ValidadorUsuario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.validacao.ValidadorUsuario;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.SQLException;
