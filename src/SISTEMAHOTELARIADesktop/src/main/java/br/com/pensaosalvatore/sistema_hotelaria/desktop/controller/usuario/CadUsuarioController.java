@@ -5,10 +5,12 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Validador;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Endereco;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Conexao;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.DocumentoUtil;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.validadores.ValidadorUsuario;
 import java.awt.HeadlessException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -27,7 +29,13 @@ public class CadUsuarioController {
 
     public CadUsuarioController(CadUsuarioView view) {
         
-        this.view = view;        
+        this.view = view; 
+        try {
+            Connection connection = Conexao.getConnection();
+            this.usuarioDAO = new UsuarioDAO(connection);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(view, "Erro ao conectar ao banco de dados: " + e.getMessage());
+        }
     }
     
     
