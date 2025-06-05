@@ -3,7 +3,7 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.quarto;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.quarto.CadQuartoController;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Quarto;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoUtil;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.validadores.ValidadorQuarto;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -163,7 +163,7 @@ public class CadQuartoView extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         try {
-            Quarto quarto = ValidacaoUtil.validar(
+            Quarto quarto = ValidadorQuarto.validar(
                     txtNumero.getText(),
                     txtTipo.getText(),
                     txtValor.getText(),

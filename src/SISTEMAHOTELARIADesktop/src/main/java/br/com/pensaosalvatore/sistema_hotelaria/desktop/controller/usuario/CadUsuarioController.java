@@ -2,10 +2,12 @@ package br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.usuario;
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.usuario.CadUsuarioView;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dao.UsuarioDAO;
-import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoUtil;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.Validador;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Endereco;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.DocumentoUtil;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.validadores.ValidadorUsuario;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -20,15 +22,16 @@ import javax.swing.JOptionPane;
 public class CadUsuarioController {
 
     private final CadUsuarioView view;
-    private final UsuarioDAO usuarioDAO;
+    private UsuarioDAO usuarioDAO;
+    
 
-    public CadUsuarioController(CadUsuarioView view, UsuarioDAO usuarioDAO) {
-        if (view == null || usuarioDAO == null) {
-            throw new IllegalArgumentException("Dependências não podem ser nulas");
-        }
-        this.view = view;
-        this.usuarioDAO = usuarioDAO;
+    public CadUsuarioController(CadUsuarioView view) {
+        
+        this.view = view;        
     }
+    
+    
+   
 
 
     public void salvar() throws ValidacaoException {
@@ -91,43 +94,43 @@ public class CadUsuarioController {
 
     private boolean validarCampos() {
         // Validação dos campos obrigatórios
-        if (!ValidacaoUtil.validarCampoObrigatorio(view.getTxtNome(), "Nome")) {
+        if (!Validador.validarCampoObrigatorio(view.getTxtNome(), "Nome")) {
             return false;
         }
-        if (!ValidacaoUtil.validarCampoObrigatorio(view.getTxtGenero(), "Gênero")) {
+        if (!Validador.validarCampoObrigatorio(view.getTxtGenero(), "Gênero")) {
             return false;
         }
-        if (!ValidacaoUtil.validarData(view.getFmtDatanascimento(), "Data de Nascimento")) {
+        if (!Validador.validarData(view.getFmtDatanascimento(), "Data de Nascimento")) {
             return false;
         }
-        if (!ValidacaoUtil.validarCPF(view.getFmtCpf())) {
+        if (!DocumentoUtil.validarCPF(view.getFmtCpf())) {
             return false;
         }
-        if (!ValidacaoUtil.validarEmail(view.getTxtEmail2())) {
+        if (!ValidadorUsuario.validarEmail(view.getTxtEmail2())) {
             return false;
         }
-        if (!ValidacaoUtil.validarCampoObrigatorio(view.getTxtUsuario(), "Usuário")) {
+        if (!Validador.validarCampoObrigatorio(view.getTxtUsuario(), "Usuário")) {
             return false;
         }
-        if (!ValidacaoUtil.validarForcaSenha(view.getSenha())) {
+        if (!ValidadorUsuario.validarSenha(view.getSenha())) {
             return false;
         }
-        if (!ValidacaoUtil.validarCampoObrigatorio(view.getTxtRua(), "Rua")) {
+        if (!Validador.validarCampoObrigatorio(view.getTxtRua(), "Rua")) {
             return false;
         }
-        if (!ValidacaoUtil.validarCampoObrigatorio(view.getTxtNumero(), "Número")) {
+        if (!Validador.validarCampoObrigatorio(view.getTxtNumero(), "Número")) {
             return false;
         }
-        if (!ValidacaoUtil.validarCampoObrigatorio(view.getTxtBairro(), "Bairro")) {
+        if (!Validador.validarCampoObrigatorio(view.getTxtBairro(), "Bairro")) {
             return false;
         }
-        if (!ValidacaoUtil.validarCampoObrigatorio(view.getTxtCidade(), "Cidade")) {
+        if (!Validador.validarCampoObrigatorio(view.getTxtCidade(), "Cidade")) {
             return false;
         }
-        if (!ValidacaoUtil.validarCampoObrigatorio(view.getTxtEstado(), "Estado")) {
+        if (!Validador.validarCampoObrigatorio(view.getTxtEstado(), "Estado")) {
             return false;
         }
-        if (!ValidacaoUtil.validarCampoObrigatorio(view.getFmtCep(), "CEP")) {
+        if (!Validador.validarCampoObrigatorio(view.getFmtCep(), "CEP")) {
             return false;
         }
 

@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>24</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
         <exec.mainClass>br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao.AutenticacaoView</exec.mainClass>
     </properties>
 
@@ -53,7 +53,7 @@
                     <compilerArgs>
                         <arg>--enable-preview</arg>
                     </compilerArgs>
-                    <release>24</release>
+                    <release>21</release>
                 </configuration>
             </plugin>
 

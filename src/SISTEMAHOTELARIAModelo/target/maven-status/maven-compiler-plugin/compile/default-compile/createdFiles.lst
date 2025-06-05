@@ -11,6 +11,7 @@ br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\StatusManutenca
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\CargoFuncionario.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\UsuarioDAO.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\FormadePagamento.class
+br\com\pensaosalvatore\sistema_hotelaria\modelo\util\validadores\ValidadorUsuario.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\PrazodeFaturamento.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\StatusHospede.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\Genero.class
@@ -28,6 +29,7 @@ br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\TipoQuarto.clas
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dao\ReservaDAO.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Pessoa.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\util\Conexao.class
+br\com\pensaosalvatore\sistema_hotelaria\modelo\util\Validador.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\StatusReserva.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\TipoCobranca.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Endereco.class
@@ -35,8 +37,9 @@ br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\Andar.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\DepartamentoFuncionario.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\CategoriaProduto.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Quarto.class
+br\com\pensaosalvatore\sistema_hotelaria\modelo\util\DocumentoUtil.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\Status.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\StatusFuncionario.class
-br\com\pensaosalvatore\sistema_hotelaria\modelo\util\ValidacaoUtil.class
+br\com\pensaosalvatore\sistema_hotelaria\modelo\util\validadores\ValidadorQuarto.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\enumeradores\RegimedeContratacao.class
 br\com\pensaosalvatore\sistema_hotelaria\modelo\dto\Hospede.class

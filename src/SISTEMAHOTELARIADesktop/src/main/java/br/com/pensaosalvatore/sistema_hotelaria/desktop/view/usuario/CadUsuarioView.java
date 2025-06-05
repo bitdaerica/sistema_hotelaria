@@ -7,6 +7,7 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -22,13 +23,9 @@ public class CadUsuarioView extends javax.swing.JFrame {
 
     private final CadUsuarioController controller;
 
-    public CadUsuarioView(UsuarioDAO usuarioDAO) {
-        if (usuarioDAO == null) {
-            throw new IllegalArgumentException("UsuarioDAO não pode ser nulo");
-        }
-
+    public CadUsuarioView() {
         initComponents();
-        this.controller = new CadUsuarioController(this, usuarioDAO);
+        controller = new CadUsuarioController(this);
     }
 
     /**
@@ -448,7 +445,7 @@ public class CadUsuarioView extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             try {
                 UsuarioDAO usuarioDAO = new UsuarioDAO(Conexao.getConnection());
-                new CadUsuarioView(usuarioDAO).setVisible(true);
+                new CadUsuarioView().setVisible(true);
             } catch (SQLException ex) {
                 Logger.getLogger(CadUsuarioView.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(null,

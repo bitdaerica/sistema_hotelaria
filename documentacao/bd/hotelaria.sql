@@ -7,12 +7,14 @@ USE hotelaria;
 CREATE TABLE enderecos(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	rua VARCHAR(100) NOT NULL,
+    complemento VARCHAR(50),
     numero VARCHAR(10) NOT NULL,
     bairro VARCHAR(50) NOT NULL,
     cidade VARCHAR(50) NOT NULL,
     estado VARCHAR(50) NOT NULL,
 	cep VARCHAR(10) NOT NULL,
-    complemento VARCHAR(50)
+    id_pessoas INT NOT NULL,
+    FOREIGN KEY (id_pessoas) REFERENCES pessoas(id)
 );
 
 
@@ -27,10 +29,8 @@ CREATE TABLE pessoas (
     fixo VARCHAR(15),
     celular VARCHAR(15) NOT NULL,
     whatsapp BOOLEAN DEFAULT FALSE,
-    observacoes TEXT(255),
-    id_enderecos INT,
-    FOREIGN KEY (id_enderecos) REFERENCES enderecos(id)
-);
+    observacoes TEXT(255)
+    );
 
 
 CREATE TABLE usuarios (

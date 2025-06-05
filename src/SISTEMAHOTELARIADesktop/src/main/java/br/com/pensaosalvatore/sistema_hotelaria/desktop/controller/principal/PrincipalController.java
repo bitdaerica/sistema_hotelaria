@@ -5,7 +5,6 @@ import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.principal.Principal
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.quarto.CadQuartoView;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.reserva.ReservaView;
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.view.usuario.CadUsuarioView;
-import java.sql.SQLException;
 
 /**
  *
@@ -32,8 +31,8 @@ public class PrincipalController {
 
     }
 
-    public void entrarCadastroUsuario() throws SQLException {
-        CadUsuarioView tela = new CadUsuarioView(null);
+    public void entrarCadastroUsuario() {
+        CadUsuarioView tela = new CadUsuarioView();
         tela.setVisible(true);
 
     }

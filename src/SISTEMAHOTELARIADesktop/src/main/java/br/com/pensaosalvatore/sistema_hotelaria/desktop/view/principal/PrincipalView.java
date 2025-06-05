@@ -248,9 +248,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
 
         jMenuBar1.setBackground(new java.awt.Color(223, 176, 95));
-        jMenuBar1.setAlignmentX(50.0F);
         jMenuBar1.setFocusable(false);
-        jMenuBar1.setOpaque(true);
         jMenuBar1.setRequestFocusEnabled(false);
         jMenuBar1.setSelectionModel(null);
 
@@ -427,11 +425,7 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_miQuartosActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        try {
-            controller.entrarCadastroUsuario();
-        } catch (SQLException ex) {
-            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        controller.entrarCadastroUsuario();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
