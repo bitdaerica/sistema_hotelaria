@@ -1,10 +1,12 @@
-
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.principal;
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.principal.PrincipalController;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -13,13 +15,16 @@ import java.util.logging.Logger;
 public class PrincipalView extends javax.swing.JFrame {
 
     private final PrincipalController controller;
+    private String LblNomedousuario;
+
     /**
      * Creates new form PrincipalView
      */
-    public PrincipalView() {
+    public PrincipalView(Usuario usuario) {
+        this.LblNomedousuario = usuario.getUsuario();
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
-        controller = new PrincipalController (this);
+        controller = new PrincipalController(this, usuario);
     }
 
     /**
@@ -45,20 +50,15 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        lblUsuario = new javax.swing.JLabel();
-        lblCargo = new javax.swing.JLabel();
         lblNomedousuario = new javax.swing.JLabel();
-        lblCargodousuario = new javax.swing.JLabel();
-        lblGacesso = new javax.swing.JLabel();
-        lblGraudeacessodousuario = new javax.swing.JLabel();
         btnLogoff = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnCadastro = new javax.swing.JMenu();
         miHospede = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        miQuartos = new javax.swing.JMenuItem();
+        miQuarto = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        miUsuario = new javax.swing.JMenuItem();
         mnReservas = new javax.swing.JMenu();
         miRealizarreserva = new javax.swing.JMenuItem();
         jSeparator11 = new javax.swing.JPopupMenu.Separator();
@@ -72,7 +72,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JPopupMenu.Separator();
         miConsultarusuario = new javax.swing.JMenuItem();
         mnFerramentas = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        miSobre = new javax.swing.JMenuItem();
         mnSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -143,23 +143,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-calendario20x20.png"))); // NOI18N
         jLabel6.setText("Data");
 
-        lblUsuario.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        lblUsuario.setText("Usuário:");
-
-        lblCargo.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        lblCargo.setText("Cargo:");
-
-        lblNomedousuario.setFont(new java.awt.Font("Cambria", 2, 12)); // NOI18N
-        lblNomedousuario.setText("Erica Almeida");
-
-        lblCargodousuario.setFont(new java.awt.Font("Cambria", 2, 12)); // NOI18N
-        lblCargodousuario.setText("Admin");
-
-        lblGacesso.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        lblGacesso.setText("G. Acesso:");
-
-        lblGraudeacessodousuario.setFont(new java.awt.Font("Cambria", 2, 12)); // NOI18N
-        lblGraudeacessodousuario.setText("Administrador");
+        lblNomedousuario.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
 
         btnLogoff.setBackground(new java.awt.Color(255, 146, 47));
         btnLogoff.setFont(new java.awt.Font("Cambria", 3, 14)); // NOI18N
@@ -184,30 +168,25 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator5)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblGacesso)
-                            .addComponent(lblCargo)
-                            .addComponent(lblUsuario))
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCargodousuario)
-                            .addComponent(lblGraudeacessodousuario)
-                            .addComponent(lblNomedousuario)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel4)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(jLabel3))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(77, 77, 77)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(jLabel4))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(lblNomedousuario, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 67, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(63, 63, 63)
                 .addComponent(btnLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -226,25 +205,13 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblNomedousuario)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCargodousuario))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblCargo)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGacesso)
-                    .addComponent(lblGraudeacessodousuario))
-                .addGap(30, 30, 30)
+                .addGap(38, 38, 38)
+                .addComponent(lblNomedousuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
                 .addComponent(btnLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(545, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(223, 176, 95));
@@ -271,28 +238,28 @@ public class PrincipalView extends javax.swing.JFrame {
         mnCadastro.add(miHospede);
         mnCadastro.add(jSeparator6);
 
-        miQuartos.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        miQuartos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-quartos20x20.png"))); // NOI18N
-        miQuartos.setText("Quartos");
-        miQuartos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miQuartos.addActionListener(new java.awt.event.ActionListener() {
+        miQuarto.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        miQuarto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-quartos20x20.png"))); // NOI18N
+        miQuarto.setText("Quartos");
+        miQuarto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        miQuarto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miQuartosActionPerformed(evt);
+                miQuartoActionPerformed(evt);
             }
         });
-        mnCadastro.add(miQuartos);
+        mnCadastro.add(miQuarto);
         mnCadastro.add(jSeparator7);
 
-        jMenuItem3.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-funcionario20x20.png"))); // NOI18N
-        jMenuItem3.setText("Usuário");
-        jMenuItem3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        miUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        miUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-funcionario20x20.png"))); // NOI18N
+        miUsuario.setText("Usuário");
+        miUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        miUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                miUsuarioActionPerformed(evt);
             }
         });
-        mnCadastro.add(jMenuItem3);
+        mnCadastro.add(miUsuario);
 
         jMenuBar1.add(mnCadastro);
 
@@ -361,11 +328,11 @@ public class PrincipalView extends javax.swing.JFrame {
         mnFerramentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnFerramentas.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
 
-        jMenuItem1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-sobre_sistema20x20.png"))); // NOI18N
-        jMenuItem1.setText("Sobre");
-        jMenuItem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnFerramentas.add(jMenuItem1);
+        miSobre.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        miSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-sobre_sistema20x20.png"))); // NOI18N
+        miSobre.setText("Sobre");
+        miSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnFerramentas.add(miSobre);
 
         jMenuBar1.add(mnFerramentas);
 
@@ -406,27 +373,22 @@ public class PrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoffActionPerformed
-        // TODO add your handling code here:
+
 
     }//GEN-LAST:event_btnLogoffActionPerformed
 
     private void miRealizarreservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRealizarreservaActionPerformed
-        controller.realizarReserva();
-
 
     }//GEN-LAST:event_miRealizarreservaActionPerformed
 
     private void miHospedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miHospedeActionPerformed
-        controller.entrarCadastroHospede();
     }//GEN-LAST:event_miHospedeActionPerformed
 
-    private void miQuartosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miQuartosActionPerformed
-        controller.entrarCadastroQuarto();
-    }//GEN-LAST:event_miQuartosActionPerformed
+    private void miQuartoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miQuartoActionPerformed
+    }//GEN-LAST:event_miQuartoActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        controller.entrarCadastroUsuario();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    private void miUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUsuarioActionPerformed
+    }//GEN-LAST:event_miUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -458,13 +420,63 @@ public class PrincipalView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PrincipalView().setVisible(true);
+
             }
         });
     }
 
-   
-    
+    public JButton getBtnLogoff() {
+        return btnLogoff;
+    }
+
+    public JMenuItem getMiSobre() {
+        return miSobre;
+    }
+
+    public JMenuItem getMiHospede() {
+        return miHospede;
+    }
+
+    public JMenuItem getMiUsuario() {
+        return miUsuario;
+    }
+
+    public JLabel getLblNomedousuario() {
+        return lblNomedousuario;
+    }
+
+    public JMenuItem getMiQuarto() {
+        return miQuarto;
+    }
+
+    public JMenuItem getMiRealizarreserva() {
+        return miRealizarreserva;
+    }
+
+    public JMenuItem getMiRelatorioreservas() {
+        return miRelatorioreservas;
+    }
+
+    public JMenu getMnCadastro() {
+        return mnCadastro;
+    }
+
+    public JMenu getMnConsultas() {
+        return mnConsultas;
+    }
+
+    public JMenu getMnFerramentas() {
+        return mnFerramentas;
+    }
+
+    public JMenu getMnReservas() {
+        return mnReservas;
+    }
+
+    public JMenu getMnSair() {
+        return mnSair;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogoff;
@@ -475,8 +487,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
@@ -490,20 +500,17 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu.Separator jSeparator9;
-    private javax.swing.JLabel lblCargo;
-    private javax.swing.JLabel lblCargodousuario;
-    private javax.swing.JLabel lblGacesso;
-    private javax.swing.JLabel lblGraudeacessodousuario;
     private javax.swing.JLabel lblNomedousuario;
-    private javax.swing.JLabel lblUsuario;
     private javax.swing.JMenuItem miConsultarhospede;
     private javax.swing.JMenuItem miConsultarquartos;
     private javax.swing.JMenuItem miConsultarreservas;
     private javax.swing.JMenuItem miConsultarusuario;
     private javax.swing.JMenuItem miHospede;
-    private javax.swing.JMenuItem miQuartos;
+    private javax.swing.JMenuItem miQuarto;
     private javax.swing.JMenuItem miRealizarreserva;
     private javax.swing.JMenuItem miRelatorioreservas;
+    private javax.swing.JMenuItem miSobre;
+    private javax.swing.JMenuItem miUsuario;
     private javax.swing.JMenu mnCadastro;
     private javax.swing.JMenu mnConsultas;
     private javax.swing.JMenu mnFerramentas;

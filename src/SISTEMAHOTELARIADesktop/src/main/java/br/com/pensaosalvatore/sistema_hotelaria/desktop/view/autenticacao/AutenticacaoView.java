@@ -1,8 +1,7 @@
-
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.autenticacao;
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.autenticacao.AutenticacaoController;
-import javax.swing.JOptionPane;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -10,10 +9,10 @@ import javax.swing.JTextField;
  *
  * @author Érica_Almeida
  */
-
 public class AutenticacaoView extends javax.swing.JFrame {
 
     private final AutenticacaoController controller;
+    private Usuario Usuario;
 
     /**
      * Creates new form ViewAutenticacao
@@ -21,7 +20,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
     public AutenticacaoView() {
         initComponents();
         controller = new AutenticacaoController(this);
-        
+
     }
 
     /**
@@ -115,21 +114,7 @@ public class AutenticacaoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
-        /**
-         * if (evt.getKeyCode() == KeyEvent.VK_ENTER) { if
-         * (txtUsuario.getText().equals("admin") && new
-         * String(pfSenha.getPassword()).equals("admin")) {
-         *
-         * JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!"); PrincipalView
-         * tela = new PrincipalView(); tela.setVisible(true);
-         *
-         * this.dispose(); } else {
-         *
-         * JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
-         *
-         * }
-         * }
-         */
+
     }//GEN-LAST:event_txtUsuarioKeyPressed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
@@ -137,41 +122,16 @@ public class AutenticacaoView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
-        /**
-         * if (evt.getKeyCode() == KeyEvent.VK_ENTER) { if
-         * (txtUsuario.getText().equals("admin") && new
-         * String(pfSenha.getPassword()).equals("admin")) {
-         *
-         * JOptionPane.showMessageDialog(null, "Seja Bem-Vindo!"); PrincipalView
-         * tela = new PrincipalView(); tela.setVisible(true);
-         *
-         * this.dispose(); } else {
-         *
-         * JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
-         *
-         * }
-         * }
-         */
+
     }//GEN-LAST:event_txtSenhaKeyPressed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        dispose();
+        controller.sair();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        /*  if (txtUsuario.getText().equals("admin") && new String(pfSenha.getPassword()).equals("admin")) {
 
-            PrincipalView tela = new PrincipalView();
-            tela.setVisible(true);
-
-            this.dispose();
-        } else {
-
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
-
-        }*/
-        controller.mostrar();
-        this.controller.fizTarefa();
+        controller.entrarNoSistema();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
@@ -218,10 +178,6 @@ public class AutenticacaoView extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
-    public void exibeMensagem(String mensagem) {
-        JOptionPane.showMessageDialog(null, mensagem);
-    }
-
     public JPasswordField getTxtSenha() {
         return txtSenha;
     }
@@ -238,9 +194,4 @@ public class AutenticacaoView extends javax.swing.JFrame {
         this.txtUsuario = txtUsuario;
     }
 
-    
-    
-    
 }
-
-

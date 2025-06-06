@@ -195,6 +195,23 @@ public class UsuarioDAO {
         return usuarios;
     }
 
+    public Usuario listarPorUsuario(String usuario) throws SQLException {
+        String sql = "SELECT p.*, u.usuario, u.senha, e.* FROM pessoas p "
+                + "JOIN usuarios u ON p.id = u.id "
+                + "JOIN enderecos e ON p.id = e.id_pessoas "
+                + "WHERE u.usuario = ?";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setString(1, usuario);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return mapearUsuario(rs);
+                }
+            }
+        }
+        return null; // usuário não encontrado
+    }
+
     // Excluir usuário (e a pessoa vinculada)
     public void excluir(int id) throws SQLException {
         String sqlUsuario = "DELETE FROM usuarios WHERE id_pessoas = ?";
@@ -226,16 +243,16 @@ public class UsuarioDAO {
     }
 
     // Verificar login (usuário e senha)
-    public boolean existeNoBancoPorUsuarioESenha(Usuario usuario) throws SQLException {
-        String sql = "SELECT senha FROM usuario WHERE usuario = ?";
+    public boolean existeNoBancoPorUsuarioESenha(String usuario, String senha) throws SQLException {
+        String sql = "SELECT senha FROM usuarios WHERE usuario = ?";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-            pstmt.setString(1, usuario.getUsuario());
+            pstmt.setString(1, usuario);
             try (ResultSet rs = pstmt.executeQuery()) {
 
                 if (rs.next()) {
                     String senhaHash = rs.getString("senha");
-                    return SecurityUtil.verificarSenha(usuario.getSenha(), senhaHash);
+                    return SecurityUtil.verificarSenha(senha, senhaHash);
                 }
                 return false;
             }
@@ -271,5 +288,5 @@ public class UsuarioDAO {
 
         return usuario;
     }
-    
+
 }

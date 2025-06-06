@@ -151,19 +151,7 @@ public class CadReservaController {
         return reserva;
     }
 
-    private int extrairIdDoComboBox(String itemSelecionado) throws ValidacaoException {
-        if (itemSelecionado == null || itemSelecionado.trim().isEmpty()) {
-            throw new ValidacaoException("Item não selecionado");
-        }
-
-        try {
-            // Para casos onde o combobox mostra "1 - Meire" ou apenas "1"
-            String[] partes = itemSelecionado.split("-");
-            return Integer.parseInt(partes[0].trim());
-        } catch (Exception e) {
-            throw new ValidacaoException("Formato inválido no ComboBox: " + itemSelecionado);
-        }
-    }
+    
 
     private boolean validarCampos() {
         if (!Validador.validarData(view.getFmtDataentrada(), "Data de Entrada")) {
@@ -218,7 +206,6 @@ public class CadReservaController {
     public void novo() {
         view.limparCampos();
         carregarComboboxes();
-        JOptionPane.showMessageDialog(null, "Pronto para nova reserva.");
     }
 
     public void novoHospede() {
