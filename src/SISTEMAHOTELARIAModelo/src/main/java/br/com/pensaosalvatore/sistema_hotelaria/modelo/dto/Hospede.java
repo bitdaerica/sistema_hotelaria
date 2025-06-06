@@ -58,23 +58,9 @@ public class Hospede extends Pessoa {
         this.datacadastro = datacadastro;
     }
 
-    // 🔸 toString()  para debug
+    // toString()  para debug
     @Override
     public String toString() {
-        return "Hospede{"
-                + "id=" + getId()
-                + ", nome='" + getNome() + '\''
-                + ", genero='" + getGenero() + '\''
-                + ", datanascimento=" + getDatanascimento()
-                + ", cpf='" + getCpf() + '\''
-                + ", email='" + getEmail() + '\''
-                + ", fixo='" + getFixo() + '\''
-                + ", celular='" + getCelular() + '\''
-                + ", whatsapp=" + getWhatsapp()
-                + ", observacoes='" + getObservacoes() + '\''
-                + ", nacionalidade='" + nacionalidade + '\''
-                + ", profissao='" + profissao + '\''
-                + ", datacadastro=" + datacadastro
-                + '}';
+        return this.getNome(); 
     }
 }

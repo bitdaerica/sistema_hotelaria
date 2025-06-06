@@ -39,9 +39,6 @@ public class CadReservaController {
     private QuartoDAO quartoDAO;
     private UsuarioDAO usuarioDAO;
     private JDialog popupSelecao;
-    private JComboBox<Hospede> comboHospede;
-    private JComboBox<Quarto> comboQuarto;
-    private JComboBox<Usuario> comboUsuario;
 
     public CadReservaController(CadReservaView view) {
         this.view = view;
@@ -85,37 +82,22 @@ public class CadReservaController {
     }
 
     private void preencherCampos(Reserva reserva) throws SQLException {
-        // Preencher datas e valores
         view.getFmtDataentrada().setText(reserva.getDataentrada().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         view.getFmtDatasaida().setText(reserva.getDatasaida().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         view.getTxtValor().setText(reserva.getValor().toString());
         view.getTxtObservacoes().setText(reserva.getObservacoes());
 
-        // Preencher ComboBoxes com nomes
-        Hospede hospede = hospedeDAO.selecionarPorId(reserva.getIdHospedes());
-        if (hospede != null) {
-            view.getCmbHospede().setSelectedItem(hospede.getNome());
-        }
-
-        Quarto quarto = quartoDAO.selecionarPorId(reserva.getIdQuartos());
-        if (quarto != null) {
-            view.getCmbQuarto().setSelectedItem(String.valueOf(quarto.getNumero()));
-        }
-
-        Usuario usuario = usuarioDAO.selecionarPorId(reserva.getIdUsuarios());
-        if (usuario != null) {
-            view.getCmbUsuario().setSelectedItem(usuario.getNome());
-        }
+        // Converter para String antes de selecionar nos ComboBox
+        selecionarItemPorId(view.getCmbHospede(), hospedeDAO.selecionarPorId(reserva.getIdHospedes()));
+        selecionarItemPorId(view.getCmbQuarto(), quartoDAO.selecionarPorId(reserva.getIdQuartos()));
+        selecionarItemPorId(view.getCmbUsuario(), usuarioDAO.selecionarPorId(reserva.getIdUsuarios()));
     }
 
-    private <T> void selecionarItemPorId(JComboBox<String> comboBox, T item) {
-        if (item != null) {
-            DefaultComboBoxModel<String> model = (DefaultComboBoxModel<String>) comboBox.getModel();
-            for (int i = 0; i < model.getSize(); i++) {
-                if (model.getElementAt(i).equals(item.toString())) {
-                    comboBox.setSelectedIndex(i);
-                    break;
-                }
+    private <T> void selecionarItemPorId(JComboBox<T> comboBox, T item) {
+        for (int i = 0; i < comboBox.getItemCount(); i++) {
+            if (comboBox.getItemAt(i).equals(item)) {
+                comboBox.setSelectedIndex(i);
+                return;
             }
         }
     }
@@ -146,59 +128,40 @@ public class CadReservaController {
         }
     }
 
-    private Reserva construirReserva() throws ValidacaoException {
-        try {
-            Reserva reserva = new Reserva();
+    private Reserva construirReserva() throws DateTimeParseException, NumberFormatException, ValidacaoException {
+        Reserva reserva = new Reserva();
 
-            // Obter valores selecionados
-            String nomeHospede = (String) view.getCmbHospede().getSelectedItem();
-            String numeroQuarto = (String) view.getCmbQuarto().getSelectedItem();
-            String nomeUsuario = (String) view.getCmbUsuario().getSelectedItem();
+        reserva.setDataentrada(LocalDate.parse(view.getFmtDataentrada().getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        reserva.setDatasaida(LocalDate.parse(view.getFmtDatasaida().getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        reserva.setValor(new BigDecimal(view.getTxtValor().getText()));
+        reserva.setObservacoes(view.getTxtObservacoes().getText());
 
-            // Obter IDs
-            int idHospede = extrairIdDoComboBox(nomeHospede, "hóspede");
-            int idQuarto = extrairIdDoComboBox(numeroQuarto, "quarto");
-            int idUsuario = extrairIdDoComboBox(nomeUsuario, "usuário");
-
-            // Verificar se os IDs são válidos
-            if (idHospede == -1 || idQuarto == -1 || idUsuario == -1) {
-                throw new ValidacaoException("Registro não encontrado no banco");
-            }
-
-            // Setar valores na reserva
-            reserva.setIdHospedes(idHospede);
-            reserva.setIdQuartos(idQuarto);
-            reserva.setIdUsuarios(idUsuario);
-
-            // ... resto do método
-            return reserva;
-        } catch (SQLException e) {
-            throw new ValidacaoException("Erro ao acessar o banco: " + e.getMessage());
+        // Verifica explicitamente a existência dos registros
+        Hospede hospede = (Hospede) view.getCmbHospede().getSelectedItem();
+        Quarto quarto = (Quarto) view.getCmbQuarto().getSelectedItem();
+        Usuario usuario = (Usuario) view.getCmbUsuario().getSelectedItem();
+        if (hospede == null || quarto == null || usuario == null) {
+            throw new ValidacaoException("Registro não encontrado no banco de dados");
         }
+        reserva.setIdHospedes(hospede.getId());
+        reserva.setIdQuartos(quarto.getId());
+        reserva.setIdUsuarios(usuario.getId());
+
+        
+        return reserva;
     }
 
-    private int extrairIdDoComboBox(String itemSelecionado, String tipo) throws ValidacaoException, SQLException {
+    private int extrairIdDoComboBox(String itemSelecionado) throws ValidacaoException {
         if (itemSelecionado == null || itemSelecionado.trim().isEmpty()) {
-            throw new ValidacaoException("Selecione um " + tipo);
+            throw new ValidacaoException("Item não selecionado");
         }
 
         try {
-            switch (tipo) {
-                case "hóspede":
-                    Hospede hospede = (Hospede) hospedeDAO.listarPorNome(itemSelecionado);
-                    return hospede != null ? hospede.getId() : -1;
-
-                case "quarto":
-                    Quarto quarto = quartoDAO.buscarPorNumero(Integer.parseInt(itemSelecionado));
-                    return quarto != null ? quarto.getId() : -1;
-                case "usuário":
-                    Usuario usuario = (Usuario) usuarioDAO.listarPorNome(itemSelecionado);
-                    return usuario != null ? usuario.getId() : -1;
-                default:
-                    throw new ValidacaoException("Tipo inválido");
-            }
-        } catch (NumberFormatException e) {
-            throw new ValidacaoException("Número de quarto inválido");
+            // Para casos onde o combobox mostra "1 - Meire" ou apenas "1"
+            String[] partes = itemSelecionado.split("-");
+            return Integer.parseInt(partes[0].trim());
+        } catch (Exception e) {
+            throw new ValidacaoException("Formato inválido no ComboBox: " + itemSelecionado);
         }
     }
 
@@ -287,38 +250,42 @@ public class CadReservaController {
     }
 
     private void carregarComboBoxHospedes() throws SQLException {
+        if (view.getCmbHospede() == null) {
+            throw new IllegalStateException("ComboBox de hóspedes não foi inicializado na view");
+        }
+
         List<Hospede> hospedes = hospedeDAO.listarTodos();
-        DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
+        DefaultComboBoxModel<Hospede> modelo = new DefaultComboBoxModel<>();
         for (Hospede h : hospedes) {
-            modelo.addElement(h.getNome());  // Apenas o nome
+            modelo.addElement(h);
         }
         view.getCmbHospede().setModel(modelo);
     }
 
     private void carregarComboBoxQuartos() throws SQLException {
         List<Quarto> quartos = quartoDAO.listarTodos();
-        DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
+        DefaultComboBoxModel<Quarto> modelo = new DefaultComboBoxModel<>();
         for (Quarto q : quartos) {
-            modelo.addElement(String.valueOf(q.getNumero()));  // Apenas o número
+            modelo.addElement(q);
         }
         view.getCmbQuarto().setModel(modelo);
     }
 
     private void carregarComboBoxUsuarios() throws SQLException {
         List<Usuario> usuarios = usuarioDAO.listarTodos();
-        DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
+        DefaultComboBoxModel<Usuario> modelo = new DefaultComboBoxModel<>();
         for (Usuario u : usuarios) {
-            modelo.addElement(u.getNome());  // Apenas o nome
+            modelo.addElement(u);
         }
         view.getCmbUsuario().setModel(modelo);
     }
 
-    // 🔥 Método novo para popular a tabela de reservas
+    // Método novo para popular a tabela de reservas
     public void popularTabela(JTable tabela) {
         try {
             List<Reserva> reservas = reservaDAO.listarTodas();
             DefaultTableModel model = (DefaultTableModel) tabela.getModel();
-            model.setRowCount(0);
+            model.setRowCount(0); // Limpa a tabela
 
             for (Reserva reserva : reservas) {
                 Hospede hospede = hospedeDAO.selecionarPorId(reserva.getIdHospedes());
@@ -329,16 +296,14 @@ public class CadReservaController {
                     reserva.getDataentrada().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                     reserva.getDatasaida().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                     "R$ " + reserva.getValor(),
+                    reserva.getObservacoes(),
                     hospede != null ? hospede.getNome() : "N/A",
                     quarto != null ? quarto.getNumero() : "N/A",
-                    usuario != null ? usuario.getNome() : "N/A"
+                    usuario != null ? usuario.getUsuario() : "N/A"
                 });
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(view,
-                    "Erro ao carregar reservas: " + e.getMessage(),
-                    "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(view, "Erro ao carregar dados da reserva: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
-
 }

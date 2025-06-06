@@ -57,7 +57,7 @@ public class Usuario extends Pessoa {
 
     @Override
     public String toString() {
-        return id + " - " + usuario;
+        return this.getUsuario();
     }
 
 }

@@ -1,6 +1,9 @@
 package br.com.pensaosalvatore.sistema_hotelaria.desktop.view.reserva;
 
 import br.com.pensaosalvatore.sistema_hotelaria.desktop.controller.reserva.CadReservaController;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Hospede;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Quarto;
+import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Usuario;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -15,6 +18,7 @@ import javax.swing.JTextField;
 public class CadReservaView extends javax.swing.JFrame {
 
     private final CadReservaController controller;
+    
 
     /**
      * Creates new form RealizarReservaView
@@ -23,7 +27,7 @@ public class CadReservaView extends javax.swing.JFrame {
         initComponents();
         controller = new CadReservaController(this);
         controller.popularTabela(jTable1);
-        
+
     }
 
     /**
@@ -131,14 +135,33 @@ public class CadReservaView extends javax.swing.JFrame {
         jTable1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Data de Entrada", "Data de Saida", "Valor da Reserva", "Nome do Hóspede", "Numero do Quarto", "Funcionário"
+                "Data de Entrada", "Data de Saida", "Valor da Reserva", "Observações", "Nome do Hóspede", "Numero do Quarto", "Funcionario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -156,7 +179,7 @@ public class CadReservaView extends javax.swing.JFrame {
         bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
         getContentPane().add(bntCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 350, 110, 40));
@@ -189,7 +212,7 @@ public class CadReservaView extends javax.swing.JFrame {
         bntNovareserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntNovareserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
+                btnNovareservaActionPerformed(evt);
             }
         });
         getContentPane().add(bntNovareserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, -1, 40));
@@ -218,11 +241,22 @@ public class CadReservaView extends javax.swing.JFrame {
                     "Validação",
                     JOptionPane.WARNING_MESSAGE);
         }
+        controller.popularTabela(jTable1);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void bntNovohospedebtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNovohospedebtnSalvarActionPerformed
         controller.novoHospede();
+        controller.popularTabela(jTable1);
     }//GEN-LAST:event_bntNovohospedebtnSalvarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        controller.cancelar();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnNovareservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovareservaActionPerformed
+        controller.novo();
+        controller.popularTabela(jTable1);
+    }//GEN-LAST:event_btnNovareservaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,22 +310,18 @@ public class CadReservaView extends javax.swing.JFrame {
         cmbHospede.requestFocus();
     }
 
-
-       
-    
-    public JComboBox<String> getCmbUsuario() {
-        return cmbUsuario;
-    }
-
-    
-    public JComboBox<String> getCmbHospede() {
+    public JComboBox<Hospede> getCmbHospede() {
         return cmbHospede;
     }
 
-    public JComboBox<String> getCmbQuarto() {
+    public JComboBox<Quarto> getCmbQuarto() {
         return cmbQuarto;
     }
 
+    public JComboBox<Usuario> getCmbUsuario() {
+        return cmbUsuario;
+    }   
+    
     public JFormattedTextField getFmtDataentrada() {
         return fmtDataentrada;
     }
@@ -314,9 +344,9 @@ public class CadReservaView extends javax.swing.JFrame {
     private javax.swing.JButton bntNovareserva;
     private javax.swing.JButton bntNovohospede;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JComboBox<String> cmbHospede;
-    private javax.swing.JComboBox<String> cmbQuarto;
-    private javax.swing.JComboBox<String> cmbUsuario;
+    private javax.swing.JComboBox<Hospede> cmbHospede;
+    private javax.swing.JComboBox<Quarto> cmbQuarto;
+    private javax.swing.JComboBox<Usuario> cmbUsuario;
     private javax.swing.JFormattedTextField fmtDataentrada;
     private javax.swing.JFormattedTextField fmtDatasaida;
     private javax.swing.JLabel jLabel11;

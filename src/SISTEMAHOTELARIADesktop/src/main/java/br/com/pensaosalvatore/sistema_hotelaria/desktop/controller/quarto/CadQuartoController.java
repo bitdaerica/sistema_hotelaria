@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -30,7 +32,7 @@ public class CadQuartoController {
     }
 
     // Método para salvar um quarto
-   public void salvar(Quarto quarto) {
+    public void salvar(Quarto quarto) {
         try {
             if (quarto.getId() == null) {
                 quartoDAO.inserir(quarto);
@@ -41,10 +43,10 @@ public class CadQuartoController {
             }
             carregarQuartos();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(view, 
-                "Erro ao salvar quarto: " + e.getMessage(), 
-                "Erro no banco de dados", 
-                JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(view,
+                    "Erro ao salvar quarto: " + e.getMessage(),
+                    "Erro no banco de dados",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -54,10 +56,10 @@ public class CadQuartoController {
             carregarQuartos();
             JOptionPane.showMessageDialog(view, "Quarto excluído com sucesso!");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(view, 
-                "Erro ao excluir quarto: " + e.getMessage(), 
-                "Erro", 
-                JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(view,
+                    "Erro ao excluir quarto: " + e.getMessage(),
+                    "Erro",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -65,10 +67,10 @@ public class CadQuartoController {
         try {
             return quartoDAO.selecionarPorId(id);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(view, 
-                "Erro ao buscar quarto: " + e.getMessage(), 
-                "Erro", 
-                JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(view,
+                    "Erro ao buscar quarto: " + e.getMessage(),
+                    "Erro",
+                    JOptionPane.ERROR_MESSAGE);
             return null;
         }
     }
@@ -76,12 +78,26 @@ public class CadQuartoController {
     private void carregarQuartos() {
         try {
             List<Quarto> quartos = quartoDAO.listarTodos();
-            view.popularTabela(quartos);
+            popularTabela(view.getjTable1(), quartos); // Assuming you have a way to access the JTable
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(view, 
-                "Erro ao carregar quartos: " + e.getMessage(), 
-                "Erro", 
-                JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(view,
+                    "Erro ao carregar quartos: " + e.getMessage(),
+                    "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void popularTabela(JTable tabela, List<Quarto> quartos) {
+        DefaultTableModel model = (DefaultTableModel) tabela.getModel();
+        model.setRowCount(0); // Limpa a tabela
+
+        for (Quarto quarto : quartos) { // Iterate over quartos list, not the table
+            model.addRow(new Object[]{
+                quarto.getId(),
+                quarto.getNumero(),
+                quarto.getTipo(),
+                quarto.getValor()
+            });
         }
     }
 
@@ -89,7 +105,7 @@ public class CadQuartoController {
         view.limparCampos();
         JOptionPane.showMessageDialog(null, "Pronto para novo cadastro.");
     }
-    
+
     public void cancelar() {
         int resposta = JOptionPane.showConfirmDialog(
                 view,

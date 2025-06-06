@@ -5,6 +5,7 @@ import br.com.pensaosalvatore.sistema_hotelaria.modelo.dto.Quarto;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.ValidacaoException;
 import br.com.pensaosalvatore.sistema_hotelaria.modelo.util.validacao.ValidadorQuarto;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -231,19 +232,7 @@ public class CadQuartoView extends javax.swing.JFrame {
         txtNumero.requestFocus(); // Coloca o foco no primeiro campo
     }
 
-    public void popularTabela(java.util.List<Quarto> quartos) {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0); // Limpa a tabela
-
-        for (Quarto quarto : quartos) {
-            model.addRow(new Object[]{
-                quarto.getId(),
-                quarto.getNumero(),
-                quarto.getTipo(),
-                quarto.getValor()
-            });
-        }
-    }
+    
 
     // Getters para os campos de texto
     public javax.swing.JTextField getTxtNumero() {
@@ -261,6 +250,11 @@ public class CadQuartoView extends javax.swing.JFrame {
     public javax.swing.JTextArea getTxtObservacoes() {
         return txtObservacoes;
     }
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

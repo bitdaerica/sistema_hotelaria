@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class Pessoa {
 
     Integer id;
-    private String nome;
+    public String nome;
     private String genero;
     private LocalDate datanascimento;
     private String cpf;
@@ -147,7 +147,7 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "PessoaDTO{"
+        return "Pessoa{"
                 + "id=" + id
                 + ", nome='" + nome + '\''
                 + ", genero=" + genero

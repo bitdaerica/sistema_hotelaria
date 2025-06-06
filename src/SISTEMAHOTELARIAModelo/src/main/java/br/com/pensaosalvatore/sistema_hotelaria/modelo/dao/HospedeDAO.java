@@ -181,7 +181,7 @@ public class HospedeDAO {
     public List<Hospede> listarPorNome(String nome) throws SQLException {
         List<Hospede> hospedes = new ArrayList<>();
         String sql = "SELECT p.*, h.nacionalidade, h.profissao, h.data_cadastro, e.* FROM pessoas p "
-                + "JOIN hospedes h ON p.id = h.id_pessoas "
+                + "JOIN hospedes h ON p.id = h.id "
                 + "JOIN enderecos e ON p.id = e.id_pessoas "
                 + "WHERE p.nome LIKE ?";
 
