@@ -1,9 +1,5 @@
 
-CREATE DATABASE hotelaria;
-
-USE hotelaria;
-
-CREATE TABLE pessoas (
+CREATE TABLE pessoa (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     genero VARCHAR(20) NOT NULL,
@@ -17,7 +13,7 @@ CREATE TABLE pessoas (
 );
 
 
-CREATE TABLE enderecos(
+CREATE TABLE endereco(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	rua VARCHAR(100) NOT NULL,
     numero VARCHAR(10) NOT NULL,
@@ -35,7 +31,7 @@ CREATE TABLE enderecos(
 
 
 
-CREATE TABLE usuarios (
+CREATE TABLE usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     usuario VARCHAR(50) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
@@ -46,7 +42,7 @@ CREATE TABLE usuarios (
 );
 
 
-CREATE TABLE hospedes (
+CREATE TABLE hospede (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nacionalidade VARCHAR(100) NOT NULL,
     profissao VARCHAR(14) NOT NULL,
@@ -58,7 +54,7 @@ CREATE TABLE hospedes (
 );
 
 
-CREATE TABLE quartos (
+CREATE TABLE quarto (
     id INT PRIMARY KEY AUTO_INCREMENT,
     numero INT NOT NULL UNIQUE,
     tipo VARCHAR(30) NOT NULL,
@@ -67,7 +63,7 @@ CREATE TABLE quartos (
 );
 
 
-CREATE TABLE reservas (
+CREATE TABLE reserva (
     id INT PRIMARY KEY AUTO_INCREMENT,
     data_entrada DATE NOT NULL,
     data_saida DATE NOT NULL,
